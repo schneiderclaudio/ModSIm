@@ -1,0 +1,22 @@
+  Has entered OPGRAPH
+  NoArgs          5
+ C:\Program                                                                     
+                                                                                
+                                                                                
+                    
+ C:\Program                                                                     
+                                                                                
+                                                                                
+                    
+ C:\Program Files\University                                                    
+                                                                                
+                                                                                
+                    
+ C:\Program Files\University of                                                 
+                                                                                
+                                                                                
+                    
+ Job path C:\Program Files\University of Utah\MODSIM\
+ File PSDGRAPH.OUT has been read
+ File OPGRAPH.DAT has been read
+ File SIZECOMP.OUT has been read

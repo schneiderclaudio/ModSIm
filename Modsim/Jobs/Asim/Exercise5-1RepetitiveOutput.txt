@@ -1,0 +1,16 @@
+ Level Unit  Parameter
+     1    1  Ultimate recovery 1                                                             
+Stream     Solid        %     Rec.  Grade   Rec.  Grade 
+number     flow      solids    of     of     of     of  
+           tonne/hr           Cu     Cu     Fe     Fe   
+  12
+   2      10.70        55.00  71.41   0.20  52.14   0.27
+  14
+   2      11.09        55.00  71.44   0.19  52.17   0.26
+  16
+   2      11.48        55.00  71.46   0.19  52.19   0.25
+  18
+   2      11.87        54.99  71.48   0.18  52.22   0.25
+  20
+   2      12.27        55.00  71.51   0.17  52.24   0.24
+

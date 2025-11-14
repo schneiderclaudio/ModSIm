@@ -1,0 +1,71 @@
+SPL0_plantsampling_+45
+Stream     001 005 Alimentacao                   
+Feedrate  8.5556E+1 100.0000
+Size dist  012
+1.0000E-2 0.9910
+8.0000E-3 0.9640
+6.3000E-3 0.9140
+4.0000E-3 0.8040
+2.0000E-3 0.6230
+1.0000E-3 0.4500
+5.0000E-4 0.3220
+2.5000E-4 0.2140
+1.5000E-4 0.1590
+1.0600E-4 0.1280
+7.5000E-5 0.1090
+4.5000E-5 0.0930
+Stream     002 006 alimentacao do moinho         
+Size dist  000
+Stream     003 007 descarga do moinho            
+Size dist  000
+Stream     004 008 alimentacao cicl classificador
+Size dist  007
+1.0000E-3 1.0000
+5.0000E-4 0.9780
+2.5000E-4 0.8290
+1.5000E-4 0.5960
+1.0000E-4 0.4210
+7.5000E-5 0.3110
+4.5000E-5 0.2130
+Stream     005 009 undeflow cicl classificador   
+Size dist  007
+1.0000E-3 1.0000
+5.0000E-4 0.9860
+2.5000E-4 0.7900
+1.5000E-4 0.4790
+1.0000E-4 0.2850
+7.5000E-5 0.1840
+4.5000E-5 0.1080
+Stream     008 016 overflow cicl classificador   
+Size dist  005
+2.5000E-4 0.9990
+1.5000E-4 0.9860
+1.0000E-4 0.9450
+7.5000E-5 0.8850
+4.5000E-5 0.7860
+Stream     009 019 alimentacao cicl deslamador   
+Size dist  005
+2.5000E-4 0.9990
+1.5000E-4 0.9870
+1.0000E-4 0.9520
+7.5000E-5 0.9020
+4.5000E-5 0.8190
+Stream     011 021 overflow cicl deslamador      
+Size dist  003
+1.0000E-4 0.9990
+7.5000E-5 0.9970
+4.5000E-5 0.9950
+Stream     010 020 underflow cicl deslamador     
+Size dist  005
+2.5000E-4 0.9990
+1.5000E-4 0.9840
+1.0000E-4 0.9420
+7.5000E-5 0.8820
+4.5000E-5 0.7860
+Stream     006 011 agua alimentacao do moinho    
+Water feed 0.0000E+0 78.0000
+Stream     007 013 agua descarga do moinho       
+Water feed 4.3361E+2 0.0000
+Stream     012 022 Agua deslamagem               
+Water feed 2.1945E+2 0.0000
+END OF FILE

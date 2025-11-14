@@ -1,0 +1,36 @@
+Model Development
+Stream     001 002 Plant feed                    
+Feedrate  1.3889E+1 45.0000
+Size dist  019
+1.0710E-3 0.9900
+7.5740E-4 0.9521
+5.3550E-4 0.8653
+3.7870E-4 0.7335
+2.6780E-4 0.5821
+1.8930E-4 0.4376
+1.3390E-4 0.3160
+9.4670E-5 0.2216
+6.6940E-5 0.1524
+4.7330E-5 0.1033
+3.3470E-5 0.0694
+2.3670E-5 0.0464
+1.6740E-5 0.0308
+1.1830E-5 0.0205
+8.3680E-6 0.0135
+5.9170E-6 0.0090
+4.1840E-6 0.0059
+2.9580E-6 0.0039
+2.0920E-6 0.0026
+Stream     002 003 Discharge                     
+Size dist  000
+Stream     007 014 Pltt cyclone underflow        
+Size dist  000
+Stream     008 015 Plitt cyclone overflow        
+Size dist  000
+Stream     009 016 Nage cyclone underflow        
+Size dist  000
+Stream     010 017 Nage cyclone overflow         
+Size dist  000
+Stream     003 006 Water addition                
+Water feed 0.0000E+0 35.0000
+END OF FILE

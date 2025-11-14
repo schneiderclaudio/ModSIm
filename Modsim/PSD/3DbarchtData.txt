@@ -1,0 +1,18 @@
+Particle composition
+Size class
+ 1 
+710 - 1000
+Size by grade
+ 100 
+ 0 
+ 0 
+ 35 
+ 50 
+ 15 
+ 0 
+ 0 
+ 0 
+ 0 
+ 0 
+ 0 
+ 0 

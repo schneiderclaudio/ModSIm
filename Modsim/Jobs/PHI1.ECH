@@ -1,0 +1,174 @@
+ Bougainville                                                                   
+  
+
+
+                    MINERAL NAMES
+                    *************
+    Ore 
+
+
+                    MINERAL SPECIFIC GRAVITIES
+                    **************************
+    2.700    
+
+
+                    PARTICLE SIZES
+                    *****************
+  0.2000E-01  0.1414E-01  0.1000E-01  0.7071E-02  0.5000E-02  0.3536E-02
+  0.2500E-02  0.1768E-02  0.1250E-02  0.8839E-03  0.6250E-03  0.4419E-03
+  0.3125E-03  0.2210E-03  0.1562E-03  0.1105E-03  0.7812E-04  0.5524E-04
+  0.3906E-04  0.2762E-04  0.1953E-04  0.1381E-04  0.9766E-05  0.6905E-05
+  0.4883E-05
+
+
+                    MASS FRACTIONS IN G-CLASSES
+                    ***************************
+
+ G-CLASS 1     1.000
+
+
+                    VOLUME FRACTIONS IN G-CLASSES
+                    *****************************
+
+ G-CLASS 1     1.000
+
+
+                    PHYSICAL PROPERTIES
+                    *******************
+
+
+ PHYS PROP 1
+ -----------
+    2.700    
+
+ PHYS PROP 2
+ -----------
+    50.00    
+
+
+                    STREAM NUMBER  1
+                    ****************
+          TOTAL MASS SOLIDS= 127.8    
+          PERCENTAGE SOLIDS= 100.0    
+
+   MASS IN EACH CATEGORY:
+                                   D-CLASSES
+                 1       2       3       4       5       6       7       8
+                 9      10      11      12      13      14      15      16
+                17      18      19      20      21      22      23      24
+                25
+ SCL 1 GCL 1    0.19    2.37    9.59   18.86   19.49   12.15   10.21    7.27
+               6.14    4.71    4.09    3.42    3.21    3.04    2.65    2.26
+               2.20    3.19    3.74    2.64    1.87    1.32    0.94    0.66
+               1.60
+
+
+                    STREAM NUMBER  6
+                    ****************
+          TOTAL MASS SOLIDS= 107.2    
+          PERCENTAGE SOLIDS= 81.60    
+
+   MASS IN EACH CATEGORY:
+                                   D-CLASSES
+                 1       2       3       4       5       6       7       8
+                 9      10      11      12      13      14      15      16
+                17      18      19      20      21      22      23      24
+                25
+ SCL 1 GCL 1    0.00    0.00    0.00    0.00    0.03    2.53   10.91   11.24
+              11.37   12.19   14.05   12.71    4.22    3.41    3.51    3.43
+               3.19    3.03    2.76    2.12    1.60    1.20    0.91    0.68
+               2.14
+
+
+  ******************************************************************
+                           PLANT NUMBER   1
+  ******************************************************************
+          NUMBER OF D-CLASSES= 25
+          NUMBER OF G-CLASSES=  1
+          NUMBER OF S-CLASSES=  1
+
+
+          STREAM CONNECTION MATRIX
+          ************************
+
+
+     STREAM  1 CONNECTS UNIT  0 TO UNIT  2
+     STREAM  2 CONNECTS UNIT  2 TO UNIT  5
+     STREAM  3 CONNECTS UNIT  5 TO UNIT  1
+     STREAM  4 CONNECTS UNIT  1 TO UNIT  3
+     STREAM  5 CONNECTS UNIT  3 TO UNIT  4
+     STREAM  6 CONNECTS UNIT  4 TO UNIT  5
+     STREAM  7 CONNECTS UNIT  4 TO UNIT  0
+
+                    STREAM WEIGHTINGS
+                    *****************
+
+          USING CRITERION 2 THE FOLLOWING VALUES WERE OBTAINED:
+
+        1   1   1   1   1   1   1   1   1
+
+
+                    WATER FEEDS
+                    ***********
+          Output from unit  1 has 80.00     % solids
+          Output from unit  3 has 66.00     % solids
+
+
+                    RUN DATA
+                    ********
+                    ********
+
+          CONVERGENCE METHOD=  3
+       MAX NUMBER ITERATIONS= 30
+             TOLERANCE LIMIT=10**-3
+
+
+
+          UNIT NUMBER  1
+          ==============
+
+          IS A HFSU UNIT AND NEEDS 15 PARAMETERS
+
+  0.6200      0.5510     -0.3310       2.170      0.6960       0.000    
+  0.7900       5.360       6.250       42.00       74.00       0.000    
+   0.000       0.000       0.000    
+
+
+          UNIT NUMBER  2
+          ==============
+
+          IS A MIXR UNIT AND NEEDS  6 PARAMETERS
+
+   1.000      0.2000       20.00       2.000       35.00       1600.    
+
+
+          UNIT NUMBER  3
+          ==============
+
+          IS A MIXR UNIT AND NEEDS  0 PARAMETERS
+
+
+
+          UNIT NUMBER  4
+          ==============
+
+          IS A CYCA UNIT AND NEEDS  5 PARAMETERS
+
+  0.2000      0.8000      0.4000E-03  0.5000       3.000    
+
+
+          UNIT NUMBER  5
+          ==============
+
+          IS A MIXR UNIT AND NEEDS  0 PARAMETERS
+
+
+
+
+
+
+          THE SELECTED OUTPUT CODES ARE:
+
+             0   0   6   1   1   6   1   6   6   6
+
+

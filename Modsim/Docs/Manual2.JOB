@@ -1,0 +1,17 @@
+"Job name","Manual2"
+"Flowsheet",#TRUE#
+"System data",#TRUE#
+"Model data",#TRUE#
+"System input data",#FALSE#
+"Size data",#FALSE#
+"G-class distribution",#FALSE#
+"Liberation data",#FALSE#
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#FALSE#
+"Washability data",#FALSE#
+"System data needed",#TRUE#
+"Model parameter data",#FALSE#
+"Unit parameters needed",#TRUE#
+"Output format",#FALSE#
+"SIMOP data",#FALSE#

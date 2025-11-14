@@ -1,0 +1,57 @@
+CoalDemo
+Stream     001 011 Plant feed                    
+Feedrate  2.7780E+1 100.0000
+Size dist  006
+3.7600E-2 0.8420
+1.9000E-2 0.6170
+9.5000E-3 0.4350
+6.0000E-4 0.1030
+1.5000E-4 0.0580
+7.5000E-5 0.0410
+Stream     006 017 Sieve bend underflow          
+Size dist  000
+Stream     002 012 Screen underflow              
+Size dist  000
+Stream     003 013 Sieve bend feed               
+Size dist  000
+Stream     007 018 Dewatering screen underflow   
+Size dist  000
+Stream     009 020 DMC feed                      
+Size dist  000
+Stream     012 023 DM drum feed                  
+Size dist  000
+Stream     014 028 WOCY feed                     
+Size dist  000
+Stream     018 031 DM drum sinks                 
+Size dist  000
+Stream     019 032 DMC sinks                     
+Size dist  000
+Stream     020 033 DM drum - DMC sinks           
+Size dist  000
+Stream     021 034 WOC underflow                 
+Size dist  000
+Stream     022 035 Plant discard                 
+Size dist  000
+Stream     023 036 Clean coal sump               
+Size dist  000
+Stream     024 037 Clean coal                    
+Size dist  000
+Stream     004 014 Sieve bend oversize           
+Size dist  000
+Stream     005 015 Dewatering screen overflow    
+Size dist  000
+Stream     011 022 Screen oversize               
+Size dist  000
+Stream     015 029 DM drum floats                
+Size dist  000
+Stream     016 016 DMC floats                    
+Size dist  000
+Stream     017 030 WOCY overflow                 
+Size dist  000
+Stream     008 019 Sieve bend water              
+Water feed 0.0000E+0 30.0000
+Stream     010 021 DMC medium                    
+Water feed 0.0000E+0 30.0000
+Stream     013 027 Dm drum medium                
+Water feed 0.0000E+0 30.0000
+END OF FILE

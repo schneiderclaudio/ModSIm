@@ -1,0 +1,157 @@
+"Job name","Camille"
+"Flowsheet",#TRUE#
+ 1  7  7  5 
+Camille
+ 1  3  0 
+ 0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTT
+ 8 T
+ 1  500  500  7  1 
+ 0 
+ 298.5582      498.3773      477.39        498.3773      2 
+ 1 
+ 500.1229      517.3631      665.315       599.6349      3 
+ 500.1229      599.6349 
+ 0 
+ 497.0919      444.5842      497.0919      273.712       4 
+ 0 
+ 3 
+TTTT
+ 1020          100           10            10 
+ 343.4153      573.3773      333.4153      498.3773 
+ 625.3027      676.217       615.3027      601.217 
+ 510.1229      375.6085      500.1229      300.6085 
+Arial
+ 8 
+ 608           8 
+ 1 
+"System data",#TRUE#
+Camille
+ 3 
+ 1  2 F  0  1 
+ 3  4 O  1  0 
+ 2  3 O  1  0 
+"Model data",#TRUE#
+Camille
+ 1 
+ 8 
+ 1 
+"System input data",#TRUE#
+SYSTEM DATA
+Camille
+NDGS   1 025 001 001
+MINS 001
+ironore         
+SIZE
+1.2000E-2 8.4853E-3 6.0000E-3 4.2426E-3 3.0000E-3 2.1213E-3 1.5000E-3 1.0607E-3 
+7.5000E-4 5.3033E-4 3.7500E-4 2.6517E-4 1.8750E-4 1.3258E-4 9.3750E-5 6.6291E-5 
+4.6875E-5 3.3146E-5 2.3438E-5 1.6573E-5 1.1719E-5 8.2864E-6 5.8594E-6 4.1432E-6 
+2.9297E-6 
+SPGR
+3.6000E+0 
+GRDM
+1.0000E+0
+PHYP 001 001
+3.6000E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 001
+SCMA 003 001 000
+SCMA 002 001 000
+STRM 001   2
+4.90500E+2 46.20
+5.6028E-6 2.6464E-5 1.1110E-4 3.7158E-4 1.0236E-3 2.3860E-3 4.8188E-3 8.6057E-3 
+1.3829E-2 2.4949E-2 4.9008E-2 7.9714E-2 1.2847E-1 1.4910E-1 1.9913E-1 1.1217E-1 
+6.0550E-2 2.8573E-2 2.1769E-2 1.3499E-2 7.9178E-3 7.0620E-3 6.4460E-3 5.9679E-3 
+7.4498E-2 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 003
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+Camille
+Stream     001 002 cyclone feed                  
+Feedrate  4.9050E+2 46.2000
+Size dist  012
+1.0000E-3 0.9860
+5.0000E-4 0.9560
+2.5000E-4 0.8520
+1.5000E-4 0.6670
+1.0000E-4 0.4920
+7.5000E-5 0.3110
+4.5000E-5 0.1780
+2.6000E-5 0.1320
+2.0000E-5 0.1160
+1.4000E-5 0.1020
+9.0000E-6 0.0920
+7.0000E-6 0.0870
+Stream     003 004 cyclone underflow             
+Size dist  012
+1.0000E-3 0.9830
+5.0000E-4 0.9470
+2.5000E-4 0.8220
+1.5000E-4 0.5990
+1.0000E-4 0.3920
+7.5000E-5 0.1870
+4.5000E-5 0.0600
+2.6000E-5 0.0410
+2.0000E-5 0.0390
+1.4000E-5 0.0360
+9.0000E-6 0.0360
+7.0000E-6 0.0360
+Stream     002 003 cyclone overflow              
+Size dist  010
+2.5000E-4 0.9980
+1.5000E-4 0.9870
+1.0000E-4 0.9650
+7.5000E-5 0.8960
+4.5000E-5 0.7370
+2.6000E-5 0.5590
+2.0000E-5 0.4800
+1.4000E-5 0.4150
+9.0000E-6 0.3610
+7.0000E-6 0.3250
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 cyclone feed                  
+Number of grade ranges       0 
+END OF FILE
+"Liberation data",#TRUE#
+Camille
+Stream     003 004 cyclone underflow             
+Lib dist   000
+Stream     002 003 cyclone overflow              
+Lib dist   000
+Stream     001 002 cyclone feed                  
+Lib dist   000
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 cyclone feed                  
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 CYCL 013 001
+6.5000E-1 3.1809E+0 3.2462E-1 4.9231E-1 1.8462E-1 7.4400E+0 5.0000E+0 1.0000E+0 
+1.0000E+0 1.0000E+0 1.2000E-3 5.0000E-1 0.0000E+0 
+OUTC
+   0   0   6   1   1   6   1   6   0   0
+STOP
+"Output format",#TRUE#
+2T3TTFF1F
+ 0 
+F
+F
+"SIMOP data",#TRUE#
+FFFFF

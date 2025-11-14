@@ -1,0 +1,144 @@
+"Job name","Exercise 5-1"
+"Flowsheet",#TRUE#
+ 1  12  8  5 
+Exercise 5-1
+ 1  3  0 
+ 0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTT
+ 6 T
+ 1  490.7857  474.8338  8  1 
+ 1 
+ 0 
+ 286.2917      470.1208      465.792       470.1208      2 
+ 0 
+ 487.3775      499.577       487.3775      351.1178      3 
+ 0 
+ 526.0042      472.4773      653.2449      472.4773      4 
+ 5 
+TTTTT
+ 490.7857      474.8338 
+
+ 327.1905      446.5559 
+Feed
+ 460.1116      328.7311 
+Concentrate
+ 547.5896      450.0906 
+Tail
+ 547.5896      450.0906 
+
+ 3 
+TTTT
+ 1020          100           10            10 
+ 286.2917      584.4109      398.7634      470.1208 
+ 620.2986      589.1238      594.1688      473.6556 
+ 586.2162      392.3565      487.3775      393.5347 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+Exercise 5-1
+ 3 
+ 1  2 F  0  1 
+ 3  4 O  1  0 
+ 2  3 O  1  0 
+"Model data",#TRUE#
+Exercise 5-1
+ 1 
+ 6 
+ 1 
+ 1             1 
+"System input data",#TRUE#
+SYSTEM DATA
+Exercise 5-1
+NDGS   1 001 003 001
+MINS 003
+Silicate        
+Pyrite          
+Chalcopyrite    
+SIZE
+5.0000E-4 
+SPGR
+2.7100E+0 5.0000E+0 4.1000E+0 
+GRDM
+1.0000E+0 0.0000E+0 0.0000E+0
+0.0000E+0 1.0000E+0 0.0000E+0
+0.0000E+0 0.0000E+0 1.0000E+0
+PHYP 001 003
+2.7100E+0 5.0000E+0 4.1000E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 001
+SCMA 003 001 000
+SCMA 002 001 000
+STRM 001   2
+2.08340E+1 28.00
+8.0000E-1 8.5000E-2 1.1500E-1 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 003
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+Exercise 5-1
+Stream     001 002 Feed                          
+Feedrate  2.0834E+1 28.0000
+Size dist  000
+Stream     002 003 Concentrate                   
+Size dist  000
+Stream     003 004 Tail                          
+Size dist  000
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 Feed                          
+Number of grade ranges       1 
+ 001
+0.0000E+0 5.0000E-4 
+ 003
+8.0000E-1 8.5000E-2 1.1500E-1 
+END OF FILE
+"Liberation data",#TRUE#
+Exercise 5-1
+Stream     002 003 Concentrate                   
+Lib dist   000
+Stream     003 004 Tail                          
+Lib dist   000
+Stream     001 002 Feed                          
+Lib dist   003
+0.
+0.
+0.
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 Feed                          
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 KLIM 011 001
+1.0000E+0 1.0000E+1 1.5000E+1 5.5000E+1 1.0000E+0 1.2000E+1 1.9000E-1 5.3000E+1 
+8.0000E-1 8.3000E+1 2.5000E+0 
+OUTC
+   0   0   6   1   1   6   1   6   6   6
+STOP
+"Output format",#TRUE#
+2F2TFFTF
+ 2 
+Cu      Fe      
+ 3
+ 0  0 
+ 0  .467 
+ .346  .304 
+F
+T
+ 3 
+ 001 003 002
+"SIMOP data",#TRUE#

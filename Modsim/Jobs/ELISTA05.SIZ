@@ -1,0 +1,35 @@
+elista04
+Stream     001 016 feed                          
+Feedrate  2.7778E+1 95.0000
+Size dist  004
+1.5000E-1 0.9900
+3.0000E-2 0.2000
+2.0000E-3 0.0800
+1.0000E-4 0.0200
+Stream     003 020 Jaw crsh prod                 
+Size dist  000
+Stream     006 023 cone crsh prod                
+Size dist  000
+Stream     009 026 Hydro Cycl  feed              
+Size dist  000
+Stream     012 029 Hydro cycl UF                 
+Size dist  000
+Stream     010 027 Hydro cycl OF                 
+Size dist  000
+Stream     013 030 Magnetics                     
+Size dist  000
+Stream     015 032 Non Magnetics                 
+Size dist  000
+Stream     016 033 Floats                        
+Size dist  000
+Stream     017 035 Sinks                         
+Size dist  000
+Stream     007 024 D M Cycl feed                 
+Size dist  000
+Stream     019 037 tail                          
+Size dist  000
+Stream     018 036 Final product                 
+Size dist  000
+Stream     020 038 water                         
+Water feed 0.0000E+0 25.0000
+END OF FILE

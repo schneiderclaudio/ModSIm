@@ -1,0 +1,35 @@
+SPL0real_design4
+Stream     001 005 Alimentacao                   
+Feedrate  9.4445E+1 100.0000
+Size dist  010
+6.3500E-3 0.8787
+4.0000E-3 0.7351
+2.0000E-3 0.5459
+1.0000E-3 0.4136
+5.0000E-4 0.2933
+2.5000E-4 0.1859
+1.5000E-4 0.1119
+1.0600E-4 0.0700
+7.5000E-5 0.0426
+4.5000E-5 0.0130
+Stream     002 006 alimentacao do moinho         
+Size dist  000
+Stream     003 007 descarga do moinho            
+Size dist  000
+Stream     004 008 alimentacao cicl classificador
+Size dist  000
+Stream     005 009 undeflow cicl classificador   
+Size dist  000
+Stream     008 016 overflow cicl classificador   
+Size dist  000
+Stream     009 019 alimentacao cicl deslamador   
+Size dist  000
+Stream     011 021 overflow cicl deslamador      
+Size dist  000
+Stream     010 020 underflow cicl deslamador     
+Size dist  000
+Stream     006 011 agua alimentacao do moinho    
+Water feed 0.0000E+0 73.8000
+Stream     007 013 agua descarga do moinho       
+Water feed 1.1389E+3 0.0000
+END OF FILE

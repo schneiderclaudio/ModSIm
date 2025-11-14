@@ -1,0 +1,207 @@
+"Job name","Demo"
+"Flowsheet",#TRUE#
+ 152  4  5  30 
+Demo
+ 3  7  2 
+ 0  0  0  0  0  0  0  1  0  0  0  0  1  0  0  0  0  0  0  0 
+ 0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTTTTTT
+FFFFTFT
+ 8 T
+ 3  648  600  5  1 
+ 13 T
+ 1  488  369 -5  2 
+ 22 T
+ 2  264  190  5  3 
+ 1 
+ 72            324           253           215           4 
+ 253           324 
+ 3 
+ 264           155           632           600           5 
+ 264           110 
+ 136           110 
+ 136           600 
+ 1 
+ 645           560           547           371           6 
+ 645           371 
+ 1 
+ 645           609           773           654           7 
+ 645           654 
+ 1 
+ 69            387           267           215           8 
+ 267           387 
+ 1 
+ 437           371           277           215           9 
+ 277           371 
+ 1 
+ 595.601       507.8702      542.5576      376.5517      29 
+ 595.601       409.7769 
+ 6 
+TTTTTT
+ 8             295 
+Plant feed
+ 288           190 
+Sump
+ 461           304 
+Ball mill
+ 788.0724      645.5172 
+Final product
+ 9.093144      359.1481 
+Water feed
+ 666.8306      585.3955 
+Hydrocyclone
+ 7 
+TTTTTTTT
+ 971.3953      97.9425       10            10 
+ 506.2683      718.6384      648.6443      653.428 
+ 686.5323      492.0487      645.6132      414.5233 
+ 300.0738      458.8235      289.4651      370.2231 
+ 169.7387      458.8235      154.5835      387.6268 
+ 292.4961      348.073       148.5213      324.3408 
+ 205.4219      658.2753      195.4219      598.2753 
+ 457.1272      543.994       594.2653      480.2723 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+Demo
+ 7 
+ 1  4 F  0  2 
+ 5  8 W -1  2 
+ 7  29 W -1  1 
+ 2  5 O  2  3 
+ 3  6 O  3  1 
+ 6  9 O  1  2 
+ 4  7 O  3  0 
+"Model data",#TRUE#
+Demo
+ 3 
+ 13  22  8 
+ 2  3  1 
+"System input data",#TRUE#
+SYSTEM DATA
+Demo
+NDGS   1 025 001 001
+MINS 001
+Rock            
+SIZE
+5.0000E-3 3.5355E-3 2.5000E-3 1.7678E-3 1.2500E-3 8.8388E-4 6.2500E-4 4.4194E-4 
+3.1250E-4 2.2097E-4 1.5625E-4 1.1049E-4 7.8125E-5 5.5243E-5 3.9063E-5 2.7621E-5 
+1.9531E-5 1.3811E-5 9.7656E-6 6.9053E-6 4.8828E-6 3.4527E-6 2.4414E-6 1.7263E-6 
+1.2207E-6 
+SPGR
+2.7000E+0 
+GRDM
+1.0000E+0
+PHYP 001 001
+2.7000E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 002
+SCMA 002 002 003
+SCMA 003 003 001
+SCMA 006 001 002
+SCMA 004 003 000
+WTRF 002 005
+0.00000E+0 45.00
+WTRF 001 007
+0.00000E+0 70.00
+STRM 001   2
+2.77780E+1 100.00
+1.4402E-3 1.2296E-2 4.5345E-2 9.5682E-2 1.3724E-1 1.5188E-1 1.4127E-1 1.1704E-1 
+8.9779E-2 6.5379E-2 4.6070E-2 3.1748E-2 2.1555E-2 1.4526E-2 9.7016E-3 6.4121E-3 
+4.2675E-3 2.8382E-3 1.7482E-3 1.1083E-3 7.8367E-4 5.5414E-4 3.9183E-4 2.7707E-4 
+6.6890E-4 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 003
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+Demo
+Stream     001 004 Plant feed                    
+Feedrate  2.7778E+1 100.0000
+Size dist  019
+5.0000E-3 0.9997
+3.5360E-3 0.9949
+2.5000E-3 0.9693
+1.7680E-3 0.8995
+1.2500E-3 0.7803
+8.8390E-4 0.6321
+6.2500E-4 0.4830
+4.4190E-4 0.3529
+3.1250E-4 0.2496
+2.2100E-4 0.1726
+1.5620E-4 0.1175
+1.1050E-4 0.0792
+7.8120E-5 0.0530
+5.5240E-5 0.0353
+3.9060E-5 0.0234
+2.7620E-5 0.0155
+1.9530E-5 0.0103
+1.3810E-5 0.0068
+9.7660E-6 0.0045
+Stream     002 005 Hydrocyclone feed             
+Size dist  000
+Stream     003 006 Ball mill feed                
+Size dist  000
+Stream     006 009 Ball mill discharge           
+Size dist  000
+Stream     004 007 Hydrocyclone overflow         
+Size dist  000
+Stream     005 008 Sump water                    
+Water feed 0.0000E+0 45.0000
+Stream     007 029 Ball mill water               
+Water feed 0.0000E+0 70.0000
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 004 Plant feed                    
+Number of grade ranges       0 
+END OF FILE
+"Liberation data",#TRUE#
+Demo
+Stream     002 005 Hydrocyclone feed             
+Lib dist   000
+Stream     003 006 Ball mill feed                
+Lib dist   000
+Stream     006 009 Ball mill discharge           
+Lib dist   000
+Stream     004 007 Hydrocyclone overflow         
+Lib dist   000
+Stream     001 004 Plant feed                    
+Lib dist   000
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 004 Plant feed                    
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 GMIL 015 002
+9.0000E+0 7.0000E+0 7.0000E+0 0.0000E+0 5.5000E+1 0.0000E+0 1.5600E+0 7.6800E-1 
+1.5670E+0 2.8100E+0 4.4100E-1 1.7140E+0 0.0000E+0 5.0100E-1 0.0000E+0 
+TYPE 002 MIXR 000 003
+TYPE 003 CYCL 013 001
+3.8000E-1 3.0000E+0 2.0000E-1 1.6700E-1 1.1600E-1 3.0000E+0 5.0000E+0 1.0000E+0 
+1.0000E+0 1.0000E+0 1.0000E-3 5.0000E-1 0.0000E+0 
+OUTC
+   0   0   6   1   1   6   1   6   6   6
+STOP
+"Output format",#TRUE#
+2T3TTFFF
+ 0 
+T
+ 3 
+ 002 004 003
+ 0 
+F
+"SIMOP data",#TRUE#
+FFFFFF

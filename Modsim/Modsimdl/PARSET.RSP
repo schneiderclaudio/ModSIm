@@ -1,0 +1,13 @@
+/subsystem:console
+/entry:mainCRTStartup
+/ignore:505
+/debugtype:cv
+/debug:minimal
+/pdb:none
+parset.obj
+dfor.lib
+libc.lib
+dfconsol.lib
+dfport.lib
+kernel32.lib
+/out:parset.exe

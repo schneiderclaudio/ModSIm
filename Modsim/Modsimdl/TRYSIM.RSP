@@ -1,0 +1,14 @@
+/subsystem:console
+/entry:mainCRTStartup
+/ignore:505
+/debugtype:cv
+/debug:minimal
+/pdb:none
+trysim.obj
+modsim.lib
+dfor.lib
+libc.lib
+dfconsol.lib
+dfport.lib
+kernel32.lib
+/out:trysim.exe

@@ -1,0 +1,41 @@
+SPL0_plantsimulation
+Stream     001 005 Alimentacao                   
+Feedrate  9.4445E+1 100.0000
+Size dist  014
+4.7500E-3 0.8520
+3.5360E-3 0.7290
+2.3600E-3 0.6150
+1.7000E-3 0.5320
+8.5000E-4 0.5000
+6.0000E-4 0.4640
+4.2500E-4 0.4330
+3.0000E-4 0.4010
+2.1200E-4 0.3630
+1.5000E-4 0.3120
+1.0600E-4 0.2680
+7.5000E-5 0.1880
+6.3000E-5 0.1820
+4.5000E-5 0.1580
+Stream     002 006 alimentacao do moinho         
+Size dist  000
+Stream     003 007 descarga do moinho            
+Size dist  000
+Stream     004 008 alimentacao cicl classificador
+Size dist  000
+Stream     005 009 undeflow cicl classificador   
+Size dist  000
+Stream     008 016 overflow cicl classificador   
+Size dist  000
+Stream     009 019 alimentacao cicl deslamador   
+Size dist  000
+Stream     011 021 overflow cicl deslamador      
+Size dist  000
+Stream     010 020 underflow cicl deslamador     
+Size dist  000
+Stream     006 011 agua alimentacao do moinho    
+Water feed 0.0000E+0 78.0000
+Stream     007 013 agua descarga do moinho       
+Water feed 4.3361E+2 0.0000
+Stream     012 022 Agua deslamagem               
+Water feed 5.6389E+1 0.0000
+END OF FILE

@@ -1,0 +1,99 @@
+ This file shows a record of the progress through the
+ DLL that controls the simulation calculation.
+
+ If a failure occured it should be possible to pinpoint the
+ cause using the information provided here.
+
+ Job path is c:\modsim3619\modsimvb\
+ Will now enter the subroutine to read the input data
+  Reading data for the simulation
+  JobPath c:\modsim3619\modsimvb\
+ Opening file DATT.DAT
+ Opening file PHI1.ECH
+The system data has been found
+Demo                                                                            
+   KEY NDGS   1  25   1   1
+   KEY MINS   1   0   0   0
+   KEY SIZE   0   0   0   0
+   KEY SPGR   0   0   0   0
+   KEY GRDM   0   0   0   0
+   KEY PHYP   1   1   0   0
+  1  1 2.700    
+   KEY        0   0   0   0
+ Opening file PHI4.DAT
+   KEY PLAN
+The plant data has been found
+   KEY PLNT   1   0   0   0
+   KEY SCMA   1   0   2   0
+   KEY SCMA   2   2   3   0
+   KEY SCMA   3   3   1   0
+   KEY SCMA   6   1   2   0
+   KEY SCMA   4   3   0   0
+   KEY WTRF   2   5   0   0
+   KEY WTRF   1   7   0   0
+   KEY STRM   1   2   0   0
+   TMS, PERS   27.77800       100.0000    
+Check mass balance in stream   1
+ Sum of classes  0.277780E+02 Total solids  0.277780E+02
+   KEY TEAR   0   0   0   0
+ Opening file TEARS.OUT
+   KEY STRM   6   1   0   0
+   TMS, PERS   54.20000       70.00000    
+Check mass balance in stream   6
+ Sum of classes  0.541987E+02 Total solids  0.542000E+02
+   KEY LAST   0   3   0   0
+Completed reading tear data
+ Closing file TEARS.OUT
+   KEY        0   0   0   0
+ Opening file PHI3.DAT
+ The RUN data has been found.
+CONV   3        0
+ITER  30        0
+TOLM  -3        0
+TYPE   1 GMIL  15
+TYPE   2 MIXR   0
+TYPE   3 CYCL  13
+OUTC   0        0
+STOP   0        0
+ Closing file PHI4.DAT
+ Closing file PHI3.DAT
+ Closing file PHI1.ECH
+ Closing file DATT.DAT
+ Closing file TEARS.OUT
+  Leaving INPT.
+ The data input phase has completed with exit value -1
+ Will now enter the ordering subroutine
+In the ordering subroutine
+The flowsheet has been decomposed and the calculation' order established.
+ The ordering phase has completed with exit value -1
+ Starting the calculation phase
+ Job path is c:\modsim3619\modsimvb\
+
+Node number   1
+ Unit   2 is a mixer
+ CALLING MODEL FOR UNIT   3
+   Feedrate to this unit    81.98     kg/s
+ RETURNED FROM UNIT MODEL  3
+ CALLING MODEL FOR UNIT   1
+   Feedrate to this unit    54.20     kg/s
+ Allocating Bvg NDC,NGC          25           1          25           1
+ RETURNED FROM UNIT MODEL  1
+                    AFTER SETTING UP,THE RMS ERROR IS      0.000018
+ Unit   2 is a mixer
+ CALLING MODEL FOR UNIT   3
+   Feedrate to this unit    81.98     kg/s
+ RETURNED FROM UNIT MODEL  3
+ CALLING MODEL FOR UNIT   1
+   Feedrate to this unit    54.20     kg/s
+ RETURNED FROM UNIT MODEL  1
+                    AFTER SETTING UP,THE RMS ERROR IS      0.000003
+          THE WATER FEED TO UNIT  1 IS 0.2903    
+          THE WATER FEED TO UNIT  2 IS  76.97    
+ The calculation phase has ended
+ The calculation phase has completed with exit value  -1
+  In REPWRT
+  Job path c:\modsim3619\modsimvb\
+ Writing a design report on unit   2 to the report file.
+ Writing a design report on unit   3 to the report file.
+ Writing a design report on unit   1 to the report file.
+ The report writer has ended with exit value   -1

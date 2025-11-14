@@ -1,0 +1,218 @@
+"Job name","Exercise 3-5 Three-stage crushing"
+"Flowsheet",#TRUE#
+ 1  33  5  22 
+Exercise 3-5 Three-stage crushing
+ 6  9  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  2  0  0  0  0  0  0 
+ 2  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTTTTTTTT
+ 14 TT
+ 2  259.1546  534.7667  5  3 
+ 5  450.1106  256.3083  5  13 
+ 21 TT
+ 3  398.5828  441.4199  5  4 
+ 6  628.9424  164.5436  5  14 
+ 24 T
+ 4  398.5828  341.7444  5  9 
+ 54 T
+ 1  192.4715  631.2779  5  1 
+ 1 
+ 77.29173      734.1177      169.7387      656.5923      2 
+ 169.7387      734.1177 
+ 0 
+ 209.1423      618.6207      209.1423      553.7526      5 
+ 1 
+ 303.1048      537.931       384.9431      476.2272      6 
+ 384.9431      537.931 
+ 1 
+ 287.9496      507.8702      387.5828      341.7444      8 
+ 287.9496      341.7444 
+ 0 
+ 400.0983      409.7769      400.0983      352.8195      12 
+ 0 
+ 398.5828      330.6694      398.5828      276.8763      15 
+ 1 
+ 495.5764      261.0547      615.3027      196.1866      16 
+ 615.3027      261.0547 
+ 1 
+ 480.4211      229.4118      139.4282      117.0791      18 
+ 480.4211      117.0791 
+ 3 
+ 630.458       134.4828      409.1915      341.7444      21 
+ 630.458       45.88235 
+ 701.6876      45.88235 
+ 701.6876      341.7444 
+ 6 
+TTTTTT
+ 713.8118      145.5578 
+Tertiary crusher
+ 422.8312      286.3692 
+Tertiary screen
+ 444.0485      443.002 
+Secondary crusher
+ 53.04333      515.7809 
+Secondary screen
+ 234.9062      640.7708 
+Primary crusher
+ 151.5524      85.4361 
+Final product
+ 5 
+TTTTTT
+ 1020          100           10            10 
+ 179.7387      756.1461      169.7387      696.1461 
+ 326.7445      597.931       316.7445      537.931 
+ 125.7885      482.5558      287.9496      460.4057 
+ 220.6578      175.4969      210.6578      115.497 
+ 501.0298      403.3266      491.0298      343.3266 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+Exercise 3-5 Three-stage crushing
+ 9 
+ 1  2 F  0  1 
+ 2  5 O  1  2 
+ 4  8 O  2  4 
+ 5  12 O  3  4 
+ 6  15 O  4  5 
+ 8  18 O  5  0 
+ 9  21 O  6  4 
+ 3  6 O  2  3 
+ 7  16 O  5  6 
+"Model data",#TRUE#
+Exercise 3-5 Three-stage crushing
+ 6 
+ 54  14  21  24  14  21 
+ 1  3  4  9  13  14 
+"System input data",#TRUE#
+SYSTEM DATA
+Exercise 3-5 Three-stage crushing
+NDGS   1 025 001 001
+MINS 001
+Ore             
+SIZE
+1.2000E+0 8.4853E-1 6.0000E-1 4.2426E-1 3.0000E-1 2.1213E-1 1.5000E-1 1.0607E-1 
+7.5000E-2 5.3033E-2 3.7500E-2 2.6517E-2 1.8750E-2 1.3258E-2 9.3750E-3 6.6291E-3 
+4.6875E-3 3.3146E-3 2.3438E-3 1.6573E-3 1.1719E-3 8.2864E-4 5.8594E-4 4.1432E-4 
+2.9297E-4 
+SPGR
+2.7000E+0 
+GRDM
+1.0000E+0
+PHYP 001 001
+2.7000E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 001
+SCMA 002 001 002
+SCMA 004 002 004
+SCMA 005 003 004
+SCMA 006 004 005
+SCMA 008 005 000
+SCMA 009 006 004
+SCMA 003 002 003
+SCMA 007 005 006
+STRM 001   2
+3.33340E+2 100.00
+2.5926E-2 7.9607E-2 1.4505E-1 1.7601E-1 1.6528E-1 1.3218E-1 9.5660E-2 6.5094E-2 
+4.2612E-2 2.7281E-2 1.7174E-2 1.0726E-2 6.6260E-3 4.0844E-3 2.5556E-3 1.5674E-3 
+9.8963E-4 6.3957E-4 3.3442E-4 1.7372E-4 1.2284E-4 8.6860E-5 6.1420E-5 4.3430E-5 
+1.0485E-4 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 003
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+Exercise 3-5 Three-stage crushing
+Stream     001 002 Plant feed                    
+Feedrate  3.3334E+2 100.0000
+Size dist  019
+1.1910E+0 0.9900
+8.4190E-1 0.9413
+5.9530E-1 0.8253
+4.2100E-1 0.6584
+2.9770E-1 0.4838
+2.1050E-1 0.3344
+1.4880E-1 0.2216
+1.0520E-1 0.1429
+7.4420E-2 0.0906
+5.2620E-2 0.0568
+3.7210E-2 0.0353
+2.6310E-2 0.0219
+1.8600E-2 0.0135
+1.3160E-2 0.0084
+9.3020E-3 0.0052
+6.5780E-3 0.0032
+4.6510E-3 0.0020
+3.2890E-3 0.0012
+2.3260E-3 0.0007
+Stream     002 005 Primary crusher product       
+Size dist  000
+Stream     005 012 Secondary crusher product     
+Size dist  000
+Stream     004 008 Secondary screen undersize    
+Size dist  000
+Stream     006 015 Tertiary screen feed          
+Size dist  000
+Stream     009 021 Tertiary crusher product      
+Size dist  000
+Stream     008 018 Final product                 
+Size dist  000
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 Plant feed                    
+Number of grade ranges       0 
+END OF FILE
+"Liberation data",#TRUE#
+Exercise 3-5 Three-stage crushing
+Stream     002 005 Primary crusher product       
+Lib dist   000
+Stream     005 012 Secondary crusher product     
+Lib dist   000
+Stream     004 008 Secondary screen undersize    
+Lib dist   000
+Stream     006 015 Tertiary screen feed          
+Lib dist   000
+Stream     009 021 Tertiary crusher product      
+Lib dist   000
+Stream     008 018 Final product                 
+Lib dist   000
+Stream     001 002 Plant feed                    
+Lib dist   000
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 Plant feed                    
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 GYRA 003 001
+1.5000E-1 8.5000E-1 1.2000E+1 
+TYPE 002 SCRN 007 003
+4.5000E-2 9.0000E-1 0.0000E+0 0.0000E+0 0.0000E+0 0.0000E+0 1.0000E+0 
+TYPE 003 CRSH 005 004
+3.5000E-2 2.0000E-1 1.2000E+1 6.5300E-1 1.6000E+0 
+TYPE 004 MIXR 000 009
+TYPE 005 SCRN 007 013
+1.3000E-2 9.0000E-1 0.0000E+0 0.0000E+0 0.0000E+0 0.0000E+0 1.0000E+0 
+TYPE 006 SHHD 005 014
+1.3000E-2 2.0000E-1 1.2000E+1 6.5300E-1 2.0000E+0 
+OUTC
+   0   0   6   1   1   6   1   6   6   6
+STOP
+"Output format",#TRUE#
+2F1FTFFF
+ 0 
+F
+F
+"SIMOP data",#TRUE#
+FFFFFF

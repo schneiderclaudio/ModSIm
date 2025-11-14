@@ -1,0 +1,53 @@
+Bougainville
+Stream     001 007 Plant feed                    
+Feedrate  1.2780E+2 100.0000
+Size dist  009
+9.5000E-3 0.9400
+4.7500E-3 0.6390
+2.3600E-3 0.4500
+1.1800E-3 0.3380
+6.0000E-4 0.2670
+3.0000E-4 0.2140
+1.5000E-4 0.1670
+7.5000E-5 0.1320
+5.3000E-5 0.1140
+Stream     003 009 Ball mill feed                
+Size dist  000
+Stream     004 010 Ball mill discharge           
+Size dist  009
+9.5000E-3 0.9660
+4.7500E-3 0.8620
+2.3600E-3 0.7750
+1.1800E-3 0.6850
+6.0000E-4 0.5530
+3.0000E-4 0.3710
+1.5000E-4 0.2320
+7.5000E-5 0.1700
+5.3000E-5 0.1500
+Stream     005 011 Hydrocyclone feed             
+Size dist  000
+Stream     006 012 Hydrocyclone underflow        
+Size dist  009
+9.5000E-3 0.9550
+4.7500E-3 0.8400
+2.3600E-3 0.7300
+1.1800E-3 0.6350
+6.0000E-4 0.4830
+3.0000E-4 0.2530
+1.5000E-4 0.1200
+7.5000E-5 0.0850
+5.3000E-5 0.0510
+Stream     007 013 Hydrocyclone overflow         
+Size dist  007
+2.3600E-3 0.9950
+1.1800E-3 0.9840
+6.0000E-4 0.9420
+3.0000E-4 0.8090
+1.5000E-4 0.6130
+7.5000E-5 0.4470
+5.3000E-5 0.3830
+Stream     008 014 Sump water                    
+Water feed 0.0000E+0 66.0000
+Stream     009 015 Mill water                    
+Water feed 0.0000E+0 80.0000
+END OF FILE

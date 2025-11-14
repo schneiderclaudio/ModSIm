@@ -1,0 +1,173 @@
+<html>
+	<head>
+		<title>Model FAGM</title>
+		<meta name="generator" content="Corel WordPerfect 12">
+		<meta http-equiv="content-Type" content="text/html; charset=utf-8">
+		<style>
+p
+{
+	margin-top: 0px;
+	margin-bottom: 1px
+}
+
+span.WPCharBox
+{
+	border-width: 0.0133333in;
+	border-style: solid;
+	border-color: black;
+	padding: 0px;
+	width: 100%;
+	margin: 0px
+}
+
+span.WPCharBoxWrapper
+{
+	padding: 0px;
+	vertical-align: text-top
+}
+
+body
+{
+	font-family: "Times New Roman", serif;
+	font-size: 12pt;
+	font-weight: normal;
+	font-style: normal
+}
+</style>
+	</head>
+	<body>
+		<p><span style="font-weight: bold"><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">FAGM: </span>
+				</span>
+			</span><a name="#Index_models_Fully_autogenous_mill_1"></a><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">Fully autogenous mill.</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">Fully autogenous mill modeled using the full population balance including  particle attrition and wear as
+developed by Austin and Hoyer. See Modeling  and Simulation of Mineral Processing Systems Section
+5.10. Three distinct  breakage processes are modeled: surface attrition, impact breakage and self 
+breakage. Consult <i>Modeling and Simulation of Mineral Processing Systems</i>, section 5.13 for details.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">The rate of attrition can be measured using a tumbling test such as that described in Napier-Munn <i>et. 
+						al. Mineral Comminution Circuits, Their Operation and Optimization</i>. Julius Kruttschnitt Mineral research
+Center, Brisbane 1996. and  Goldman M and Barbery G. "Wear and Chipping of Coarse Particles in 
+Autogenous Grinding: Experimental Investigation and Modeling". <i>Minerals Engineering</i>. 1(1988)67-76. 
+Goldman M, Barbery G, and Flament F. "Modeling load and Product Distribution  in Autogenous and
+Semi-Autogenous Mills: Pilot-Plant Tests". <i>CIM Bulletin</i>  Vol 84 No 946 Feb 1991 pp80-86.  The attrition
+parameter Ta is 1/10 of the height of the plateau on the cumulative size distribution plot of the attrition
+products after tumbling 46 mm lumps for 10 minutes.  The breakage function for attrition products is
+assumed to be logarithmic with exponent 0.67 and the largest size  determined from the attrition test as
+described in <i>Modeling and Simulation of Mineral Processing Systems</i> section 5.14.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Impact fracture is modeled using the standard Austin breakage and selection  functions. See Austin LG,
+Barahona CA, Menacho JM. "Investigations of  Autogenous and Semi-Autogenous Grinding in Tumbling
+Mills". <i>Powder Technology</i> 51(1987) 283-294.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Rate of self breakage is modeled using the distribution of particle fracture energy and the consequent
+breakage probability. The average kinetic energy of impact is determined assuming the lumps fall a 
+fraction of the mill diameter.  The selection function for self breakage on impact is modeled by calculating
+the rate of breakage as the number of drops of lumps of size d<sub>p</sub> per second &times; mass of lump &times; probability
+of breakage.  All drops are assumed to be 0.5 &times; mill diameter.  The distribution of drop heights from DEM
+simulations will be incorporated in a later version of this model. The breakage probability is modeled on
+the measured particle fracture energy reported by Tavares and King "Application of Thermal Treatment to
+improve Comminution" SME Annual Meeting Denver 1995 95-238 with later modifications to reflect
+measurements on  wider range of materials.  The median particle fracture energy varies with particle size
+according to</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">
+					<span class="WPCharBoxWrapper" style="width: 129px">
+						<span class="WPCharBox" style="border: none">
+							<img src="fagm/ole.gif" alt="ole.gif" width="129" height="57" border="0"></span>
+					</span>
+				</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">The breakage function for self breakage is based on C Leung, Morrison and Whiten Copper '87 who
+recommend the T<sub>10</sub> breakage function model with parameters determined using a dual pendulum or drop
+weight test. T<sub>10</sub> is modeled as a function of impact energy using a simple exponential function. Two
+parameters A and b are used to describe this function. These are ore-specific and MODSIM requires them
+as unit parameters.</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">
+					<span class="WPCharBoxWrapper" style="width: 124px">
+						<span class="WPCharBox" style="border: none">
+							<img src="fagm/ole1.gif" alt="ole1.gif" width="124" height="31" border="0"></span>
+					</span>
+				</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">The parameter <i>b</i> is proportional to the median particle fracture energy of the material and consequently is
+a function of particle size. ECS is the mass specific energy absorbed during breakage in kWhr/tonne. The
+energy is related to the height of fall and therefore proportional to the mill diameter.</span>
+			</span><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"></span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Breakage function for products from abrasion in the autogenous mill is modeled using  data from Leung K,
+Morrison R.D. and Whiten W.J. &#8220;An Energy-Based Ore-Specific Model for Autogenous and
+Semi-Autogenous Grinding&#8221;. Copper 87 Santiago, Chile, Universidad de Chile (1987-1988) pp71-85</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">The mill is assumed to be perfectly mixed with post classification at the  grate.</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">This model permits the use of a pseudo stream from the mill to report the size distribution of the mill load.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">PARAMETERS</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;Impact breakage:</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>Parameters for breakage function</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>&#946;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>&#947;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>&#948;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>&#934; at 5mm</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>Parameters for selection function</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>S<sub>
+						1</sub></span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>&#945;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>&#956;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>&#923;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Self breakage:</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Particle fracture energy;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>E<sub>
+						&#8734;</sub></span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>d<sub>
+						p0</sub></span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>&#966;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>Parameters for variation of T10 with impact energy</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">A</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">b</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Attrition</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>Largest size for attrition products</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>Attrition parameter Ta</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Mill parameters</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Mill diameter</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Mill filling</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Mill speed</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Grate aperture</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Residence time</span>
+			</span></p>
+	</body>
+</html>

@@ -1,0 +1,5 @@
+ Path information before entering the DLL
+Job path C:\windows\TEMP\
+Vetgraph path C:\Mysoftware\vetgraph\
+File read path C:\Mysoftware\Modsim\Modsimvb\
+Job save path C:\Mysoftware\Modsim\Modsimvb\

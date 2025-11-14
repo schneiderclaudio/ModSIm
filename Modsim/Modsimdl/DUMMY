@@ -1,0 +1,63 @@
+millmods.for:      REAL No_Load_Power, Mill_PowerM, Mill_PowerA
+millmods.for:      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+millmods.for:      NetPower =  Mill_PowerA(BellyLength, ConeLength, Dm, PhiC,
+millmods.for:      REAL No_Load_Power, Mill_PowerM, Mill_PowerA
+millmods.for:      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+millmods.for:      NetPower =  Mill_PowerA(BellyLength, ConeLength, Dm, PhiC,
+millmods.for:      FUNCTION Mill_PowerM(Length, ConeLength, Diameter, CriticalSpeed,
+millmods.for:      REAL Mill_PowerM
+millmods.for:      Mill_PowerM =
+millmods.for:      FUNCTION Mill_PowerA(Length, ConeLength, Diameter, CriticalSpeed,
+millmods.for:      REAL Mill_PowerA
+millmods.for:      Mill_PowerA =K*(Diameter**2.5)*Length*ChargeDensity*alpha*delta
+millmods.for:        Mill_PowerA = Mill_PowerA*(1+f3)
+millmods.for:      FUNCTION Mill_PowerB(Length, Diameter, CriticalSpeed,
+millmods.for:      REAL Mill_PowerB
+millmods.for:      Mill_PowerB = CB0*(Diameter**0.3)*(1.0-0.937*Jt)*delta
+millmods.for:		   Mill_PowerB = Mill_PowerB - Ss		
+millmods.for:	Mill_PowerB = Mill_PowerB*Mass_of_media*1e-3
+millmods_old.for:      REAL No_Load_Power, Mill_PowerM, Mill_PowerA
+millmods_old.for:      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+millmods_old.for:      NetPower =  Mill_PowerA(BellyLength, ConeLength, Dm, PhiC,
+millmods_old.for:      REAL No_Load_Power, Mill_PowerM, Mill_PowerA
+millmods_old.for:      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+millmods_old.for:      NetPower =  Mill_PowerA(BellyLength, ConeLength, Dm, PhiC,
+millmods_old.for:      FUNCTION Mill_PowerM(Length, ConeLength, Diameter, CriticalSpeed,
+millmods_old.for:      REAL Mill_PowerM
+millmods_old.for:      Mill_PowerM =
+millmods_old.for:      FUNCTION Mill_PowerA(Length, ConeLength, Diameter, CriticalSpeed,
+millmods_old.for:      REAL Mill_PowerA
+millmods_old.for:      Mill_PowerA =K*(Diameter**2.5)*Length*ChargeDensity*alpha*delta
+millmods_old.for:        Mill_PowerA = Mill_PowerA*(1+f3)
+millreps.for:      POW =  Mill_Power(Length, ConeLength, PARAM(13), PHIC,
+millreps.for:      REAL Mill_Power
+millreps.for:          POW =  Mill_Power(Length, ConeLength, PARAM(13), PHIC,
+millreps.for:      FUNCTION Mill_Power(Length, ConeLength, Diameter, CriticalSpeed,
+millreps.for:c This function is identical to Mill_PowerM except that it incorporates the no-load
+millreps.for:      REAL Mill_Power
+millreps.for:      Mill_Power = NoLoadPower +
+millreps.for:      REAL No_Load_Power, Mill_PowerM, Mill_PowerA
+millreps.for:      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+millreps.for:      NetPower =  Mill_PowerA(BellyLength, ConeLength, Dm, PhiC,
+millreps.for:      REAL No_Load_Power, Mill_PowerM, Mill_PowerA
+millreps.for:      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+millreps.for:      NetPower =  Mill_PowerA(BellyLength, ConeLength, Dm, PhiC,
+millreps.for:      REAL No_Load_Power, Mill_PowerM, Mill_PowerB
+millreps.for:      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+millreps.for:      NetPower =  Mill_PowerB(BellyLength, Dm, PhiC, RhoC, Jm, Dt, Db) 
+millreps_old.for:          POW =  Mill_Power(Length, ConeLength, PARAM(13), PHIC,
+millreps_old.for:      REAL Mill_Power
+millreps_old.for:          POW =  Mill_Power(Length, ConeLength, PARAM(13), PHIC,
+millreps_old.for:      FUNCTION Mill_Power(Length, ConeLength, Diameter, CriticalSpeed,
+millreps_old.for:c This function is identical to Mill_PowerM except that it incorporates the no-load
+millreps_old.for:      REAL Mill_Power
+millreps_old.for:      Mill_Power = NoLoadPower +
+millreps_old.for:      REAL No_Load_Power, Mill_PowerM, Mill_PowerA
+millreps_old.for:      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+millreps_old.for:      NetPower =  Mill_PowerA(BellyLength, ConeLength, Dm, PhiC,
+millreps_old.for:      REAL No_Load_Power, Mill_PowerM, Mill_PowerA
+millreps_old.for:      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+millreps_old.for:      NetPower =  Mill_PowerA(BellyLength, ConeLength, Dm, PhiC,
+millreps_old.for:      REAL No_Load_Power, Mill_PowerM, Mill_PowerA
+millreps_old.for:      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+millreps_old.for:      NetPower =  Mill_PowerA(BellyLength, ConeLength, Dm, PhiC,

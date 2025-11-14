@@ -1,0 +1,48 @@
+.context BLBX
+This model passes the feed through to the tailing. A water stream can be connected directly to the unit. This model can be changed using the software development kit to suit your needs.
+
+.context NAGE
+This model was developed at the Julius Kruttschnitt Mineral Research Centre and is an extension of the original model for the performance of the hydrocyclone that was developed by Lynch and Rao. This model was developed by multilinear regression of experimental data that was obtained from terst on several Krebs cyclones. the model consists of empirical relationships for predicting the corrected D50, the flow through the hydrocyclone as a function of the pressure drop and the fractional recovery of the water. The exponential sum model is used for the partion function. The model, as presented by the authors, also includes an empirical expression for the prediction of the fractional recovery by volume of total feed to the underflow.  However this makes the model internally inconsistent and the later relationship is not used in the simulation of performance of the unit. It is used only to return the extent of the inconsistency in the report file.
+
+Parameters:
+  Calibration factor for D50c   KD0
+  Calibration factor for total slurry flowrate    KQ0
+  Calibration factor for water recovery to underflow    KW1
+  Efficiency factor
+  Diameter of cyclindrical section
+  Inlet diameter (diameter of circle of same area as cyclone inlet)
+  Overflow (vortex finder) diameter
+  Underflow (apex) diameter
+  Length of cylindrical section
+  Cone full angle (degrees)
+
+.context BLBS
+This is a pass through model, much like the BLBX model.  It reports the average surface area per unit volume of the particles in the stream, given its size distribution and the shape factor for the particles, which is a parameter passed in by the user.  The specific surface area is also calculated, based on the solids density.
+This has been written for the Carajas SF2B project.
+
+.context CYCC
+This is a logistic model for a classifier which allows the user to set the water split.  This has been written for the Carajas SF2B project.
+
+Parameters:
+  By-pass factor
+  Sharpness Index
+  D50
+  Water Split to Underflow
+  
+.context CFHK
+The Fish Hook model
+Parameters:
+Enter 1 to use the exact partition coefficients for the Classifier Cyclone, calculated using Feed/Under/Overflow size distributions
+Enter 2 (or a number other than 2) to use the Desliming Cyclone parameters.
+This has been written for the Carajas SF2B project.
+
+.context SLGR
+This is a model for the Sao Luis HPGR.  It is a pass through model, as it doesn't predict product size distributions.  The model scales up the Krupp-Polysius tests for CVRD's SPL0 material.
+This has been written for the Carajas SF2B project.
+
+Parameters:
+  Roll Diameter
+  Roll Length
+  Rotating speed (RPM)
+  Grinding pressure (MPascal)
+  

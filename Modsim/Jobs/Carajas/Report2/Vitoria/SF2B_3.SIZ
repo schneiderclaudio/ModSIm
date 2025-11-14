@@ -1,0 +1,83 @@
+sf2b_3
+Stream     001 005 Alimentacao                   
+Feedrate  5.0834E-1 100.0000
+Size dist  014
+1.0000E-2 1.0000
+8.0000E-3 1.0000
+6.3000E-3 0.9967
+4.0000E-3 0.9903
+2.0000E-3 0.9798
+1.0000E-3 0.8987
+5.0000E-4 0.7424
+2.5000E-4 0.5134
+1.5000E-4 0.3107
+1.0500E-4 0.1904
+7.5000E-5 0.1276
+4.5000E-5 0.0921
+3.8000E-5 0.0864
+2.0000E-5 0.0741
+Stream     002 006 Alim moinho                   
+Size dist  000
+Stream     003 007 Descarga moinho               
+Size dist  008
+5.0000E-4 1.0000
+2.5000E-4 0.9860
+1.5000E-4 0.9040
+1.0500E-4 0.7740
+7.5000E-5 0.6170
+4.5000E-5 0.3330
+3.8000E-5 0.3090
+2.0000E-5 0.2030
+Stream     004 008 Alim cyclone classificador    
+Size dist  008
+5.0000E-4 1.0000
+2.5000E-4 0.9860
+1.5000E-4 0.9040
+1.0500E-4 0.7740
+7.5000E-5 0.6170
+4.5000E-5 0.3330
+3.8000E-5 0.3090
+2.0000E-5 0.2030
+Stream     007 013 Underflow classificador       
+Size dist  008
+5.0000E-4 0.9990
+2.5000E-4 0.9505
+1.5000E-4 0.8066
+1.0500E-4 0.5996
+7.5000E-5 0.3930
+4.5000E-5 0.0972
+3.8000E-5 0.0861
+2.0000E-5 0.0451
+Stream     005 010 Overflow classificador        
+Size dist  006
+1.5000E-4 1.0000
+1.0500E-4 0.9880
+7.5000E-5 0.9530
+4.5000E-5 0.7420
+3.8000E-5 0.6640
+2.0000E-5 0.4820
+Stream     012 023 Overflow deslamador           
+Size dist  006
+1.5000E-4 0.9740
+1.0500E-4 0.9650
+7.5000E-5 0.9650
+4.5000E-5 0.9600
+3.8000E-5 0.9600
+2.0000E-5 0.9570
+Stream     011 022 Underflow deslamador          
+Size dist  006
+1.5000E-4 0.9990
+1.0500E-4 0.9900
+7.5000E-5 0.9520
+4.5000E-5 0.6760
+3.8000E-5 0.5720
+2.0000E-5 0.3320
+Stream     006 012 Agua alim moinho              
+Water feed 0.0000E+0 73.5000
+Stream     008 014 Agua cyclone classificador    
+Water feed 9.1667E-1 0.0000
+Stream     013 025 Ajuste de simulacao           
+Water feed 0.0000E+0 19.2000
+Stream     014 027 agua ciclone deslamador       
+Water feed 1.3028E+0 0.0000
+END OF FILE

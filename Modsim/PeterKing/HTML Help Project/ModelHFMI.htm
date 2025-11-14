@@ -1,0 +1,121 @@
+<html>
+    <Title>Model HFMI</Title>
+	<head>
+		<meta name="generator" content="Corel WordPerfect 12">
+		<meta http-equiv="content-Type" content="text/html; charset=utf-8">
+		<style>
+p
+{
+	margin-top: 0px;
+	margin-bottom: 1px
+}
+
+span.WPCharBox
+{
+	border-width: 0.0133333in;
+	border-style: solid;
+	border-color: black;
+	padding: 0px;
+	width: 100%;
+	margin: 0px
+}
+
+span.WPCharBoxWrapper
+{
+	padding: 0px;
+	vertical-align: text-top
+}
+
+body
+{
+	font-family: "Times New Roman", serif;
+	font-size: 12pt;
+	font-weight: normal;
+	font-style: normal
+}
+</style>
+	</head>
+	<body>
+		<p><span style="font-weight: bold"><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">HFMI:</span>
+				</span>
+			</span><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">  <a name="#Index_models_Herbst-Fuerstenau_model_for_the_ball_mill._1"></a>Herbst-Fuerstenau model for the ball mill.</span>
+			</span></p>
+		<br>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">The entire mill is modeled as a single perfectly mixed section.  The selection function is modeled using the
+energy-specific selection function proposed by Herbst and Fuerstenau.  J A Herbst and D W  Fuerstenau.<i>
+						Intl. Jnl. Mineral Processing </i>7 (1980) 1-31.  The energy-specific selection function is calculated as a
+function of particle size using</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">
+					<span class="WPCharBoxWrapper" style="width: 184px">
+						<span class="WPCharBox" style="border: none">
+							<img src="hfmi/ole.gif" alt="ole.gif" width="184" height="49" border="0"></span>
+					</span>
+				</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">with <i>d<sub>p</sub>
+					</i>in mm.</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">S<sub>1</sub><sup>E</sup> is the energy-specific selection function at size 1 mm.</span>
+			</span></p>
+		<br>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">The breakage function is the standard Austin model.</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">This model requires the net power input to the mill charge to be specified and does not require the
+average residence time to be known.</span>
+			</span></p>
+		<br>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;Water can be added directly to the mill feed at a prespecified rate or</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;the simulator will calculate the water addition rate that is required to</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;achieve a specified solid content in the mill.</span>
+			</span></p>
+		<br>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;Parameters for the selection function:</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;&#160;&#160;1...S<sub>1</sub><sup>E</sup> in t/kW h</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;&#160;&#160;2...&#950;<sub>1</sub></span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;&#160;&#160;3...&#950;<sub>2</sub></span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;Parameters for the breakage function:</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;&#160;&#160;4...&#946;</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;&#160;&#160;5...&#947;</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;&#160;&#160;6...&#948;</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;&#160;&#160;7...&#934; at 5mm</span>
+			</span></p>
+		<br>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;Parameter to define the mill operating condition:</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">&#160;&#160;&#160;8...Net power drawn by the charge.  kW</span>
+			</span></p>
+		<br>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">References:</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">Herbst J A and Fuerstenau D W. Influence of mill speed and ball loading on the parameters of the batch
+grinding equation.  <i>Trans SME </i>252 (1972) p169.</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">Herbst J A and Fuerstenau D W, Mathematical simulation of dry ball milling using Specific power
+information.  <i>Trans SME 254 </i>(1973) p343.</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">Herbst J A and Fuerstenau D W, Scale-up procedure for continuous grinding mill design using population
+balance models.  <i>International Journal of Mineral Processing</i>, 7 (1980) 1-31.</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">Herbst J A, Lo Y C and Rajamani R K , Population balance model predictions of the performance of large-diameter mills.  <i>Minerals 
+						and Metallurgical Processing</i>, May 1985 p114.</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">Lo Y C and Herbst J a, Consideration of ball size effects in the population balance approach to mill scale-up.  <i>Advances 
+						in Mineral Processing</i>.  P Somasudaran ED., Soc. Mining Engrs. Inc, Littleton CO 1986,
+Chapter 2.</span>
+			</span></p>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">Lo Y C and Herbst J A, Analysis of the performance of large-diameter ball mills at Bougainville using the
+population balance approach.  <i>Minerals and Metallurgical Processing</i>, Nov 1988 p221.</span>
+			</span></p>
+	</body>
+</html>

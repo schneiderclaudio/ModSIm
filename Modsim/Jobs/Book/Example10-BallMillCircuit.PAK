@@ -1,0 +1,237 @@
+"Job name","Example10-BallMillCircuit"
+"Flowsheet",#TRUE#
+ 1  25  7  12 
+Example10-BallMillCircuit
+ 3  6  1 
+ 0  0  0  0  0  0  0  1  0  0  0  0  1  0  0  0  0  0  0  0 
+ 0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTTTTT
+FFFFFT
+ 8 T
+ 3  648.6443  651.8458  7  4 
+ 13 T
+ 2  471.328  493.6308 -7  3 
+ 22 T
+ 1  253.0925  381.2982  7  2 
+ 1 
+ 77.29173      480.9736      237.9373      414.5233      5 
+ 237.9373      480.9736 
+ 3 
+ 253.0925      332.2515      660.7684      653.428       6 
+ 253.0925      300.6085 
+ 736.5447      300.6085 
+ 736.5447      653.428 
+ 1 
+ 645.6132      594.8884      548.6197      493.6308      7 
+ 645.6132      493.6308 
+ 1 
+ 401.6139      495.213       271.2788      416.1055      9 
+ 271.2788      495.213 
+ 1 
+ 645.6132      664.5031      825.9606      697.7282      10 
+ 645.6132      697.7282 
+ 1 
+ 75.7762       564.8276      253.0925      416.1055      11 
+ 253.0925      564.8276 
+ 13 
+TTTTTTTTTTTTT
+ 648.6443      651.8458 
+
+ 81.83832      431.927 
+Rod mill discharge
+ 269.7633      509.4523 
+Ball mill discharge
+ 584.9922      465.1521 
+Cyclone underflow
+ 653.1909      711.9675 
+Cyclone overflow
+ 648.6443      651.8458 
+
+ 93.96246      574.3205 
+Sump water
+ 93.96246      574.3205 
+
+ 354.6326      667.6674 
+
+ 436.4709      409.7769 
+Ball mill
+ 281.8875      332.2515 
+Sump
+ 530.4334      624.9493 
+Hydroclone
+ 530.4334      624.9493 
+
+ 4 
+TTTTT
+ 30.31048      352.8195      10            10 
+ 765.3396      667.6674      754.731       697.7282 
+ 492.5453      605.9635      645.6132      512.6166 
+ 350.086       400.284       289.4651      495.213 
+ 97.90039      540.9736      87.90039      480.9736 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+Example10-BallMillCircuit
+ 6 
+ 1  5 F  0  1 
+ 6  11 W -1  1 
+ 2  6 O  1  3 
+ 3  7 O  3  2 
+ 4  9 O  2  1 
+ 5  10 O  3  0 
+"Model data",#TRUE#
+Example10-BallMillCircuit
+ 3 
+ 22  13  8 
+ 2  3  4 
+"System input data",#TRUE#
+SYSTEM DATA
+Example10-BallMillCircuit
+NDGS   1 025 001 001
+MINS 001
+Coarse          
+SIZE
+5.0000E-3 3.5355E-3 2.5000E-3 1.7678E-3 1.2500E-3 8.8388E-4 6.2500E-4 4.4194E-4 
+3.1250E-4 2.2097E-4 1.5625E-4 1.1049E-4 7.8125E-5 5.5243E-5 3.9063E-5 2.7621E-5 
+1.9531E-5 1.3811E-5 9.7656E-6 6.9053E-6 4.8828E-6 3.4527E-6 2.4414E-6 1.7263E-6 
+1.2207E-6 
+SPGR
+3.3000E+0 
+GRDM
+1.0000E+0
+PHYP 001 001
+3.3000E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 001
+SCMA 002 001 003
+SCMA 003 003 002
+SCMA 004 002 001
+SCMA 005 003 000
+WTRF 001 006
+0.00000E+0 66.90
+STRM 001   2
+4.45280E+1 76.10
+2.2534E-3 9.5569E-3 2.0305E-2 4.2722E-2 6.8540E-2 8.9325E-2 9.5485E-2 9.1245E-2 
+9.1050E-2 8.2630E-2 7.8209E-2 6.9219E-2 5.5249E-2 4.0532E-2 3.2389E-2 2.5980E-2 
+2.0839E-2 1.6715E-2 1.3408E-2 1.0754E-2 8.6264E-3 6.9194E-3 5.5502E-3 4.4519E-3 
+1.8046E-2 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 003
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+Example10-BallMillCircuit
+Stream     001 005 Rod mill discharge            
+Feedrate  4.4528E+1 76.1000
+Size dist  014
+4.7500E-3 0.9990
+3.3500E-3 0.9920
+2.3600E-3 0.9770
+1.7000E-3 0.9450
+1.1800E-3 0.8820
+8.5000E-4 0.8040
+6.0000E-4 0.7050
+4.2500E-4 0.6180
+3.0000E-4 0.5220
+2.1200E-4 0.4390
+1.5000E-4 0.3580
+1.0600E-4 0.2850
+7.5000E-5 0.2220
+5.3000E-5 0.1780
+Stream     002 006 Cyclone feed                  
+Size dist  000
+Stream     003 007 Cyclone underflow             
+Size dist  014
+4.7500E-3 0.9990
+3.3500E-3 0.9950
+2.3600E-3 0.9850
+1.7000E-3 0.9610
+1.1800E-3 0.9140
+8.5000E-4 0.8500
+6.0000E-4 0.7560
+4.2500E-4 0.6490
+3.0000E-4 0.4990
+2.1200E-4 0.3670
+1.5000E-4 0.2540
+1.0600E-4 0.1780
+7.5000E-5 0.1280
+1.7800E-5 0.0980
+Stream     004 009 Ball mill discharge           
+Size dist  012
+2.3600E-3 0.9980
+1.7000E-3 0.9930
+1.1800E-3 0.9770
+8.5000E-4 0.9470
+6.0000E-4 0.8870
+4.2500E-4 0.8000
+3.0000E-4 0.6530
+2.1200E-4 0.5120
+1.5000E-4 0.3780
+1.0600E-4 0.2820
+7.5000E-5 0.2110
+5.3000E-5 0.1660
+Stream     005 010 Cyclone overflow              
+Size dist  010
+1.1800E-3 0.9950
+8.5000E-4 0.9800
+6.0000E-4 0.9370
+4.2500E-4 0.8790
+3.0000E-4 0.7880
+2.1200E-4 0.6820
+1.5000E-4 0.5610
+1.0600E-4 0.4510
+7.5000E-5 0.3540
+5.3000E-5 0.2850
+Stream     006 011 Sump water                    
+Water feed 0.0000E+0 66.9000
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 005 Rod mill discharge            
+Number of grade ranges       0 
+END OF FILE
+"Liberation data",#TRUE#
+Example10-BallMillCircuit
+Stream     002 006 Cyclone feed                  
+Lib dist   000
+Stream     003 007 Cyclone underflow             
+Lib dist   000
+Stream     004 009 Ball mill discharge           
+Lib dist   000
+Stream     005 010 Cyclone overflow              
+Lib dist   000
+Stream     001 005 Rod mill discharge            
+Lib dist   000
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 005 Rod mill discharge            
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 MIXR 000 002
+TYPE 002 HFMI 008 003
+8.0000E-1 8.0000E-1 -3.1200E-1 3.7000E+0 7.4800E-1 0.0000E+0 7.2000E-1 6.1600E+2 
+TYPE 003 CYCL 013 004
+3.8000E-1 3.3711E+0 2.6316E-1 4.0000E-1 2.0000E-1 3.8100E+0 3.0000E+0 1.0000E+0 
+3.6000E-1 2.0000E+0 1.0000E-3 6.4000E-1 3.7000E-2 
+OUTC
+   0   0   6   1   1   6   1   6   6   6
+STOP
+"Output format",#TRUE#
+2T2TTFFF
+ 0 
+F
+F
+"SIMOP data",#TRUE#
+FFFFFF

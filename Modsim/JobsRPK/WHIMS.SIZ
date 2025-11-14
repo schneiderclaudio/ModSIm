@@ -1,0 +1,35 @@
+WHIMS
+Stream     002 011 Plant feed                    
+Feedrate  8.3330E+1 90.0000
+Size dist  014
+2.8560E-2 0.9900
+2.0200E-2 0.9521
+1.4280E-2 0.8653
+1.0100E-2 0.7335
+7.1400E-3 0.5821
+5.0490E-3 0.4376
+3.5700E-3 0.3160
+2.5250E-3 0.2216
+1.7850E-3 0.1524
+1.2620E-3 0.1033
+8.9250E-4 0.0694
+6.3110E-4 0.0464
+4.4630E-4 0.0308
+3.1560E-4 0.0205
+Stream     003 037 Grinding plant feed           
+Size dist  000
+Stream     004 038 Ball mill feed                
+Size dist  000
+Stream     007 044 Ball mill discharge           
+Size dist  000
+Stream     012 053 Magnetic separator feed       
+Size dist  000
+Stream     014 055 Final concentrate             
+Size dist  000
+Stream     013 054 Tailing                       
+Size dist  000
+Stream     005 039 Sump water                    
+Water feed 0.0000E+0 73.0000
+Stream     008 046 Hydrocyclone feed water       
+Water feed 0.0000E+0 45.0000
+END OF FILE

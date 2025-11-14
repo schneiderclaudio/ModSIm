@@ -1,0 +1,22 @@
+  Has entered OPGRAPH
+  NoArgs          5
+ e:\Program                                                                     
+                                                                                
+                                                                                
+                    
+ e:\Program                                                                     
+                                                                                
+                                                                                
+                    
+ e:\Program Files\Microsoft                                                     
+                                                                                
+                                                                                
+                    
+ e:\Program Files\Microsoft Visual                                              
+                                                                                
+                                                                                
+                    
+ Job path e:\Program Files\Microsoft Visual Studio\Vb98\Projects\MODSIM\
+ File PSDGRAPH.OUT has been read
+ File OPGRAPH.DAT has been read
+ File SIZECOMP.OUT has been read

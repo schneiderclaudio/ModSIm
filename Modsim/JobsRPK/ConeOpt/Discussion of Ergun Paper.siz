@@ -1,0 +1,9 @@
+Discussion of Ergun Paper
+Stream     001 002 Feed                          
+Feedrate  1.6667E+1 50.0000
+Size dist  000
+Stream     002 003 Tailing                       
+Size dist  000
+Stream     003 004 Concentrate                   
+Size dist  000
+END OF FILE

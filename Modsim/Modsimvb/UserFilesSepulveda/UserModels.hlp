@@ -1,0 +1,53 @@
+.context BLBX
+This model passes the feed through to the tailing. A water stream can be connected directly to the unit. This model can be changed using the software development kit to suit your needs.
+.context NAGE
+This model was developed at the Julius Kruttschnitt Mineral Research Centre and is an extension of the original model for the performance of the hydrocyclone that was developed by Lynch and Rao. This model was developed by multilinear regression of experimental data that was obtained from tests on several Krebs cyclones. the model consists of empirical relationships for predicting the corrected D50, the flow through the hydrocyclone as a function of the pressure drop and the fractional recovery of the water. The exponential sum model is used for the partition function. The model, as presented by the authors, also includes an empirical expression for the prediction of the fractional recovery by volume of total feed to the underflow.  However this makes the model internally inconsistent and the later relationship is not used in the simulation of performance of the unit. It is used only to return the extent of the inconsistency in the report file.
+
+Parameters:
+  Calibration factor for D50c   KD0
+  Calibration factor for total slurry flowrate    KQ0
+  Calibration factor for water recovery to underflow    KW1
+  Efficiency factor
+  Diameter of cyclindrical section
+  Inlet diameter (diameter of circle of same area as cyclone inlet)
+  Overflow (vortex finder) diameter
+  Underflow (apex) diameter
+  Length of cylindrical section
+  Cone full angle (degrees)
+
+
+.context CBOX
+This model is a splitter. It is written in C and can be used as a simple profile for users model subroutines that are written in C.
+
+Parameters:
+  Splitter fraction to tailing
+  
+.context CLYN
+!This implements the Lynch and Rao model for the hydrcyclone.
+!Imlpementation based on Jaime Sepulved course syllabus. The formula for water recovery is hopeless.  
+!The water recovery implemented is a quick guess, based on the parameters that are available.
+
+Parameters:
+  Correction factor for Pressure
+  Correction factor for Overflow water
+  Correction factor for d50c
+  Efficiency factor
+  Vortex finder diameter
+  Spigot diameter
+  
+.context CIMM
+CIMM model for hydrocyclone, based on Plitt's.  See Sepulveda, Moly-Cop Tools
+Parameters:
+  Empirical parameter to correct for pressure
+  Empirical parameter to correct for d50
+  Empirical parameter to correct for pulp partition
+  Empirical parameter to correct for Plitt parameter
+  Empirical parameter to correct for bypass
+  Cyclone diameter
+  Inlet diameter
+  Vortex finder diameter
+  Spigot diameter
+  vortex-spigot distance
+  
+
+

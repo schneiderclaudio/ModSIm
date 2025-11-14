@@ -1,0 +1,36 @@
+HPGR Middlings completo
+Stream     001 033 Feed                          
+Feedrate  2.6545E+3 95.0000
+Size dist  019
+2.5000E+0 1.0000
+2.0000E+0 0.9537
+1.5000E+0 0.9379
+1.2500E+0 0.9263
+1.0000E+0 0.9104
+7.5000E-1 0.8872
+5.0000E-1 0.8496
+4.0000E-1 0.8267
+2.5000E-1 0.7741
+1.7500E-1 0.7312
+1.0000E-1 0.6607
+5.0000E-2 0.5721
+3.0000E-2 0.5085
+2.0000E-2 0.4603
+1.0000E-2 0.3839
+5.0000E-3 0.3164
+1.0000E-3 0.1951
+7.1000E-4 0.1752
+4.4000E-5 0.0704
+Stream     047 080 No name                       
+Water feed 0.0000E+0 20.0000
+Stream     048 083 No name                       
+Water feed 0.0000E+0 20.0000
+Stream     049 084 No name                       
+Water feed 0.0000E+0 50.0000
+Stream     050 085 No name                       
+Water feed 0.0000E+0 50.0000
+Stream     051 086 No name                       
+Water feed 0.0000E+0 70.0000
+Stream     052 087 No name                       
+Water feed 0.0000E+0 70.0000
+END OF FILE

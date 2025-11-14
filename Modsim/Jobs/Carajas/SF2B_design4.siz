@@ -1,0 +1,35 @@
+SF2B_design4
+Stream     001 005 Alimentacao planta            
+Feedrate  9.4445E+1 100.0000
+Size dist  010
+6.3500E-3 0.9933
+4.0000E-3 0.9841
+2.0000E-3 0.9669
+1.0000E-3 0.9301
+5.0000E-4 0.7764
+2.5000E-4 0.5139
+1.5000E-4 0.3137
+1.0600E-4 0.1975
+7.5000E-5 0.1255
+4.5000E-5 0.0772
+Stream     002 006 alimentacao do moinho         
+Size dist  000
+Stream     003 007 descarga do moinho            
+Size dist  000
+Stream     004 008 alimentacao cicl classificador
+Size dist  000
+Stream     005 009 undeflow cicl classificador   
+Size dist  000
+Stream     008 016 overflow cicl classificador   
+Size dist  000
+Stream     009 019 alimentacao cicl deslamador   
+Size dist  000
+Stream     011 021 overflow cicl deslamador      
+Size dist  000
+Stream     010 020 underflow cicl deslamador     
+Size dist  000
+Stream     006 011 agua alimentacao do moinho    
+Water feed 0.0000E+0 73.8000
+Stream     007 013 agua descarga do moinho       
+Water feed 1.1389E+3 0.0000
+END OF FILE

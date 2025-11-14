@@ -1,0 +1,17 @@
+Met567 Final Exam Q3 2003
+Stream     001 002 Feed                          
+Feedrate  1.8056E+1 43.0000
+Size dist  008
+5.0500E-4 0.9520
+2.5200E-4 0.7340
+1.2600E-4 0.4380
+6.3100E-5 0.2220
+3.1600E-5 0.1030
+1.5800E-5 0.0467
+2.0530E-6 0.0090
+1.9700E-6 0.0039
+Stream     003 004 Oversize                      
+Size dist  000
+Stream     002 003 Undersize                     
+Size dist  000
+END OF FILE

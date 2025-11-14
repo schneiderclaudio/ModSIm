@@ -1,0 +1,210 @@
+"Job name","Kiruna primary circuit"
+"Flowsheet",#TRUE#
+ 1  22  8  15 
+Kiruna primary circuit
+ 3  7  1 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTTTTTT
+FFFFFFT
+ 24 T
+ 3  290.9806  495.213  8  6 
+ 63 T
+ 2  557.7128  246.8154  8  2 
+ 65 T
+ 1  500  500  8  1 
+ 0 
+ 198.5336      495.213       273.3806      495.213       3 
+ 0 
+ 583.4767      458.8235      583.4767      248.3976      4 
+ 0 
+ 308.5806      495.213       428.8933      495.213       7 
+ 1 
+ 518.3092      286.3692      290.9806      474.645       8 
+ 290.9806      286.3692 
+ 0 
+ 627.4269      501.5416      951.7491      501.5416      9 
+ 0 
+ 597.1165      237.3225      942.6559      237.3225      10 
+ 1 
+ 377.3655      662.9209      424.3467      504.7059      14 
+ 377.3655      539.5132 
+ 0 
+ 7 
+TTTTTTTT
+ 1020          100           10            10 
+ 74.26067      631.2779      213.6889      495.213 
+ 215.2044      629.6957      351.6016      495.213 
+ 733.5136      599.6349      709.2653      503.1237 
+ 594.9922      441.2982      584.9922      381.2982 
+ 725.936       341.7444      686.5323      237.3225 
+ 347.055       382.8803      318.26        286.3692 
+ 387.3655      688.1136      377.3655      628.1136 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+Kiruna primary circuit
+ 7 
+ 1  3 F  0  3 
+ 7  14 W -1  1 
+ 2  4 O  1  2 
+ 3  7 O  3  1 
+ 4  8 O  2  3 
+ 5  9 O  1  0 
+ 6  10 O  2  0 
+"Model data",#TRUE#
+Kiruna primary circuit
+ 3 
+ 65  63  24 
+ 1  2  6 
+"System input data",#TRUE#
+SYSTEM DATA
+Kiruna primary circuit
+NDGS   1 025 001 001
+MINS 001
+IronOre         
+SIZE
+1.0000E-1 7.0711E-2 5.0000E-2 3.5355E-2 2.5000E-2 1.7678E-2 1.2500E-2 8.8388E-3 
+6.2500E-3 4.4194E-3 3.1250E-3 2.2097E-3 1.5625E-3 1.1049E-3 7.8125E-4 5.5243E-4 
+3.9063E-4 2.7621E-4 1.9531E-4 1.3811E-4 9.7656E-5 6.9053E-5 4.8828E-5 3.4527E-5 
+2.4414E-5 
+SPGR
+2.9000E+0 
+GRDM
+1.0000E+0
+PHYP 001 001
+2.9000E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 003
+SCMA 002 001 002
+SCMA 003 003 001
+SCMA 004 002 003
+SCMA 005 001 000
+SCMA 006 002 000
+WTRF 001 007
+0.00000E+0 75.00
+STRM 001   2
+2.08340E+2 95.00
+5.4252E-2 6.6567E-2 6.4923E-2 6.3411E-2 6.6814E-2 6.5430E-2 7.1193E-2 7.5805E-2 
+7.7165E-2 6.6545E-2 5.6253E-2 4.6152E-2 3.8311E-2 3.1802E-2 2.6399E-2 2.1913E-2 
+1.8190E-2 1.5100E-2 1.2534E-2 1.0405E-2 8.6370E-3 7.1696E-3 5.9515E-3 4.9403E-3 
+2.4138E-2 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 001
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+Kiruna primary circuit
+Stream     001 003 Feed                          
+Feedrate  2.0834E+2 95.0000
+Size dist  010
+9.9400E-2 0.9720
+7.9800E-2 0.9350
+6.6600E-2 0.9000
+5.0600E-2 0.8460
+3.9500E-2 0.8030
+2.2900E-2 0.7000
+1.3400E-2 0.5990
+8.4800E-3 0.5030
+5.4000E-3 0.4000
+3.2600E-3 0.3050
+Stream     002 004 Trommel undersize             
+Size dist  000
+Stream     003 007 FAG mill feed                 
+Size dist  000
+Stream     004 008 Classifier oversize           
+Size dist  012
+2.7970E-3 0.9040
+2.0100E-3 0.8530
+1.0000E-3 0.7450
+7.0530E-4 0.6800
+4.9740E-4 0.5970
+3.5080E-4 0.4980
+2.4740E-4 0.3730
+1.7780E-4 0.2590
+1.2420E-4 0.1760
+8.9300E-5 0.1350
+6.2400E-5 0.1070
+4.4800E-5 0.0862
+Stream     005 009 Trommel oversize              
+Size dist  011
+3.0030E-2 0.9900
+2.5020E-2 0.9490
+1.9970E-2 0.8660
+1.5030E-2 0.7240
+1.2590E-2 0.5980
+1.0100E-2 0.4930
+9.0750E-3 0.4240
+8.0650E-3 0.3610
+6.3340E-3 0.2070
+5.0020E-3 0.1410
+3.3450E-3 0.0856
+Stream     006 010 Final product                 
+Size dist  009
+7.0000E-4 0.9920
+4.9130E-4 0.9890
+3.5210E-4 0.9710
+2.4770E-4 0.9220
+1.7990E-4 0.8470
+1.2500E-4 0.7400
+8.9700E-5 0.6310
+6.3600E-5 0.4980
+4.5300E-5 0.4050
+Stream     007 014 Mill water                    
+Water feed 0.0000E+0 75.0000
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 003 Feed                          
+Number of grade ranges       0 
+END OF FILE
+"Liberation data",#TRUE#
+Kiruna primary circuit
+Stream     002 004 Trommel undersize             
+Lib dist   000
+Stream     003 007 FAG mill feed                 
+Lib dist   000
+Stream     004 008 Classifier oversize           
+Lib dist   000
+Stream     005 009 Trommel oversize              
+Lib dist   000
+Stream     006 010 Final product                 
+Lib dist   000
+Stream     001 003 Feed                          
+Lib dist   000
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 003 Feed                          
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 FAGT 021 001
+1.2000E+0 3.7230E+0 3.0000E-1 0.0000E+0 1.3761E+0 8.0000E-1 3.0900E+0 4.5000E+0 
+7.4400E+1 1.2700E+0 1.0000E+0 4.8000E-1 6.5000E+0 4.0000E+1 7.5000E+1 1.9890E+1 
+1.2000E+1 8.9426E+1 1.0800E+0 2.3000E+0 4.0000E+0 
+TYPE 002 CYCA 005 002
+5.0000E-2 2.0000E-1 4.0000E-4 0.0000E+0 1.3761E+0 
+TYPE 003 MIXR 000 006
+OUTC
+   0   0   6   1   1   6   1   6   0   0
+STOP
+"Output format",#TRUE#
+2T4TTFF1F
+ 0 
+F
+T
+ 1 
+ 004
+"SIMOP data",#TRUE#
+FFFFFF

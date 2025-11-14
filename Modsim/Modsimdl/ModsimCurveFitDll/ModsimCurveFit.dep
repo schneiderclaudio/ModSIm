@@ -1,0 +1,12 @@
+# Microsoft Developer Studio Generated Dependency File, included by ModsimCurveFit.mak
+
+.\Modelresponse.f90 : \
+	".\Release\GLOBALS.MOD"\
+	".\Release\WorkingCommon.mod"\
+	
+
+.\ModsimCurveFit.f90 : \
+	".\Release\GLOBALS.MOD"\
+	".\Release\WorkingCommon.mod"\
+	{$(INCLUDE)}"Numerical_libraries.mod"\
+	

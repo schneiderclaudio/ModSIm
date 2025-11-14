@@ -1,0 +1,26 @@
+Water injection cyclone
+Stream     001 002 Feed                          
+Feedrate  1.0000E+1 23.0000
+Size dist  006
+3.0000E-4 0.9500
+2.0000E-4 0.8500
+1.0000E-4 0.5400
+6.0000E-5 0.3900
+3.0000E-5 0.2700
+1.0000E-5 0.1800
+Stream     002 030 Cyclone overflow              
+Size dist  000
+Stream     003 031 Cyclone underflow             
+Size dist  009
+2.1200E-4 0.8292
+1.5000E-4 0.6540
+1.0600E-4 0.4934
+7.5000E-5 0.3656
+5.3000E-5 0.2654
+3.8000E-5 0.1907
+2.7000E-5 0.1331
+1.9000E-5 0.0955
+9.5000E-6 0.0615
+Stream     004 032 Injection water               
+Water feed 8.3335E-1 0.0000
+END OF FILE

@@ -1,0 +1,123 @@
+CONE
+3
+Relative height of the cut in the stratified bed, 0.2, NONE
+Specific stratification constant, 0.001, NONE
+Number of cones in parallel, 1,NONE
+
+CRSH
+5
+Closed-side set, 0.0254, SIZE
+Proportion of fines produced during a breakage event K, 0.2, NONE
+Impact work index of the material kWhr/tonne, 12, NONE
+Proportionality constant between CSS or OSS and d1 - Alpha1, 0.653, NONE
+Proportionality constant between CSS or OSS and d2 - Alpha2, 1.6, NONE
+
+CRS1
+1
+Closed-side set, 0.0254, SIZE
+
+DOFI
+8
+Field strength in Tesla, 0.5,NONE
+Saturation magnetization of the matrix material in Tesla, 1.0,NONE
+Interstitial velocity of slurry through the matrix in m/s, 0.2,NONE
+Fractional loading of the matrix, 0.8,NONE
+M50 for low susceptibility particles, 2.63, NONE
+M50 for high susceptibility particles, 0.0001062, NONE
+% Residual water on magnetics before flushing, 10,NONE
+Number of units in parallel, 1, NONE
+
+EMJC
+4
+Crusher gap, 0.0254, SIZE
+Largest size in product as a multiple of the gap rmax, 1.251, NONE
+Exponent m, 0.843, NONE
+Work index of the material in this crusher, 12, NONE
+
+FILT
+1
+Percent solids in the filter cake, 75, NONE
+
+JAW1
+2
+Open-side setting, 0.0254, SIZE
+Impact work index of material in the crusher  kWhr/tonne, 12, NONE
+
+JAW2
+2
+Open-side setting, 0.0254, SIZE
+Impact work index of material in the crusher  kWhr/tonne, 12, NONE
+
+SCRN
+2
+Mesh size, 0.0254, SIZE
+Transmission efficiency, 0.90, NONE
+
+SCR1
+3
+D50 size, 0.0254, SIZE
+Fractional water split to underflow, 0.1, NONE
+Efficiency parameter, 2.0, NONE
+
+SEGB
+4
+Small size asymptote, 0.55, NONE
+Recovery of intermediate sizes, 0.66, NONE
+Critical size, 0.05, NONE
+Slope of logarithmic portion, 0.24, NONE
+
+SHAK
+2
+Target specific graivity for separation,2.8,NONE
+Recovery of water to front edge of table %,95,NONE
+
+SHHD
+5
+Closed-side set, 0.0254, SIZE
+Proportion of fines produced during a breakage event K, 0.2, NONE
+Impact work index of the material  kWhr/tonne, 12, NONE
+Alpha1, 0.653, NONE
+Alpha2, 2.0, NONE
+
+SJIG
+2
+Relative height of the cut in the stratified bed, 0.3, NONE
+Specific stratification constant, 0.02, NONE
+
+THIC
+1
+Percent solids in the underflow, 75, NONE
+
+UMIL
+5
+Residence time in the first section of the mill, 0.5, NONE
+Residence time in the second section of the mill, 0.5, NONE
+Residence time in the third section of the mill, 10, NONE
+Choice of breakage and selection functions, 1, NONE
+Choice of liberation model,0,NONE
+
+WDM2
+5
+Sharpness Index  Allowable range is >0 and <1.0, 0.75, NONE
+The grade of mineral 1 in the particle that has 50% recovery, 0.05, NONE
+Small size limit of short circuit fraction to non magnetics, 0.3, NONE
+Exponential coefficient to reduce by-pass as size increases, 20, NONE
+Water split to tail stream, 0.8, NONE
+
+KNEL
+4
+Maximum recovery of free gold in percent, 88, NONE
+Recovery of locked gold in percent, 25, NONE
+Solid content of the concentrate in kg solids/liter water, 2, NONE
+Number of units in parallel, 1, NONE
+
+PSCN
+8
+Amplitude of vibration, 0.004,SIZE
+Vibration frequency - Hz, 20,NONE
+Angle of inclination of the screen - degrees,20,NONE
+Screen vibration throw angle - degrees,75,NONE
+Screen aperture size, 0.015,SIZE
+Screen width, 1,SIZE
+Screen length, 2,SIZE
+Number of screens in parallel,1,NONE

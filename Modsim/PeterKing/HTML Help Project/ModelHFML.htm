@@ -1,0 +1,136 @@
+<html>
+    <Title>Model HFML</Title>
+	<head>
+		<meta name="generator" content="Corel WordPerfect 12">
+		<meta http-equiv="content-Type" content="text/html; charset=utf-8">
+		<style>
+p
+{
+	margin-top: 0px;
+	margin-bottom: 1px
+}
+
+span.WPCharBox
+{
+	border-width: 0.0133333in;
+	border-style: solid;
+	border-color: black;
+	padding: 0px;
+	width: 100%;
+	margin: 0px
+}
+
+span.WPCharBoxWrapper
+{
+	padding: 0px;
+	vertical-align: text-top
+}
+
+body
+{
+	font-family: "Times New Roman", serif;
+	font-size: 12pt;
+	font-weight: normal;
+	font-style: normal
+}
+</style>
+	</head>
+	<body>
+		<p><span style="font-weight: bold"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">HFML:</span>
+				</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;Herbst-Fuerstenau model for a ball mill with liberation using three perfectly mixed regions in series.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">There is no classification between stages but post classification at the discharge is optional.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">The selection function is modeled using the energy-specific selection function proposed by Herbst and
+Fuerstenau.  The energy-specific selection function is calculated as a function of particle size using</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">
+					<span class="WPCharBoxWrapper" style="width: 259px">
+						<span class="WPCharBox" style="border: none">
+							<img src="hfml/ole.gif" alt="ole.gif" width="259" height="81" border="0"></span>
+					</span>
+				</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">where
+<span class="WPCharBoxWrapper" style="width: 21px"><span class="WPCharBox" style="border: none">
+							<img src="hfml/ole1.gif" alt="ole1.gif" width="21" height="24" border="0"></span>
+					</span>
+ is the energy-specific selection function at size d<sub>p1</sub>.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Reference: Herbst, J. A. and Fuerstenau D. W. Scale-up procedure for continuous grinding mill design
+using population balance models.  <i>International Journal of Mineral Processing </i>7(1980)1-31</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">The breakage function is the standard Austin model.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">This model requires the net power input to the mill charge to be specified and does not require the
+average residence time to be known.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Liberation of the mineral phases is computed using the Andrews-Mika model as developed by in King R P
+"Calculation of the Liberation Spectrum in Products Produced in Continuous Milling  Circuits".<i> Proc 
+						7th European Symposium on Comminution</i>. Ljubljana June 1990 Vol 2 pp429-444. THIS LIMITS THIS
+MODEL TO BINARY ORES when liberation must be modeled. The mineral liberation.feature can be
+switched off so that multi-mineral systems can be simulated. </span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Claudio Schneider's Beta function model of the internal structure of the Andrew's Mika diagram is
+available as an alternative liberation model. Schneider, C. L. The Measurement and Calculation of
+Liberation in Continuous Grinding Circuits. PhD Thesis, University of Utah, 1995. This model is described
+in King, R. P. <i>Modeling and Simulation of Mineral Processing Systems</i>. Butterworth-Heinemann, Oxford
+2001. Chapter 3.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Water can be added directly to the mill feed at a prespecified rate or the simulator will calculate the water
+addition rate that is required to achieve a specified solid content in the mill discharge.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;Parameters for the selection function:</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;1...
+<span class="WPCharBoxWrapper" style="width: 26px"><span class="WPCharBox" style="border: none">
+							<img src="hfml/ole2.gif" alt="ole2.gif" width="26" height="34" border="0"></span>
+					</span>
+ in t/kW h</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;2...&#950;<sub>1</sub></span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;3...&#950;<sub>2</sub></span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;Parameters for the breakage function:</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;4...&#946;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;5...&#947;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;6...&#948;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;7...&#934; at 5mm</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;Parameter to define the mill operating condition:</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;8...Net power drawn by the charge.  kW</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;9...Choice of liberation model:</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 = None, 1 = Ljubljana mode, 2 = Beta function model.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;10..Choice of post classification model:</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 = None, 1 = Rosin-Rammler, 2 = Exponential sum, 3 = Logistic.</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;11..D50 for post classifier.</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;&#160;&#160;12..Sharness index for classification function.</span>
+			</span></p>
+	</body>
+</html>

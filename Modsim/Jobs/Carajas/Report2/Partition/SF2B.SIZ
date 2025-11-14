@@ -1,0 +1,92 @@
+SF2B
+Stream     001 005 Alimentacao                   
+Feedrate  8.5556E+1 100.0000
+Size dist  012
+6.3000E-3 0.9967
+4.0000E-3 0.9903
+2.0000E-3 0.9798
+1.0000E-3 0.8987
+5.0000E-4 0.7424
+2.5000E-4 0.5134
+1.5000E-4 0.3107
+1.0500E-4 0.1904
+7.5000E-5 0.1276
+4.5000E-5 0.0921
+3.8000E-5 0.0864
+2.0000E-5 0.0741
+Stream     002 006 alimentacao do moinho         
+Size dist  000
+Stream     003 007 descarga do moinho            
+Size dist  000
+Stream     004 008 alimentacao cicl classificador
+Size dist  012
+1.0000E-3 0.9860
+5.0000E-4 0.9560
+2.5000E-4 0.8520
+1.5000E-4 0.6670
+1.0000E-4 0.4920
+7.5000E-5 0.3110
+4.5000E-5 0.1780
+2.6000E-5 0.1320
+2.0000E-5 0.1160
+1.4000E-5 0.1020
+9.0000E-6 0.0920
+7.0000E-6 0.0870
+Stream     005 009 undeflow cicl classificador   
+Size dist  012
+1.0000E-3 0.9830
+5.0000E-4 0.9470
+2.5000E-4 0.8220
+1.5000E-4 0.5990
+1.0000E-4 0.3920
+7.5000E-5 0.1870
+4.5000E-5 0.0600
+2.6000E-5 0.0410
+2.0000E-5 0.0390
+1.4000E-5 0.0360
+9.0000E-6 0.0360
+7.0000E-6 0.0360
+Stream     008 019 alimentacao cicl deslamador   
+Size dist  000
+Stream     010 029 overflow cicl classificador   
+Size dist  010
+2.5000E-4 0.9980
+1.5000E-4 0.9870
+1.0000E-4 0.9650
+7.5000E-5 0.8960
+4.5000E-5 0.7370
+2.6000E-5 0.5590
+2.0000E-5 0.4800
+1.4000E-5 0.4150
+9.0000E-6 0.3610
+7.0000E-6 0.3250
+Stream     012 032 overflow cicl deslamador      
+Size dist  009
+1.5000E-4 0.9990
+1.0000E-4 0.9980
+7.5000E-5 0.9960
+4.5000E-5 0.9960
+2.6000E-5 0.9960
+2.0000E-5 0.9940
+1.4000E-5 0.9940
+9.0000E-6 0.9940
+7.0000E-6 0.9890
+Stream     014 035 underflow cicl deslamador     
+Size dist  010
+2.5000E-4 0.9960
+1.5000E-4 0.9910
+1.0000E-4 0.9760
+7.5000E-5 0.9240
+4.5000E-5 0.7260
+2.6000E-5 0.4870
+2.0000E-5 0.4030
+1.4000E-5 0.3070
+9.0000E-6 0.2280
+7.0000E-6 0.1800
+Stream     006 011 agua alimentacao do moinho    
+Water feed 0.0000E+0 78.0000
+Stream     007 013 agua descarga do moinho       
+Water feed 4.3361E+2 0.0000
+Stream     009 022 Agua deslamagem               
+Water feed 1.5000E+2 0.0000
+END OF FILE

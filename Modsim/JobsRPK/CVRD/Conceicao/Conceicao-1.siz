@@ -1,0 +1,26 @@
+Conceicao-1
+Stream     001 004 Hematite feed                 
+Feedrate  4.1667E+2 100.0000
+Size dist  003
+8.0000E-3 0.8000
+1.0000E-3 0.5200
+1.5000E-4 0.2400
+Stream     002 005 Itabarite feed                
+Feedrate  8.3334E+2 100.0000
+Size dist  003
+8.0000E-3 0.9000
+1.0000E-3 0.7900
+1.5000E-4 0.5400
+Stream     027 067 Primary hematite screen water 
+Water feed 2.2222E+2 0.0000
+Stream     028 068 Primary Itbarite screen water 
+Water feed 5.8550E+2 0.0000
+Stream     029 070 Concentrating cyclone feed    
+Water feed 2.5000E+2 0.0000
+Stream     030 071 Water                         
+Water feed 1.1111E+2 0.0000
+Stream     031 072 Water                         
+Water feed 1.9445E+2 0.0000
+Stream     033 075 Water                         
+Water feed 5.5556E+1 0.0000
+END OF FILE

@@ -1,0 +1,4 @@
+Modsim 3.6.15
+
+- Added models SAGP (SAG with Pebble Port) and SAGL (SAG with Pebble Port and Trommel) with grate models that allow for simulating Pebble Ports.  These models are based on the existing SAGM and SAGT models for SAG mills based on the Hoyer-Austin population balance formulation.
+- Added ModSim icon to forms and executables.

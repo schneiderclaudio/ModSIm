@@ -1,0 +1,15 @@
+When creating banners:
+
+1 - In Corel Draw, choose File then Export...
+2 - Select a file name and click on Export 
+3 - On Color select Paletted (8-bit)
+4 - Uncheck Dithered
+5 - Uncheck Use color profile
+6 - On Size, choose Custom
+7 - Set width to 499 pixels
+8 - Set height to 305 pixels
+9 - On Anti-aliasing choose None
+10 - Open the image in Paint Shop Pro
+11 - Under Colors choose Decrease Color Depth, then 16 colors
+12 - Set to Optimized Median Cut
+13 - Choose Nearest Color

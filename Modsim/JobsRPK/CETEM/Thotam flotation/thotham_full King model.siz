@@ -1,0 +1,21 @@
+thotham_full King model
+Stream     001 007 alimentacao                   
+Feedrate  6.9445E+0 100.0000
+Size dist  008
+2.3600E-3 0.9956
+1.6500E-3 0.9901
+1.1700E-3 0.9739
+8.4100E-4 0.9094
+5.9500E-4 0.6732
+4.2000E-4 0.1115
+2.9700E-4 0.0377
+2.1000E-4 0.0142
+Stream     009 018 Agua moagem                   
+Water feed 0.0000E+0 70.0000
+Stream     010 019 Agua ciclonagem               
+Water feed 0.0000E+0 60.0000
+Stream     011 020 Agua flotacao                 
+Water feed 0.0000E+0 20.0000
+Stream     014 034 cleaner flotation             
+Water feed 0.0000E+0 10.0000
+END OF FILE

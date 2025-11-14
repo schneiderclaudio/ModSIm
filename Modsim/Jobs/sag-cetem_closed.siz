@@ -1,0 +1,10 @@
+sag-cetem_closed
+Stream     001 003 Alim                          
+Feedrate  1.1111E+0 100.0000
+Size dist  003
+1.5300E-1 0.9351
+7.5000E-2 0.8072
+3.1000E-2 0.6362
+Stream     004 007 agua                          
+Water feed 0.0000E+0 75.0000
+END OF FILE

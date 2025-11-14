@@ -1,0 +1,14 @@
+Cone1
+Stream     001 002 Primary feed                  
+Feedrate  2.7778E+1 65.0000
+Size dist  007
+6.0000E-4 0.9900
+4.2500E-4 0.6800
+3.0000E-4 0.5200
+2.1200E-4 0.4000
+1.2500E-4 0.3050
+7.5000E-5 0.2100
+3.8000E-5 0.1300
+Stream     004 005 Dilution water                
+Water feed 0.0000E+0 35.0000
+END OF FILE

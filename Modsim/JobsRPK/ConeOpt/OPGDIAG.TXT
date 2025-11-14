@@ -1,0 +1,10 @@
+  Has entered OPGRAPH
+  NoArgs          2
+ C:\Mysoftware\Modsim\Modsimvb\                                                 
+                                                                                
+                                                                                
+                    
+ Job path C:\Mysoftware\Modsim\Modsimvb\
+ File PSDGRAPH.OUT has been read
+ File OPGRAPH.DAT has been read
+ File SIZECOMP.OUT has been read

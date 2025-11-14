@@ -1,0 +1,32 @@
+fag_sag
+Stream     001 002 Mill feed                     
+Feedrate  2.7778E+2 70.0000
+Size dist  019
+3.0000E-1 0.9997
+2.1210E-1 0.9949
+1.5000E-1 0.9693
+1.0610E-1 0.8995
+7.5000E-2 0.7803
+5.3030E-2 0.6321
+3.7500E-2 0.4830
+2.6520E-2 0.3529
+1.8750E-2 0.2496
+1.3260E-2 0.1726
+9.3750E-3 0.1175
+6.6290E-3 0.0792
+4.6880E-3 0.0530
+3.3150E-3 0.0353
+2.3440E-3 0.0234
+1.6570E-3 0.0155
+1.1720E-3 0.0103
+8.2860E-4 0.0068
+5.8590E-4 0.0045
+Stream     002 003 FAG mill discharge            
+Size dist  000
+Stream     007 014 FAG mill contents             
+Size dist  000
+Stream     008 015 SAG mill contents             
+Size dist  000
+Stream     006 013 SAG mill discharge            
+Size dist  000
+END OF FILE

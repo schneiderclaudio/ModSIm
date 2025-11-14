@@ -1,0 +1,139 @@
+"Job name","Ex10-3BallMill"
+"Flowsheet",#TRUE#
+ 1  14  10  5 
+Ex10-3BallMill
+ 1  2  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TT
+ 13 T
+ 1  500  500  10  2 
+ 0 
+ 234.9062      501.5416      389.4897      501.5416      3 
+ 0 
+ 601.663       501.5416      783.5259      501.5416      4 
+ 5 
+TTTTT
+ 500           500 
+
+ 254.608       457.2414 
+
+ 251.577       460.4057 
+Ball mill feed
+ 635.0046      460.4057 
+Ball mill discharge
+ 635.0046      460.4057 
+
+ 0 
+T
+ 1020          100           10            10 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+Ex10-3BallMill
+ 2 
+ 1  3 F  0  1 
+ 2  4 O  1  0 
+"Model data",#TRUE#
+Ex10-3BallMill
+ 1 
+ 13 
+ 2 
+"System input data",#TRUE#
+SYSTEM DATA
+Ex10-3BallMill
+NDGS   1 018 001 001
+MINS 001
+Coarse          
+SIZE
+5.0000E-3 3.5355E-3 2.5000E-3 1.7678E-3 1.2500E-3 8.8388E-4 6.2500E-4 4.4194E-4 
+3.1250E-4 2.2097E-4 1.5625E-4 1.1049E-4 7.8125E-5 5.5243E-5 3.9063E-5 2.7621E-5 
+1.9531E-5 1.3811E-5 
+SPGR
+3.3000E+0 
+GRDM
+1.0000E+0
+PHYP 001 001
+3.3000E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 001
+SCMA 002 001 000
+STRM 001   2
+7.15800E+1 77.50
+1.8430E-3 5.6416E-3 1.4131E-2 3.1911E-2 5.2851E-2 7.7694E-2 1.0016E-1 1.2554E-1 
+1.4435E-1 1.2569E-1 9.7940E-2 6.5088E-2 4.1503E-2 2.7115E-2 2.0721E-2 1.5872E-2 
+1.2158E-2 3.9797E-2 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 003
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+Ex10-3BallMill
+Stream     001 003 Ball mill feed                
+Feedrate  7.1580E+1 77.5000
+Size dist  014
+4.7500E-3 0.9990
+3.3500E-3 0.9950
+2.3600E-3 0.9850
+1.7000E-3 0.9610
+1.1800E-3 0.9140
+8.5000E-4 0.8500
+6.0000E-4 0.7560
+4.2500E-4 0.6490
+3.0000E-4 0.4990
+2.1200E-4 0.3670
+1.5000E-4 0.2540
+1.0600E-4 0.1780
+7.5000E-5 0.1280
+5.3000E-5 0.0980
+Stream     002 004 Ball mill discharge           
+Size dist  012
+2.3600E-3 0.9980
+1.7000E-3 0.9930
+1.1800E-3 0.9770
+8.5000E-4 0.9470
+6.0000E-4 0.8870
+4.2500E-4 0.8000
+3.0000E-4 0.6530
+2.1200E-4 0.5120
+1.5000E-4 0.3780
+1.0600E-4 0.2820
+7.5000E-5 0.2110
+5.3000E-5 0.1660
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 003 Ball mill feed                
+Number of grade ranges       0 
+END OF FILE
+"Liberation data",#TRUE#
+Ex10-3BallMill
+Stream     002 004 Ball mill discharge           
+Lib dist   000
+Stream     001 003 Ball mill feed                
+Lib dist   000
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 003 Ball mill feed                
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 HFMI 008 002
+6.0000E-1 8.0000E-1 -3.1200E-1 3.7000E+0 7.4800E-1 0.0000E+0 7.2000E-1 6.1600E+2 
+OUTC
+   0   0   6   1   1   6   1   6   6   6
+STOP
+"Output format",#FALSE#
+"SIMOP data",#TRUE#
+FFFFFF

@@ -1,0 +1,1047 @@
+C****************************  mgpostsc.f  ****************************C
+C                                                                      C
+C                   METGRAPH INTERACTIVE GRAPHICS                      C
+C                                                                      C
+C  This file holds the routines to create a PostScript program to      C
+C  display METGRAPH graphics on a PostScript printer.                  C
+C                                                                      C
+C  (c) METGRAPH copyright RP KING  Johannesburg 1985                   C
+C                                                                      C
+C**********************************************************************C
+C
+      SUBROUTINE PSINIT(Path)
+C     ***********************
+C  Opens a buffer for PostScript graphics output.
+C
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath,Path
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+
+      JobPath = Path
+      LENG = LEN_TRIM(JobPath)
+C
+C  Set move/draw flag flag to FALSE
+C  Calls to PLOT produce a line when GRPFL is true and a move otherwise.
+      GRPFL=.FALSE.
+C
+C  Set the EPSI flag to false. PSCLOSE will produced an encapsulated
+C  PostScript file for interchange when EPSI is true. There is a time penalty
+C  over the straight PostScript file.
+      EPSI = .FALSE.
+C
+C  Create a new page for the PostScript output.
+      CALL PSCRPG(1)
+C
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSCRPG(IP)
+C     ********************
+C  Creates a new PostScript page.
+      CHARACTER*8 FNAME
+      INTEGER TAB(128)
+      COMMON/TEK/TAB
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      COMMON/MGWP51/IBBOX(4),TRANS(2),SCALE(2),ROT
+      CHARACTER*11 FONT
+      COMMON /PSFONT/FONT
+C
+C  Initialise the buffer pointers.
+      PSPOIN=1
+      STPSPN=1
+C
+C Set up the default bounding box
+        IBBOX(1)=0
+        IBBOX(2)=0
+        IBBOX(3)=577
+        IBBOX(4)=430
+      DATA FNAME/'PSFILE00'/
+      IF(IP.GT.1) THEN
+        CALL PCLOSE
+      END IF
+      LU=3
+C
+C  Update the file name.
+      J=IP/10
+      K=IP-J*10
+      FNAME(7:7)=CHAR(TAB(48+J))
+      FNAME(8:8)=CHAR(TAB(48+K))
+      OPEN(LU,FILE=JobPath(1:LENG)//FNAME)
+C
+C  Write the program header.
+      WRITE(LU,2002) (IBBOX(I),I = 1,4)
+ 2002 FORMAT('%!PS-Adobe-2.0 EPSF-1.2'/
+     *'%This is a PostScript program produced by METGRAPH.'/
+     *'%%Creator: METGRAPH'/
+     *'%%BoundingBox: ',4I5/
+     *'%%Pages: 1')
+      WRITE(LU,1003)
+ 1003 FORMAT('%%EndComments')
+      WRITE(LU,1014)
+ 1014 FORMAT('/mm {2.835 mul} def'/
+     *'/lt /lineto load def'/
+     *'/mt /moveto load def'/
+     *'/rmt /rmoveto load def'/
+     *'%%EndProlog')
+      WRITE(LU,1004)TRANS(1),TRANS(2),ROT,SCALE(1),SCALE(2)
+ 1004 FORMAT('save'/
+     *F6.1,' mm ',F6.1,' mm translate'/
+     *F4.0,' rotate'/
+     *2F6.3,' scale'/
+     *'1 setlinewidth 2 setlinecap 1 setlinejoin'/
+     *' /Helvetica   findfont  27 scalefont setfont')
+C Initialise the flags for the new page.
+      FONT = 'Helvetica'
+      NGSAVE = 0
+      GRAYFILL = 1.0
+      ICHARSET = 1
+      RETURN
+      END
+
+C
+      SUBROUTINE PSORIE(O)
+C     ********************
+C  SETS THE ORIENTATION OF THE POSTSCRIPT IMAGE.
+C    O='P'.....PORTRAIT
+C    O='L'.....LANDSCAPE
+      CHARACTER*1 O
+      COMMON/MGWP51/IBBOX(4),TRANS(2),SCALE(2),ROT
+      IF(O.EQ.'P') THEN
+        IBBOX(1)=0
+        IBBOX(2)=48
+        IBBOX(3)=552
+        IBBOX(4)=432
+        TRANS(1)=12.5
+        TRANS(2)=12.5
+        SCALE(1)=0.5
+        SCALE(2)=0.5
+        ROT=0.0
+      ELSE
+        IBBOX(1)=90
+        IBBOX(2)=120
+        IBBOX(3)=570
+        IBBOX(4)=730
+        TRANS(1)=194
+        TRANS(2)=35
+        SCALE(1)=0.563
+        SCALE(2)=0.563
+        ROT=90.0
+      END IF
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSPLOT(X,Y)
+C     **********************
+C  The high resolution PLOT primitive for PostScript.
+C
+      CALL PSBUFR(X)
+      CALL PSBUFR(Y)
+      CALL PSBUFW(' lt',3)
+      RETURN
+      END
+C
+      SUBROUTINE PSMOVE(X,Y)
+C     **********************
+C  THE MOVE PRIMITIVE FOR POST SCRIPT.
+C
+      CALL PSBUFR(X)
+      CALL PSBUFR(Y)
+      CALL PSBUFW(' mt',3)
+      RETURN
+      END
+C
+      SUBROUTINE PSRELMOVE(X,Y)
+C     *************************
+C  THE RELATIVE MOVE PRIMITIVE FOR POST SCRIPT.
+C
+      CALL PSBUFR(X)
+      CALL PSBUFR(Y)
+      CALL PSBUFW(' rmt',4)
+      RETURN
+      END
+C
+      SUBROUTINE PSCLIP(X1,Y1,X2,Y2)
+C     ******************************
+C Clips the PostScript image
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      CALL PSBUFW(' stroke gsave',13)
+      CALL PSBUFW(' newpath',8)
+      NGSAVE = NGSAVE + 1
+      CALL PSMOVE(X1,Y1)
+      CALL PSPLOT(X2,Y1)
+      CALL PSPLOT(X2,Y2)
+      CALL PSPLOT(X1,Y2)
+      CALL PSBUFW(' closepath',10)
+      CALL PSBUFW(' clip',5)
+      CALL PSBUFW(' newpath',8)
+      RETURN
+      END
+C
+      SUBROUTINE PSCLIPOFF
+C     ********************
+C Resets the clip path to the previous graphics state.
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      CALL PSBUFW(' stroke grestore',16)
+      NGSAVE = NGSAVE - 1
+      RETURN
+      END
+C
+      SUBROUTINE PSSCALE(X,Y)
+C     ***********************
+C  Scales the PostScript image.
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      CALL PSBUFR(X)
+      CALL PSBUFR(Y)
+      CALL PSBUFW(' scale',6)
+      RETURN
+      END
+C
+      SUBROUTINE PSUNSCALE
+C     ********************
+C  Unscales the PostScript image.
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      RETURN
+      END
+C
+C
+        SUBROUTINE PSCURV(X1,Y1,X2,Y2,X,Y)
+C       **********************************
+C  IMPLEMENTS THE curveto OPERATION IN PostScript.
+      CALL PSBUFR(X1)
+      CALL PSBUFR(Y1)
+      CALL PSBUFR(X2)
+      CALL PSBUFR(Y2)
+      CALL PSBUFR(X)
+      CALL PSBUFR(Y)
+      CALL PSBUFW(' curveto',8)
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSSTR
+C     ****************
+C  Strokes a PostScript path.
+      CALL PSBUFW(' stroke',7)
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSPU
+C     ***************
+C  Sets the plot/move flag FALSE.
+C
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      GRPFL=.FALSE.
+      RETURN
+      END
+C
+      SUBROUTINE PSCONCAT(CMT)
+C     ************************
+C Concatenates the CMT matrix with matrix CMT
+      REAL CMT(6)
+      CALL PSBUFW(' [',2)
+      DO I = 1,6
+        CALL PSBUFR(CMT(I))
+      END DO
+      CALL PSBUFW('] concat',8)
+      RETURN
+      END
+
+C
+      SUBROUTINE BUFOFW(N)
+C     ********************
+C  WARNS IF OVERFLOW IS IMMINENT AND FLUSHES THE BUFFER.
+      INTEGER PSPOIN,STPSPN
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      IF(PSPOIN+N .GE. 200000) THEN
+        WRITE(1,*)' ***WARNING...PostScript buffer is full and is being
+     * flushed'
+        CALL FLPSBU
+      END IF
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSBUFN(N)
+C     ********************
+C  Encodes integer N into the PostScript buffer.
+C
+      CHARACTER*10 NUMC
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+C
+      CALL FORMTC(N,IDIG,NUMC)
+      CALL BUFOFW(IDIG+1)
+      PSBUFF(PSPOIN)=' '
+      PSPOIN=PSPOIN+1
+      DO 10 I=1,IDIG
+        PSBUFF(PSPOIN)=NUMC(I:I)
+        PSPOIN=PSPOIN+1
+   10 CONTINUE
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSBUFR(R)
+C     ********************
+C  Encodes real number R into the PostScript buffer.
+C
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      CHARACTER*8 TBUFF
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+C
+      CALL BUFOFW(9)
+      PSBUFF(PSPOIN)=' '
+      PSPOIN=PSPOIN+1
+      WRITE(TBUFF,'(F8.2)') R
+      DO 20 I=1,8
+C	IF(TBUFF(I:I) .NE. ' ') THEN
+          PSBUFF(PSPOIN)=TBUFF(I:I)
+          PSPOIN=PSPOIN+1
+C        END IF
+   20 CONTINUE
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSBUFW(WRD,IC)
+C     *************************
+C  Encodes a word WRD having IC characters into the PostScript buffer.
+C
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+C
+      CHARACTER*80 WRD
+      CALL BUFOFW(IC)
+      DO 10 I=1,IC
+        PSBUFF(PSPOIN)=WRD(I:I)
+        PSPOIN=PSPOIN+1
+   10 CONTINUE
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSPRINT(SF)
+C     **********************
+C  Flushes anything in the PostScript buffer to the program file
+C
+      DUMMY = SF
+      CALL FLPSBU
+      RETURN
+      END
+C
+C
+      SUBROUTINE FLPSBU
+C     *****************
+C  Flushes the PostScript buffer to the print file.
+C  The records must end with white space.
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+C
+      STPSPNM = STPSPN
+   10 CONTINUE
+      IF(STPSPN.GE.PSPOIN) RETURN
+      I2=STPSPN+79
+      IF(I2.GE.PSPOIN) I2=PSPOIN-1
+      I1=I2-STPSPN-2
+      DO 20 I=1,I1
+        IN=I2-I+1
+        IF(PSBUFF(IN).EQ.' ') GO TO 30
+   20 CONTINUE
+      IN=I2
+   30 WRITE(LU,1001)(PSBUFF(J),J=STPSPN,IN)
+ 1001 FORMAT(80A1)
+      STPSPN=IN+1
+      IF(STPSPN.LT.PSPOIN) GO TO 10
+      IF(EPSI) THEN
+        STPSPN = STPSPNM
+      ELSE
+        STPSPN=1
+        PSPOIN=1
+      END IF
+      RETURN
+      END
+C
+C
+      SUBROUTINE PRESET
+C     *****************
+C  RESETS THE POSTSCRIPT BUFFER.
+      INTEGER PSPOIN,STPSPN
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      STPSPN=1
+      PSPOIN=1
+      RETURN
+      END
+C
+      SUBROUTINE MAKE_EPSI(FILE_NO)
+C     *****************************
+C Copies the existing PostScript file, flushes the postscript buffer
+c and and closes the epsi file.
+      INTEGER FILE_NO
+      LOGICAL GRPFL, EPSI
+      INTEGER PSPOIN,STPSPN
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      COMMON/MGWP51/IBBOX(4),TRANS(2),SCALE(2),ROT
+      CHARACTER*13 FILE_NAME
+      CHARACTER*80 LINE
+      REAL      LLX, LLY, URX, URY
+      INTEGER BND_BOX(4)
+      CHARACTER*30 HEADER
+      INTEGER*4 IHEAD(8), PS_FILE_LENGTH, TIFF_FILE_SIZE
+      EQUIVALENCE (HEADER,IHEAD)
+      LOGICAL EREND
+
+      LOGICAL_UNIT = NEXT_LU(10)
+      FILE_NAME(1:4) = 'EPSI'
+      WRITE(FILE_NAME(5:8),'(I4.4)') FILE_NO
+      FILE_NAME(9:9) = CHAR(0)
+      LUM = LU
+      OPEN(LOGICAL_UNIT, FILE = JobPath(1:LENG)//FILE_NAME)
+
+C Write the index header to the file
+      IHEAD(1) = #C6D3D0C5
+      IHEAD(2) = #1E
+      IHEAD(3) = 0
+      IHEAD(4) = 0
+      IHEAD(5) = 0
+      IHEAD(6) = 0
+
+      CALL GET_BOUND_BOX(LLX, LLY, URX, URY, IMAGE_SIZE)
+c     Adjust the bounding box for the scale factor and the translated
+C     origin.
+      IF(ROT .EQ. 90.0) THEN
+        BND_BOX(1) = TRANS(1)*72.0/25.4 - SCALE(2)*URY
+        BND_BOX(2) = TRANS(2)*72.0/25.4 + SCALE(1)*LLX
+        BND_BOX(3) = TRANS(1)*72.0/25.4 - SCALE(2)*LLY
+        BND_BOX(4) = TRANS(2)*72.0/25.4 + SCALE(1)*URX
+      ELSE
+        BND_BOX(1) = SCALE(1)*LLX + TRANS(1)*72.0/25.4
+        BND_BOX(2) = SCALE(2)*LLY + TRANS(2)*72.0/25.4
+        BND_BOX(3) = SCALE(1)*URX + TRANS(1)*72.0/25.4
+        BND_BOX(4) = SCALE(2)*URY + TRANS(2)*72.0/25.4
+      END IF
+c
+
+C     This is replaced lower down
+      IHEAD(7) = 194 + IMAGE_SIZE/8
+
+      HEADER(29:30) = #FFFF
+      WRITE(LOGICAL_UNIT,'(A30\)') HEADER
+C
+
+c Flush the PostScript buffer
+      CALL FLPSBU
+      WRITE(LUM,1000)
+ 1000 FORMAT('stroke')
+C Close any open gsaves
+      DO N = 1,NGSAVE
+        WRITE(LUM,*)'grestore'
+      END DO
+      NGSAVE = 0
+
+C Get anything that is already in the PSFILE, counting the number of bytes
+      REWIND (LUM, ERR = 998)
+      PS_FILE_LENGTH = 0
+
+C Allow for the cr lf pair at the end of the header
+C      PS_FILE_LENGTH = 2
+      LINE_NUMBER = 1
+   10 CONTINUE
+      CALL LABRDC(LINE,LEN,LUM,EREND)
+      LINE_NUMBER = LINE_NUMBER + 1
+      IF(.NOT. EREND) THEN
+        IF(LINE(1:7) .EQ. '%%Bound') THEN
+          WRITE(LOGICAL_UNIT, 1003) (BND_BOX(I),I = 1,4)
+ 1003     FORMAT('%%BoundingBox: ',4I5)
+          PS_FILE_LENGTH = PS_FILE_LENGTH + 35 + 2
+C        ELSE IF( LINE_NUMBER .EQ. 14) THEN
+C          WRITE(LOGICAL_UNIT, 2004) (TRANS(I),I = 1,2)
+C 2004     FORMAT(2(F8.1,' mm'),' translate')
+C          PS_FILE_LENGTH = PS_FILE_LENGTH + 32 + 2
+C        ELSE IF(LINE_NUMBER .EQ. 15) THEN
+C          WRITE(LOGICAL_UNIT,*)' 0 Rotate'
+C          PS_FILE_LENGTH = PS_FILE_LENGTH + 9 + 2
+        ELSE
+          WRITE(LOGICAL_UNIT,'(80A1)') (LINE(I:I), I = 1,LEN)
+          PS_FILE_LENGTH = PS_FILE_LENGTH + LEN + 2
+        END IF
+        GO TO 10
+      ELSE
+        BACKSPACE(LUM, ERR = 999)
+        EPSI =.TRUE.
+      END IF
+
+      WRITE(LOGICAL_UNIT,1001)
+ 1001 FORMAT('restore')
+      WRITE(LOGICAL_UNIT,1002)
+ 1002 FORMAT('%%Trailer')
+      PS_FILE_LENGTH = PS_FILE_LENGTH + 16 + 4
+
+C The following lines are commented out because MS WORD can't recognize the
+c atend keyword in the PostScript file
+C     Write the bounding box data To the PostScript file.
+C      WRITE(LOGICAL_UNIT, 1003) (BND_BOX(I),I = 1,4)
+c 1003 FORMAT('%%BoundingBox: ',4I5)
+C      PS_FILE_LENGTH = PS_FILE_LENGTH + 35 + 2
+
+      WRITE(LOGICAL_UNIT,1005)
+ 1005 FORMAT('%EOF')
+      PS_FILE_LENGTH = PS_FILE_LENGTH + 4 + 2
+      CLOSE(LOGICAL_UNIT)
+
+      CALL MG_MAKE_TIFF(FILE_NAME, TIFF_FILE_SIZE)
+
+C Re-open the EPSI file to rewrite the header with the correct PostScript
+c and TIFF file lengths.
+      IHEAD(3) = PS_FILE_LENGTH
+      IHEAD(6) = IHEAD(2) + IHEAD(3) + 2
+      IHEAD(7) = TIFF_FILE_SIZE       ! + #FFFF0000
+      OPEN(LOGICAL_UNIT, FILE=JobPath(1:LENG)//FILE_NAME, RECL = 30,
+     *FORM = 'BINARY', ACCESS = 'DIRECT')
+      WRITE(LOGICAL_UNIT, REC = 1) HEADER
+      CLOSE(LOGICAL_UNIT)
+      EPSI = .FALSE.
+      LU = LUM
+      RETURN
+  998 CONTINUE
+      CALL DISPLY(5)
+      WRITE(1,*)' COULD NOT REWIND THE PSFILE'
+  999 CONTINUE
+      CALL DISPLY(5)
+      WRITE(1,*)' COULD NOT BACKSPACE THE PSFILE'
+      RETURN
+      END
+C
+      SUBROUTINE PCLOSE
+C     *****************
+C Flushes the postscript buffer, strokes the path, restores, adds the METGRAPH
+C logo if necessary, adds the TIFF image to the end of the file if necessary
+C then closes the file.
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      COMMON/MGWP51/IBBOX(4),TRANS(2),SCALE(2),ROT
+      CALL FLPSBU
+      WRITE(LU,1002)
+ 1002 FORMAT('stroke')
+C Close any open gsaves
+      DO 10 N = 1,NGSAVE
+        WRITE(LU,*)'grestore'
+   10 CONTINUE
+      NGSAVE = 0
+
+C      WRITE(LU,1000)
+ 1000 FORMAT('/Helvetica findfont 10 scalefont setfont'/
+     *'900 -20 mt ( graphics by METGRAPH) show')
+
+      WRITE(LU,1001)
+ 1001 FORMAT('restore'/'showpage')
+      WRITE(LU,1003)
+ 1003 FORMAT('%%Trailer')
+C
+C The following are commented out because MS WORD cannot recognize the
+c atend keyword in PostScript
+c      WRITE(LU, 1004) (IBBOX(I),I = 1,4)
+c 1004 FORMAT('%%BoundingBox: ',4I5)
+      WRITE(LU,1005)
+ 1005 FORMAT('%%EOF')
+      CLOSE(LU)
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSLAB(LABEL,IC)
+C     **************************
+C  Sends the string LABEL having IC characters to the PostScript buffer.
+C
+      INTEGER LABEL(80)
+C
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      IF(ICHARSET .EQ. 3) THEN
+        CALL PSOCTLAB(LABEL,IC)
+        RETURN
+      END IF
+      CALL PSBUFW(' (',2)
+      DO 10 I=1,IC
+        PSBUFF(PSPOIN)=CHAR(LABEL(I))
+        PSPOIN=PSPOIN+1
+   10 CONTINUE
+      CALL PSBUFW(')',1)
+      CALL PSBUFW(' show',5)
+      RETURN
+      END
+C
+      SUBROUTINE PSOCTLAB(LABEL,IC)
+C     *****************************
+C Writes a label to the Postscript buffer using octal codes.
+C The label is broken into blocks of 10 characters to ensure that the
+C PostScript file does not contain labels with a carriage return embedded.
+      INTEGER LABEL(80)
+      ICC = IC
+      ISTART = 1
+   10 CONTINUE
+      IF(ICC .GT. 10) THEN
+        CALL PSHIGHLAB(LABEL(ISTART),10)
+        ISTART = ISTART + 10
+        ICC = ICC - 10
+      ELSE
+        CALL PSHIGHLAB(LABEL(ISTART),ICC)
+        RETURN
+      END IF
+      GO TO 10
+      END
+C
+      SUBROUTINE PSHIGHLAB(LABEL,IC)
+C     ******************************
+C Writes a label to the Postscript buffer using octal codes
+      INTEGER LABEL(80)
+      CHARACTER*4 CODE
+C
+      CALL PSBUFW(' (',2)
+      DO 10 I=1,IC
+        IOCTAL1 = (LABEL(I)+128)/64
+        IOCTAL = (LABEL(I)+128) - IOCTAL1*64
+        IOCTAL2 = IOCTAL/8
+        IOCTAL3 = IOCTAL - IOCTAL2*8
+        IOCTAL = 100*IOCTAL1 + 10*IOCTAL2 + IOCTAL3
+        WRITE(CODE,'(A1,I3)')'\',IOCTAL
+        CALL PSBUFW(CODE,4)
+   10 CONTINUE
+      CALL PSBUFW(')',1)
+      CALL PSBUFW(' show',5)
+      RETURN
+      END
+C
+
+      SUBROUTINE PSSETFONT(N)
+C     ***********************
+C Selects a font
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      CHARACTER*11 FONT
+      COMMON /PSFONT/FONT
+      ICHARSET = 1
+      IF (N .EQ. 1) FONT = 'Helvetica'
+      IF (N .EQ. 2) FONT = 'Times-Roman'
+      IF (N .EQ. 3) FONT = 'Courier'
+      IF (N .EQ. 4) THEN
+        FONT = 'Symbol'
+        ICHARSET = 2
+      END IF
+      IF (N .EQ. 5) THEN
+        FONT = 'Symbol'
+        ICHARSET = 3
+      END IF
+      RETURN
+      END
+C
+      SUBROUTINE PSLBSZ(SIZE)
+C     ***********************
+C  THIS SUBROUTINE SETS THE LABEL SIZE.
+C
+      INTEGER FONTSIZE
+      CHARACTER*23 WORD
+      CHARACTER*11 FONT
+      COMMON /PSFONT/FONT
+
+      FONTSIZE = NINT(9*SIZE)
+      WRITE(WORD,1001) FONT
+ 1001 FORMAT(' /',A11,' findfont ')
+      CALL PSBUFW(WORD,23)
+      CALL PSBUFN(FONTSIZE)
+      CALL PSBUFW(' scalefont setfont',18)
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSROT(ANGLE)
+C     ***********************
+C  ROTATES THE COORDINATE SYSTEM ABOUT THE CURRENT POINT.
+C
+      I=ANGLE
+      CALL PSBUFW(' gsave currentpoint translate',29)
+      CALL PSBUFN(I)
+      CALL PSBUFW(' rotate',7)
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSCNRT
+C     *****************
+C  CANCELS THE PREVIOUS ROTATION.
+C
+      CALL PSBUFW(' grestore',9)
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSLANT(ANGLE)
+C     ************************
+C  SETS THE CHARACTER SLANT
+C
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      DIR=TAN((0.5-ANGLE/180.0)*3.14159)
+      RETURN
+      END
+C
+C
+C
+C
+      SUBROUTINE PSPEN(I)
+C     *******************
+C  THIS SUBROUTINE SELECTS A LINE WIDTH TO REPRESENT THE PEN.
+      IP=I-((I-1)/6)*6
+      W=0.5+0.5*IP
+      CALL PSBUFR(W)
+      CALL PSBUFW(' setlinewidth',13)
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSLNTP(ITP)
+C     **********************
+C  SETS UP THE LINE TYPE FOR PostScript.
+C  Matches the HP7475 line types.
+C
+C  Stroke the current path before changing to the new line type.
+      CALL PSBUFW(' stroke',8)
+      IF(ITP.LT.2.OR.ITP.GT.10) CALL PSBUFW(' []',3)
+      IF(ITP.EQ.2) CALL PSBUFW(' [1 15]',7)
+      IF(ITP.EQ.3) CALL PSBUFW(' [1 8]',7)
+      IF(ITP.EQ.4) CALL PSBUFW(' [16 5 3 5]',11)
+      IF(ITP.EQ.5) CALL PSBUFW(' [18 7]',7)
+      IF(ITP.EQ.6) CALL PSBUFW(' [13 12]',8)
+      IF(ITP.EQ.7) CALL PSBUFW(' [1 4]',6)
+      IF(ITP.EQ.8) CALL PSBUFW(' [18 5 1 5]',11)
+      IF(ITP.EQ.9) CALL PSBUFW(' [11 5 3 3 3 5]',15)
+      IF(ITP.EQ.10) CALL PSBUFW(' [6 5 3 3 3 5 3 5]',18)
+      CALL PSBUFW(' 0 setdash',10)
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSLNWD(W)
+C     ********************
+C  SETS THE LINE WIDTH
+      CALL PSBUFW(' stroke',7)
+      CALL PSBUFR(W)
+      CALL PSBUFW(' setlinewidth',13)
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSCIRC(X,Y,FACT)
+C     ***************************
+C  DRAWS A SMOOTH CIRCLE OF RADIUS FACT CENTRED AT (X,Y).
+C  First stroke the current path and start a new path.
+      CALL PSBUFW(' stroke',7)
+      CALL PSBUFR(X)
+      CALL PSBUFR(Y)
+      CALL PSBUFR(FACT)
+      CALL PSBUFN(0)
+      CALL PSBUFN(360)
+      CALL PSBUFW(' arc',4)
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSWIPE(I1,I2)
+C     *************************
+C  WIPES OUT THE POSTSCRIPT BUFFER FROM LOCATION I1 TO I2 INCLUSIVE.
+C
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      IDIFF=I2-I1+1
+      I=I2+1
+      J2=PSPOIN-1
+      K=I1-1
+      IF(I.GT.J2) GO TO 20
+      DO 10 J=I,J2
+      K=J-IDIFF
+      PSBUFF(K)=PSBUFF(J)
+   10 CONTINUE
+   20 PSPOIN=K+1
+      IF(STPSPN.LE.I1) RETURN
+      IF(STPSPN.LE.I2) STPSPN=I1
+      IF(STPSPN.GT.I2) STPSPN=STPSPN-IDIFF
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSOSEG(I)
+C     ********************
+C
+C  OPENS SEGMENT I IN HARD COPY BUFFER.
+C
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      INTEGER ISEGST(500),ISEGEN(500)
+      COMMON/PSEGM/ ISEGST,ISEGEN
+      ISEGST(I)=PSPOIN
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSCSEG
+C     *****************
+C
+C  CLOSES THE CURRENT SEGMENT IN THE HARD COPY BUFFER.
+      INTEGER PSPOIN,STPSPN
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      COMMON/MGPSBU/PSPOIN,STPSPN
+      INTEGER ISEGST(500),ISEGEN(500)
+      COMMON/PSEGM/ ISEGST,ISEGEN
+      CALL MGQSEG(ICURR)
+      IF(ICURR.GT.0) ISEGEN(ICURR)=PSPOIN-1
+      RETURN
+      END
+C
+C
+      SUBROUTINE PSDSEG(I)
+C     ********************
+C
+C  DELETES SEGMENT I IN THE HARD COPY BUFFER.
+      LOGICAL MGQSGX
+      INTEGER IDIFF2
+      INTEGER ISEGST(500),ISEGEN(500)
+      COMMON/PSEGM/ ISEGST,ISEGEN
+C  WIPE IT FROM THE POSTSCRIPT BUFFER
+      I1 = ISEGST(I)
+      I2 = ISEGEN(I)
+      CALL PSWIPE(I1,I2)
+      IDIFF2=ISEGEN(I)-ISEGST(I)+1
+      CALL MGQSGM(MSEG)
+      DO 10 J=1,MSEG
+      IF(MGQSGX(J)) THEN
+        IF(ISEGST(J).GT.ISEGST(I))ISEGST(J)=ISEGST(J)-IDIFF2
+        IF(ISEGEN(J).GT.ISEGEN(I))ISEGEN(J)=ISEGEN(J)-IDIFF2
+      END IF
+   10 CONTINUE
+      RETURN
+      END
+C
+      SUBROUTINE BSTEND(I,IST,IE)
+C     ***************************
+C  FINDS THE START AND END OF THE SEGMENT I IN THE POSTSCRIPT BUFFER
+      INTEGER ISEGST(500),ISEGEN(500)
+      COMMON/PSEGM/ ISEGST,ISEGEN
+      IST=ISEGST(I)
+      IE=ISEGEN(I)
+      RETURN
+      END
+C
+      SUBROUTINE SCANBF(I1,I2,X,Y,LABEL,NL,PU,SUCC,LAB,ARC,RAD)
+C     *********************************************************
+C  SCANS THE POSTSCRIPT BUFFER TO LOCATE COMMANDS
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      CHARACTER*80 LABEL
+      LOGICAL PU,SUCC,LAB,ARC
+      LOGICAL BMATCH
+      LAB=.FALSE.
+      ARC=.FALSE.
+      DO 10 I=I1,I2
+        IF(BMATCH(PSBUFF(I),'mt',2)) THEN
+          PU=.TRUE.
+          GO TO 20
+        ELSEIF(BMATCH(PSBUFF(I),'lt',2)) THEN
+          PU=.FALSE.
+          GO TO 20
+        ELSEIF(PSBUFF(I).EQ.'(') THEN
+          LAB=.TRUE.
+          GO TO 30
+        ELSEIF(BMATCH(PSBUFF(I),'arc',3)) THEN
+          ARC=.TRUE.
+          GO TO 40
+        END IF
+   10 CONTINUE
+      SUCC=.FALSE.
+      RETURN
+   20 CALL FNDCOO(I,X,Y,SUCC)
+      I1=I+2
+      RETURN
+   30 CALL FNDLAB(I,I2,LABEL,NL,SUCC)
+      I1=I+1
+      PU=.FALSE.
+      RETURN
+   40 DO 45 J=1,26
+        LABEL(J:J)=PSBUFF(I-34+J)
+   45 CONTINUE
+      READ(LABEL,'(F8.2,1X,F8.2,1X,F8.2)',ERR=999) X,Y,RAD
+      SUCC=.TRUE.
+      I1=I+3
+      RETURN
+  999 SUCC=.FALSE.
+      RETURN
+      END
+C
+      FUNCTION BMATCH(STR1,STR2,NC)
+C     *****************************
+C  CHECKS FOR A MATCH BETWEEN STR1 AND STR2 COMPARING NC CHARACTERS.
+      CHARACTER*1 STR1(1)
+      CHARACTER*3 STR2
+      LOGICAL BMATCH
+      BMATCH=.TRUE.
+      DO 10 I=1,NC
+        BMATCH=BMATCH.AND.(STR1(I).EQ.STR2(I:I))
+   10 CONTINUE
+      RETURN
+      END
+C
+      SUBROUTINE FNDCOO(I,X,Y,SUCC)
+C     *****************************
+C  FINDS THE COORDINATE PAIR ASSOCIATED WITH THE POSTSCRIPT COMMAND
+      LOGICAL SUCC
+      CHARACTER*18 TBUFF
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      DO 10 J=1,18
+        TBUFF(J:J)=PSBUFF(I-20+J)
+   10 CONTINUE
+      READ(TBUFF,'(1X,F8.2,1X,F8.2)',ERR=999) X,Y
+      SUCC=.TRUE.
+      RETURN
+  999 SUCC=.FALSE.
+      RETURN
+      END
+C
+      SUBROUTINE FNDLAB(I,I2,LABEL,NL,SUCC)
+C     *************************************
+C  FINDS THE LABEL
+      CHARACTER*1 PSBUFF(200000)
+      COMMON/MGPSBC/PSBUFF
+      CHARACTER*6 TEMP
+      CHARACTER*80 LABEL
+      LOGICAL SUCC
+      DO 20 J=I+1,I2
+        DO 10 K=1,6
+          TEMP(K:K)=PSBUFF(J+K-1)
+   10   CONTINUE
+        IF(TEMP.EQ.') show') THEN
+          NL=J-I-1
+          DO 30 K=1,NL
+            LABEL(K:K)=PSBUFF(I+K)
+   30     CONTINUE
+          SUCC=.TRUE.
+          GO TO 40
+        END IF
+   20 CONTINUE
+      SUCC=.FALSE.
+      I=I2
+      RETURN
+   40 CONTINUE
+      I=J+5
+      RETURN
+      END
+C
+      SUBROUTINE PSPOLY(ITYPE,VERTS,NVERT)
+C     ************************************
+C Implements the polygon routine.
+	STRUCTURE/xyrcoord/
+	  REAL xcoord
+	  REAL ycoord
+	END STRUCTURE
+      RECORD/xyrcoord/VERTS(*)
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      CALL PSBUFW(' stroke',7)
+      IF(ITYPE .EQ. 4) CALL PSBUFW(' gsave',6)
+      CALL PSMOVE(VERTS(1).xcoord, VERTS(1).ycoord)
+      DO 10 I = 2,NVERT
+        CALL PSPLOT(VERTS(I).xcoord, VERTS(I).ycoord)
+   10 CONTINUE
+      CALL PSBUFW(' closepath',10)
+      IF(ITYPE .EQ. 2) THEN
+        CALL PSBUFW(' fill',5)
+      END IF
+      IF(ITYPE .EQ. 3) THEN
+        CALL PSBUFW(' gsave',6)
+        CALL PSBUFR(GRAYFILL)
+        CALL PSBUFW(' setgray',8)
+        CALL PSBUFW(' fill',5)
+        CALL PSBUFW(' grestore',9)
+      END IF
+      IF(ITYPE .EQ. 4) THEN
+        CALL PSBUFR(GRAYFILL)
+        CALL PSBUFW(' setgray',8)
+        CALL PSBUFW(' fill',5)
+        CALL PSBUFW(' grestore',9)
+      END IF
+      RETURN
+      END
+
+      SUBROUTINE MGGRAYFILL(F)
+C     ************************
+C Sets the PostScript gray level
+      LOGICAL GRPFL, EPSI
+      CHARACTER*256 JobPath
+      COMMON/MGPS/JobPath,LENG,GRPFL,EPSI,LU,NGSAVE,GRAYFILL,ICHARSET
+      GRAYFILL = F
+      RETURN
+      END
+C
+      SUBROUTINE MGGRAYLABEL(STRNG,N,F)
+C     *********************************
+C  Draws a label at the current position and the PostScript image will draw
+C  the label using gray value F (0.0 = black, 1.0 = white).
+C
+      CHARACTER*80 STRNG
+      CALL PSBUFW(' gsave',6)
+      CALL PSBUFR(F)
+      CALL PSBUFW(' setgray',8)
+      CALL LABELC(STRNG,N)
+      CALL PSBUFW(' grestore',9)
+
+      RETURN
+      END

@@ -1,0 +1,319 @@
+Stream number:                 1
+ Bougainville
+Solid flowrate:                460.08  tonne/hr  
+Water flowrate:                  0.00 m^3/hr 
+Slurry flowrate:               127.80 kg/s
+Slurry volumetric flowrate:  0.4733E-01 m^3/s
+Percent solids by mass:        100.00 %
+Percent solids by volume:      100.00 %
+Yield of solids:               100.00 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.648E-02 m
+50% passing size:             0.285E-02 m
+20% passing size:             0.248E-03 m
+       Size      % passing
+       meters
+      0.168E-01     99.85
+      0.119E-01     98.00
+      0.842E-02     90.49
+      0.594E-02     75.73
+      0.421E-02     60.48
+      0.297E-02     50.98
+      0.210E-02     42.99
+      0.149E-02     37.30
+      0.105E-02     32.49
+      0.743E-03     28.81
+      0.526E-03     25.61
+      0.371E-03     22.93
+      0.263E-03     20.42
+      0.186E-03     18.04
+      0.131E-03     15.97
+      0.929E-04     14.20
+      0.657E-04     12.48
+      0.465E-04      9.99
+      0.328E-04      7.06
+      0.232E-04      5.00
+      0.164E-04      3.53
+      0.116E-04      2.50
+      0.821E-05      1.77
+      0.581E-05      1.25
+       0.00          0.00
+ 
+Stream number:                 2
+ Bougainville
+Solid flowrate:                460.08  tonne/hr  
+Water flowrate:                  0.00 m^3/hr 
+Slurry flowrate:               127.80 kg/s
+Slurry volumetric flowrate:  0.4733E-01 m^3/s
+Percent solids by mass:        100.00 %
+Percent solids by volume:      100.00 %
+Yield of solids:               100.00 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.648E-02 m
+50% passing size:             0.285E-02 m
+20% passing size:             0.248E-03 m
+       Size      % passing
+       meters
+      0.168E-01     99.85
+      0.119E-01     98.00
+      0.842E-02     90.49
+      0.594E-02     75.73
+      0.421E-02     60.48
+      0.297E-02     50.98
+      0.210E-02     42.99
+      0.149E-02     37.30
+      0.105E-02     32.49
+      0.743E-03     28.81
+      0.526E-03     25.61
+      0.371E-03     22.93
+      0.263E-03     20.42
+      0.186E-03     18.04
+      0.131E-03     15.97
+      0.929E-04     14.20
+      0.657E-04     12.48
+      0.465E-04      9.99
+      0.328E-04      7.06
+      0.232E-04      5.00
+      0.164E-04      3.53
+      0.116E-04      2.50
+      0.821E-05      1.77
+      0.581E-05      1.25
+       0.00          0.00
+ 
+Stream number:                 3
+ Bougainville
+Solid flowrate:                858.96  tonne/hr  
+Water flowrate:                 88.34 m^3/hr 
+Slurry flowrate:               263.14 kg/s
+Slurry volumetric flowrate:  0.1129     m^3/s
+Percent solids by mass:         90.67 %
+Percent solids by volume:       78.27 %
+Yield of solids:               186.70 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.566E-02 m
+50% passing size:             0.145E-02 m
+20% passing size:             0.188E-03 m
+       Size      % passing
+       meters
+      0.168E-01     99.83
+      0.119E-01     98.14
+      0.842E-02     92.21
+      0.594E-02     81.41
+      0.421E-02     70.33
+      0.297E-02     62.79
+      0.210E-02     56.05
+      0.149E-02     50.42
+      0.105E-02     44.85
+      0.743E-03     39.14
+      0.526E-03     32.42
+      0.371E-03     25.83
+      0.263E-03     22.68
+      0.186E-03     19.89
+      0.131E-03     17.21
+      0.929E-04     14.79
+      0.657E-04     12.55
+      0.465E-04      9.99
+      0.328E-04      7.31
+      0.232E-04      5.37
+      0.164E-04      3.95
+      0.116E-04      2.91
+      0.821E-05      2.16
+      0.581E-05      1.60
+       0.00          0.00
+ 
+Stream number:                 4
+ Bougainville
+Solid flowrate:                858.96  tonne/hr  
+Water flowrate:                214.74 m^3/hr 
+Slurry flowrate:               298.25 kg/s
+Slurry volumetric flowrate:  0.1480     m^3/s
+Percent solids by mass:         80.00 %
+Percent solids by volume:       59.70 %
+Yield of solids:               186.70 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.961E-03 m
+50% passing size:             0.177E-03 m
+20% passing size:             0.384E-04 m
+       Size      % passing
+       meters
+      0.168E-01     99.91
+      0.119E-01     99.21
+      0.842E-02     97.30
+      0.594E-02     94.40
+      0.421E-02     91.47
+      0.297E-02     89.02
+      0.210E-02     86.55
+      0.149E-02     83.97
+      0.105E-02     80.95
+      0.743E-03     77.21
+      0.526E-03     72.14
+      0.371E-03     65.52
+      0.263E-03     58.70
+      0.186E-03     51.16
+      0.131E-03     43.33
+      0.929E-04     35.93
+      0.657E-04     29.32
+      0.465E-04     23.18
+      0.328E-04     17.66
+      0.232E-04     13.47
+      0.164E-04     10.29
+      0.116E-04      7.89
+      0.821E-05      6.06
+      0.581E-05      4.66
+       0.00          0.00
+ 
+Stream number:                 5
+ Bougainville
+Solid flowrate:                858.96  tonne/hr  
+Water flowrate:                442.44 m^3/hr 
+Slurry flowrate:               361.50 kg/s
+Slurry volumetric flowrate:  0.2113     m^3/s
+Percent solids by mass:         66.00 %
+Percent solids by volume:       41.83 %
+Yield of solids:               186.70 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.961E-03 m
+50% passing size:             0.177E-03 m
+20% passing size:             0.384E-04 m
+       Size      % passing
+       meters
+      0.168E-01     99.91
+      0.119E-01     99.21
+      0.842E-02     97.30
+      0.594E-02     94.40
+      0.421E-02     91.47
+      0.297E-02     89.02
+      0.210E-02     86.55
+      0.149E-02     83.97
+      0.105E-02     80.95
+      0.743E-03     77.21
+      0.526E-03     72.14
+      0.371E-03     65.52
+      0.263E-03     58.70
+      0.186E-03     51.16
+      0.131E-03     43.33
+      0.929E-04     35.93
+      0.657E-04     29.32
+      0.465E-04     23.18
+      0.328E-04     17.66
+      0.232E-04     13.47
+      0.164E-04     10.29
+      0.116E-04      7.89
+      0.821E-05      6.06
+      0.581E-05      4.66
+       0.00          0.00
+ 
+Stream number:                 6
+ Bougainville
+Solid flowrate:                398.88  tonne/hr  
+Water flowrate:                 88.34 m^3/hr 
+Slurry flowrate:               135.34 kg/s
+Slurry volumetric flowrate:  0.6558E-01 m^3/s
+Percent solids by mass:         81.87 %
+Percent solids by volume:       62.58 %
+Yield of solids:                86.70 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.375E-02 m
+50% passing size:             0.720E-03 m
+20% passing size:             0.152E-03 m
+       Size      % passing
+       meters
+      0.168E-01     99.80
+      0.119E-01     98.30
+      0.842E-02     94.20
+      0.594E-02     87.96
+      0.421E-02     81.69
+      0.297E-02     76.41
+      0.210E-02     71.10
+      0.149E-02     65.56
+      0.105E-02     59.08
+      0.743E-03     51.04
+      0.526E-03     40.25
+      0.371E-03     29.14
+      0.263E-03     25.26
+      0.186E-03     21.98
+      0.131E-03     18.62
+      0.929E-04     15.44
+      0.657E-04     12.60
+      0.465E-04      9.96
+      0.328E-04      7.59
+      0.232E-04      5.79
+      0.164E-04      4.42
+      0.116E-04      3.39
+      0.821E-05      2.60
+      0.581E-05      2.00
+       0.00          0.00
+ 
+Stream number:                 7
+ Bougainville
+Solid flowrate:                459.00  tonne/hr  
+Water flowrate:                353.99 m^3/hr 
+Slurry flowrate:               225.83 kg/s
+Slurry volumetric flowrate:  0.1456     m^3/s
+Percent solids by mass:         56.46 %
+Percent solids by volume:       32.44 %
+Yield of solids:                99.77 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.205E-03 m
+50% passing size:             0.817E-04 m
+20% passing size:             0.230E-04 m
+       Size      % passing
+       meters
+      0.168E-01    100.00
+      0.119E-01    100.00
+      0.842E-02    100.00
+      0.594E-02    100.00
+      0.421E-02    100.00
+      0.297E-02    100.00
+      0.210E-02    100.00
+      0.149E-02    100.00
+      0.105E-02    100.00
+      0.743E-03    100.00
+      0.526E-03     99.91
+      0.371E-03     97.20
+      0.263E-03     87.82
+      0.186E-03     76.58
+      0.131E-03     64.85
+      0.929E-04     53.77
+      0.657E-04     43.88
+      0.465E-04     34.70
+      0.328E-04     26.43
+      0.232E-04     20.15
+      0.164E-04     15.40
+      0.116E-04     11.80
+      0.821E-05      9.07
+      0.581E-05      6.98
+       0.00          0.00
+ 
+Stream number:                 8
+ Bougainville
+Solid flowrate:                  0.00  tonne/hr  
+Water flowrate:                227.74 m^3/hr 
+Slurry flowrate:                63.26 kg/s
+Slurry volumetric flowrate:  0.6326E-01 m^3/s
+Percent solids by mass:          0.00 %
+Percent solids by volume:        0.00 %
+ 
+Stream number:                 9
+ Bougainville
+Solid flowrate:                  0.00  tonne/hr  
+Water flowrate:                126.40 m^3/hr 
+Slurry flowrate:                35.11 kg/s
+Slurry volumetric flowrate:  0.3511E-01 m^3/s
+Percent solids by mass:          0.00 %
+Percent solids by volume:        0.00 %
+ 

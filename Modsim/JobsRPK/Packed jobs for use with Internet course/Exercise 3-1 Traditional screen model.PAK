@@ -1,0 +1,140 @@
+"Job name","Exercise 3-1 Traditional screen model"
+"Flowsheet",#TRUE#
+ 1  37  10  6 
+Exercise 3-1 Traditional screen model
+ 1  3  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTT
+ 14 T
+ 1  500  500  10  2 
+ 1 
+ 257.6391      632.86        394.0362      537.931       3 
+ 394.0362      632.86 
+ 0 
+ 589.5388      507.8702      765.3396      507.8702      4 
+ 1 
+ 562.2594      447.7485      768.3707      357.5659      5 
+ 562.2594      357.5659 
+ 0 
+ 3 
+TTTT
+ 1020          100           10            10 
+ 355.5395      691.2779      345.5395      631.2779 
+ 637.2305      592.3431      610.7562      507.8702 
+ 632.6129      442.2176      607.7251      357.5659 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+Exercise 3-1 Traditional screen model
+ 3 
+ 1  3 F  0  1 
+ 3  5 O  1  0 
+ 2  4 O  1  0 
+"Model data",#TRUE#
+Exercise 3-1 Traditional screen model
+ 1 
+ 14 
+ 2 
+"System input data",#TRUE#
+SYSTEM DATA
+Exercise 3.1 Traditional screen model
+NDGS   1 025 001 001
+MINS 001
+Ore             
+SIZE
+4.0000E-1 2.8284E-1 2.0000E-1 1.4142E-1 1.0000E-1 7.0711E-2 5.0000E-2 3.5355E-2 
+2.5000E-2 1.7678E-2 1.2500E-2 8.8388E-3 6.2500E-3 4.4194E-3 3.1250E-3 2.2097E-3 
+1.5625E-3 1.1049E-3 7.8125E-4 5.5243E-4 3.9063E-4 2.7621E-4 1.9531E-4 1.3811E-4 
+9.7656E-5 
+SPGR
+2.7000E+0 
+GRDM
+1.0000E+0
+PHYP 001 001
+2.7000E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 001
+SCMA 003 001 000
+SCMA 002 001 000
+STRM 001   2
+8.33340E+1 95.00
+2.5630E-6 2.0164E-4 3.4771E-3 2.1119E-2 6.2431E-2 1.1280E-1 1.4584E-1 1.5055E-1 
+1.3356E-1 1.0720E-1 8.0571E-2 5.7957E-2 4.0480E-2 2.7668E-2 1.8749E-2 1.2539E-2 
+8.4082E-3 5.5431E-3 3.6954E-3 2.4605E-3 1.5932E-3 9.8298E-4 6.3419E-4 4.4844E-4 
+1.0826E-3 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 003
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+Exercise 3.1 Traditional screen model
+Stream     001 003 Feed                          
+Feedrate  8.3334E+1 95.0000
+Size dist  019
+1.4280E-1 0.9900
+1.0100E-1 0.9521
+7.1400E-2 0.8653
+5.0490E-2 0.7335
+3.5700E-2 0.5821
+2.5250E-2 0.4376
+1.7850E-2 0.3160
+1.2620E-2 0.2216
+8.9250E-3 0.1524
+6.3110E-3 0.1033
+4.4630E-3 0.0694
+3.1560E-3 0.0464
+2.2310E-3 0.0308
+1.5780E-3 0.0205
+1.1160E-3 0.0135
+7.8890E-4 0.0090
+5.5780E-4 0.0059
+3.9450E-4 0.0039
+2.7890E-4 0.0026
+Stream     003 005 Undersize                     
+Size dist  000
+Stream     002 004 Oversize                      
+Size dist  000
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 003 Feed                          
+Number of grade ranges       0 
+END OF FILE
+"Liberation data",#TRUE#
+Exercise 3.1 Traditional screen model
+Stream     003 005 Undersize                     
+Lib dist   000
+Stream     002 004 Oversize                      
+Lib dist   000
+Stream     001 003 Feed                          
+Lib dist   000
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 003 Feed                          
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 SCRN 007 002
+3.0000E-2 9.0000E-1 2.0000E+0 0.0000E+0 0.0000E+0 0.0000E+0 1.0000E+0 
+OUTC
+   0   0   6   1   1   6   1   6   6   6
+STOP
+"Output format",#TRUE#
+1F1FTFF1F
+ 0 
+F
+F
+"SIMOP data",#TRUE#
+FFFFFF

@@ -1,0 +1,208 @@
+"Job name","sag-cetem_B11"
+"Flowsheet",#TRUE#
+ 1  13  5  16 
+sag-cetem_B11
+ 3  8  1 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0 
+ 0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTTTTTTT
+FFTFFFFF
+ 14 T
+ 3  607.7251  340.1623  5  10 
+ 22 T
+ 2  294.0117  567.9919  5  2 
+ 65 T
+ 1  500  500  5  1 
+ 1 
+ 189.4405      686.6531      281.8875      593.3063      3 
+ 281.8875      686.6531 
+ 1 
+ 294.0117      531.6024      454.6572      499.9594      4 
+ 294.0117      499.9594 
+ 0 
+ 295.5272      697.7282      295.5272      593.3063      7 
+ 0 
+ 554.6818      474.645       554.6818      360.7302      11 
+ 3 
+ 653.1909      344.9087      304.6203      593.3063      12 
+ 803.2277      344.9087 
+ 803.2277      700.8925 
+ 304.6203      700.8925 
+ 3 
+ 578.9302      499.9594      309.1669      593.3063      13 
+ 719.8739      499.9594 
+ 719.8739      656.5923 
+ 309.1669      656.5923 
+ 1 
+ 636.5201      314.8479      803.2277      208.8438      14 
+ 636.5201      208.8438 
+ 0 
+ 487.9987      487.3022      381.912       412.9412      15 
+ 0 
+ 5 
+TTTTTT
+ 1020          100           10            10 
+ 75.7762       662.9209      213.6889      686.6531 
+ 816.2588      601.0953      806.2588      541.0953 
+ 772.3086      272.0081      762.3086      212.0081 
+ 565.2905      637.6065      719.8739      601.217 
+ 322.1979      564.7059      312.1979      504.7059 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+sag-cetem_B11
+ 8 
+ 1  3 F  0  2 
+ 3  7 W -1  2 
+ 2  4 O  2  1 
+ 4  11 O  1  3 
+ 7  14 O  3  0 
+ 5  12 O  3  2 
+ 6  13 O  1  2 
+ 8  15 O  1  0 
+"Model data",#TRUE#
+sag-cetem_B11
+ 3 
+ 65  22  14 
+ 1  2  10 
+"System input data",#TRUE#
+SYSTEM DATA
+sag-cetem_B11
+NDGS   1 025 001 001
+MINS 001
+fili            
+SIZE
+2.0000E-1 1.4142E-1 1.0000E-1 7.0711E-2 5.0000E-2 3.5355E-2 2.5000E-2 1.7678E-2 
+1.2500E-2 8.8388E-3 6.2500E-3 4.4194E-3 3.1250E-3 2.2097E-3 1.5625E-3 1.1049E-3 
+7.8125E-4 5.5243E-4 3.9063E-4 2.7621E-4 1.9531E-4 1.3811E-4 9.7656E-5 6.9053E-5 
+4.8828E-5 
+SPGR
+2.8000E+0 
+GRDM
+1.0000E+0
+PHYP 001 001
+2.8000E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 002
+SCMA 002 002 001
+SCMA 004 001 003
+SCMA 007 003 000
+SCMA 005 003 002
+SCMA 006 001 002
+SCMA 008 001 000
+WTRF 002 003
+0.00000E+0 75.00
+STRM 001   2
+8.33340E-1 100.00
+5.3639E-2 4.8066E-2 6.5957E-2 6.7323E-2 6.7344E-2 6.8600E-2 5.6086E-2 5.1085E-2 
+4.6531E-2 4.2382E-2 3.8604E-2 3.5162E-2 3.2027E-2 2.9171E-2 2.6571E-2 2.4202E-2 
+2.2044E-2 2.0079E-2 1.8288E-2 1.6658E-2 1.5173E-2 1.3820E-2 1.2588E-2 1.1466E-2 
+1.1714E-1 
+
+RUN DATA
+CONV 003
+ITER 300
+TOLM -3 
+"Size data",#TRUE#
+sag-cetem_B11
+Stream     001 003 Alim                          
+Feedrate  8.3334E-1 100.0000
+Size dist  003
+1.5300E-1 0.9351
+7.5000E-2 0.8072
+3.1000E-2 0.6362
+Stream     006 013 Trommel oversize              
+Size dist  003
+1.3200E-2 0.9814
+9.5000E-3 0.9539
+5.6000E-3 0.3103
+Stream     004 011 Trommel undersize             
+Size dist  000
+Stream     005 012 Screen oversize               
+Size dist  012
+5.6000E-3 0.9978
+4.7500E-3 0.9872
+2.3600E-3 0.8650
+1.1800E-3 0.5625
+6.0000E-4 0.2187
+3.0000E-4 0.1037
+2.1200E-4 0.0903
+1.5000E-4 0.0853
+1.0600E-4 0.0817
+7.5000E-5 0.0793
+4.5000E-5 0.0750
+3.8000E-5 0.0724
+Stream     007 014 Product - screen undersize    
+Size dist  008
+6.0000E-1 0.9611
+3.0000E-1 0.7739
+2.1200E-1 0.6921
+1.5000E-1 0.6400
+1.0600E-1 0.5897
+7.5000E-2 0.5561
+4.5000E-2 0.4935
+3.8000E-2 0.4626
+Stream     008 015 Mill contents                 
+Size dist  007
+1.5000E-1 0.9617
+1.3000E-1 0.9309
+1.0000E-1 0.8568
+7.6000E-2 0.7662
+5.0000E-2 0.7087
+2.5000E-2 0.6630
+1.2000E-2 0.6246
+Stream     003 007 agua                          
+Water feed 0.0000E+0 75.0000
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 003 Alim                          
+Number of grade ranges       0 
+END OF FILE
+"Liberation data",#TRUE#
+sag-cetem_B11
+Stream     006 013 Trommel oversize              
+Lib dist   000
+Stream     004 011 Trommel undersize             
+Lib dist   000
+Stream     005 012 Screen oversize               
+Lib dist   000
+Stream     007 014 Product - screen undersize    
+Lib dist   000
+Stream     008 015 Mill contents                 
+Lib dist   000
+Stream     001 003 Alim                          
+Lib dist   000
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 003 Alim                          
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 SAGT 025 001
+5.0000E+0 9.5000E-1 1.6500E+0 3.3000E+0 4.5100E+1 1.9000E+0 2.0000E+0 1.7740E+0 
+2.5400E-1 2.0000E+1 7.2000E+1 2.5400E+1 1.8300E+0 1.1000E+0 6.0200E-1 5.8420E-1 
+2.6000E+1 1.0000E+1 1.5000E+2 7.5000E+1 1.0000E+1 1.0000E+1 1.1700E+0 1.2600E+0 
+6.0000E+0 
+TYPE 002 MIXR 000 002
+TYPE 003 SCRN 007 010
+1.0000E-3 9.0000E-1 0.0000E+0 0.0000E+0 0.0000E+0 0.0000E+0 1.0000E+0 
+OUTC
+   0   0   6   1   1   6   1   6   0   0
+STOP
+"Output format",#TRUE#
+2T4TTFF1F
+ 0 
+F
+F
+"SIMOP data",#TRUE#
+FFFFF

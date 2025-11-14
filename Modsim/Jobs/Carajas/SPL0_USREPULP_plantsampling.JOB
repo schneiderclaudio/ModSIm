@@ -1,0 +1,17 @@
+"Job name","SPL0_USREPULP_plantsampling"
+"Flowsheet",#TRUE#
+"System data",#TRUE#
+"Model data",#TRUE#
+"System input data",#TRUE#
+"Size data",#TRUE#
+"G-class distribution",#TRUE#
+"Liberation data",#TRUE#
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+"Washability data",#FALSE#
+"System data needed",#FALSE#
+"Model parameter data",#TRUE#
+"Unit parameters needed",#FALSE#
+"Output format",#TRUE#
+"SIMOP data",#TRUE#

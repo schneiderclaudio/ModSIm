@@ -1,0 +1,15 @@
+  The data output routine has started
+  Opened file FORMAT.OUT
+ Simulation number    0
+ CUMFL F
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+ Closing CumFile
+  No liberation data.

@@ -1,0 +1,189 @@
+"Job name","fag_sag"
+"Flowsheet",#TRUE#
+ 1  7  7  16 
+fag_sag
+ 4  8  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0 
+ 0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  2  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTTTTTTT
+ 16 T
+ 4  350.086  311.6836  7  8 
+ 24 T
+ 3  297.0427  503.1237  7  6 
+ 52 TT
+ 1  500  500  10  1 
+ 2  509.2161  166.1258  7  5 
+ 0 
+ 221.2665      503.1237      281.6427      503.1237      2 
+ 0 
+ 581.9612      499.9594      839.6003      499.9594      3 
+ 1 
+ 297.0427      488.8844      312.1979      311.6836      10 
+ 297.0427      311.6836 
+ 1 
+ 350.086       332.2515      410.707       503.1237      11 
+ 350.086       503.1237 
+ 1 
+ 351.6016      291.1156      445.5641      166.1258      12 
+ 351.6016      166.1258 
+ 0 
+ 565.2905      167.7079      850.209       167.7079      13 
+ 0 
+ 531.9489      601.217       716.8428      705.6389      14 
+ 0 
+ 530.4334      230.9939      738.0602      351.2373      15 
+ 4 
+TTTT
+ 464.8396      53.84937 
+SAG mill
+ 122.7574      492.0487 
+Mill feed
+ 350.086       311.6836 
+
+ 455.6044      347.5732 
+FAG mill
+ 3 
+TTTT
+ 1020          100           10            10 
+ 668.0145      587.4477      650.1598      501.5416 
+ 695.7202      261.0879      668.3461      169.2901 
+ 245.5149      590.142       236.4217      501.5416 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+fag_sag
+ 8 
+ 1  2 F  0  3 
+ 2  3 O  1  0 
+ 3  10 O  3  4 
+ 4  11 O  4  1 
+ 6  13 O  2  0 
+ 5  12 O  4  2 
+ 7  14 O  1  0 
+ 8  15 O  2  0 
+"Model data",#TRUE#
+fag_sag
+ 4 
+ 52  52  24  16 
+ 1  5  6  8 
+ 8             2 
+"System input data",#TRUE#
+SYSTEM DATA
+fag_sag
+NDGS   1 025 001 001
+MINS 001
+Ore             
+SIZE
+3.0000E-1 2.1213E-1 1.5000E-1 1.0607E-1 7.5000E-2 5.3033E-2 3.7500E-2 2.6517E-2 
+1.8750E-2 1.3258E-2 9.3750E-3 6.6291E-3 4.6875E-3 3.3146E-3 2.3438E-3 1.6573E-3 
+1.1719E-3 8.2864E-4 5.8594E-4 4.1432E-4 2.9297E-4 2.0716E-4 1.4648E-4 1.0358E-4 
+7.3242E-5 
+SPGR
+2.7500E+0 
+GRDM
+1.0000E+0
+PHYP 001 001
+2.7500E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 003
+SCMA 002 001 000
+SCMA 003 003 004
+SCMA 004 004 001
+SCMA 006 002 000
+SCMA 005 004 002
+SCMA 007 001 000
+SCMA 008 002 000
+STRM 001   2
+2.77780E+2 70.00
+1.4385E-3 1.2287E-2 4.5374E-2 9.5696E-2 1.3719E-1 1.5188E-1 1.4133E-1 1.1703E-1 
+8.9746E-2 6.5404E-2 4.6054E-2 3.1740E-2 2.1563E-2 1.4523E-2 9.6962E-3 6.4119E-3 
+4.2680E-3 2.8370E-3 1.8714E-3 1.2382E-3 8.1944E-4 5.4229E-4 3.5887E-4 2.3749E-4 
+4.6468E-4 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 003
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+fag_sag
+Stream     001 002 Mill feed                     
+Feedrate  2.7778E+2 70.0000
+Size dist  019
+3.0000E-1 0.9997
+2.1210E-1 0.9949
+1.5000E-1 0.9693
+1.0610E-1 0.8995
+7.5000E-2 0.7803
+5.3030E-2 0.6321
+3.7500E-2 0.4830
+2.6520E-2 0.3529
+1.8750E-2 0.2496
+1.3260E-2 0.1726
+9.3750E-3 0.1175
+6.6290E-3 0.0792
+4.6880E-3 0.0530
+3.3150E-3 0.0353
+2.3440E-3 0.0234
+1.6570E-3 0.0155
+1.1720E-3 0.0103
+8.2860E-4 0.0068
+5.8590E-4 0.0045
+Stream     002 003 FAG mill discharge            
+Size dist  000
+Stream     007 014 FAG mill contents             
+Size dist  000
+Stream     008 015 SAG mill contents             
+Size dist  000
+Stream     006 013 SAG mill discharge            
+Size dist  000
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 Mill feed                     
+Number of grade ranges       0 
+END OF FILE
+"Liberation data",#TRUE#
+fag_sag
+Stream     002 003 FAG mill discharge            
+Lib dist   000
+Stream     007 014 FAG mill contents             
+Lib dist   000
+Stream     008 015 SAG mill contents             
+Lib dist   000
+Stream     006 013 SAG mill discharge            
+Lib dist   000
+Stream     001 002 Mill feed                     
+Lib dist   000
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 Mill feed                     
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 FAGM 020 001
+5.0000E-1 3.7230E+0 7.4800E-1 0.0000E+0 3.9940E-1 7.2000E-1 1.0000E+1 2.5130E+0 
+5.0000E+1 1.0000E+0 2.0000E+0 1.0000E+0 1.0000E+1 4.0000E+1 7.5000E+1 4.0000E+1 
+1.0000E+1 6.5000E+1 1.2000E+0 1.2600E+0 
+TYPE 002 SAGM 024 005
+1.0000E+0 9.5000E-1 1.6500E+0 3.3000E+0 5.0000E+1 1.0000E+0 2.0000E+0 1.0000E+0 
+2.0000E-1 2.0000E+1 7.5000E+1 2.5000E+1 8.0000E+0 6.0000E+0 4.0000E+0 2.0000E+0 
+3.5000E+1 1.0000E+1 5.0000E+1 7.2000E+1 4.0000E+1 6.5000E+1 1.2000E+0 1.2600E+0 
+TYPE 003 MIXR 000 006
+TYPE 004 SPLT 003 008
+2.0000E+0 5.0000E-1 5.0000E-1 
+OUTC
+   0   0   6   1   1   6   1   6   0   0
+STOP
+"Output format",#FALSE#
+"SIMOP data",#TRUE#
+FFFFF

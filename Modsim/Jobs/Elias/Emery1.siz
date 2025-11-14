@@ -1,0 +1,10 @@
+Emery1
+Stream     001 033 Feed                          
+Feedrate  4.5830E+0 100.0000
+Size dist  003
+2.0000E-1 0.9500
+1.0000E-1 0.5000
+1.0000E-2 0.1000
+Stream     003 036 Product                       
+Size dist  000
+END OF FILE

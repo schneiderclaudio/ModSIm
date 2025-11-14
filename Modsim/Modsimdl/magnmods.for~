@@ -1,0 +1,369 @@
+C*******************     MAGNMODS.FOR     *****************************C
+C                                                                      C
+C          MODSIM   MODULAR SIMULATOR FOR ORE DRESSING PLANTS          C
+C                                                                      C
+C  THIS FILE CONTAINS MODSIM MODELS FOR MAGNETIC SEPARATORS            C
+C                                                                      C
+C  MODSIM  (C) RP KING  JOHANNESBURG  1985                             C
+C                                                                      C
+C**********************************************************************C
+C
+C
+      SUBROUTINE WDMS(TMSF,TMS1,TMS2,TMS3,FEED,OUT1,OUT2,OUT3,DER1,DER2,
+     *DER3,NDC,NGC,NSC,WTR,WTR1,WTR2,WTR3,SIZE,PARAM,PPROP,INDPP,FL,NPP,
+     *GRDM,GRDV,NMIN,NGCM)
+C     ******************************************************************
+C
+      REAL FEED(NDC,NGC,NSC)
+      REAL SIZE(NDC),PARAM(*)
+      REAL DER1(NDC,NGC,NSC),DER2(NDC,NGC,NSC),DER3(NDC,NGC,NSC)
+      REAL OUT1(NDC,NGC,NSC),OUT2(NDC,NGC,NSC),OUT3(NDC,NGC,NSC)
+      REAL PPROP(*),GRDM(NGCM,NMIN),GRDV(NGCM,NMIN)
+      INTEGER FL,INDPP(NPP,2)
+      COMMON NPLNT,NUNIT,ITER,IW,IFLAG
+C
+C A simple recovery model for a wet drum magnetic concentrator
+c Parameters:
+C      1...Exponent on the volumetric fraction non-magnetics to model
+C          the recovery.
+C      2...By-pass fraction to non mags.
+C      3...Exponential coefficient to reduce by-pass as size increases.
+
+      TMS1 = 0.0
+      DO 30 I = 1,NDC
+        ALPHA = PARAM(2)*EXP(-PARAM(3)*SIZE(I)/0.001)
+        DO 20 J = 1,NGC
+          DO 10 K =1,NSC
+            REC = (1.0 - ALPHA)*GRDV(J,1)**PARAM(1) + ALPHA
+            OUT1(I,J,K) = REC*FEED(I,J,K)
+            OUT2(I,J,K) = (1.0-REC)*FEED(I,J,K)
+            DER1(I,J,K) = REC
+            DER2(I,J,K) = (1.0 - REC)
+            TMS1 = TMS1 + OUT1(I,J,K)
+   10     CONTINUE
+   20   CONTINUE
+   30 CONTINUE
+      FL = 1
+      TMS2 = TMSF - TMS1
+      WTR1 = 0.8*WTR
+      WTR2 = WTR - WTR1
+      RETURN
+      END
+C
+C      
+      SUBROUTINE WDM2(TMSF,TMS1,TMS2,TMS3,FEED,OUT1,OUT2,OUT3,DER1,DER2,
+     *DER3,NDC,NGC,NSC,WTR,WTR1,WTR2,WTR3,SIZE,PARAM,PPROP,INDPP,FL,NPP,
+     *GRDM,GRDV,NMIN,NGCM)
+C     ******************************************************************
+C
+	Use GLOBALS
+      REAL FEED(NDC,NGC,NSC)
+      REAL SIZE(NDC),PARAM(*)
+      REAL DER1(NDC,NGC,NSC),DER2(NDC,NGC,NSC),DER3(NDC,NGC,NSC)
+      REAL OUT1(NDC,NGC,NSC),OUT2(NDC,NGC,NSC),OUT3(NDC,NGC,NSC)
+      REAL PPROP(*),GRDM(NGCM,NMIN),GRDV(NGCM,NMIN)
+      INTEGER FL,INDPP(NPP,2)
+      COMMON NPLNT,NUNIT,ITER,IW,IFLAG
+C
+C A recovery model for a wet drum magnetic concentrator based on WDMS
+C and the Rosin-Rammler separation curve
+c Parameters:
+C      1...Sharpness Index.
+C      2...The Gv 50% parameter.
+C      3...By-pass fraction to non mags.
+C      4...Exponential coefficient to reduce by-pass as size increases.
+C      5...Water split to tail stream
+
+      TMS1 = 0.0
+C Calculate the exponent with S.I.
+      IF(PARAM(1) .LE. 0.0 .OR. PARAM(1) .GE. 1.0) THEN
+       WRITE(UnitDiagFile,*)' Parameter 1 is out of range in model WDM2'
+       RETURN
+      END IF
+      LAMBDA = -1.5725/ALOG(PARAM(1))
+      DO 30 I = 1,NDC
+	ALPHA = PARAM(3)*EXP(-PARAM(4)*SIZE(I)/0.001)
+	DO 20 J = 1,NGC
+	  DO 10 K =1,NSC
+	    REC = 1.0 - EXP(-0.69315*(GRDV(J,1)/PARAM(2))**LAMBDA)
+	    REC = (1.0 - ALPHA)*REC + ALPHA
+	    OUT1(I,J,K) = REC*FEED(I,J,K)
+	    OUT2(I,J,K) = (1.0-REC)*FEED(I,J,K)
+	    DER1(I,J,K) = REC
+	    DER2(I,J,K) = (1.0 - REC)
+	    TMS1 = TMS1 + OUT1(I,J,K)
+   10     CONTINUE
+   20   CONTINUE
+   30 CONTINUE
+      FL = 1
+      TMS2 = TMSF - TMS1
+C The default water split is 80% to the tails
+      IF(PARAM(5).LT.0.0) PARAM(5) = 0.8
+      IF(1.0.LT.PARAM(5)) PARAM(5) = 0.8
+      WTR1 = PARAM(5)*WTR
+      WTR2 = WTR - WTR1
+      RETURN
+      END
+C
+      SUBROUTINE WHIM(TMSF,TMS1,TMS2,TMS3,FEED,OUT1,OUT2,OUT3,DER1,DER2,
+     *DER3,NDC,NGC,NSC,WTR,WTR1,WTR2,WTR3,SIZE,PARAM,PPROP,INDPP,FL,NPP,
+     *GRDM,GRDV,NMIN,NGCM)
+C     ******************************************************************
+C
+C This is a dummy subroutine to prevent spurious unresolved external
+C messages from the linker.
+      REAL FEED(NDC,NGC,NSC)
+      REAL SIZE(NDC),PARAM(*)
+      REAL DER1(NDC,NGC,NSC),DER2(NDC,NGC,NSC),DER3(NDC,NGC,NSC)
+      REAL OUT1(NDC,NGC,NSC),OUT2(NDC,NGC,NSC),OUT3(NDC,NGC,NSC)
+      REAL PPROP(*),GRDM(NGCM,NMIN),GRDV(NGCM,NMIN)
+      INTEGER FL,INDPP(NPP,2)
+      COMMON NPLNT,NUNIT,ITER,IW,IFLAG
+
+c Receive information about water feed to this unit.
+      LOGICAL UNITWFEED
+      COMMON /WATERFEED/ UNITWFEED, WATERADD, SOLIDCONT
+
+      RETURN
+      END
+C
+      SUBROUTINE DOFI(TMSF,TMS1,TMS2,TMS3,FEED,OUT1,OUT2,OUT3,DER1,DER2,
+     *DER3,NDC,NGC,NSC,WTR,WTR1,WTR2,WTR3,SIZE,PARAM,PPROP,INDPP,FL,NPP,
+     *GRDM,GRDV,NMIN,NGCM)
+C     ******************************************************************
+C
+C Dobby and finch model for the wet high intensity separator.
+C Dobby G and finch J A An emprical model of capture in a high-gradient
+C magnetic separtor and its use in performance prediction. Proc. 12th
+C International Mineral Processing Congress Sao Paulo brazil 1977. Vol 1
+C pp 128 - 152
+C   Parameters:
+C       1.....Magnetic field strength in Tesla
+C       2.....Saturation magnetization of the matrix material
+C       3.....Interstitial velocity of the slurry through the matrix.
+C       4.....Fractional loading on the matrix.
+C       5.....M50 value of the group HGk^1.2dp^2.5/(U^1.8Lm^0.8)
+C       6.....Residual water on retained magnetics before flushing.
+C       7.....Number of units in parallel.
+C
+      REAL FEED(NDC,NGC,NSC)
+      REAL SIZE(NDC),PARAM(*)
+      REAL DER1(NDC,NGC,NSC),DER2(NDC,NGC,NSC),DER3(NDC,NGC,NSC)
+      REAL OUT1(NDC,NGC,NSC),OUT2(NDC,NGC,NSC),OUT3(NDC,NGC,NSC)
+      REAL PPROP(*),GRDM(NGCM,NMIN),GRDV(NGCM,NMIN)
+      INTEGER FL,INDPP(NPP,2)
+      COMMON NPLNT,NUNIT,ITER,IW,IFLAG
+
+c Receive information about water feed to this unit.
+      LOGICAL UNITWFEED
+      COMMON /WATERFEED/ UNITWFEED, WATERADD, SOLIDCONT
+
+C
+C  Split the feed for multiple units in parallel and recombine the
+C  products before exit.
+      EXTERNAL MDOFI
+      CALL       MULT(TMSF,TMS1,TMS2,TMS3,FEED,OUT1,OUT2,OUT3,DER1,DER2,
+     *DER3,NDC,NGC,NSC,WTR,WTR1,WTR2,WTR3,SIZE,PARAM,PPROP,INDPP,FL,NPP,
+     *GRDM,GRDV,NMIN,NGCM,MDOFI,PARAM(8))
+      RETURN
+      END
+C
+C
+      SUBROUTINE MDOFI(TMSF,TMS1,TMS2,TMS3,FEED,OUT1,OUT2,OUT3,DER1,DER2
+     *,DER3,NDC,NGC,NSC,WTR,WTR1,WTR2,WTR3,SIZE,PARAM,PPROP,INDPP,FL,NPP
+     *,GRDM,GRDV,NMIN,NGCM)
+        USE GLOBALS
+      REAL FEED (NDC,NGC,NSC)
+      REAL OUT1(NDC,NGC,NSC),OUT2(NDC,NGC,NSC),OUT3(NDC,NGC,NSC)
+      REAL DER1(NDC,NGC,NSC),DER2(NDC,NGC,NSC),DER3(NDC,NGC,NSC)
+      REAL GRDM(NGCM,NMIN),GRDV(NGCM,NMIN)
+      REAL SIZE(NDC),PARAM(*),PPROP(*)
+      INTEGER INDPP(NPP,2),FL
+      COMMON NPLNT,NUNIT,ITER,IW,IFLAG
+C
+
+c Receive information about water feed to this unit.
+      LOGICAL UNITWFEED
+      COMMON /WATERFEED/ UNITWFEED, WATERADD, SOLIDCONT
+
+      REAL Lm,M50_1,M50_2,ML
+      PARAMETER (PI = 3.1415927)
+
+	IF(INDPP(3,1) .LE. NGC) Then
+	  Write(UnitDiagFile,1001) 
+ 1001   FORMAT('Magnetic susceptibilities have not been specified for '/
+     *         'the G-classes'/
+     *         'Specify the G-class data by editing the System Data')
+        TMS1 = 0.0
+        TMS2 = 0.0
+        TMS3 = 0.0
+	OUT1 = 0.0
+        OUT2 = 0.0
+        OUT3 = 0.0
+	WTR1 = 0.0
+        WTR2 = 0.0
+        WTR3 = 0.0
+        RETURN
+	End IF
+
+      H = PARAM(1)/(4*PI*1e-7)
+      G = PARAM(2)/(4*PI*1e-7)
+      IF(G .GT. H) G = H
+      U = PARAM(3)
+      Lm = PARAM(4)
+      M50_1 = PARAM(5)
+      M50_2 = PARAM(6)
+      L = INDPP(3,1) - 1
+      B1 = 0.383
+      B2 = 0.413
+
+      TMS1 = 0.0
+      WS = H*G/(U**1.3*Lm**1.1)
+      DO I = 1,NDC
+          WS1 =WS*SIZE(I)**1.6
+        DO J = 1,NGC
+          DO K = 1,NSC
+            IF(PPROP(L+J) .LE. 0.0) THEN
+              ML = 0.0
+              REC = 0.05
+            ELSE IF (PPROP(J)*1000*PPROP(L+J) .LT. 6.3E-3) THEN
+              ML = WS1*(PPROP(J)*1000*PPROP(L+J))**1.8
+              REC = 0.5 + B1*ALOG10(ML/M50_1)
+	      ELSE
+	        ML = WS1*(PPROP(J)*1000*PPROP(L+J))**3.9
+              REC = 0.5 + B2*ALOG10(ML/M50_2)
+            END IF
+            IF (REC .LT. 0.05) REC = 0.05
+            IF (REC .GT. 0.95) REC = 0.95
+            OUT2(I,J,K) = FEED(I,J,K)*REC
+            OUT1(I,J,K) = FEED(I,J,K) - OUT2(I,J,K)
+            TMS1 = TMS1 + OUT1(I,J,K)
+            DER2(I,J,K) = REC
+            DER1(I,J,K) = 1.0 - REC
+          END DO
+        END DO
+      END DO
+      TMS2 = TMSF - TMS1
+      WTR2 = 0.01*PARAM(7)*TMS2
+      WTR1 = WTR - WTR2
+
+c Calculate the water flows if water is added to the unit.
+      IF(UNITWFEED) THEN
+        IF(SOLIDCONT .LE. 0.0) THEN
+          WTR2 = WTR2 + WATERADD
+        ELSE
+          WS = TMS2*(100.0 - SOLIDCONT)/SOLIDCONT
+          WATERADD = WS - WTR2
+          WTR2 = WS
+        END IF
+      END IF
+
+C Return to MODSIM from the model subroutine.
+      RETURN
+      END
+
+
+
+C
+      SUBROUTINE JNES(TMSF,TMS1,TMS2,TMS3,FEED,OUT1,OUT2,OUT3,DER1,DER2
+     *,DER3,NDC,NGC,NSC,WTR,WTR1,WTR2,WTR3,SIZE,PARAM,PPROP,INDPP,FL,NPP
+     *,GRDM,GRDV,NMIN,NGCM)
+c     ******************************************************************
+C     Model for the Jones using stratification.
+      USE GLOBALS
+      REAL FEED (NDC,NGC,NSC)
+      REAL OUT1(NDC,NGC,NSC),OUT2(NDC,NGC,NSC),OUT3(NDC,NGC,NSC)
+      REAL DER1(NDC,NGC,NSC),DER2(NDC,NGC,NSC),DER3(NDC,NGC,NSC)
+      REAL GRDM(NGCM,NMIN),GRDV(NGCM,NMIN)
+      REAL SIZE(1),PARAM(*),PPROP(1)
+      INTEGER INDPP(NPP,2),FL
+      COMMON NPLNT,NUNIT,ITER,IW,IFLAG
+
+c Receive information about water feed to this unit.
+      LOGICAL UNITWFEED
+      COMMON /WATERFEED/ UNITWFEED, WATERADD, SOLIDCONT
+
+	REAL MaxMS, MinMS
+
+	REAL, ALLOCATABLE :: FRHO(:)
+	ALLOCATE (FRHO(NGC))
+
+
+      hs1 = PARAM(1) !This depends on the force acting upon the packed layer
+	hs2 = PARAM(2) !This depends on the flowrate of flush water
+      alpha = PARAM(3) !Function of the current and plate age
+
+C	This model does not work with S-Classes and uses these magnetic susceptibilities.
+      L = INDPP(3,1) - 1
+	!Need to set up a vector to make the role of PPROP, but densities
+	!are replaced by a value proportional to magnetic susceptibility
+	MaxMS = PPROP(L+1)
+	MinMS = PPROP(L+1)
+      DO J = 1,NGC
+		IF(PPROP(J+K) .LT. MinMS) THEN 
+			MinMS = PPROP(J+K)
+		END IF
+		IF(PPROP(J+K) .GT. MaxMS) THEN 
+			MaxMS = PPROP(J+K)
+		END IF
+	End DO
+	!The higher MS the heavier the particle and vice-versa
+	DO J = 1,NGC
+	    IF(MaxMS .EQ. MinMS) THEN 
+			FRHO(J) = 2.7
+		ELSE
+			FRHO(J) = 1.0 + 4.0*(PPROP(J+L)-MinMS)/(MaxMS-MinMS)
+		End IF
+	End DO
+	!DER3 IS HEAVY, OUT1 IS LIGHT
+      IF(NGC .EQ. 2) THEN
+        CALL BinStratify(FEED,DER3,OUT1,NDC,NGC,NSC,SIZE,
+     *  hs1,alpha,FRHO,NPP,INDPP)
+      END IF
+      IF (NGC .GT. 2) THEN
+        CALL N_Stratify(FEED,DER3,OUT1,NDC,NGC,NSC,SIZE,
+     *  hs1,alpha,FRHO,NPP)
+      END IF
+	!Run this a second time to get middlings and concentrate
+      IF(NGC .EQ. 2) THEN
+        CALL BinStratify(DER3,OUT2,OUT3,NDC,NGC,NSC,SIZE,
+     *  hs2,alpha,FRHO,NPP,INDPP)
+      END IF
+      IF (NGC .GT. 2) THEN
+        CALL N_Stratify(DER3,OUT2,OUT3,NDC,NGC,NSC,SIZE,
+     *  hs2,alpha,FRHO,NPP)
+      END IF
+      TMS1 = 0.0
+	TMS2 = 0.0
+      DO I = 1,NDC
+        DO J = 1,NGC
+          DO K = 1,NSC
+            TMS1 = TMS1 + OUT1(I,J,K)
+		  TMS2 = TMS2 + OUT2(I,J,K)
+          END DO
+        END DO
+      END DO
+      TMS3 = TMSF - TMS1 - TMS2
+C	Assume all feed water goes to tails
+      WTR1 = WTR
+	WTR2 = 0
+      WTR3 = 0
+
+c Calculate the water flows if water is added to the Jones.
+      IF(UNITWFEED) THEN
+        IF(SOLIDCONT .LE. 0.0) THEN
+          WTR3 = WATERADD/3 !One third of injected water to each stream
+		WTR2 = WATERADD/3
+	    WTR1 = WTR1 + WATERADD - WTR3 - WTR2
+        ELSE
+          WS = TMSF*(100.0 - SOLIDCONT)/SOLIDCONT
+          WATERADD = WS - WTR
+          WTR3 = WATERADD/3 !One third of injected water to each stream
+		WTR2 = WATERADD/3
+	    WTR1 = WTR1 + WATERADD - WTR3 - WTR2
+        END IF
+      END IF
+	DEALLOCATE (FRHO)
+
+      RETURN
+      END

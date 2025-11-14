@@ -1,0 +1,150 @@
+"Job name","Ex10-1Screen"
+"Flowsheet",#TRUE#
+ 1  12  15  5 
+Ex10-1Screen
+ 1  3  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTT
+ 14 T
+ 1  500  500  15  1 
+ 1 
+ 151.5524      681.9067      342.5084      558.499       2 
+ 342.5084      681.9067 
+ 0 
+ 636.5201      515.7809      894.1592      515.7809      3 
+ 1 
+ 589.5388      425.5984      897.1902      365.4767      4 
+ 589.5388      365.4767 
+ 5 
+TTTTT
+ 500           500 
+
+ 204.5957      645.5172 
+Feed
+ 728.967       485.7201 
+Oversize
+ 728.967       336.998 
+Undersize
+ 1038.134      566.4097 
+
+ 3 
+TTTT
+ 151.5524      447.7485      10            10 
+ 352.5084      705.5172      342.5084      645.5172 
+ 710.7808      602.7992      695.6255      514.1988 
+ 715.3273      446.1663      692.5945      365.4767 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+Ex10-1Screen
+ 3 
+ 1  2 F  0  1 
+ 3  4 O  1  0 
+ 2  3 O  1  0 
+"Model data",#TRUE#
+Ex10-1Screen
+ 1 
+ 14 
+ 1 
+"System input data",#TRUE#
+SYSTEM DATA
+Ex10-1Screen
+NDGS   1 012 001 001
+MINS 001
+Dolomite        
+SIZE
+7.6000E-2 5.3740E-2 3.8000E-2 2.6870E-2 1.9000E-2 1.3435E-2 9.5000E-3 6.7175E-3 
+4.7500E-3 3.3588E-3 2.3750E-3 1.6794E-3 
+SPGR
+2.7000E+0 
+GRDM
+1.0000E+0
+PHYP 001 001
+2.7000E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 001
+SCMA 003 001 000
+SCMA 002 001 000
+STRM 001   2
+2.50630E+1 100.00
+1.6016E-2 5.2268E-2 1.1042E-1 1.4117E-1 1.4309E-1 1.2527E-1 9.9413E-2 8.3339E-2 
+6.0477E-2 4.4507E-2 3.2754E-2 9.1282E-2 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 003
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+Ex10-1Screen
+Stream     001 002 Feed                          
+Feedrate  2.5063E+1 100.0000
+Size dist  008
+5.0800E-2 0.9552
+3.8100E-2 0.8858
+3.1750E-2 0.8187
+2.5400E-2 0.7273
+1.9050E-2 0.6100
+1.2700E-2 0.4470
+9.5250E-3 0.3636
+6.3500E-3 0.2540
+Stream     003 004 Undersize                     
+Size dist  005
+2.5400E-2 0.9894
+1.9050E-2 0.8762
+1.2700E-2 0.6393
+9.5250E-3 0.5226
+6.3500E-3 0.3648
+Stream     002 003 Oversize                      
+Size dist  008
+5.0800E-2 0.8532
+3.8100E-2 0.6261
+3.1750E-2 0.4064
+2.5400E-2 0.1312
+1.9050E-2 0.0044
+1.2700E-2 0.0022
+9.5250E-3 0.0020
+6.3500E-3 0.0020
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 Feed                          
+Number of grade ranges       0 
+END OF FILE
+"Liberation data",#TRUE#
+Ex10-1Screen
+Stream     003 004 Undersize                     
+Lib dist   000
+Stream     002 003 Oversize                      
+Lib dist   000
+Stream     001 002 Feed                          
+Lib dist   000
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 Feed                          
+Number of S-ranges           0 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 SCR2 009 001
+3.1750E-2 1.2700E-2 2.0000E+1 4.8768E+0 2.4384E-1 1.7622E+3 1.0000E+0 0.0000E+0 
+1.0000E+0 
+OUTC
+   0   0   6   1   1   6   1   6   6   6
+STOP
+"Output format",#TRUE#
+5F5FTFFF
+ 0 
+F
+F
+"SIMOP data",#TRUE#
+FFFFFF

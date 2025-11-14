@@ -1,0 +1,41 @@
+pan-african3
+Stream     001 006 Fresh ore                     
+Feedrate  5.0556E-1 100.0000
+Size dist  019
+7.1400E-2 0.9900
+5.0490E-2 0.9521
+3.5700E-2 0.8653
+2.5250E-2 0.7335
+1.7850E-2 0.5821
+1.2620E-2 0.4376
+8.9250E-3 0.3160
+6.3110E-3 0.2216
+4.4630E-3 0.1524
+3.1560E-3 0.1033
+2.2310E-3 0.0694
+1.5780E-3 0.0464
+1.1160E-3 0.0308
+7.8890E-4 0.0205
+5.5780E-4 0.0135
+3.9450E-4 0.0090
+2.7890E-4 0.0059
+1.9720E-4 0.0039
+1.3950E-4 0.0026
+Stream     004 013 Old timers and concentrate    
+Feedrate  3.7778E+0 100.0000
+Size dist  006
+2.0000E-3 1.0000
+8.1000E-4 0.9920
+1.7700E-4 0.8760
+1.5000E-4 0.5580
+7.5000E-5 0.3987
+4.5000E-5 0.2060
+Stream     005 031 Cleaner water                 
+Water feed 0.0000E+0 15.0000
+Stream     016 055 Recleaner water               
+Water feed 0.0000E+0 18.0000
+Stream     019 064 Mill water                    
+Water feed 0.0000E+0 70.0000
+Stream     023 069 Cyckone water                 
+Water feed 0.0000E+0 40.0000
+END OF FILE

@@ -1,0 +1,175 @@
+"Job name","PriRo"
+"Flowsheet",#TRUE#
+ 1  5  14  5 
+PriRo
+ 1  3  0 
+ 0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+TTT
+ 6 T
+ 1  500  500  14  1 
+ 1 
+ 0 
+ 198.8137      506.6465      443.0704      506.6465      2 
+ 0 
+ 495.33        537.2809      495.33        335.8006      3 
+ 0 
+ 557.8143      501.9335      686.1911      501.9335      4 
+ 5 
+TTTTT
+ 500           500 
+
+ 446.4787      591.4803 
+Primary Rougher
+ 249.9372      484.2598 
+Primary Rougher Feed
+ 413.5324      307.5226 
+Primary Rougher Concentrate
+ 614.6182      471.2991 
+Primary Rougher Tail
+ 3 
+TTTT
+ 1020          100           10            10 
+ 262.434       605.6193      313.5575      507.8248 
+ 562.3586      388.8217      495.33        394.713 
+ 641.8841      602.0846      637.3398      505.4683 
+MS Sans Serif
+ 9 
+"System data",#TRUE#
+PriRo
+ 3 
+ 1  2 F  0  1 
+ 3  4 O  1  0 
+ 2  3 O  1  0 
+"Model data",#TRUE#
+PriRo
+ 1 
+ 6 
+ 1 
+ 1             1 
+"System input data",#TRUE#
+SYSTEM DATA
+PriRo
+NDGS   1 001 004 005
+MINS 004
+Gangue          
+Pyrrhotite      
+Chalcopyrite    
+Pentlandite     
+SIZE
+2.1200E-4 
+SPGR
+2.9000E+0 3.9000E+0 4.2000E+0 4.4000E+0 
+GRDM
+1.0000E+0 0.0000E+0 0.0000E+0 0.0000E+0
+0.0000E+0 1.0000E+0 0.0000E+0 0.0000E+0
+0.0000E+0 0.0000E+0 1.0000E+0 0.0000E+0
+0.0000E+0 0.0000E+0 0.0000E+0 1.0000E+0
+PHYP 001 004
+2.9000E+0 3.9000E+0 4.2000E+0 4.4000E+0 
+PHYP 005 005
+0.0000E+0 1.9800E-1 6.8200E-1 2.4080E+0 2.0630E+0 
+
+PLANT DATA
+PLNT   1
+SCMA 001 000 001
+SCMA 003 001 000
+SCMA 002 001 000
+STRM 001   2
+5.19450E+1 37.00
+6.9460E-1 2.0790E-1 5.9900E-2 3.7600E-2 
+9.5000E-1 5.0000E-2 0.0000E+0 0.0000E+0 0.0000E+0 
+8.0000E-1 0.0000E+0 2.0000E-1 0.0000E+0 0.0000E+0 
+4.0000E-2 0.0000E+0 0.0000E+0 9.6000E-1 0.0000E+0 
+1.0000E-1 0.0000E+0 0.0000E+0 0.0000E+0 9.0000E-1 
+TEAR 0 0 0 0
+
+RUN DATA
+CONV 003
+ITER 030
+TOLM -3 
+"Size data",#TRUE#
+PriRo
+Stream     001 002 PriRo Feed                    
+Feedrate  5.1945E+1 37.0000
+Size dist  000
+Stream     003 004 PriRo Tail                    
+Size dist  000
+Stream     002 003 PriRo Concentrate             
+Size dist  000
+END OF FILE
+"G-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 PriRo Feed                    
+Number of grade ranges       1 
+ 001
+0.0000E+0 2.1200E-4 
+ 004
+6.9460E-1 2.0790E-1 5.9900E-2 3.7600E-2 
+END OF FILE
+"Liberation data",#TRUE#
+PriRo
+Stream     003 004 PriRo Tail                    
+Lib dist   004
+0.777
+0.2058
+0.0086
+0.0086
+Stream     002 003 PriRo Concentrate             
+Lib dist   004
+0.0859
+0.2221
+0.4396
+0.2524
+Stream     001 002 PriRo Feed                    
+Lib dist   004
+0.
+0.
+0.
+0.
+END OF FILE
+"Ljubljana model",#FALSE#
+"Beta function liberation model",#FALSE#
+"S-class distribution",#TRUE#
+Number of data streams       1 
+Stream     001 002 PriRo Feed                    
+Number of S-ranges           4 
+ 001
+ 005
+9.5000E-1 5.0000E-2 0.0000E+0 0.0000E+0 0.0000E+0 
+ 002
+ 005
+8.0000E-1 0.0000E+0 2.0000E-1 0.0000E+0 0.0000E+0 
+ 003
+ 005
+4.0000E-2 0.0000E+0 0.0000E+0 9.6000E-1 0.0000E+0 
+ 004
+ 005
+1.0000E-1 0.0000E+0 0.0000E+0 0.0000E+0 9.0000E-1 
+END OF FILE
+"Washability data",#FALSE#
+"Model parameter data",#TRUE#
+TYPE 001 FLTN 010 001
+2.0000E+0 1.0000E+0 3.8000E+1 4.2300E+2 1.5000E+1 0.0000E+0 1.9800E-1 6.8200E-1 
+2.4080E+0 2.0630E+0 
+OUTC
+   0   0   6   1   1   6   1   6   6   6
+STOP
+"Output format",#TRUE#
+2F1TFTTF
+ 3 
+Ni      Cu      S       
+ 4
+ 0  0  0 
+ .0085  0  .398 
+ 0  .3464  .3492 
+ .3627  0  .332 
+F
+T
+ 3 
+ 001 003 002
+"SIMOP data",#TRUE#
+FFFFFF

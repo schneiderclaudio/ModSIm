@@ -1,0 +1,12 @@
+  The data output routine has started
+ STREAM,MFS(STREAM)           2   81.98000    
+ STREAM,MFS(STREAM)           3   54.20000    
+ STREAM,MFS(STREAM)           4   27.78000    
+ STREAM,MFS(STREAM)           6   54.20000    
+ STREAM,MFS(STREAM)           7  0.2903000    
+ STREAM,MFS(STREAM)           5   76.97000    
+ STREAM,MFS(STREAM)           1   27.78000    
+ STREAM,MFS(STREAM)           4   27.78000    
+ STREAM,MFS(STREAM)           6   54.20000    
+  Opened file FORMAT.OUT
+  Error reading file FORMAT.OUT

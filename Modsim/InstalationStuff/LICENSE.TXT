@@ -1,0 +1,18 @@
+Software License Agreement
+MODSIM Version 3.6.24 Pro
+     
+                                             
+PROPRIETARY RIGHTS.  The software and accompanying documentation are proprietary products of Mineral Technologies International, Inc. and are protected under the copyright laws of the United States and by international treaties.  Ownership of the software and all copies, modifications and merged portions thereof shall at all times remain with Mineral Technologies International, Inc. or its licensors.
+     
+1.  GRANT OF LICENSE.  The software and accompanying documentation are being licensed to you, which means you have the right to use the software in accordance with the License Agreement.  The software is considered in use on a computer when it is loaded into temporary or permanent memory.  You may make a single copy of the software solely for backup purposes.  Any copy must include the copyright notices.
+     
+2.  PERSONAL LICENSE.  This license is personal to you.  You may not sublicense, lease, sell or otherwise transfer the software or any of the accompanying documentation to any other person.
+     
+3.  NON PERMITTED USES.  You may not copy, modify, alter or transfer the software except as permitted in this license agreement.  You may not translate, reverse program, disassemble, decompile or otherwise reverse engineer the software.
+     
+4.  LIMITED WARRANTY.  This software is warranted to perform substantially in accordance with the accompanying documentation.  Mineral Technologies International, Inc. entire liability and your exclusive remedy under this Limited Warranty shall be the repair or replacement of any software that fails to conform to this Limited Warranty.  This software simulation system is not warranted to reflect, predict, describe or model any real or proposed equipment or collection of equipments in any form.
+     
+5.  LIMITED LIABILITY.  In no event shall Mineral Technologies International, Inc. liability related to the software exceed the amount paid by you for the software.  Mineral Technologies International, Inc. shall not be liable for any damages whatsoever arising out of or related to the use of or inability to use the software, including but not limited to direct, indirect, incidental or consequential damages.
+     
+You must accept this agreement before you can use this product.  If you do not accept the terms of the License Agreement, you should promptly return the product for a refund.
+          

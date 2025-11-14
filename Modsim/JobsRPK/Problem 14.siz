@@ -1,0 +1,46 @@
+Problem 14
+Stream     001 006 Flotation Feed                
+Feedrate  2.3200E+2 27.0000
+Size dist  019
+2.5240E-4 0.9900
+1.7850E-4 0.9521
+1.2620E-4 0.8653
+8.9250E-5 0.7335
+6.3110E-5 0.5821
+4.4630E-5 0.4376
+3.1560E-5 0.3160
+2.2310E-5 0.2216
+1.5780E-5 0.1524
+1.1160E-5 0.1033
+7.8890E-6 0.0694
+5.5780E-6 0.0464
+3.9450E-6 0.0308
+2.7890E-6 0.0205
+1.9720E-6 0.0135
+1.3950E-6 0.0090
+9.8610E-7 0.0059
+6.9730E-7 0.0039
+4.9310E-7 0.0026
+Stream     002 007 Rougher Tail                  
+Size dist  000
+Stream     003 008 Scavenger Tail                
+Size dist  000
+Stream     004 010 Rougher Concentrate           
+Size dist  000
+Stream     005 030 Scavenger Concentrate         
+Size dist  000
+Stream     006 031 Cleaner Feed                  
+Size dist  000
+Stream     008 051 Cleaner Concentrate           
+Size dist  000
+Stream     009 052 Re-Cleaner Concentrate        
+Size dist  000
+Stream     011 060 Cleaner Tail                  
+Size dist  000
+Stream     007 038 Cleaner Dilution Water        
+Water feed 0.0000E+0 20.0000
+Stream     010 054 Re-Cleaner Dilution Water     
+Water feed 0.0000E+0 15.0000
+Stream     012 063 Cleaner feed water            
+Water feed 0.0000E+0 20.0000
+END OF FILE

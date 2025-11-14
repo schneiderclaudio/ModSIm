@@ -1,0 +1,36 @@
+vera crux 20#
+Stream     001 013 Feed                          
+Feedrate  1.7892E+2 88.0000
+Size dist  015
+7.6200E-2 1.0000
+5.0800E-2 0.7779
+2.5400E-2 0.5000
+1.2700E-2 0.3920
+9.5300E-3 0.3617
+6.3500E-3 0.3240
+3.3300E-3 0.2879
+2.0000E-3 0.2710
+1.4000E-3 0.2626
+8.4000E-4 0.2529
+3.0000E-4 0.2344
+2.1000E-4 0.2273
+1.5000E-4 0.2199
+7.4000E-5 0.2058
+4.4000E-5 0.1984
+Stream     015 037 Mill Water                    
+Water feed 0.0000E+0 66.0000
+Stream     016 043 No name                       
+Water feed 0.0000E+0 30.0000
+Stream     021 051 No name                       
+Water feed 0.0000E+0 11.0000
+Stream     024 055 No name                       
+Water feed 0.0000E+0 11.0000
+Stream     025 056 H2O Peneiramento              
+Water feed 3.0000E+1 0.0000
+Stream     026 057 Primeiro Ciclone              
+Water feed 0.0000E+0 54.0000
+Stream     029 061 SEGUNDO CICLONE               
+Water feed 0.0000E+0 52.5000
+Stream     032 065 Ciclone desaguamento          
+Water feed 0.0000E+0 20.0000
+END OF FILE

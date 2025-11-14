@@ -1,0 +1,91 @@
+SPL0_plantsampling_opened
+Stream     001 005 Alimentacao                   
+Feedrate  8.5556E+1 100.0000
+Size dist  017
+1.0000E-2 0.9910
+8.0000E-3 0.9640
+6.3000E-3 0.9140
+4.0000E-3 0.8040
+2.0000E-3 0.6230
+1.0000E-3 0.4500
+5.0000E-4 0.3220
+2.5000E-4 0.2140
+1.5000E-4 0.1590
+1.0600E-4 0.1280
+7.5000E-5 0.1090
+4.5000E-5 0.0930
+2.6000E-5 0.0800
+2.0000E-5 0.0720
+1.4000E-5 0.0640
+9.0000E-6 0.0560
+7.0000E-6 0.0490
+Stream     013 024 Feed underflow class          
+Feedrate  4.0028E+2 84.8000
+Size dist  012
+1.0000E-3 0.9830
+5.0000E-4 0.9470
+2.5000E-4 0.8220
+1.5000E-4 0.5990
+1.0000E-4 0.3920
+7.5000E-5 0.1870
+4.5000E-5 0.0600
+2.6000E-5 0.0410
+2.0000E-5 0.0390
+1.4000E-5 0.0360
+9.0000E-6 0.0350
+7.0000E-6 0.0350
+Stream     002 006 alimentacao do moinho         
+Size dist  000
+Stream     003 007 descarga do moinho            
+Size dist  000
+Stream     004 008 alimentacao cicl classificador
+Size dist  012
+1.0000E-3 0.9860
+5.0000E-4 0.9560
+2.5000E-4 0.8520
+1.5000E-4 0.6670
+1.0000E-4 0.4920
+7.5000E-5 0.3110
+4.5000E-5 0.1780
+2.6000E-5 0.1320
+2.0000E-5 0.1160
+1.4000E-5 0.1020
+9.0000E-6 0.0920
+7.0000E-6 0.0870
+Stream     007 016 overflow cicl classificador   
+Size dist  010
+2.5000E-4 0.9980
+1.5000E-4 0.9870
+1.0000E-4 0.9650
+7.5000E-5 0.8960
+4.5000E-5 0.7370
+2.6000E-5 0.5590
+2.0000E-5 0.4800
+1.4000E-5 0.4150
+9.0000E-6 0.3610
+7.0000E-6 0.3250
+Stream     008 019 alimentacao cicl deslamador   
+Size dist  000
+Stream     010 021 overflow cicl deslamador      
+Size dist  000
+Stream     009 020 underflow cicl deslamador     
+Size dist  010
+2.5000E-4 0.9960
+1.5000E-4 0.9910
+1.0000E-4 0.9760
+7.5000E-5 0.9240
+4.5000E-5 0.7260
+2.6000E-5 0.4870
+2.0000E-5 0.4030
+1.4000E-5 0.3070
+9.0000E-6 0.2280
+7.0000E-6 0.1800
+Stream     012 023 Underflow cicl classificador  
+Size dist  000
+Stream     005 011 agua alimentacao do moinho    
+Water feed 0.0000E+0 78.0000
+Stream     006 013 agua descarga do moinho       
+Water feed 4.3361E+2 0.0000
+Stream     011 022 Agua deslamagem               
+Water feed 2.1945E+2 0.0000
+END OF FILE

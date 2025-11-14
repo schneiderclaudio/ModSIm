@@ -1,0 +1,324 @@
+
+
+               *****************************
+               * MODSIM UNIT DESIGN REPORT *
+               *****************************
+
+
+
+ UNIT EQUIPMENT DATA SHEET - ROD MILL
+ ************************************
+
+     Unit number   1           MODSIM model name RODM
+       Job name: ICRA102
+
+ PARAMETERS:
+  Parameters for breakage function
+   Beta:                            3.696
+   Gamma:                           1.481
+   Delta:                            .000
+   Phi at 5mm:                       .242
+   Phi at top size:                  .242
+  Parameters for selection function
+   Selection function at 1 mm:      1.617 1/min
+   Alpha:                            .589
+   Mu:                              1.398 mm
+   Lambda:                           .736
+
+  Residence time of water:           3.40 min
+  Exponential factor for variation of transport velocity with siz     .11
+
+ Calculated tonnage through mill   160.31 tons/hr.
+ Calculated hold up in mill          9.08 tons
+
+     Size distribution in FEED
+       Size      % passing
+        mms  
+       42.0         99.61
+       29.7         98.11
+       21.0         94.18
+       14.9         87.14
+       10.5         75.26
+       7.44         65.15
+       5.25         58.55
+       3.72         53.06
+       2.63         47.87
+       1.86         43.07
+       1.31         38.91
+       .929         35.13
+       .657         31.36
+       .465         28.08
+       .328         24.60
+       .232         21.30
+       .164         18.02
+       .116         15.02
+       .821E-01     12.33
+       .581E-01     10.19
+       .411E-01      7.51
+       .290E-01      5.31
+       .205E-01      3.76
+       .145E-01      2.66
+       .000           .00
+
+     Size distribution in PRODUCT
+       Size      % passing
+        mms  
+       42.0        100.00
+       29.7        100.00
+       21.0        100.00
+       14.9        100.00
+       10.5        100.00
+       7.44         99.99
+       5.25         99.88
+       3.72         99.33
+       2.63         97.67
+       1.86         94.24
+       1.31         88.70
+       .929         81.23
+       .657         72.42
+       .465         63.01
+       .328         53.68
+       .232         44.91
+       .164         36.93
+       .116         29.84
+       .821E-01     23.69
+       .581E-01     18.56
+       .411E-01     14.03
+       .290E-01     10.18
+       .205E-01      7.16
+       .145E-01      4.93
+       .000           .00
+
+80% passing size in feed                    .119E+05 microns
+80% passing size in product                 883.     microns
+The power required by this mill can be estimated from the
+Bond work index for the ore.
+        Power required =     39.3 x W.I.  kW
+
+
+
+ UNIT EQUIPMENT DATA SHEET - HYDROCYCLONE
+ ****************************************
+
+     Unit number   4           MODSIM model name CYCL
+       Job name: ICRA102
+
+ PARAMETERS:
+ Cyclone diameter          .380 meters
+ Vortex-spigot distance   1.281 meters
+ Inlet diameter            .100 meters
+ Vortex finder diameter    .152 meters
+ Spigot diameter           .076 meters
+ Feed head                 3.81 meters
+ Cyclones in cluster      3
+
+ Flowrate through each cyclone   .309E-01 m**3 per sec.
+ Volumetric fraction of solids in the feed      .380
+ Viscosity of slurry   .0010 kg/ms
+ Specific gravity of slurry in separation zone   1.00
+ Index for variation of d50 with density    .50
+ Pressure drop across the hydrocyclone   68.8 kPa
+
+Plitt's calibration parameters:
+                        For D50   1.00
+       For the sharpness factor    .33
+             For the flow split   2.20
+
+
+     Size distribution in feed
+
+       Size      % passing
+        mms  
+       42.0        100.00
+       29.7        100.00
+       21.0        100.00
+       14.9        100.00
+       10.5        100.00
+       7.44        100.00
+       5.25         99.95
+       3.72         99.72
+       2.63         98.98
+       1.86         97.33
+       1.31         94.33
+       .929         89.55
+       .657         82.60
+       .465         73.36
+       .328         62.34
+       .232         50.82
+       .164         40.20
+       .116         31.24
+       .821E-01     24.03
+       .581E-01     18.41
+       .411E-01     13.85
+       .290E-01     10.23
+       .205E-01      7.47
+       .145E-01      5.44
+       .000           .00
+
+ Volumetric flow split to underflow   .699
+ Sharpness index =   .095
+ D50 for particle type  1 is  274.2     microns
+
+
+     Size distribution in underflow.
+       Size      % passing
+        mms  
+       42.0        100.00
+       29.7        100.00
+       21.0        100.00
+       14.9        100.00
+       10.5        100.00
+       7.44         99.99
+       5.25         99.92
+       3.72         99.55
+       2.63         98.38
+       1.86         95.83
+       1.31         91.35
+       .929         84.55
+       .657         75.30
+       .465         63.87
+       .328         51.32
+       .232         39.31
+       .164         29.18
+       .116         21.35
+       .821E-01     15.57
+       .581E-01     11.40
+       .411E-01      8.26
+       .290E-01      5.91
+       .205E-01      4.22
+       .145E-01      3.04
+       .000           .00
+
+
+     Size distribution in overflow.
+       Size      % passing
+        mms  
+       42.0        100.00
+       29.7        100.00
+       21.0        100.00
+       14.9        100.00
+       10.5        100.00
+       7.44        100.00
+       5.25        100.00
+       3.72         99.99
+       2.63         99.95
+       1.86         99.76
+       1.31         99.15
+       .929         97.60
+       .657         94.38
+       .465         88.67
+       .328         80.11
+       .232         69.39
+       .164         57.98
+       .116         47.18
+       .821E-01     37.67
+       .581E-01     29.71
+       .411E-01     22.89
+       .290E-01     17.20
+       .205E-01     12.71
+       .145E-01      9.31
+       .000           .00
+
+ Water split to underflow =   .285    
+
+ ***WARNING!***
+ This cyclone will rope under these operating conditions
+ according to the Mular-Jull criterion.
+
+Ratio of air core to underflow diameter by Concha's formula is  1.47
+ ***WARNING!***
+This cyclone will rope under these operating conditions
+according to the Concha criterion.
+The underflow diameter should be increased to alleviate this condition.
+
+
+ UNIT EQUIPMENT DATA SHEET - BALL MILL
+ *************************************
+
+     Unit number   3           MODSIM model name MILL
+       Job name: ICRA102
+
+ PARAMETERS:
+  Parameters for breakage function
+   Beta:                            7.699
+   Gamma:                            .683
+   Delta:                            .000
+   Phi at 5mm:                       .683
+   Phi at top size:                  .683
+  Parameters for selection function
+   Selection function at 1 mm:      1.380 1/min
+   Alpha:                           1.662
+   Mu:                              1.433 mm
+   Lambda:                           .735
+
+  Residence time:                    2.19 min
+
+ Calculated tonnage through mill   258.40 tons/hr.
+ Calculated hold up in mill          9.43 tons
+
+
+     Size distribution in FEED
+       Size      % passing
+        mms  
+       42.0        100.00
+       29.7        100.00
+       21.0        100.00
+       14.9        100.00
+       10.5        100.00
+       7.44         99.99
+       5.25         99.92
+       3.72         99.55
+       2.63         98.38
+       1.86         95.83
+       1.31         91.35
+       .929         84.55
+       .657         75.30
+       .465         63.87
+       .328         51.32
+       .232         39.31
+       .164         29.18
+       .116         21.35
+       .821E-01     15.57
+       .581E-01     11.40
+       .411E-01      8.26
+       .290E-01      5.91
+       .205E-01      4.22
+       .145E-01      3.04
+       .000           .00
+
+     Size distribution in PRODUCT
+       Size      % passing
+        mms  
+       42.0        100.00
+       29.7        100.00
+       21.0        100.00
+       14.9        100.00
+       10.5        100.00
+       7.44        100.00
+       5.25        100.00
+       3.72         99.96
+       2.63         99.80
+       1.86         99.26
+       1.31         97.83
+       .929         94.71
+       .657         88.93
+       .465         79.79
+       .328         67.72
+       .232         54.50
+       .164         42.24
+       .116         32.11
+       .821E-01     24.24
+       .581E-01     18.31
+       .411E-01     13.75
+       .290E-01     10.26
+       .205E-01      7.66
+       .145E-01      5.75
+       .000           .00
+
+80% passing size in feed                    777.     microns
+80% passing size in product                 468.     microns
+The power required by this mill can be estimated from the
+Bond work index for the ore.
+        Power required =     26.8 x W.I.  kW
+
+

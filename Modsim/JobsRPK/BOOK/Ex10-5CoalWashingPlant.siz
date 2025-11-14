@@ -1,0 +1,19 @@
+Ex10-5CoalWashingPlant
+Stream     001 011 Plant feed                    
+Feedrate  2.7780E+1 100.0000
+Size dist  006
+3.7600E-2 0.8420
+1.9000E-2 0.6170
+9.5000E-3 0.4350
+6.0000E-4 0.1030
+1.5000E-4 0.0580
+7.5000E-5 0.0410
+Stream     019 019 No name                       
+Water feed 0.0000E+0 30.0000
+Stream     021 021 No name                       
+Water feed 0.0000E+0 30.0000
+Stream     013 027 No name                       
+Water feed 0.0000E+0 30.0000
+Stream     025 025 Spray water on screen         
+Water feed 2.0000E+0 0.0000
+END OF FILE

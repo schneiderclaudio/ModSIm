@@ -1,0 +1,444 @@
+Comparing files millmods.for and ..\TEMP\MILLMODS.FOR
+***** millmods.for
+          TAU=FTAU1*TAUPRIME
+          DTBDF=-FTAU1*MRT/TMSF
+          CALL PMMILL(DER2,OUT3,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+***** ..\TEMP\MILLMODS.FOR
+          TAU=FTAU1*TAUPRIME
+          DTBDF=-0.0137*MRT/TMSF
+          CALL PMMILL(DER2,OUT3,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+*****
+
+***** millmods.for
+          TAU=FTAU2*TAUPRIME
+          DTBDF=-FTAU2*MRT/TMSF
+          CALL PMMILL(OUT3,OUT2,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+***** ..\TEMP\MILLMODS.FOR
+          TAU=FTAU2*TAUPRIME
+          DTBDF=-0.2123*MRT/TMSF
+          CALL PMMILL(OUT3,OUT2,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+*****
+
+***** millmods.for
+          TAU=FTAU3*TAUPRIME
+          DTBDF=-FTAU3*MRT/TMSF
+          CALL PMMILL(OUT2,OUT1,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+***** ..\TEMP\MILLMODS.FOR
+          TAU=FTAU3*TAUPRIME
+          DTBDF=-0.7740*MRT/TMSF
+          CALL PMMILL(OUT2,OUT1,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+*****
+
+***** millmods.for
+
+      REAL MillLength,Jt,Jb,RhoB
+      REAL No_Load_Power, Mill_PowerM, Mill_PowerA, Mill_PowerB
+      REAL NoLoadPower,NetPower,UserPower
+
+***** ..\TEMP\MILLMODS.FOR
+
+      REAL MillLength,Jt,Jb
+      REAL No_Load_Power, Mill_PowerM, Mill_PowerA
+      REAL NoLoadPower,NetPower
+
+*****
+
+***** millmods.for
+
+      REAL D50, SI, NewTauPrime
+
+***** ..\TEMP\MILLMODS.FOR
+
+      REAL D50, NewTauPrime
+
+*****
+
+***** millmods.for
+c     13...Post classification function
+c     14...Post classification d50, in mm
+      D50 = PARAM(14)/1000
+c     15...Post classification SI
+      SI = PARAM(15)
+C     16...Specific gravity of charge media
+      RhoB = PARAM(16)*1000
+C     17...Choice of power model
+C          0 = None(user value), 1 = Bond, 2 = Morrell, 3 = Austin
+C     18...User net grinding power in kW
+C     19...Makeup ball size (mm) needed by Bond's power formula
+C     20..Choice of Transport Model.  0 = pm;pm;pm-cl, 1 = pm;pm;pm;cl,
+C          2 = pm-cl;pm-cl;pm-cl
+C     21..Fractional residence time, Region 1
+C     22..Fractional residence time, Region 2
+c Calculate the charge density
+***** ..\TEMP\MILLMODS.FOR
+c     13...Post classification function
+c     14...Post classification d50
+      D50 = PARAM(14)
+      SI = PARAM(15)
+c     15...Post classification SI
+
+c Calculate the charge density
+*****
+
+***** millmods.for
+      U = 1.0
+      RhoC = Charge_Density(Jt, Jb, E, U, RhoB, RhoO, PhiV)
+***** ..\TEMP\MILLMODS.FOR
+      U = 1.0
+      RhoB = 7800
+      RhoC = Charge_Density(Jt, Jb, E, U, RhoB, RhoO, PhiV)
+*****
+
+***** millmods.for
+C      write(*,*) ' No-load power',NoLoadPower
+      IF(NINT(PARAM(17)) .EQ. 0) THEN
+        NetPower = PARAM(18)*1000
+        ELSE IF(NINT(PARAM(17)) .EQ. 1) THEN
+C     Bond. Need Db, makeup ball diameter
+        Db = PARAM(19)/1000
+        NetPower =  Mill_PowerB(BellyLength, Dm, PhiC, RhoB, Jt, Db) 
+        NetPower = NetPower - NoLoadPower
+        ELSE IF(NINT(PARAM(17)) .EQ. 2) THEN
+      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+***** ..\TEMP\MILLMODS.FOR
+C      write(*,*) ' No-load power',NoLoadPower
+      NetPower = Mill_PowerM(BellyLength, ConeLength, Dm, PhiC,
+*****
+
+***** millmods.for
+C      write(*,*)' Morell power',NetPower
+        ELSE 
+C     This is Austin SAG mill power
+      Dt = 0.1*Dm   !Dt is the feed opening.
+***** ..\TEMP\MILLMODS.FOR
+C      write(*,*)' Morell power',NetPower
+      Dt = 0.1*Dm   !Dt is the feed opening.
+*****
+
+***** millmods.for
+C      write(*,*)' Austin net power',NetPower
+      END IF
+      Ecs = NetPower/TMSF
+***** ..\TEMP\MILLMODS.FOR
+C      write(*,*)' Austin net power',NetPower
+      Ecs = NetPower/TMSF
+*****
+
+***** millmods.for
+      DER1 = 1.0
+      PowerW=NetPower/(3600*TMSF)    !Net power is in Watts
+
+C       Set the fractional residence times
+        FTAU1 = PARAM(21) !FTAU1 = 0.0137
+        FTAU2 = PARAM(22) !FTAU2 = 0.2123
+        FTAU3 = 1.0 - FTAU2 - FTAU1
+c       Write(UnitDiagFile,*)' FTAU1,FTAU2,FTAU3',FTAU1,FTAU2,FTAU3
+
+C Evaluate the product from the various transport models
+C     NO CLASSIFICATION FUNCTION
+      IF (NINT(PARAM(13)) .EQ. 0) THEN
+          NCALL=1
+        TAU=FTAU1*PowerW
+        DTBDF=-TAU/TMSF
+        CALL PMMILL(FEED,OUT3,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+     *  INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+
+        NCALL=2
+        TAU=FTAU2*PowerW
+        DTBDF=-TAU/TMSF
+        CALL PMMILL(OUT3,OUT2,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+     *  INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+
+        NCALL=3
+        TAU=FTAU3*PowerW
+        DTBDF=-TAU/TMSF
+        CALL PMMILL(OUT2,OUT1,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+     *  INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+      END IF
+C       CLASSIFICATION FUNCTION
+      IF (NINT(PARAM(13)) .GT. 0) THEN
+C Tolerance and max iterations for internal classifier
+        tolIC = 0.00005
+        maxitIC = 120
+C       LAST REGION WITH CLASSIFIER OR PM;PM;PM-CL
+        IF (NINT(PARAM(20)) .EQ. 0) THEN
+          NCALL=1
+          TAU=FTAU1*PowerW
+          DTBDF=-TAU/TMSF
+          CALL PMMILL(FEED,OUT3,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+     *    INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+
+          NCALL=2
+          TAU=FTAU2*PowerW
+          DTBDF=-TAU/TMSF
+          CALL PMMILL(OUT3,OUT2,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+     *    INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+
+          NCALL=3
+          TAU=FTAU3*PowerW
+          DTBDF=-TAU/TMSF
+C START CLASSIFIER LOOP
+          TAUPRIME = TAU
+          DER2 = OUT2
+          ITNO = 0
+  100 CONTINUE
+          CALL PMMILL(DER2,OUT1,DER1,NDC,NGC,NSC,SIZE,TAUPRIME,DTBDF,
+     *PPROP,INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+          WS = 0.0
+          Recycle = 0.0
+          DO I = 1,NDC
+            CI = Classification(SIZE(I),NINT(PARAM(13)),D50,SI)
+            DO J = 1,NGC
+              DO K = 1,NSC
+                Recycle = Recycle + CI*OUT1(I,J,K)
+                DER2(I,J,K) = CI*OUT1(I,J,K) + OUT2(I,J,K)
+                OUT1(I,J,K) = (1.0 - CI)*OUT1(I,J,K)
+                DER1(I,J,K) = (1.0 - CI)*DER1(I,J,K)
+              END DO
+            END DO
+***** ..\TEMP\MILLMODS.FOR
+      DER1 = 1.0
+      PoverW=NetPower/(3600*TMSF)    !Net power is in Watts
+
+      NCALL=1
+      TAU=0.0137*PoverW
+      DTBDF=-TAU/TMSF
+      CALL PMMILL(FEED,OUT3,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+     *INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+
+      NCALL=2
+      TAU=0.2123*PoverW
+      DTBDF=-TAU/TMSF
+      CALL PMMILL(OUT3,OUT2,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+     *INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+
+      NCALL=3
+      TAU=0.7740*PoverW
+      DTBDF=-TAU/TMSF
+      DTBDF =  0.0
+      TAUPRIME = TAU
+      DER2 = OUT2
+C If post classification is significant, iteration is required.
+      ITNO = 0
+  100 CONTINUE
+      CALL PMMILL(DER2,OUT1,DER1,NDC,NGC,NSC,SIZE,TAUPRIME,DTBDF,PPROP,
+     *INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+      IF (NINT(PARAM(13)) .GT. 0) THEN
+        WS = 0.0
+        Recycle = 0.0
+        DO I = 1,NDC
+          CI = Classification(SIZE(I),NINT(PARAM(13)),D50,SI)
+          DO J = 1,NGC
+            DO K = 1,NSC
+              Recycle = Recycle + CI*OUT1(I,J,K)
+              DER2(I,J,K) = CI*OUT1(I,J,K) + OUT2(I,J,K)
+              OUT1(I,J,K) = (1.0 - CI)*OUT1(I,J,K)
+              DER1(I,J,K) = (1.0 - CI)*DER1(I,J,K)
+            END DO
+*****
+
+Resync Failed.  Files are too different.
+***** millmods.for
+          END DO
+          NewTauPrime = TAU/(1.0 + RECYCLE/TMSF)
+          ITNO = ITNO + 1
+          WS = ABS((NewTauPrime - TAUPRIME)/TAUPRIME)
+          TAUPRIME = NewTauPrime
+          IF(WS .GT. tolIC .AND. ITNO .LT. maxitIC) GO TO 100
+          IF(ITNO .GE. maxitIC) THEN
+            WRITE(UnitDiagFile,'(''***Post classification calculation 
+     *did not converge for unit '',I2/
+     *  ''    Try increasing the D50 size of the grate.'')') NUNIT
+            CALL FLUSH(UnitDiagFile)
+          END IF
+C END IF FOR PM;PM;PM-CL
+          END IF
+C       POST-CLASSIFIER
+          IF (NINT(PARAM(20)) .EQ. 1) THEN
+C START CLASSIFIER LOOP
+            DER2 = FEED
+            TAUPRIME = PowerW
+          ITNO = 0
+  200 CONTINUE
+          NCALL=1
+          TAU=FTAU1*TAUPRIME
+          DTBDF=-FTAU1*PowerW/TMSF
+          CALL PMMILL(DER2,OUT3,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+     *INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+
+          NCALL=2
+          TAU=FTAU2*TAUPRIME
+          DTBDF=-FTAU2*PowerW/TMSF
+          CALL PMMILL(OUT3,OUT2,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+     *INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+
+          NCALL=3
+          TAU=FTAU3*TAUPRIME
+          DTBDF=-FTAU3*PowerW/TMSF
+          CALL PMMILL(OUT2,OUT1,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP,
+     *INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+          WS = 0.0
+          Recycle = 0.0
+          DO I = 1,NDC
+            CI = Classification(SIZE(I),NINT(PARAM(13)),D50,SI)
+            DO J = 1,NGC
+              DO K = 1,NSC
+                Recycle = Recycle + CI*OUT1(I,J,K)
+                DER2(I,J,K) = CI*OUT1(I,J,K) + FEED(I,J,K)
+                OUT1(I,J,K) = (1.0 - CI)*OUT1(I,J,K)
+                DER1(I,J,K) = (1.0 - CI)*DER1(I,J,K)
+              END DO
+            END DO
+          END DO
+          NewTauPrime = PowerW/(1.0 + RECYCLE/TMSF)
+          ITNO = ITNO + 1
+          WS = ABS((NewTauPrime - TAUPRIME)/TAUPRIME)
+          TAUPRIME = NewTauPrime
+          IF(WS .GT. tolIC .AND. ITNO .LT. maxitIC) GO TO 200
+          IF(ITNO .GE. maxitIC) THEN
+            WRITE(UnitDiagFile,'(''***Post classification calculation 
+     *did not converge for unit '',I2/
+     *  ''    Try increasing the D50 size of the grate.'')') NUNIT
+            CALL FLUSH(UnitDiagFile)
+          END IF
+C END IF FOR POST-CLASSIFIER OR PM;PM;PM;CL
+          END IF
+C EACH REGION FOLLOWED BY A CLASSIFIER OR PM-CL;PM-CL;PM-CL
+          IF (NINT(PARAM(20)) .EQ. 2) THEN
+C START CLASSIFIER LOOP 1
+            DER2 = FEED
+            TAU = FTAU1*PowerW
+            DTBDF=-TAU/TMSF
+            TAUPRIME = TAU
+          ITNO = 0
+  301 CONTINUE
+          CALL PMMILL(DER2,OUT3,DER1,NDC,NGC,NSC,SIZE,TAUPRIME,DTBDF,
+     *PPROP,INDPP,NPP,HERBST_FUER,BR_FUNCTION,GRDM,NGCM,NMIN,NCALL,DER3)
+          WS = 0.0
+          Recycle = 0.0
+          DO I = 1,NDC
+            CI = Classification(SIZE(I),NINT(PARAM(13)),D50,SI)
+            DO J = 1,NGC
+              DO K = 1,NSC
+                Recycle = Recycle + CI*OUT3(I,J,K)
+                DER2(I,J,K) = CI*OUT3(I,J,K) + FEED(I,J,K)
+                OUT3(I,J,K) = (1.0 - CI)*OUT3(I,J,K)
+                DER1(I,J,K) = (1.0 - CI)*DER1(I,J,K)
+              END DO
+            END DO
+          END DO
+          NewTauPrime = TAU/(1.0 + RECYCLE/TMSF)
+          ITNO = ITNO + 1
+          WS = ABS((NewTauPrime - TAUPRIME)/TAUPRIME)
+          TAUPRIME = NewTauPrime
+          IF(WS .GT. tolIC .AND. ITNO .LT. maxitIC) GO TO 301
+          IF(ITNO .GE. maxitIC) THEN
+            WRITE(UnitDiagFile,'(''***Post classification calculation 
+     *did not converge for unit '',I2, ''  Region 1''/
+     *  ''    Try increasing the D50 size of the grate.'')') NUNIT
+            CALL FLUSH(UnitDiagFile)
+          END IF
+C START CLASSIFIER LOOP 2
+***** ..\TEMP\MILLMODS.FOR
+          END DO
+        END DO
+        NewTauPrime = TAU/(1.0 + RECYCLE/TMSF)
+        ITNO = ITNO + 1
+        WS = ABS((NewTauPrime - TAUPRIME)/TAUPRIME)
+        TAUPRIME = NewTauPrime
+        IF(WS .GT. 0.001 .AND. ITNO .LT. 30) GO TO 100
+        IF(ITNO .GE. 30) THEN
+          WRITE(UnitDiagFile,'(''***Post classification calculation did
+     *not converge for unit '',I2/
+     *    ''    Try increasing the D50 size of the grate.'')') NUNIT
+          CALL FLUSH(UnitDiagFile)
+        END IF
+      END IF
+
+      FL=1
+      RETURN
+      END
+C
+C
+      SUBROUTINE PMMILL(FEED,OUT1,DER1,NDC,NGC,NSC,SIZE,TAU,DTBDF,PPROP
+     *,INDPP,NPP,SELFN,BRFN,GRDM,NGCM,NMIN,NCALL,DER3)
+C     *****************************************************************
+C  Simulation of a perfectly mixed segment of a mill.
+C  Liberation of the mineral phases is computed using the Andrews-Mika
+C  model as developed by in King R P "Calculation of the Liberation Spectrum
+C  in Products Produced in Continuous Milling  Circuits". Proc 7th European
+C  Symposium on Comminution. Ljubljana June 1990 Vol 2 pp429-444. THIS LIMITS
+C  THIS MODEL TO BINARY ORES!!
+C
+C  DER1 BRINGS IN THE DERIVATIVE OF THE FLOW IN I,J,K WITH RESPECT TO
+C  THE FEED IN THIS CLASS TO THE MILL.
+C  DER3 sends out the derivative of OUT1 wrt TAU.
+C  DTBDF BRINGS IN THE DERIVATIVE OF TAU WITH RESPECT TO THE TOTAL FEED
+C  NCALL IS THE NUMBER OF THIS CALL
+
+
+      USE GLOBALS
+      REAL FEED(NDC,NGC,NSC),OUT1(NDC,NGC,NSC),DER1(NDC,NGC,NSC)
+      REAL DER3(NDC,NGC,NSC)
+      REAL SIZE(NDC),PPROP(1)
+      REAL GRDM(NGCM,NMIN)
+      INTEGER INDPP(NPP,2),FL
+
+      LOGICAL SWITCH
+      COMMON /AMDSwitch/SWITCH
+      LOGICAL LJUBLJANA, AM_MODEL
+      COMMON NPLNT,NUNIT,ITER,IW,IFLAG
+      COMMON /LINCOR/PHIA,LJUBLJANA,AM_MODEL
+      COMMON/SCALEUP/OVFILL
+
+      
+      OUT1 = FEED
+      DO 60 K=1,NSC
+      DO 50 I=1,NDC-1
+        CALL SELFN(I,SIZE(I),S)
+        S=OVFILL*S
+        WS1=S*TAU
+        DO 40 J=1,NGC
+          OUT1(I,J,K)=OUT1(I,J,K)/(1.0+S*TAU)
+          WS2=WS1*OUT1(I,J,K)
+          DER1(I,J,K)=DER1(I,J,K)*(1.0-OUT1(I,J,K)*S*DTBDF)/(1.0+S*TAU)
+            BRF = 0.0
+          DO 30 II=I+1,NDC
+            SZII=SIZE(II)
+            IF(II.EQ.NDC) SZII=0.0
+            CALL BRFN(I,II,SIZE(II-1),SZII,SIZE(I),DELB)
+            WS3=WS2*DELB
+              BRF = BRF + DELB
+            DO 30 M=1,NGC
+              BR=CONDBF(M,J,II,I,NDC,NGC,NOMIN,SWITCH)
+              IF(BR .LE. -1) RETURN
+              WS4=WS3*BR
+              OUT1(II,M,K) = OUT1(II,M,K) + WS4
+   30     CONTINUE
+   40   CONTINUE
+   50 CONTINUE
+   60 CONTINUE
+      RETURN
+
+      END
+
+      FUNCTION CONDBF(JJ,LL,II,KK,NDC,NGC,NOMIN,SWITCH)
+C     *************************************************
+C  Generates the conditional breakage function for transfer from G-class L
+C  to G-class J while transferring from size class K to size class I.
+
+
+      USE GLOBALS
+      USE PORTLIB
+
+      CHARACTER*80 DUMMY
+      INTEGER ERR_ALLOCATION
+      INTEGER*2, ALLOCATABLE, SAVE:: Bvg(:,:,:,:)
+      LOGICAL SWITCH
+      LOGICAL LJUBLJANA, AM_MODEL
+      COMMON /LINCOR/PHIA,LJUBLJANA,AM_MODEL
+
+C
+      IF(.NOT.SWITCH) THEN
+*****
+

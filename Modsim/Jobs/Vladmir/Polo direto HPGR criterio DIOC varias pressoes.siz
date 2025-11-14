@@ -1,0 +1,31 @@
+Polo direto HPGR criterio DIOC varias pressoes
+Stream     001 014 Feed                          
+Feedrate  7.7806E+2 95.0000
+Size dist  017
+2.5000E+0 1.0000
+2.0000E+0 0.9960
+1.5000E+0 0.9880
+1.2500E+0 0.9780
+1.0000E+0 0.9580
+7.5000E-1 0.9100
+5.0000E-1 0.7890
+4.0000E-1 0.6980
+2.5000E-1 0.4900
+1.7500E-1 0.3700
+1.0000E-1 0.2820
+5.0000E-2 0.2070
+3.0000E-2 0.1630
+2.0000E-2 0.1340
+1.0000E-2 0.0960
+5.0000E-3 0.0680
+1.0000E-3 0.0310
+Stream     020 053 OF Pre ciclonagem             
+Size dist  001
+2.1000E-4 0.8000
+Stream     016 034 H2O Pre Ciclonagem            
+Water feed 0.0000E+0 65.0000
+Stream     021 059 H2O PN2                       
+Water feed 0.0000E+0 50.0000
+Stream     028 074 No name                       
+Water feed 0.0000E+0 50.0000
+END OF FILE

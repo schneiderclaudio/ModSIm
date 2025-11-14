@@ -1,0 +1,16 @@
+ConeOptimum1
+Stream     001 004 Plant feed                    
+Feedrate  2.7780E+1 60.0000
+Size dist  009
+4.2920E-3 0.9900
+3.0350E-3 0.9000
+2.1460E-3 0.6838
+1.5170E-3 0.4376
+1.0730E-3 0.2501
+7.5870E-4 0.1340
+5.3650E-4 0.0694
+3.7930E-4 0.0353
+2.6820E-4 0.0178
+Stream     005 011 Plant concentrate             
+Size dist  000
+END OF FILE

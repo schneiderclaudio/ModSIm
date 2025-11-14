@@ -1,0 +1,33 @@
+Moagem
+Stream     006 019 ALimentacao nova              
+Feedrate  6.9445E+0 100.0000
+Size dist  008
+2.3600E-3 0.9956
+1.6500E-3 0.9901
+1.1700E-3 0.9739
+8.4100E-4 0.9094
+5.9500E-4 0.6732
+4.2000E-4 0.1115
+2.9700E-4 0.0377
+2.1000E-4 0.0142
+Stream     002 010 Descarga do moinho            
+Size dist  000
+Stream     003 011 AL Classificador              
+Size dist  000
+Stream     005 018 Under flow                    
+Size dist  000
+Stream     008 023 Overflow                      
+Size dist  006
+1.4900E-4 0.9211
+1.0500E-4 0.7694
+7.4000E-5 0.6214
+5.3000E-5 0.5319
+4.4000E-5 0.4617
+3.7000E-5 0.3972
+Stream     001 009 Alimentacao Moinho            
+Size dist  000
+Stream     004 016 Water Clasifier               
+Water feed 0.0000E+0 60.0000
+Stream     007 020 Mill Water                    
+Water feed 0.0000E+0 70.0000
+END OF FILE

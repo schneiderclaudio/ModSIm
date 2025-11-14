@@ -1,0 +1,20 @@
+Cone
+Stream     001 002 Feed                          
+Feedrate  1.6670E+1 60.0000
+Size dist  009
+4.2900E-3 0.9900
+3.0400E-3 0.9000
+2.1500E-3 0.6840
+1.5200E-3 0.4380
+1.0700E-3 0.2500
+7.6000E-4 0.1340
+5.4000E-4 0.0690
+3.8000E-4 0.0350
+2.7000E-4 0.0180
+Stream     002 003 Tailing                       
+Size dist  000
+Stream     003 004 Concentrate                   
+Size dist  000
+Stream     004 005 Middling                      
+Size dist  000
+END OF FILE

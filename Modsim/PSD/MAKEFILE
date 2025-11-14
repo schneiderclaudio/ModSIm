@@ -1,0 +1,7 @@
+ALL: PLOTPSD.EXE 3COMBAR.EXE
+
+PLOTPSD.EXE : PLOTPSD.FOR C:\MYSOFT~1\WETGRAPH\WETGRAPH.LIB
+      COMLIN32 PLOTPSD
+
+3combar.exe : 3combar.for c:\mysoft~1\wetgraph\wetgraph.lib
+      COMLIN32 3combar

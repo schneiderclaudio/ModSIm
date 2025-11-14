@@ -1,0 +1,266 @@
+
+
+               *****************************
+               * MODSIM UNIT DESIGN REPORT *
+               *****************************
+
+
+
+ UNIT EQUIPMENT DATA SHEET - BANK OF FLOTATION CELLS
+ ***************************************************
+
+     Unit number   4           MODSIM model name FLTN
+
+ There are 10 cells in this bank and 12 banks in parallel.
+ Volume of cells in this bank              2.27 m**3
+ Solids holdup in the cells              350.0 kg solid/m**3 pulp
+ Air holdup in the cells                15.00 %
+ Solid feedrate                         6.495     kg/s
+ Water feedrate                         17.60     kg/s
+
+ Rate constants are distributed over  3 values
+ .5000     .5000E-01 .1000E-02
+
+ Unit number   4  Cell number   1
+    Pulp residence time =   107.40 secs
+    Tailings transfer from cell  1 is  6.274     kg/s
+    Water transfer from cell  1 is  15.70     kg/s
+
+ Unit number   4  Cell number   2
+    Pulp residence time =   110.43 secs
+    Tailings transfer from cell  2 is  6.102     kg/s
+    Water transfer from cell  2 is  15.25     kg/s
+
+ Unit number   4  Cell number   3
+    Pulp residence time =   112.98 secs
+    Tailings transfer from cell  3 is  5.964     kg/s
+    Water transfer from cell  3 is  14.90     kg/s
+
+ Unit number   4  Cell number   4
+    Pulp residence time =   115.15 secs
+    Tailings transfer from cell  4 is  5.852     kg/s
+    Water transfer from cell  4 is  14.61     kg/s
+
+ Unit number   4  Cell number   5
+    Pulp residence time =   117.04 secs
+    Tailings transfer from cell  5 is  5.757     kg/s
+    Water transfer from cell  5 is  14.36     kg/s
+
+ Unit number   4  Cell number   6
+    Pulp residence time =   118.70 secs
+    Tailings transfer from cell  6 is  5.677     kg/s
+    Water transfer from cell  6 is  14.15     kg/s
+
+ Unit number   4  Cell number   7
+    Pulp residence time =   120.19 secs
+    Tailings transfer from cell  7 is  5.606     kg/s
+    Water transfer from cell  7 is  13.97     kg/s
+
+ Unit number   4  Cell number   8
+    Pulp residence time =   121.53 secs
+    Tailings transfer from cell  8 is  5.544     kg/s
+    Water transfer from cell  8 is  13.82     kg/s
+
+ Unit number   4  Cell number   9
+    Pulp residence time =   122.76 secs
+    Tailings transfer from cell  9 is  5.490     kg/s
+    Water transfer from cell  9 is  13.69     kg/s
+
+ Unit number   4  Cell number  10
+    Pulp residence time =   123.88 secs
+    Tailings transfer from cell 10 is  5.440     kg/s
+    Water transfer from cell 10 is  13.57     kg/s
+
+
+ UNIT EQUIPMENT DATA SHEET - BANK OF FLOTATION CELLS
+ ***************************************************
+
+     Unit number   5           MODSIM model name FLTN
+
+ There are  1 cells in this bank and  1 banks in parallel.
+ Volume of cells in this bank             59.78 m**3
+ Solids holdup in the cells              150.0 kg solid/m**3 pulp
+ Air holdup in the cells                15.00 %
+ Solid feedrate                         12.66     kg/s
+ Water feedrate                         48.41     kg/s
+
+ Rate constants are distributed over  3 values
+ .5000     .5000E-01 .1000E-02
+
+ Unit number   5  Cell number   1
+    Pulp residence time =  1808.17 secs
+    Tailings transfer from cell  1 is  4.204     kg/s
+    Water transfer from cell  1 is  26.80     kg/s
+
+
+ UNIT EQUIPMENT DATA SHEET - BANK OF FLOTATION CELLS
+ ***************************************************
+
+     Unit number   1           MODSIM model name FLTN
+
+ There are 12 cells in this bank and 12 banks in parallel.
+ Volume of cells in this bank              3.54 m**3
+ Solids holdup in the cells              325.0 kg solid/m**3 pulp
+ Air holdup in the cells                15.00 %
+ Solid feedrate                         24.77     kg/s
+ Water feedrate                         65.84     kg/s
+
+ Rate constants are distributed over  3 values
+ 1.000     .1000     .4500E-01
+
+ Unit number   1  Cell number   1
+    Pulp residence time =    40.22 secs
+    Tailings transfer from cell  1 is  24.32     kg/s
+    Water transfer from cell  1 is  65.92     kg/s
+
+ Unit number   1  Cell number   2
+    Pulp residence time =    40.94 secs
+    Tailings transfer from cell  2 is  23.89     kg/s
+    Water transfer from cell  2 is  64.74     kg/s
+
+ Unit number   1  Cell number   3
+    Pulp residence time =    41.64 secs
+    Tailings transfer from cell  3 is  23.48     kg/s
+    Water transfer from cell  3 is  63.63     kg/s
+
+ Unit number   1  Cell number   4
+    Pulp residence time =    42.34 secs
+    Tailings transfer from cell  4 is  23.10     kg/s
+    Water transfer from cell  4 is  62.57     kg/s
+
+ Unit number   1  Cell number   5
+    Pulp residence time =    43.04 secs
+    Tailings transfer from cell  5 is  22.72     kg/s
+    Water transfer from cell  5 is  61.55     kg/s
+
+ Unit number   1  Cell number   6
+    Pulp residence time =    43.74 secs
+    Tailings transfer from cell  6 is  22.36     kg/s
+    Water transfer from cell  6 is  60.56     kg/s
+
+ Unit number   1  Cell number   7
+    Pulp residence time =    44.45 secs
+    Tailings transfer from cell  7 is  22.00     kg/s
+    Water transfer from cell  7 is  59.60     kg/s
+
+ Unit number   1  Cell number   8
+    Pulp residence time =    45.16 secs
+    Tailings transfer from cell  8 is  21.65     kg/s
+    Water transfer from cell  8 is  58.65     kg/s
+
+ Unit number   1  Cell number   9
+    Pulp residence time =    45.88 secs
+    Tailings transfer from cell  9 is  21.31     kg/s
+    Water transfer from cell  9 is  57.72     kg/s
+
+ Unit number   1  Cell number  10
+    Pulp residence time =    46.62 secs
+    Tailings transfer from cell 10 is  20.98     kg/s
+    Water transfer from cell 10 is  56.81     kg/s
+
+ Unit number   1  Cell number  11
+    Pulp residence time =    47.37 secs
+    Tailings transfer from cell 11 is  20.65     kg/s
+    Water transfer from cell 11 is  55.91     kg/s
+
+ Unit number   1  Cell number  12
+    Pulp residence time =    48.13 secs
+    Tailings transfer from cell 12 is  20.32     kg/s
+    Water transfer from cell 12 is  55.03     kg/s
+
+
+ UNIT EQUIPMENT DATA SHEET - BANK OF FLOTATION CELLS
+ ***************************************************
+
+     Unit number   3           MODSIM model name FLTN
+
+ There are 16 cells in this bank and 12 banks in parallel.
+ Volume of cells in this bank              1.70 m**3
+ Solids holdup in the cells              325.0 kg solid/m**3 pulp
+ Air holdup in the cells                15.00 %
+ Solid feedrate                         20.32     kg/s
+ Water feedrate                         55.03     kg/s
+
+ Rate constants are distributed over  3 values
+ 1.000     .1000     .3000E-01
+
+ Unit number   3  Cell number   1
+    Pulp residence time =    23.22 secs
+    Tailings transfer from cell  1 is  20.21     kg/s
+    Water transfer from cell  1 is  54.76     kg/s
+
+ Unit number   3  Cell number   2
+    Pulp residence time =    23.35 secs
+    Tailings transfer from cell  2 is  20.10     kg/s
+    Water transfer from cell  2 is  54.47     kg/s
+
+ Unit number   3  Cell number   3
+    Pulp residence time =    23.48 secs
+    Tailings transfer from cell  3 is  19.99     kg/s
+    Water transfer from cell  3 is  54.17     kg/s
+
+ Unit number   3  Cell number   4
+    Pulp residence time =    23.61 secs
+    Tailings transfer from cell  4 is  19.88     kg/s
+    Water transfer from cell  4 is  53.88     kg/s
+
+ Unit number   3  Cell number   5
+    Pulp residence time =    23.74 secs
+    Tailings transfer from cell  5 is  19.78     kg/s
+    Water transfer from cell  5 is  53.58     kg/s
+
+ Unit number   3  Cell number   6
+    Pulp residence time =    23.86 secs
+    Tailings transfer from cell  6 is  19.67     kg/s
+    Water transfer from cell  6 is  53.29     kg/s
+
+ Unit number   3  Cell number   7
+    Pulp residence time =    23.99 secs
+    Tailings transfer from cell  7 is  19.56     kg/s
+    Water transfer from cell  7 is  53.00     kg/s
+
+ Unit number   3  Cell number   8
+    Pulp residence time =    24.12 secs
+    Tailings transfer from cell  8 is  19.46     kg/s
+    Water transfer from cell  8 is  52.72     kg/s
+
+ Unit number   3  Cell number   9
+    Pulp residence time =    24.26 secs
+    Tailings transfer from cell  9 is  19.35     kg/s
+    Water transfer from cell  9 is  52.43     kg/s
+
+ Unit number   3  Cell number  10
+    Pulp residence time =    24.39 secs
+    Tailings transfer from cell 10 is  19.25     kg/s
+    Water transfer from cell 10 is  52.15     kg/s
+
+ Unit number   3  Cell number  11
+    Pulp residence time =    24.52 secs
+    Tailings transfer from cell 11 is  19.14     kg/s
+    Water transfer from cell 11 is  51.87     kg/s
+
+ Unit number   3  Cell number  12
+    Pulp residence time =    24.65 secs
+    Tailings transfer from cell 12 is  19.04     kg/s
+    Water transfer from cell 12 is  51.58     kg/s
+
+ Unit number   3  Cell number  13
+    Pulp residence time =    24.79 secs
+    Tailings transfer from cell 13 is  18.94     kg/s
+    Water transfer from cell 13 is  51.30     kg/s
+
+ Unit number   3  Cell number  14
+    Pulp residence time =    24.92 secs
+    Tailings transfer from cell 14 is  18.83     kg/s
+    Water transfer from cell 14 is  51.03     kg/s
+
+ Unit number   3  Cell number  15
+    Pulp residence time =    25.06 secs
+    Tailings transfer from cell 15 is  18.73     kg/s
+    Water transfer from cell 15 is  50.75     kg/s
+
+ Unit number   3  Cell number  16
+    Pulp residence time =    25.19 secs
+    Tailings transfer from cell 16 is  18.63     kg/s
+    Water transfer from cell 16 is  50.47     kg/s
+

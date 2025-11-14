@@ -1,0 +1,36 @@
+DemoGMSU
+Stream     001 004 Plant feed                    
+Feedrate  2.7780E+1 100.0000
+Size dist  019
+8.9250E-3 0.9900
+6.3110E-3 0.9521
+4.4630E-3 0.8653
+3.1560E-3 0.7335
+2.2310E-3 0.5821
+1.5780E-3 0.4376
+1.1160E-3 0.3160
+7.8890E-4 0.2216
+5.5780E-4 0.1524
+3.9450E-4 0.1033
+2.7890E-4 0.0694
+1.9720E-4 0.0464
+1.3950E-4 0.0308
+9.8610E-5 0.0205
+6.9730E-5 0.0135
+4.9310E-5 0.0090
+3.4870E-5 0.0059
+2.4650E-5 0.0039
+1.7430E-5 0.0026
+Stream     002 005 Hydrocyclone feed             
+Size dist  000
+Stream     003 006 Ball mill feed                
+Size dist  000
+Stream     006 009 Ball mill discharge           
+Size dist  000
+Stream     004 007 Hydrocyclone overflow         
+Size dist  000
+Stream     005 008 Sump water                    
+Water feed 0.0000E+0 48.0000
+Stream     007 029 Ball mill water               
+Water feed 0.0000E+0 70.0000
+END OF FILE

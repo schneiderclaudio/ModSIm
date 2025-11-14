@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title>Model GMSU</title>
+		<meta name="generator" content="Corel WordPerfect 12">
+		<meta http-equiv="content-Type" content="text/html; charset=utf-8">
+		<style>
+p
+{
+	margin-top: 0px;
+	margin-bottom: 1px
+}
+
+body
+{
+	font-family: "Times New Roman", serif;
+	font-size: 12pt;
+	font-weight: normal;
+	font-style: normal
+}
+</style>
+	</head>
+	<body>
+		<p><span style="font-weight: bold"><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">GMSU:</span>
+				</span>
+			</span><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt"> Model for the <a name="#Index_ball_mill_with_scale-up_1"></a>ball mill with scale-up.</span>
+			</span></p>
+		<br>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">Model for the ball mill with Austin's scale-up procedure.  Mixing in the mill is modeled using three perfectly
+mixed regions in series.  No classification between stages. This model should be used when the 
+parameters for the selection and breakage functions have been determined  from laboratory batch tests
+and the dimensions of the full scale mill are  known.</span>
+			</span></p>
+		<br>
+		<p><span style="font-family: 'Arial', sans-serif"><span style="font-size: 10pt">Liberation of the mineral phases is computed using the Andrews-Mika model as developed in King R P
+"Calculation of the Liberation Spectrum  in Products Produced in Continuous Milling  Circuits". Proc 7th
+European  Symposium on Comminution. Ljubljana June 1990 Vol 2 pp. 429-444. THIS LIMITS  THIS
+MODEL TO BINARY ORES</span>
+			</span><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif"> when liberation must be modeled. However the liberation feature can be
+turned off and the model will work for any number of minerals.</span>
+				<span style="font-family: 'Arial', sans-serif"></span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Claudio Schneider's Beta function model of the internal structure of the  Andrew's Mika diagram is
+available as an alternative liberation model. </span>
+				<span style="font-family: 'Arial', sans-serif">Schneider, C.L. The Measurement and Calculation of
+Liberation in Continuous Grinding Circuits. PhD Thesis, University of Utah, 1995. This model is described
+in King, R.P. <i>Modeling and Simulation of Mineral Processing Systems</i>. Butterworth-Heinemann, Oxford,
+2001.</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">&#160;</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Water can be added directly to the mill feed at a pre-specified rate or  the simulator will calculate the water
+addition rate that is required to  achieve a specified solid content in the mill discharge.</span>
+			</span></p>
+		<br>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">PARAMETERS:</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Selection function parameters determined in the test mill:</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     1...Specific rate of breakage at 1mm</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     2...Particle size exponent  alpha</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     3...Size coefficient for maximum breakage  mm</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     4...Exponent for fall off of selection function with size in the abnormal breakage region.</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Breakage function paprameters determined in the test mill:</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     5...&#946;</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     6...&#947;</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     7...&#948;</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     8...&#934; at 5mm</span>
+			</span></p>
+		<p><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">Mill dimensions:</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     9...Test mill diameter.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     10..Test mill length.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     11..Ball load in test mill.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     12..Fraction of media filled with slurry in test mill.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     13..Mill speed of test mill.  % of critical.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     14..Ball size in test mill.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     15..Full size mill diameter.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     16..Full size mill length.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     17..Ball load in full size mill. %</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     18..Media filling in full size mill %</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     19..speed of full size mill  % of critical.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     20..ball size in full size mill.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     21..Choice of liberation model.  0 = none, 1 = Ljubljana, 2 = Beta function.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     22...SWITCH FOR ALLOWING FOR OVERFILLING.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">   23...Choice of post classification function.  0 = None, 1 = Logistic, 2 = Rosin-Rammler, 3 =
+Exponential sum.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     24...D50 for post classifier.</span>
+			</span></p>
+		<p style="margin-left: 0.5in"><span style="font-size: 10pt"><span style="font-family: 'Arial', sans-serif">     25...Sharpness index for post classifier.</span>
+			</span></p>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+SPL0_Vitoria_test1
+Stream     001 005 Alimentacao                   
+Feedrate  3.6389E-1 100.0000
+Size dist  014
+1.0000E-2 0.9970
+8.0000E-3 0.9670
+6.3000E-3 0.9250
+4.0000E-3 0.8140
+2.0000E-3 0.6330
+1.0000E-3 0.4810
+5.0000E-4 0.3570
+2.5000E-4 0.2410
+1.5000E-4 0.1690
+1.0500E-4 0.1310
+7.5000E-5 0.1140
+4.5000E-5 0.1140
+3.8000E-5 0.1140
+2.0000E-5 0.1140
+Stream     002 006 Alim moinho                   
+Size dist  000
+Stream     003 008 Alim cyclone classificador    
+Size dist  008
+5.0000E-4 0.9991
+2.5000E-4 0.9684
+1.5000E-4 0.8614
+1.0500E-4 0.7098
+7.5000E-5 0.5498
+4.5000E-5 0.2809
+3.8000E-5 0.2502
+2.0000E-5 0.1860
+Stream     006 013 Underflow classificador       
+Size dist  008
+5.0000E-4 0.9990
+2.5000E-4 0.9505
+1.5000E-4 0.8066
+1.0500E-4 0.5996
+7.5000E-5 0.3930
+4.5000E-5 0.0972
+3.8000E-5 0.0861
+2.0000E-5 0.0451
+Stream     004 010 Overflow classificador        
+Size dist  006
+1.5000E-4 0.9879
+1.0500E-4 0.9758
+7.5000E-5 0.9267
+4.5000E-5 0.7558
+3.8000E-5 0.6784
+2.0000E-5 0.5161
+Stream     011 023 Overflow deslamador           
+Size dist  006
+1.5000E-4 0.9990
+1.0500E-4 0.9940
+7.5000E-5 0.9930
+4.5000E-5 0.9920
+3.8000E-5 0.9900
+2.0000E-5 0.9800
+Stream     010 022 Underflow deslamador          
+Size dist  006
+1.5000E-4 0.9990
+1.0500E-4 0.9860
+7.5000E-5 0.8790
+4.5000E-5 0.6280
+3.8000E-5 0.5220
+2.0000E-5 0.2730
+Stream     014 029 Descarga moinho               
+Size dist  000
+Stream     005 012 Agua alim moinho              
+Water feed 0.0000E+0 76.9000
+Stream     007 014 Agua cyclone classificador    
+Water feed 0.0000E+0 38.7000
+Stream     012 025 Agua cycl deslamador          
+Water feed 9.1390E-1 0.0000
+Stream     013 027 agua de ajuste simulacao      
+Water feed 0.0000E+0 16.5000
+END OF FILE
