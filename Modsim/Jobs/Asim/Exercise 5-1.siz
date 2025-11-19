@@ -1,9 +1,0 @@
-Exercise 5-1
-Stream     001 002 Feed                          
-Feedrate  2.0834E+1 28.0000
-Size dist  000
-Stream     002 003 Concentrate                   
-Size dist  000
-Stream     003 004 Tail                          
-Size dist  000
-END OF FILE
