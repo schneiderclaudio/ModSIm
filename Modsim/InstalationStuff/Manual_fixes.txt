@@ -1,6 +1,0 @@
-Page 19:  Convergence properties form has changed.
-Page 48:  HFSU form has changed.
-Pages 51 and 52: The comment "THIS LIMITS THE MODEL TO BINARY ORES" is not very precise.  The model can still be used for any number of phases, as long as liberation modeling is not on.  The reader might easily think the scale up model is limited to binary ores.     
-Page 53:  GMSU for has changed.  
-Page 101:  Line 3: There is a "cut" that should be "but". 
-Page 100:  The template for model subroutine has two typos.  First, variable TMS2 is written as TCMS2. Later on there is a . instead of a , between INDPP and FL.  
