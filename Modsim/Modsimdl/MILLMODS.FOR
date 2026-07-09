@@ -1117,6 +1117,7 @@ C
      *GRDM,GRDV,NMIN,NGCM)
 C     ******************************************************************
 C
+      USE GLOBALS
       REAL FEED(NDC,NGC,NSC),PROD(NDC,NGC,NSC)
       REAL SIZE(NDC),PARAM(*)
       REAL DER1(NDC,NGC,NSC),DER2(NDC,NGC,NSC),DER3(NDC,NGC,NSC)
@@ -3466,7 +3467,7 @@ c model.  Morrell S., Trans. Instn. Min. Metall. 105 (1996) pp C54 - C62
       REAL FilledFract, Diameter
       REAL Jt
       REAL K
-      CHARACTER*8 TYPE   !Must be 'Overflow' or 'Grate'
+      CHARACTER(*) TYPE   !Must be 'Overflow' or 'Grate'
 
       K = 9.10
       IF( TYPE .EQ. 'Overflow') K = 7.98

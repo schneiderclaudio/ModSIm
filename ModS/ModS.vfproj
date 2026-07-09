@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectType="typeDynamicLibrary" ProjectCreator="Intel Fortran" Keyword="Dll" Version="11.0" ProjectIdGuid="{FD31BA26-74C9-C5AF-D5FF-4BD48579BD78}">
+	<Platforms>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/>
+	</Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32" UseCompiler="ifxCompiler" ConfigurationType="typeDynamicLibrary">
+			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" WarnInterfaces="true" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
+			<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemWindows" LinkDLL="true"/>
+			<Tool Name="VFResourceCompilerTool"/>
+			<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+			<Tool Name="VFCustomBuildTool"/>
+			<Tool Name="VFPreLinkEventTool"/>
+			<Tool Name="VFPreBuildEventTool"/>
+			<Tool Name="VFPostBuildEventTool"/>
+			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
+		</Configuration>
+		<Configuration Name="Debug|x64" UseCompiler="ifxCompiler" ConfigurationType="typeDynamicLibrary">
+			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" WarnInterfaces="true" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
+			<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemWindows" LinkDLL="true"/>
+			<Tool Name="VFResourceCompilerTool"/>
+			<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+			<Tool Name="VFCustomBuildTool"/>
+			<Tool Name="VFPreLinkEventTool"/>
+			<Tool Name="VFPreBuildEventTool"/>
+			<Tool Name="VFPostBuildEventTool"/>
+			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
+		</Configuration>
+		<Configuration Name="Release|Win32" UseCompiler="ifortCompiler" ConfigurationType="typeDynamicLibrary">
+			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" RuntimeLibrary="rtMultiThreadedDLL"/>
+			<Tool Name="VFLinkerTool" SuppressStartupBanner="true" SubSystem="subSystemWindows" LinkDLL="true"/>
+			<Tool Name="VFResourceCompilerTool"/>
+			<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+			<Tool Name="VFCustomBuildTool"/>
+			<Tool Name="VFPreLinkEventTool"/>
+			<Tool Name="VFPreBuildEventTool"/>
+			<Tool Name="VFPostBuildEventTool"/>
+			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
+		</Configuration>
+		<Configuration Name="Release|x64" UseCompiler="ifxCompiler" ConfigurationType="typeDynamicLibrary">
+			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" RuntimeLibrary="rtMultiThreadedDLL"/>
+			<Tool Name="VFLinkerTool" SuppressStartupBanner="true" SubSystem="subSystemWindows" LinkDLL="true"/>
+			<Tool Name="VFResourceCompilerTool"/>
+			<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+			<Tool Name="VFCustomBuildTool"/>
+			<Tool Name="VFPreLinkEventTool"/>
+			<Tool Name="VFPreBuildEventTool"/>
+			<Tool Name="VFPostBuildEventTool"/>
+			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter Name="Header Files" Filter="fi;fd;h;inc"/>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+			<File RelativePath="..\Modsim\Modsimdl\AM_SCHN.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\AMDGRP.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\BETAAMD.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\CALC.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\CALC1.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\CLASMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\CLASREPS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\COALMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\COALREPS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\UserModelsDefault\Connector.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\UserModels\Connector.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\CRSHMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\CRSHREPS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\DATAINPT.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\DIMINP.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\DMINP.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\FLTNMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\Fltnreps.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\GENLMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\GENLREPS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\GENLSUBS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\GLOBALS.F90"/>
+			<File RelativePath="..\Modsim\Modsimdl\GRAVMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\GRAVREPS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\KYNCHGRP.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\LIBGRAPH.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\LJUBAMD.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\MAGNMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\MAGNREPS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\MILLMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\millmods_old.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\MILLREPS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\millreps_old.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\MODELGRP.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\ModsimCurveFitDll\Modelresponse.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\ModelVariables.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\ModsimCurveFitDll\ModsimCurveFit.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\Opgraph.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\ORDER.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\OUTPMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\PARSET.f90"/>
+					<File RelativePath="..\Modsim\Modsimdl\PARSET.f90">
+			</File>
+			<File RelativePath="..\Modsim\Modsimdl\PARSET_CLAUDE.F90">
+			</File>
+			<File RelativePath="..\Modsim\Modsimdl\PPHI2.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\Pphi5.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\PPHO2.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\REPORT.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\REPWRT.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\SCRNMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\SCRNREPS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\SIMOP.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\SIMOPMOD.F90"/>
+			<File RelativePath="..\Modsim\Modsimdl\SIMULATE.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\TEMPLATE.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\TRYAMD.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\TRYSIM.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\UNITREPS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\UNITS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\UserModelsDefault\UserModels.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\UserModels\UserModels.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\UserModelsDefault\Utilities.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\UserModels\Utilities.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\ModsimCurveFitDll\WorkingCommon.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\WSEPMODS.f90"/>
+			<File RelativePath="..\Modsim\Modsimdl\WSEPREPS.f90"/>
+		</Filter>
+	</Files>
+	<Globals/>
+</VisualStudioProject>

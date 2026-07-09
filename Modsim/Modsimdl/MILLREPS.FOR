@@ -645,7 +645,7 @@ c power.
       REAL FilledFraction, Diameter
       REAL NoLoadPower, Jt
       REAL K
-      CHARACTER*8 TYPE   !Must be 'Overflow' or 'Grate'
+      CHARACTER(*) TYPE   !Must be 'Overflow' or 'Grate'
 
       K = 9.10
       IF( TYPE .EQ. 'Overflow') K = 7.98

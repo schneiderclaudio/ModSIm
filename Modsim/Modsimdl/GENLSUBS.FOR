@@ -20,7 +20,8 @@ c      INTEGER retint
 
       INTEGER(2) length, retcode
       CHARACTER(length) name
-      RECORD /MTH$E_INFO/ info
+C     IFX does not expose MTH$E_INFO; declare info as a dummy integer array
+      INTEGER(4) info(16)
 
 c     return = DLGINIT(IDD_DIALOGMessage, dlg)
 c
@@ -30,9 +31,9 @@ c
 c     !Deactivate the message dialog
 c     CALL DlgUnInit(dlg)
 
-      IF(info.ftype .EQ. TY$REAL8) THEN
-        !Double precision variable
-      END IF
+C     IF(info.ftype .EQ. TY$REAL8) THEN
+C       !Double precision variable
+C     END IF
       IF(name .EQ. ' ') THEN
       END IF
 

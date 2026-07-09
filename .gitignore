@@ -1,7 +1,9 @@
 *.vbw
 *.ncb
+*.plg
 *.zip
 .vs/
+Debug/
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualbasic
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualbasic

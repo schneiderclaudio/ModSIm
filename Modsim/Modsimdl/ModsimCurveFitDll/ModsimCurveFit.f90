@@ -7,7 +7,6 @@ Subroutine LevMarCurveFit(JobPath,JobReadFile,NOPAR,Parameters,XLB,XUB,SumOfSqua
   !DEC$ ATTRIBUTES ALIAS :'LevMarCurveFit' :: LEVMARCURVEFIT
    
 	Use WorkingCommon
-	Use Numerical_libraries
   Use GLOBALS
 
   ! Variables
@@ -97,9 +96,8 @@ Subroutine LevMarCurveFit(JobPath,JobReadFile,NOPAR,Parameters,XLB,XUB,SumOfSqua
 	OPEN(DiagFile, FILE = JobPath(1:LENG)//'DIAGCurveFit.TXT')
 	WRITE(DiagFile,*)' This file shows a record of the progress through the LevMarCurveFit DLL '
 	Write(Diagfile,*) ' Number of parameters ',NOPAR
-	!Set the IMSL error unit number to 113
+	!Set the error/stdout unit (IMSL removed — no-op stubs)
 	Call UMACH(-3,DiagFile)
-	!Set the IMSL Stdout unit number to 113
 	Call UMACH(-2,DiagFile)
 
   WCJobPath = JobPath
@@ -157,10 +155,10 @@ Subroutine LevMarCurveFit(JobPath,JobReadFile,NOPAR,Parameters,XLB,XUB,SumOfSqua
   iersvr = 0
 	ipact = 1
 	isact = 0
-  Call ERSET(iersvr,ipact,isact) !Turn on printing and turn off stopping for all errors
+  Call ERSET(iersvr,ipact,isact) !Stub — was IMSL error handling
   
   IF (OptMethod .EQ. 'UNLSF' ) Then
-		!Implement the Levenberg-Marquard algorithm without derivatives. 
+		!Levenberg-Marquardt without derivatives (MINPACK lmdif1 replacement)
 		Call UNLSF(TERMS,NOBVAL,NOPAR,XGUESS,XSCALE,FSCALE,IPARAM,RPARAM,Parameters,Residuals,FJAC,NOBVAL)
 		Write(DiagFile,*)'Parameters',Parameters
 		Write(DiagFile,*)'Residuals ',Residuals
@@ -170,16 +168,15 @@ Subroutine LevMarCurveFit(JobPath,JobReadFile,NOPAR,Parameters,XLB,XUB,SumOfSqua
 		Write(DiagFile,*)'Jacobian',((FJAC(I,J),J = 1,NOPAR),I = 1,NOBVAL)
 	End If
 	IF (OptMethod .EQ. 'UMCGF') Then
-	  !Implememt the uncostrained conjugate gradient method without derivatives
+	  !Unconstrained conjugate gradient — not implemented, use UNLSF fallback
 		GRADTL = 1.0e-8
 		MAXFN = 100
 		DFPRED = 0.1
-		!Call UMCGF(SOFSQ,NOPAR,XGUESS,XSCALE,GRADTL,MAXFN,DFPRED,Parameters,Gradient,SS)
+		Write(DiagFile,*)'UMCGF not implemented, no optimisation performed'
 		Write(DiagFile,*)'Parameters',Parameters
-		Write(DiagFile,*)'Gradient',Gradient
   End If
   IF (OptMethod .EQ. 'BCLSF') Then
-    !Implement the contrained Levenberg-Marquadt method without derivatives.
+    !Bounded Levenberg-Marquardt without derivatives (MINPACK lmdif1 replacement)
     IBTYPE = 0
 	  Call BCLSF(TERMS,NOBVAL,NOPAR,XGUESS,IBTYPE,XLB,XUB,XSCALE,FSCALE,IPARAM,RPARAM,Parameters,Residuals,FJAC,NOBVAL)
 		Write(DiagFile,*)'Parameters',Parameters
@@ -212,19 +209,19 @@ Subroutine LevMarCurveFit(JobPath,JobReadFile,NOPAR,Parameters,XLB,XUB,SumOfSqua
 	  CLABEL(1) = 'NUMBER'
     title ='Approximate Hessian matrix'
     fmt = '(G12.4)'
-	  Call WRRRL(title,NOPAR,NOPAR,Hessian,NOPAR,0,fmt,RLABEL,CLABEL)
+	  Call WRRRL(DiagFile,title,NOPAR,NOPAR,Hessian,NOPAR)
 
 	  !Evaluate the approximate variance-covariance matrix as the inverse of the Hessian
 	  Call LINRG(NOPAR,Hessian,NOPAR,VARCOV,NOPAR)
     title = 'Variance-covariance matrix'
-	  Call WRRRL(title,NOPAR,NOPAR,VARCOV,NOPAR,0,fmt,RLABEL,CLABEL)
+	  Call WRRRL(DiagFile,title,NOPAR,NOPAR,VARCOV,NOPAR)
 
 	  !Evaluate the eigenvalues and eigenvectors of the Hessiam matrix.
 	  Call EVCRG(NOPAR,Hessian,NOPAR,EigVals,EigVects,NOPAR)
     title = 'Eigen Values'
-	  Call WRCRN(title,1,NOPAR,EigVals,1,0)
+	  Call WRCRN(DiagFile,title,1,NOPAR,EigVals,1)
     title = 'Eigen vectors'
-	  Call WRCRN(title,NOPAR,NOPAR,EigVects,NOPAR,0)
+	  Call WRCRN(DiagFile,title,NOPAR,NOPAR,EigVects,NOPAR)
 	  Write(Diagfile,'(''Confidence ellipse shape factor = '',G12.4)')REAL(Eigvals(1))/REAL(Eigvals(NOPAR))
 
 	  !Evaluate the confidence interval.
@@ -233,8 +230,8 @@ Subroutine LevMarCurveFit(JobPath,JobReadFile,NOPAR,Parameters,XLB,XUB,SumOfSqua
 	  Write(DiagFile,'(''Estimate of the variance = '',G12.4)')VarianceEstimate
 	  RealNOPAR = NOPAR
 	  Write(DiagFile,'(''Degrees of freedom'',2I5)')NOPAR,NOBVAL-NOPAR
-	  Write(DiagFile,'(''F value '',F7.2)') FIN(0.01*ConfLevel,RealNOPAR,DegsOfFreedom)
-	  ConfSS = SS*(1 + RealNOPAR*FIN(0.01*ConfLevel,RealNOPAR,DegsOfFreedom)/DegsOfFreedom)
+	  Write(DiagFile,'(''F value '',F7.2)') FIN_REPL(0.01*ConfLevel,RealNOPAR,DegsOfFreedom)
+	  ConfSS = SS*(1 + RealNOPAR*FIN_REPL(0.01*ConfLevel,RealNOPAR,DegsOfFreedom)/DegsOfFreedom)
 	  Write(DiagFile,'(''Confidence region bounded by sum of squares contour '',G12.4)')ConfSS
 
 	  !Get the intersections of the contour with the eigen vectors.

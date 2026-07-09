@@ -19,7 +19,7 @@ Subroutine MODELSEQUENCE(Model)
 
   INTERFACE
     subroutine cmodelroutines(cmodel,JobPath)
-      !DEC$ ATTRIBUTES C, ALIAS : '_cmodelroutines' :: cmodelroutines
+      !DEC$ ATTRIBUTES C, ALIAS : 'cmodelroutines' :: cmodelroutines
       Character*5 cmodel
       !DEC$ ATTRIBUTES REFERENCE :: cmodel
       Character*256 JobPath

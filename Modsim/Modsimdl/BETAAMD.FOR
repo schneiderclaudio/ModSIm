@@ -698,3 +698,132 @@ c     Function to calculate the gradient of the incomplete beta function
       dBetaIdBeta = (DBETAI(xx,a,1.01*b) - DBETAI(xx,a,b))/(0.01*betaa)
       RETURN
       END
+
+C ======================================================================
+C  Pure-Fortran replacements for IMSL routines BETAI, DBETAI, ANORDF
+C ======================================================================
+
+C ----------------------------------------------------------------------
+      FUNCTION BETAI(x, a, b)
+C     Regularised incomplete beta function I_x(a,b), single precision.
+C     Uses continued-fraction representation (Lentz's method).
+C     Ref: Numerical Recipes in Fortran 77, Ch. 6.4
+      REAL x, a, b
+      REAL BETAI
+      REAL*8 dx, da, db, res
+      dx = DBLE(x)
+      da = DBLE(a)
+      db = DBLE(b)
+      CALL BETAI_DP(dx, da, db, res)
+      BETAI = REAL(res)
+      RETURN
+      END
+
+C ----------------------------------------------------------------------
+      FUNCTION DBETAI(x, a, b)
+C     Regularised incomplete beta function I_x(a,b), double precision.
+      REAL*8 x, a, b
+      REAL*8 DBETAI
+      REAL*8 res
+      CALL BETAI_DP(x, a, b, res)
+      DBETAI = res
+      RETURN
+      END
+
+C ----------------------------------------------------------------------
+C  Internal workhorse — not exported
+      SUBROUTINE BETAI_DP(x, a, b, result)
+C     Computes the regularised incomplete beta I_x(a,b) in double precision.
+      IMPLICIT NONE
+      REAL*8, INTENT(IN)  :: x, a, b
+      REAL*8, INTENT(OUT) :: result
+      REAL*8 :: lbeta, bt, cf
+      REAL*8 :: BETACF_DP   ! forward reference
+
+      IF (x .LT. 0.0D0 .OR. x .GT. 1.0D0) THEN
+        result = 0.0D0
+        RETURN
+      END IF
+      IF (x .EQ. 0.0D0) THEN
+        result = 0.0D0
+        RETURN
+      END IF
+      IF (x .EQ. 1.0D0) THEN
+        result = 1.0D0
+        RETURN
+      END IF
+
+      lbeta = LOG_GAMMA(a + b) - LOG_GAMMA(a) - LOG_GAMMA(b)
+      bt    = EXP(lbeta + a*LOG(x) + b*LOG(1.0D0 - x))
+
+C     Use symmetry relation when x > (a+1)/(a+b+2)
+      IF (x .LT. (a + 1.0D0)/(a + b + 2.0D0)) THEN
+        cf = BETACF_DP(x, a, b)
+        result = bt * cf / a
+      ELSE
+        cf = BETACF_DP(1.0D0 - x, b, a)
+        result = 1.0D0 - bt * cf / b
+      END IF
+      RETURN
+      END
+
+C ----------------------------------------------------------------------
+      FUNCTION BETACF_DP(x, a, b)
+C     Continued fraction for incomplete beta (Lentz's method), double precision.
+      IMPLICIT NONE
+      REAL*8, INTENT(IN) :: x, a, b
+      REAL*8 :: BETACF_DP
+      INTEGER :: m, m2
+      REAL*8  :: aa, c, d, del, h, qab, qam, qap
+      REAL*8, PARAMETER :: FPMIN = 1.0D-30
+      INTEGER, PARAMETER :: MAXIT = 200
+      REAL*8, PARAMETER  :: EPS   = 3.0D-7
+
+      qab = a + b
+      qap = a + 1.0D0
+      qam = a - 1.0D0
+      c   = 1.0D0
+      d   = 1.0D0 - qab*x/qap
+      IF (ABS(d) .LT. FPMIN) d = FPMIN
+      d   = 1.0D0/d
+      h   = d
+
+      DO m = 1, MAXIT
+        m2 = 2*m
+        aa = DBLE(m)*(b - DBLE(m))*x /
+     *       ((qam + DBLE(m2))*(a + DBLE(m2)))
+        d  = 1.0D0 + aa*d
+        IF (ABS(d) .LT. FPMIN) d = FPMIN
+        c  = 1.0D0 + aa/c
+        IF (ABS(c) .LT. FPMIN) c = FPMIN
+        d  = 1.0D0/d
+        h  = h*d*c
+
+        aa = -(a + DBLE(m))*(qab + DBLE(m))*x /
+     *        ((a + DBLE(m2))*(qap + DBLE(m2)))
+        d  = 1.0D0 + aa*d
+        IF (ABS(d) .LT. FPMIN) d = FPMIN
+        c  = 1.0D0 + aa/c
+        IF (ABS(c) .LT. FPMIN) c = FPMIN
+        d  = 1.0D0/d
+        del = d*c
+        h   = h*del
+        IF (ABS(del - 1.0D0) .LT. EPS) EXIT
+      END DO
+
+      BETACF_DP = h
+      RETURN
+      END
+
+C ----------------------------------------------------------------------
+      FUNCTION ANORDF(x)
+C     Standard normal CDF Phi(x), single precision.
+C     Uses the relation  Phi(x) = 0.5 * erfc(-x / sqrt(2))
+      REAL x
+      REAL ANORDF
+      REAL*8 :: dx, val
+      dx  = DBLE(x)
+      val = 0.5D0 * ERFC(-dx / SQRT(2.0D0))
+      ANORDF = REAL(val)
+      RETURN
+      END

@@ -18,7 +18,7 @@ C
      *FEED,OUT1,OUT2,OUT3,DER1,DER2,DER3,PARAM,
      *F,A,T,SIZE,NAMU,JobPath,ExitValue,DiagFile)
 
-      USE MSFLIB
+      USE MSFLIB, MSFSTAT=>STAT
       USE GLOBALS
 C
       CHARACTER*255 JobPath

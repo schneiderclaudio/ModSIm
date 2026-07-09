@@ -1,6 +1,10 @@
 //This file is created by program DIMINP.FOR
 //It must not be changed by the user.
- 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #pragma pack(2)
 extern struct modsimvariables{
     int UnitNumber;
@@ -42,3 +46,7 @@ extern struct VisualBasicVariables{
 #pragma pack()
  
 char JobPathC[256];
+
+#ifdef __cplusplus
+}
+#endif

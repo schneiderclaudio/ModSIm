@@ -11,7 +11,7 @@ C
       SUBROUTINE STOUT(VALS,LS,NDC,NGC,NSC,NMIN,NAMES,FM,GRDM,ITYP,
      *IW,IO,ITEAR,NGCZ,NMINZ,DiagFile,STAT)
 C     *************************************************************
-      USE MSFLIB
+      USE MSFLIB, MSFSTAT=>STAT
       USE GLOBALS
 
       INTEGER STAT
@@ -291,7 +291,7 @@ C
      $NMIN,STRVAL,NGCZ,NMINZ,DiagFile,ExitValue)
 C     **************************************************************
 C
-      USE MSFLIB
+      USE MSFLIB, MSFSTAT=>STAT
       USE GLOBALS
 
       REAL WTRF(NUMM,2),FTVEC(1),FMM(1),FM(1),STRVAL(1),GRDM(NGCZ,NMINZ)

@@ -2,11 +2,9 @@
 #include <string.h>
 #include "CModelVariables.h"
 
-extern struct modsimvariables MODELVARS;
-extern struct VisualBasicVariables VBVARIABLES;
-extern void  c_diagnostic(char *Message);
+extern "C" void  c_diagnostic(char *Message);
 
-void cmodelroutines( char *cmodel, char *JobPath); 
+extern "C" void cmodelroutines( char *cmodel, char *JobPath); 
 void writeHeader(char *ModelType, char *model);
 
 FILE *fptrRF;
@@ -14,7 +12,7 @@ char Cmessage[257];
 
 void cbox();
 
-void cmodelroutines( char *cmodel, char *JobPath) 
+extern "C" void cmodelroutines( char *cmodel, char *JobPath) 
 {
 	strcpy(JobPathC,JobPath);
 
