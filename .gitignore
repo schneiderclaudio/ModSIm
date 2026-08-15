@@ -4,6 +4,16 @@
 *.zip
 .vs/
 Debug/
+Debug_ifx/
+
+# Visual Studio / VC++ build artifacts (Fortran projects)
+*.sbr
+*.bsc
+*.opt
+*.pdb
+*.PDB
+*.idb
+*.IDB
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualbasic
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualbasic
@@ -114,3 +124,5 @@ Temporary Items
 *.app
 
 # End of https://www.toptal.com/developers/gitignore/api/fortran
+# Deepwork state (git-local)
+.slim/deepwork/
