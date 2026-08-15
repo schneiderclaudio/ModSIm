@@ -45,22 +45,47 @@ BUILD    ?= release
 # ── Output directory tree ─────────────────────────────────────────────────────
 OUTDIR := build/$(COMPILER)/$(BUILD)
 
+# ── Platform detection: shared-lib naming + link style ───────────────────────
+# Windows produces ModsimMain.dll + import libs (.lib).
+# Linux/macOS produce libmodsim.so / libmodsim.dylib and link against the .so
+# directly (no import lib).  The main engine name on non-Windows is "modsim"
+# (lowercase, lib prefix) to match what engine_bridge.py searches for.
+ifeq ($(OS),Windows_NT)
+  DLL_PREFIX :=
+  DLL_EXT    := .dll
+  IMPLIB_EXT := .lib
+  ENGINE_NAME := ModsimMain
+else
+  DLL_PREFIX := lib
+  DLL_EXT    := .so
+  IMPLIB_EXT := .a
+  ENGINE_NAME := modsim
+endif
+
 # ModsimMain DLL
-TARGET  := $(OUTDIR)/ModsimMain.dll
-IMPLIB  := $(OUTDIR)/ModsimMain.lib
+TARGET  := $(OUTDIR)/$(DLL_PREFIX)$(ENGINE_NAME)$(DLL_EXT)
+IMPLIB  := $(OUTDIR)/$(DLL_PREFIX)$(ENGINE_NAME)$(IMPLIB_EXT)
 
 # UserModels DLL — objects/modules in UM_DIR to avoid filename collisions
 UM_DIR    := $(OUTDIR)/UserModels
-UM_TARGET := $(OUTDIR)/UserModels.dll
-UM_IMPLIB := $(OUTDIR)/UserModels.lib
+UM_TARGET := $(OUTDIR)/$(DLL_PREFIX)UserModels$(DLL_EXT)
+UM_IMPLIB := $(OUTDIR)/$(DLL_PREFIX)UserModels$(IMPLIB_EXT)
 
 # ModsimCurveFit DLL — objects/modules in CF_DIR
 CF_DIR    := $(OUTDIR)/CurveFit
-CF_TARGET := $(OUTDIR)/ModsimCurveFit.dll
-CF_IMPLIB := $(OUTDIR)/ModsimCurveFit.lib
+CF_TARGET := $(OUTDIR)/$(DLL_PREFIX)ModsimCurveFit$(DLL_EXT)
+CF_IMPLIB := $(OUTDIR)/$(DLL_PREFIX)ModsimCurveFit$(IMPLIB_EXT)
 
-# ModsimMain links against the UserModels import lib built here
-USERMODELS_LIB := $(UM_IMPLIB)
+# Link dependencies:
+#   Windows  — link against the import library (.lib)
+#   Linux    — link directly against the shared library (.so)
+ifeq ($(OS),Windows_NT)
+  USERMODELS_LIB := $(UM_IMPLIB)
+  MODSIM_LIB     := $(IMPLIB)
+else
+  USERMODELS_LIB := $(UM_TARGET)
+  MODSIM_LIB     := $(TARGET)
+endif
 
 # =============================================================================
 # Compiler / linker configuration
@@ -84,10 +109,22 @@ ifeq ($(COMPILER),gfortran)
 
   obj_out = -o $1
 
-  DLL_FLAGS := -shared -Wl,--out-implib,$(IMPLIB)
-  SYS_LIBS  := -lkernel32 -luser32 -lgdi32 -lwinspool -lcomdlg32 \
-               -ladvapi32 -lshell32 -lole32 -loleaut32 -luuid \
-               -lodbc32 -lodbccp32
+  ifeq ($(OS),Windows_NT)
+    # MinGW gfortran — import libraries via --out-implib
+    DLL_FLAGS := -shared -Wl,--out-implib,$(IMPLIB)
+    SYS_LIBS  := -lkernel32 -luser32 -lgdi32 -lwinspool -lcomdlg32 \
+                 -ladvapi32 -lshell32 -lole32 -loleaut32 -luuid \
+                 -lodbc32 -lodbccp32
+    LINK_CMD_UM = $(FC) -shared -Wl,--out-implib,$(UM_IMPLIB) -o $@
+    LINK_CMD_CF = $(FC) -shared -Wl,--out-implib,$(CF_IMPLIB) -o $@
+  else
+    # Native Linux/macOS gfortran — no import libs; rpath=$ORIGIN so dependent
+    # .so files find each other at runtime without LD_LIBRARY_PATH.
+    DLL_FLAGS := -shared -Wl,-rpath,'$$ORIGIN'
+    SYS_LIBS  := -lpthread -lm -ldl
+    LINK_CMD_UM = $(FC) -shared -Wl,-rpath,'$$ORIGIN' -o $@
+    LINK_CMD_CF = $(FC) -shared -Wl,-rpath,'$$ORIGIN' -o $@
+  endif
   IMSL_LIBS :=
   MKL_LIBS  :=
 
@@ -97,8 +134,6 @@ ifeq ($(COMPILER),gfortran)
   CPP_OUT    = -o $@
 
   LINK_CMD    = $(FC) $(DLL_FLAGS) -o $@
-  LINK_CMD_UM = $(FC) -shared -Wl,--out-implib,$(UM_IMPLIB) -o $@
-  LINK_CMD_CF = $(FC) -shared -Wl,--out-implib,$(CF_IMPLIB) -o $@
 
 # ── Intel IFX (oneAPI, Windows) ───────────────────────────────────────────────
 else ifeq ($(COMPILER),ifx)
@@ -445,7 +480,7 @@ $(UM_DIR)/ConnectorToC.obj: UserModels/ConnectorToC.cpp | $(UM_DIR)
 # MKL libs are found via LIB env var (set by oneAPI vars.bat).
 # =============================================================================
 $(CF_TARGET): $(CF_OBJS) $(TARGET) | $(OUTDIR)
-	$(LINK_CMD_CF) $(CF_OBJS) $(IMPLIB) $(MKL_LIBS) $(SYS_LIBS)
+	$(LINK_CMD_CF) $(CF_OBJS) $(MODSIM_LIB) $(MKL_LIBS) $(SYS_LIBS)
 	@echo Built: $@
 
 # =============================================================================

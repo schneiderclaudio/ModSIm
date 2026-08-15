@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run ModSIM GUI",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "modsim",
+      "cwd": "${workspaceFolder}/Modsim/Modsimpy",
+      "env": {
+        "MODSIM": "${workspaceFolder}/Modsim/Modsimdl/build/ifx/release"
+      },
+      "console": "integratedTerminal",
+      "preLaunchTask": "Build ModSIM"
+    }
+  ]
+}

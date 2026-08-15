@@ -12,6 +12,33 @@ A separate VB6 graphics package (`Vetgraph/`) is also included.
 
 ## Build
 
+### Quick start (one command)
+
+From the **repo root**:
+
+```sh
+make              # build the Fortran engine DLLs (default: ifx release)
+make run          # launch the ModSIM GUI (PySide6)
+make install      # one-time: install the Python GUI dependencies
+make clean        # remove build artefacts
+make help         # list all commands
+```
+
+`make` defaults to Intel IFX (oneAPI). On Windows, `scripts/build-ifx.ps1`
+auto-detects and sources Visual Studio 2022 + Intel oneAPI; on Linux,
+`scripts/build-ifx.sh` does the same with oneAPI's `setvars.sh`. No manual env
+setup is needed on either OS. To build with gfortran instead (no oneAPI
+required): `make COMPILER=gfortran`.
+
+`make run` points `MODSIM` at the built engine directory, ensures the Python
+package is installed, then runs `python -m modsim`. On Linux it also sets
+`LD_LIBRARY_PATH` so dependent `.so` files find each other. The pre-built IFX
+release DLL at `Modsim/Modsimdl/build/ifx/release/ModsimMain.dll` lets
+`make run` work immediately on Windows without building first.
+
+VS Code: `Ctrl+Shift+B` builds, and the "Run ModSIM GUI" launch config runs the
+GUI with the build as a pre-launch task.
+
 ### Fortran DLL — command line (from `Modsim/Modsimdl/`)
 
 ```sh
@@ -22,7 +49,10 @@ make COMPILER=ifx BUILD=debug # debug, IFX
 make clean                    # clean gfortran/release
 ```
 
-Output: `build/<compiler>/<build>/ModsimMain.dll` + `ModsimMain.lib`
+Output: `build/<compiler>/<build>/ModsimMain.dll` + `ModsimMain.lib` (Windows);
+`libmodsim.so` + `libUserModels.so` + `libModsimCurveFit.so` (Linux). The
+engine GNUmakefile auto-detects the OS and uses the correct shared-library
+naming and link style.
 
 ### Fortran DLL — Visual Studio
 
@@ -30,7 +60,13 @@ Open `ModS/ModS.sln` in VS2022 with the Intel Fortran extension. Configs: `Debug
 
 ### GUI
 
-Open `Modsim/Modsimvb/Modsim.vbp` in **Visual Basic 6.0 IDE**. No CLI build.
+The current GUI is the PySide6 (Qt6) app in `Modsim/Modsimpy/`, run via
+`make run` (or `python -m modsim` from `Modsim/Modsimpy/`). It calls the
+Fortran engine through a `ctypes` bridge (`modsim/engine/engine_bridge.py`),
+resolving `ModsimMain.dll` via the `MODSIM` environment variable.
+
+The legacy VB6 GUI (`Modsim/Modsimvb/Modsim.vbp`) is opened in the Visual Basic
+6.0 IDE only — no CLI build.
 
 ---
 
@@ -48,9 +84,15 @@ Open `Modsim/Modsimvb/Modsim.vbp` in **Visual Basic 6.0 IDE**. No CLI build.
 
 **gfortran stubs** — `msflib_stub.f90` and `portlib_stub.f90` are only compiled with gfortran. With IFX the real Intel modules are used. Adding new `USE msflib` / `USE portlib` requires updating `MSFLIB_USERS` / `PORTLIB_USERS` in the GNUmakefile.
 
-**IMSL required at link time** — links `-limsl -lIMSLMPISTUB -lIMSLS_ERR`. Without IMSL installed the DLL links but numerical routines fail at runtime.
+**No IMSL dependency** — the IMSL routines were replaced with pure-Fortran implementations (`IMSL_LIBS` is empty in the GNUmakefile for both gfortran and IFX). The DLL imports only `KERNEL32.dll`, `UserModels.dll`, and `imagehlp.dll`; no IMSL/MKL runtime is required.
 
-**Windows-only** — links `kernel32`, `user32`, `gdi32`, etc. gfortran must be from MinGW/MSYS2.
+**Cross-platform** — on Windows the engine links `kernel32`, `user32`,
+`gdi32`, etc. (gfortran must be from MinGW/MSYS2). On Linux the engine links
+`pthread`, `m`, `dl` and produces `libmodsim.so` + `libUserModels.so` +
+`libModsimCurveFit.so`. The GNUmakefile auto-detects the OS and uses the
+correct shared-library naming, link flags (`--out-implib` on Windows,
+`-rpath=$ORIGIN` on Linux), and link dependencies (import libs on Windows,
+direct `.so` linking on Linux).
 
 **Mixed file extensions** — legacy files use `.FOR` (uppercase); newer modules use `.f90` or `.F90`. The GNUmakefile has separate pattern rules for each. Match the existing convention when adding files.
 

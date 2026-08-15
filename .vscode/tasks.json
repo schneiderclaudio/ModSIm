@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build ModSIM",
+      "detail": "Build the Fortran engine DLLs (ifx release by default)",
+      "type": "shell",
+      "command": "make",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run ModSIM",
+      "detail": "Launch the ModSIM GUI (sets MODSIM, ensures Python deps)",
+      "type": "shell",
+      "command": "make run",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Install Python deps",
+      "detail": "pip install -e the Modsimpy GUI package (one-time)",
+      "type": "shell",
+      "command": "make install",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean build",
+      "type": "shell",
+      "command": "make clean",
+      "problemMatcher": []
+    }
+  ]
+}

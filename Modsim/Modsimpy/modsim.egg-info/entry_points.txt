@@ -1,0 +1,2 @@
+[console_scripts]
+modsim = modsim.__main__:main
