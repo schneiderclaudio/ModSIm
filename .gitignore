@@ -126,3 +126,9 @@ Temporary Items
 # End of https://www.toptal.com/developers/gitignore/api/fortran
 # Deepwork state (git-local)
 .slim/deepwork/
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
+.beads/proxieddb/

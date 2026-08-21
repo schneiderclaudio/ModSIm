@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "ModSIm",
+  "project_id": "b04a2675-64f7-4e13-afa2-fda23ee799d0"
+}
