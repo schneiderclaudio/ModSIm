@@ -421,7 +421,11 @@ C         Fill up the reference row
       REAL vu(35,12,35)
       REAL CUMGRADE(0:12),Grade(12)
       REAL dAMBdAlpha(12),dAMBdBeta(12)
-
+c     Result types of the beta-gradient functions (REAL*8) and BETAI (REAL):
+c     without these the caller would implicitly type dBetaIdAlpha/dBetaIdBeta
+c     as INTEGER(4), mismatching the REAL*8 function results.
+      REAL*8 dBetaIdAlpha, dBetaIdBeta
+      REAL BETAI
       COMMON /AMDParameters/ PowerFactor,PowerExp,GammaFactor,
      *GammaExponent,AsymFactor
       INTEGER DiagFile
@@ -680,7 +684,12 @@ C      END IF
       FUNCTION dBetaIdAlpha(x,alpha,betaa)
 c     ***********************************
 c     Function to calculate the gradient of the incomplete beta function
+c     NOTE: result and DBETAI must be REAL*8 — without these declarations
+c     the names would be implicitly typed (dBetaIdAlpha as INTEGER(4),
+c     DBETAI as REAL(4)), truncating/mismatching the values.
       REAL*8 xx,a,b
+      REAL*8 dBetaIdAlpha
+      REAL*8 DBETAI
       xx = x
       a = alpha
       b = betaa
@@ -691,7 +700,12 @@ c     Function to calculate the gradient of the incomplete beta function
       FUNCTION dBetaIdBeta(x,alpha,betaa)
 c     **********************************
 c     Function to calculate the gradient of the incomplete beta function
+c     NOTE: result and DBETAI must be REAL*8 — without these declarations
+c     the names would be implicitly typed (dBetaIdBeta as INTEGER(4),
+c     DBETAI as REAL(4)), truncating/mismatching the values.
       REAL*8 xx,a,b
+      REAL*8 dBetaIdBeta
+      REAL*8 DBETAI
       xx = x
       a = alpha
       b = betaa

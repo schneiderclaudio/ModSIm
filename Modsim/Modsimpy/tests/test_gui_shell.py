@@ -96,6 +96,23 @@ class GuiShellTest(unittest.TestCase):
             info.assert_called_once()
         self.assertEqual(self.window.simulation_state, SIMULATION_READY)
 
+    def test_run_simulation_missing_run_data_is_graceful(self):
+        # A job without run data (.cur) cannot build DATT.DAT; run_simulation
+        # must refuse cleanly instead of letting the engine open an empty
+        # DATT.DAT and abort the process with a Fortran end-of-file error.
+        job = self.window.open_job(directory=BOUGAINVILLE, name="Bougainville")
+        self.assertIsNotNone(job)
+        assert job.cur is not None
+        job.cur = None
+        self.window._job_path = os.path.join("some", "unsaved", "dir")
+        with mock.patch(
+            "modsim.gui.main_window.QMessageBox.critical"
+        ) as crit, mock.patch("modsim.gui.main_window.ModsimEngine") as engine:
+            self.window.run_simulation()
+            crit.assert_called_once()
+            engine.assert_not_called()
+        self.assertEqual(self.window.simulation_state, SIMULATION_ERROR)
+
     def test_run_simulation_engine_not_found_sets_error(self):
         # A job is open with a saved path, but the engine cannot be loaded.
         # The bridge raises EngineLoadError; run_simulation must set the state

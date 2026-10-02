@@ -15,6 +15,12 @@ The parser is deliberately tolerant: it scans every ``.OUT`` / ``.DAT`` /
 skips files it cannot make sense of (e.g. binary Fortran unformatted files)
 without raising.  The result is a :class:`Results` object holding plain
 dataclasses that the plotting layer consumes.
+
+The primary per-stream results file is ``OPDISP.DAT``, which the calculation
+phase always writes (see ``CALC.FOR`` / ``CALC1.FOR``): it carries each
+stream's solids/water flow and its size-class mass distribution.  The other
+parsers (``STREAMPROPS.TXT``, ``OPGRAPH.DAT``, ``LIBDISPM.DAT``) remain
+supported for job directories that still contain those files.
 """
 
 from __future__ import annotations
@@ -360,6 +366,314 @@ def _parse_libdisp(lines: List[str], results: Results) -> bool:
     return found
 
 
+_INT_RE = re.compile(r"[+-]?\d+")
+
+
+def _match_ints(line: str) -> Optional[List[int]]:
+    """Return a line's whitespace-separated tokens as ints, or ``None``.
+
+    ``None`` is returned when the line is empty or any token is not a plain
+    integer (so float lines, text lines and mixed lines never match).
+    """
+    tokens = line.split()
+    if not tokens:
+        return None
+    out: List[int] = []
+    for tok in tokens:
+        if _INT_RE.fullmatch(tok) is None:
+            return None
+        out.append(int(tok))
+    return out
+
+
+def _consume_floats(lines: List[str], start: int, count: int) -> tuple:
+    """Read ``count`` floats starting at ``start``, across line breaks.
+
+    Returns ``(floats, next_line_index)``; the list may be shorter than
+    ``count`` when the lines run out first.
+    """
+    out: List[float] = []
+    i = start
+    while len(out) < count and i < len(lines):
+        for token in lines[i].split():
+            val = _to_float(token)
+            if val is not None:
+                out.append(val)
+                if len(out) >= count:
+                    break
+        i += 1
+    return out, i
+
+
+def _consume_ints(lines: List[str], start: int, count: int) -> tuple:
+    """Read ``count`` ints starting at ``start``, across line breaks.
+
+    Returns ``(ints, next_line_index)``; the list may be shorter than
+    ``count`` when a non-integer line is reached or the lines run out.
+    """
+    out: List[int] = []
+    i = start
+    while len(out) < count and i < len(lines):
+        line = lines[i]
+        if not line.strip():
+            i += 1
+            continue
+        m = _match_ints(line)
+        if m is None or not m:
+            break
+        take = m[: count - len(out)]
+        out.extend(take)
+        if len(take) < len(m):
+            return out, i + 1
+        i += 1
+    return out, i
+
+
+def _cumulative_passing_pct(class_mass: List[float]) -> List[float]:
+    """Convert differential class masses to cumulative % passing.
+
+    ``class_mass`` holds the mass in each size class ordered from largest to
+    smallest (as the engine writes them).  Returns the cumulative percentage
+    passing each class's representative size, matching the engine's
+    ``% passing`` convention (last class ends at 0.0).
+    """
+    total = sum(class_mass)
+    if total <= 0:
+        return []
+    out: List[float] = []
+    passing = total
+    for mass in class_mass:
+        passing -= mass
+        # Clamp tiny negative values produced by float rounding.
+        out.append(max(0.0, 100.0 * passing / total))
+    return out
+
+
+def _parse_opdisp(lines: List[str], results: Results) -> bool:
+    """Parse the ``OPDISP.DAT`` layout (per-stream flows and size data).
+
+    ``OPDISP.DAT`` is written by the calculation phase and is the engine's
+    primary per-stream results file.  Layout::
+
+        Bougainville                   job name (A80)
+           1   1  25   1               NPLA NMIN NDCM NGCM
+        Ore                            mineral names (A4)
+         1.000                         grade matrix GRDM (NGCM rows)
+           2                           DIMPP (particle property count)
+         2.700     50.00               PPROP (DIMPP values)
+           1   2   1   5   9   1   1   NPLT NNOD NTT NU NSM NPINP NPOUT
+           1                           PLINP (plant feed streams)
+           7                           PLOUT (plant product streams)
+          25   1   1                   NDC NGC NSC
+         <NDC representative sizes>
+         2 2   2   2                   stream block: I1 I2 (IND...) -> stream
+         127.8     0.000               solids flow, water flow (I2 values)
+           1   1  25                   K J II (size-class block header)
+         <II class masses>             differential; converted to % passing
+         1 1   9                       water-only stream block (I2 == 1)
+         35.11                         water flow (single value)
+         ...
+         199   0                       end-of-data sentinel (I2 == 99)
+
+    Each stream block is either a unit output (``I1 == 2``, header ``I1 I2
+    stream unit``), a plant feed/output/tear (``I1 == 1``) or a water feed
+    (``I2 == 1``).  The size-class masses are stored differentially and are
+    converted to cumulative % passing for :class:`SizeDistribution`.
+    """
+    n = len(lines)
+    found = False
+    i = 0
+    while i < n:
+        # Locate the next plant header: NPLA NMIN NDCM NGCM.
+        while i < n:
+            m = _match_ints(lines[i])
+            if (
+                m is not None
+                and len(m) == 4
+                and 1 <= m[0] <= 50      # NPLA
+                and 1 <= m[1] <= 50      # NMIN
+                and 3 <= m[2] <= 200     # NDCM (size classes)
+                and 1 <= m[3] <= 50      # NGCM
+            ):
+                break
+            i += 1
+        if i >= n:
+            break
+        end = _parse_opdisp_plant(lines, i, results)
+        if end is None:
+            i += 1
+            continue
+        found = True
+        i = end
+    return found
+
+
+def _parse_opdisp_plant(lines: List[str], start: int, results: Results) -> Optional[int]:
+    """Parse one plant's section of ``OPDISP.DAT`` starting at ``start``.
+
+    Returns the index of the line after the plant's stream data, or ``None``
+    when ``start`` is not actually an ``OPDISP.DAT`` plant header.
+    """
+    n = len(lines)
+    i = start
+    header = _match_ints(lines[i])
+    if header is None or len(header) < 4:
+        return None
+    npla, nmin, ndcm, ngcm = header[:4]
+    if not (
+        1 <= npla <= 50
+        and 1 <= nmin <= 50
+        and 3 <= ndcm <= 200
+        and 1 <= ngcm <= 50
+    ):
+        return None
+    i += 1
+
+    # Mineral names: NMIN A4 tokens, one record in practice.
+    if i >= n:
+        return None
+    i += 1
+
+    # Grade matrix GRDM is only written when FLGM != 0; a following line of
+    # ints means it is absent and the next value is DIMPP.
+    while i < n and not lines[i].strip():
+        i += 1
+    if i >= n:
+        return None
+    if _match_ints(lines[i]) is None:
+        _, i = _consume_floats(lines, i, ngcm * nmin)
+        while i < n and not lines[i].strip():
+            i += 1
+        if i >= n:
+            return None
+
+    dimpp_m = _match_ints(lines[i])
+    if dimpp_m is None:
+        return None
+    dimpp = dimpp_m[0]
+    i += 1
+
+    # Particle properties (DIMPP values).
+    _, i = _consume_floats(lines, i, dimpp)
+
+    # Plant header: NPLT NNOD NTT NU NSM NPINP NPOUT.
+    if i >= n:
+        return None
+    plant = _match_ints(lines[i])
+    if plant is None or len(plant) < 7:
+        return None
+    nplt, nnod, ntt, nu, nsm, npinp, npout = plant[:7]
+    i += 1
+
+    # Plant feed / product stream lists.
+    plinp, i = _consume_ints(lines, i, npinp)
+    if len(plinp) < npinp:
+        return None
+    plout, i = _consume_ints(lines, i, npout)
+    if len(plout) < npout:
+        return None
+
+    # NDC NGC NSC line.
+    if i >= n:
+        return None
+    m = _match_ints(lines[i])
+    if m is None or len(m) < 3:
+        return None
+    ndc, ngc, nsc = m[:3]
+    if ndc != ndcm:
+        return None
+    i += 1
+
+    # Representative sizes.
+    sizes, i = _consume_floats(lines, i, ndc)
+    if len(sizes) < ndc:
+        return None
+
+    # ---- Stream data section ----
+    feed_solids = {s: 0.0 for s in plinp}
+    my_streams: List[StreamData] = []
+    while True:
+        while i < n and not lines[i].strip():
+            i += 1
+        if i >= n:
+            break
+        m = _match_ints(lines[i])
+        if m is None or len(m) < 2:
+            break
+        i1, i2 = m[0], m[1]
+        if i2 == 99:  # end-of-data sentinel
+            i += 1
+            break
+        ind = m[2:]
+        if not ind:
+            break
+        stream = ind[0]
+        i += 1
+
+        # Flow line: I2 values; solids first, water last.  A single value
+        # (I2 == 1) is a pure water feed (no solids).
+        flows, i = _consume_floats(lines, i, i2)
+        if len(flows) < i2:
+            break
+        if i2 >= 2:
+            solid = flows[0]
+            water = flows[-1]
+        else:
+            solid = 0.0
+            water = flows[0]
+
+        # NGC * NSC size-class blocks: "K J II" header + II class masses.
+        dist: List[float] = []
+        if i2 > 1:
+            nblocks = max(1, ngc * nsc)
+            for _ in range(nblocks):
+                while i < n and not lines[i].strip():
+                    i += 1
+                if i >= n:
+                    break
+                dm = _match_ints(lines[i])
+                if dm is None or len(dm) < 3:
+                    break
+                ii = dm[2]
+                i += 1
+                vals, i = _consume_floats(lines, i, ii)
+                if len(vals) < ii:
+                    break
+                if not dist:
+                    dist = [0.0] * ii
+                for idx, val in enumerate(vals):
+                    if idx < len(dist):
+                        dist[idx] += val
+
+        if stream in feed_solids:
+            feed_solids[stream] = solid
+
+        sd_data = StreamData(stream=stream)
+        sd_data.solid_flow = solid
+        sd_data.water_flow = water
+        denom = solid + water
+        if denom > 0:
+            sd_data.pct_solids_mass = 100.0 * solid / denom
+        my_streams.append(sd_data)
+        results.streams.append(sd_data)
+
+        if dist and len(dist) == ndc:
+            cum = _cumulative_passing_pct(dist)
+            if cum:
+                sd = SizeDistribution(stream=stream)
+                sd.sizes = list(sizes)
+                sd.cum_passing = cum
+                results.size_distributions.append(sd)
+
+    # Yield of solids relative to the total plant-feed solids.
+    feed_total = sum(feed_solids.values())
+    if feed_total > 0:
+        for sd_data in my_streams:
+            if sd_data.solid_flow is not None:
+                sd_data.yield_solids = 100.0 * sd_data.solid_flow / feed_total
+    return i
+
+
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
@@ -369,6 +683,7 @@ RESULT_EXTENSIONS = {"out", "dat", "txt"}
 
 #: Ordered list of (name, parser) format detectors.
 _FORMAT_PARSERS = [
+    ("opdisp", _parse_opdisp),
     ("streamprops", _parse_streamprops),
     ("opgraph", _parse_opgraph),
     ("libdisp", _parse_libdisp),

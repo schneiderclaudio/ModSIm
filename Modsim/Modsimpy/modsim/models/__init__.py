@@ -5,6 +5,7 @@ from .job import (
     CurUnit,
     DistFile,
     DistStream,
+    FormatOutFile,
     GradeRange,
     Job,
     JobFile,
@@ -42,4 +43,5 @@ __all__ = [
     "CurFile",
     "CurUnit",
     "TrnFile",
+    "FormatOutFile",
 ]

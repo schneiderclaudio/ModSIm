@@ -4,7 +4,8 @@ These tests verify that:
 
 1. :func:`modsim.gui.plotting.parse_results` parses real engine result files
    from a job directory into structured data (size distributions, liberation
-   spectra, stream data).
+   spectra, stream data) -- in particular the engine's primary per-stream
+   results file ``OPDISP.DAT``.
 2. Each plot builder returns a valid ``QWidget`` containing a Qt Charts chart
    when run with ``QT_QPA_PLATFORM=offscreen``.
 
@@ -72,6 +73,30 @@ class ParseResultsTest(unittest.TestCase):
         for ls in results.liberation_spectra:
             self.assertEqual(len(ls.classes), len(ls.values))
             self.assertIn(ls.kind, ("unconditional", "conditional"))
+
+    @unittest.skipUnless(JOBS_AVAILABLE, f"jobs directory not found: {JOBS_DIR}")
+    def test_parse_opdisp_dat(self):
+        results = parse_results(JOBS_DIR)
+        # OPDISP.DAT is the per-stream results file written by the engine's
+        # calculation phase; it must be recognised as a source and contribute
+        # both size distributions and stream flow data.
+        self.assertIn("OPDISP.DAT", results.sources)
+        # A size distribution is recorded for every stream with solids.
+        sd_streams = {sd.stream for sd in results.size_distributions}
+        self.assertIn(1, sd_streams)
+        for sd in results.size_distributions:
+            self.assertEqual(len(sd.sizes), len(sd.cum_passing))
+            self.assertGreater(len(sd.sizes), 0)
+            self.assertTrue(all(s > 0 for s in sd.sizes))
+            self.assertTrue(all(c >= 0.0 for c in sd.cum_passing))
+        # OPDISP also reports solid/water flows for the streams.
+        self.assertTrue(any(s.solid_flow is not None for s in results.streams))
+        solid1 = [
+            s.solid_flow
+            for s in results.streams
+            if s.stream == 1 and s.solid_flow is not None
+        ]
+        self.assertTrue(solid1 and solid1[0] > 0)
 
     def test_parse_missing_directory_returns_empty(self):
         results = parse_results(os.path.join("does", "not", "exist"))

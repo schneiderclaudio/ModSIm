@@ -1,0 +1,57 @@
+  The data output routine has started
+ STREAM,MFS(STREAM)           2   11.00000    
+ STREAM,MFS(STREAM)          11   16.78000    
+ STREAM,MFS(STREAM)          12   16.78000    
+ STREAM,MFS(STREAM)          18   3.756000    
+ STREAM,MFS(STREAM)          15   13.02000    
+ STREAM,MFS(STREAM)           3   11.00000    
+ STREAM,MFS(STREAM)           6  0.7562000    
+ STREAM,MFS(STREAM)           4   10.25000    
+ STREAM,MFS(STREAM)           7   1.770000    
+ STREAM,MFS(STREAM)           5   8.476000    
+ STREAM,MFS(STREAM)           9   8.476000    
+ STREAM,MFS(STREAM)          19   1.562000    
+ STREAM,MFS(STREAM)          16   6.914000    
+ STREAM,MFS(STREAM)          20   5.317000    
+ STREAM,MFS(STREAM)          14   2.526000    
+ STREAM,MFS(STREAM)          21  0.6871000    
+ STREAM,MFS(STREAM)          17   1.839000    
+ STREAM,MFS(STREAM)          23   21.78000    
+ STREAM,MFS(STREAM)          24   21.78000    
+ STREAM,MFS(STREAM)          22   6.004000    
+ STREAM,MFS(STREAM)          25   2.000000    
+ STREAM,MFS(STREAM)           8   24.37000    
+ STREAM,MFS(STREAM)          10   17.74000    
+ STREAM,MFS(STREAM)          13   38.45000    
+ STREAM,MFS(STREAM)           1   27.78000    
+ STREAM,MFS(STREAM)          22   6.004000    
+ STREAM,MFS(STREAM)          24   21.78000    
+  Opened file FORMAT.OUT
+  End of file FORMAT.OUT reached
+  Open CumFile to append
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+  Ready to write size distribution
+ Closing CumFile

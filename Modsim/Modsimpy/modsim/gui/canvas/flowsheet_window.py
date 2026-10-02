@@ -24,6 +24,7 @@ from PySide6.QtWidgets import (
 
 from ...models.job import Job, SydFile, TrnFile, Unit
 from ..flowsheet import FlowsheetWindow
+from ..dialogs.generator import edit_equipment
 from ..dialogs.schema import SCHEMAS
 from .canvas import FlowsheetCanvas, FlowsheetScene
 from .items import StreamItem, UnitItem
@@ -64,7 +65,8 @@ class FlowsheetCanvasWindow(FlowsheetWindow):
         hint = QLabel(
             "Drag equipment from the palette to add a unit.  "
             "Drag between a unit's output port and another unit's input port to "
-            "draw a stream.  Double-click a unit to rename it.",
+            "draw a stream.  Double-click a unit to edit its parameters; "
+            "right-click a unit to rename or delete it.",
             self,
         )
         hint.setObjectName("canvasHint")
@@ -79,6 +81,7 @@ class FlowsheetCanvasWindow(FlowsheetWindow):
     def _connect_signals(self) -> None:
         scene: FlowsheetScene = self.canvas.scene
         scene.unit_label_changed.connect(self._edit_unit_label)
+        scene.unit_edit_requested.connect(self._edit_unit)
         scene.layout_changed.connect(self._on_layout_changed)
 
     # ------------------------------------------------------------------
@@ -109,6 +112,9 @@ class FlowsheetCanvasWindow(FlowsheetWindow):
         if job.syd is not None:
             for u in job.syd.units:
                 label = self._label_for(u.number, u.kind, model_codes)
+                # A rename made earlier in this session survives in the layout.
+                if self._trn_layout is not None:
+                    label = self._trn_layout.unit_labels.get(u.number, label)
                 pos = positions.get(u.number)
                 item = scene.add_unit(
                     u.number,
@@ -123,8 +129,9 @@ class FlowsheetCanvasWindow(FlowsheetWindow):
         self._load_streams(scene, job, unit_items)
         self._seed_stream_numbers(scene)
 
-        if not positions:
-            scene.auto_arrange()
+        # Units without a saved .TRN position are auto-placed in a grid; units
+        # with a saved position keep their coordinates.
+        scene.auto_arrange(placed=set(positions))
         self.canvas.fit_to_content()
         self._loading = False
 
@@ -171,6 +178,35 @@ class FlowsheetCanvasWindow(FlowsheetWindow):
     # ------------------------------------------------------------------
     # Editing
     # ------------------------------------------------------------------
+    def _edit_unit(self, unit: UnitItem) -> None:
+        """Open the equipment parameter dialog for ``unit``.
+
+        Only units with a model recorded in the job's ``.cur`` data can be
+        edited; anything else (new palette units, units with no model) falls
+        back to a plain rename.
+        """
+        job = self.job
+        if (
+            job is not None
+            and job.cur is not None
+            and unit.model_code
+            and self._unit_in_cur(job, unit.number)
+        ):
+            try:
+                if edit_equipment(job, unit.number, parent=self):
+                    # Persist any layout changes onto the job model so a save
+                    # round-trips them.
+                    self.sync_layout_to_job()
+                return
+            except (KeyError, ValueError):
+                # Unknown model / missing .cur entry: fall back to rename.
+                pass
+        self._edit_unit_label(unit)
+
+    @staticmethod
+    def _unit_in_cur(job: Job, number: int) -> bool:
+        return job.cur is not None and any(cu.number == number for cu in job.cur.units)
+
     def _edit_unit_label(self, unit: UnitItem) -> None:
         text, ok = QInputDialog.getText(
             self,
@@ -180,6 +216,9 @@ class FlowsheetCanvasWindow(FlowsheetWindow):
         )
         if ok:
             unit.set_label(text)
+            # Keep the label change (and any layout change) reflected in the
+            # job model so a save round-trips it.
+            self.sync_layout_to_job()
 
     def _on_layout_changed(self) -> None:
         # Keep the job model in sync so a later save persists the layout.
@@ -219,16 +258,35 @@ class FlowsheetCanvasWindow(FlowsheetWindow):
         for number, (x, y) in positions.items():
             layout.set_unit_position(number, x, y)
 
+        # Drop layout records for units that were deleted from the scene so a
+        # save does not resurrect them.
+        for number in list(layout.unit_numbers()):
+            if number not in positions:
+                layout.remove_unit(number)
+
         # Rebuild stream records from the current connections, preserving any
-        # saved polyline for a stream whose number is unchanged.
+        # saved polyline for a stream whose number is unchanged.  Merged/split
+        # streams render as several scene curves that share one stream number;
+        # the legacy .TRN format requires each Str_ID to appear once, so emit a
+        # single record per stream number.
         old_polylines = {s.str_id: s.points for s in layout.streams}
         layout.streams = []
+        seen_numbers = set()
         for src, tgt in connections:
             stream = self._stream_between(src, tgt)
             number = stream.number if stream is not None else 0
+            if number in seen_numbers:
+                continue
+            seen_numbers.add(number)
             start = self._unit_pos(src)
             end = self._unit_pos(tgt)
             layout.add_stream(number, start[0], start[1], end[0], end[1], old_polylines.get(number))
+
+        # Persist custom labels so a rename survives an in-memory round-trip.
+        scene = self.canvas.scene
+        layout.unit_labels = {
+            number: item.label for number, item in scene.units.items() if item.label
+        }
 
         # Persist structured data + regenerated raw lines.
         job = self.job
@@ -259,10 +317,13 @@ class FlowsheetCanvasWindow(FlowsheetWindow):
             stream_sources.setdefault(number, set()).add(src)
             stream_targets.setdefault(number, set()).add(tgt)
 
-        # Rebuild the unit list with updated connectivity.
+        # Rebuild the unit list with updated connectivity.  Only units that are
+        # actually on the scene are kept, so a deleted unit does not come back
+        # on save.
         old = {u.number: u for u in job.syd.units}
         new_units: List[Unit] = []
-        for number in sorted(set(positions) | set(old)):
+        used_types = {u.type for u in old.values()}
+        for number in sorted(set(positions)):
             existing = old.get(number)
             in_stream = 0
             out_stream = 0
@@ -272,11 +333,21 @@ class FlowsheetCanvasWindow(FlowsheetWindow):
             for s, tgts in stream_targets.items():
                 if number in tgts:
                     in_stream = s
+            item = self.canvas.scene.unit_by_number(number)
+            if existing is None:
+                # New unit: use a sensible non-feed type code instead of the
+                # feed placeholder type 1, and keep the kind where known.
+                typ = self._next_syd_type(used_types)
+                used_types.add(typ)
+                kind = item.kind if item is not None else "O"
+            else:
+                typ = existing.type
+                kind = existing.kind
             new_units.append(
                 Unit(
                     number=number,
-                    type=existing.type if existing else 1,
-                    kind=existing.kind if existing else "O",
+                    type=typ,
+                    kind=kind,
                     in_stream=in_stream,
                     out_stream=out_stream,
                 )
@@ -285,6 +356,19 @@ class FlowsheetCanvasWindow(FlowsheetWindow):
         job.syd.unit_count = len(new_units)
         # Drop raw_lines so write_syd regenerates from the structured units.
         job.syd.raw_lines = None
+
+    @staticmethod
+    def _next_syd_type(used: set) -> int:
+        """Return the lowest unused non-feed type code (>= 2).
+
+        Type 1 is the feed placeholder in the legacy ``.syd`` convention; new
+        units must not silently become feeds, so pick the first free code above
+        it.
+        """
+        code = 2
+        while code in used:
+            code += 1
+        return code
 
     # ------------------------------------------------------------------
     # Helpers

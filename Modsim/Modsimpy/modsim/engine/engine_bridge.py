@@ -254,16 +254,19 @@ class ModsimEngine:
         lib = self._require_loaded()
         return int(lib.INORDCALC(encode_path(path)))
 
-    def simop(self, path: str) -> tuple[int, int]:
+    def simop(self, path: str, cum_out: int = 0) -> tuple[int, int]:
         """Run the full simulation.
 
-        Returns a ``(result_code, cumulative_output)`` tuple. ``cumOut`` is
-        ``0`` = none, ``1`` = write cumulative output with column headings.
+        ``cum_out`` selects cumulative output: ``0`` = none, ``1`` = write
+        cumulative output with column headings, ``>1`` = append to the
+        existing cumulative output.
+
+        Returns a ``(result_code, cumulative_output)`` tuple.
         """
         lib = self._require_loaded()
-        cum_out = ctypes.c_int32(0)
-        result = lib.SIMOP(encode_path(path), ctypes.byref(cum_out))
-        return int(result), int(cum_out.value)
+        cum_out_c = ctypes.c_int32(cum_out)
+        result = lib.SIMOP(encode_path(path), ctypes.byref(cum_out_c))
+        return int(result), int(cum_out_c.value)
 
     def ljubamd(self, path: str, name: str) -> int:
         """Run the Ljubljana liberation model.
@@ -315,9 +318,9 @@ def inordcalc(path: str) -> int:
     return _get_shared_engine().inordcalc(path)
 
 
-def simop(path: str) -> tuple[int, int]:
+def simop(path: str, cum_out: int = 0) -> tuple[int, int]:
     """Module-level convenience wrapper for :meth:`ModsimEngine.simop`."""
-    return _get_shared_engine().simop(path)
+    return _get_shared_engine().simop(path, cum_out)
 
 
 def ljubamd(path: str, name: str) -> int:

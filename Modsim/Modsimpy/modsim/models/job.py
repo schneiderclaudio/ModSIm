@@ -2,8 +2,8 @@
 
 A ModSIM "job" is a directory of legacy text files (``.JOB``, ``.syd``,
 ``.siz``, ``.gcd``, ``.mat``, ``.scd``, ``.sid``, ``.cur``, ``.mop``,
-``.TEA``, ``.TRN``).  This module defines the dataclasses used to represent a
-job in memory.
+``.TEA``, ``.TRN``, ``.lju``, ``.amd``).  This module defines the dataclasses
+used to represent a job in memory.
 
 Round-trip fidelity
 -------------------
@@ -93,12 +93,17 @@ class DistStream:
 
 @dataclass
 class CurUnit:
-    """A unit entry from a ``.cur`` file (``TYPE`` block)."""
+    """A unit entry from a ``.cur`` file (``TYPE`` block).
+
+    The ``TYPE`` line layout is ``TYPE <unit#> <model> <NoPARAM> <unitID>``:
+    ``noparam`` is the number of parameter values the engine reads for the
+    unit, and ``unit_id`` is the unit's ID within the run.
+    """
 
     number: int
     model: str
-    in_stream: int
-    out_stream: int
+    noparam: int
+    unit_id: int
     params: List[str] = field(default_factory=list)
 
 
@@ -208,6 +213,59 @@ class TrnFile(JobFile):
 
 
 @dataclass
+class LjuFile(JobFile):
+    """Opaque ``.lju`` file (Ljubljana Andrews-Mika transfer coefficients).
+
+    The engine's mill model reads these from ``LJUBAMD.DAT`` in the job
+    directory when a mill has the Ljubljana liberation model enabled, so the
+    file is staged (copied verbatim) before every run.  ``raw_lines`` remains
+    authoritative for a byte-identical round trip.
+    """
+
+
+@dataclass
+class AmdFile(JobFile):
+    """Opaque ``.amd`` file (Beta-function Andrews-Mika transfer coefficients).
+
+    Staged verbatim to ``BETAAMD.DAT`` before a run (the Beta liberation
+    model's analogue of :class:`LjuFile`).
+    """
+
+
+@dataclass
+class FormatOutFile(JobFile):
+    """Parsed ``FORMAT.OUT`` file (output-format options).
+
+    ``FORMAT.OUT`` is a fixed-name run file (not part of the ``<name>.<ext>``
+    round trip); ``name`` is therefore ``"format_out"``.  The structured
+    fields mirror the options collected by the VB6 output-format dialog
+    (``OUTFORMAT.FRM``): solid/water/metal display units, which quantity
+    columns to show, optional metal/mineral grade columns, optional
+    size-distribution and accumulation stream lists.
+    """
+
+    name: str = "format_out"
+    solid_units: int = 1  # 1..6
+    water_units: int = 1  # 1..5
+    metal_units: int = 1  # 1 = %, 2 = g/t
+    show_water: bool = False
+    show_pct_solids: bool = False
+    show_yield: bool = False
+    show_minerals: bool = False
+    show_metals: bool = False
+    coal_flag: bool = False
+    num_metals: int = 0
+    metal_names: List[str] = field(default_factory=list)
+    num_minerals: int = 1
+    minmetal: List[List[float]] = field(default_factory=list)  # NOMIN x NOMET
+    size_flag: bool = False
+    size_streams: List[int] = field(default_factory=list)
+    icode: int = 0
+    accumulate_flag: bool = False
+    accumulate_streams: List[int] = field(default_factory=list)
+
+
+@dataclass
 class Job:
     """In-memory representation of a complete ModSIM job directory.
 
@@ -228,6 +286,9 @@ class Job:
     sid: Optional[SidFile] = None
     cur: Optional[CurFile] = None
     trn: Optional[TrnFile] = None
+    lju: Optional[LjuFile] = None
+    amd: Optional[AmdFile] = None
+    format_out: Optional[FormatOutFile] = None
 
     def files(self) -> List[JobFile]:
         """Return the non-``None`` job files in a stable order."""
@@ -245,6 +306,8 @@ class Job:
                 self.sid,
                 self.cur,
                 self.trn,
+                self.lju,
+                self.amd,
             )
             if f is not None
         ]

@@ -13,7 +13,9 @@
 ! =============================================================================
 MODULE MSFLIB
   IMPLICIT NONE
-
+  ! Some units rename STAT (USE MSFLIB, MSFSTAT=>STAT) to avoid clashing with
+  ! a local INTEGER STAT; gfortran requires the renamed symbol to exist.
+  INTEGER(4), PARAMETER :: STAT = 0
 CONTAINS
 
   ! ---------------------------------------------------------------------------

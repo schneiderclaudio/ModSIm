@@ -39,23 +39,26 @@ ifeq ($(OS),Windows_NT)
   SH := powershell -NoProfile -ExecutionPolicy Bypass
   BUILD_IFX = $(SH) -File scripts/build-ifx.ps1 -Build $(BUILD)
   RUN_GUI   = $(SH) -File scripts/run.ps1 -Compiler $(COMPILER) -Build $(BUILD)
+  RUN_TEST  = $(SH) -File scripts/test.ps1 -Compiler $(COMPILER) -Build $(BUILD)
   ENGINE_LIB := ModsimMain.dll
 else
   SH := bash
   BUILD_IFX = $(SH) scripts/build-ifx.sh $(BUILD)
   RUN_GUI   = $(SH) scripts/run.sh $(COMPILER) $(BUILD)
+  RUN_TEST  = $(SH) scripts/test.sh $(COMPILER) $(BUILD)
   ENGINE_LIB := libmodsim.so
 endif
 
 .DEFAULT_GOAL := build
 
-.PHONY: help build all run install clean
+.PHONY: help build all run test install clean
 
 help:
 	@echo "ModSIM — commands:"
 	@echo ""
 	@echo "  make              build the Fortran engine (COMPILER=$(COMPILER), BUILD=$(BUILD))"
 	@echo "  make run          launch the ModSIM GUI"
+	@echo "  make test         run the Python test suite (unit + E2E)"
 	@echo "  make install      install Python GUI dependencies (one-time)"
 	@echo "  make clean        remove build artefacts"
 	@echo "  make help         show this help"
@@ -82,6 +85,10 @@ endif
 # ── Run ──────────────────────────────────────────────────────────────────────
 run:
 	$(RUN_GUI)
+
+# ── Test ─────────────────────────────────────────────────────────────────────
+test:
+	$(RUN_TEST)
 
 # ── Install Python GUI deps ──────────────────────────────────────────────────
 install:

@@ -142,7 +142,12 @@ else ifeq ($(COMPILER),ifx)
   ifeq ($(BUILD),debug)
     FCFLAGS := -Od -Zi -debug:full -traceback -check:bounds
   else
-    FCFLAGS := -O2
+    # -fp:strict: legacy CVF-era mill/convergence iterations (SAG circuits,
+    # exit 36/34 failures e.g. Trial SAGM, Kennecott jobs) sit on a numerical
+    # boundary; IFX's default -fp:fast reassociation at -O2 pushes them into
+    # divergence. -fp:strict fixes all of them deterministically with rounding-
+    # level output drift. Do NOT use -fp:precise or -O1 (SIMOP access violations).
+    FCFLAGS := -O2 -fp:strict
   endif
 
   # IFX: a single -module:<dir> covers both .mod output and .mod search

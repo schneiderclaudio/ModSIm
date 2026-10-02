@@ -166,14 +166,17 @@ def load_values_from_job(job: Job, unit_number: int) -> Dict[str, Any]:
     """Load the current parameter values for ``unit_number`` from ``job``.
 
     The unit's model code selects the schema; each ``.cur`` parameter string is
-    parsed into the corresponding schema field's type.  Returns a dict keyed by
-    field key.
+    parsed into the corresponding schema field's type.  Only the first
+    ``unit.noparam`` parameters are meaningful (the engine reads exactly
+    ``NoPARAM`` values), so any schema field at index ``>= noparam`` falls back
+    to ``field.default``.  Returns a dict keyed by field key.
     """
     unit = _find_unit(job, unit_number)
     schema = get_schema(unit.model)
+    noparam = unit.noparam
     values: Dict[str, Any] = {}
     for i, field in enumerate(schema.fields):
-        if i < len(unit.params):
+        if i < noparam and i < len(unit.params):
             values[field.key] = _parse_param(field, unit.params[i])
         else:
             values[field.key] = field.default
@@ -186,15 +189,24 @@ def write_values_to_job(
     """Write ``values`` back to the ``.cur`` data section for ``unit_number``.
 
     Values are formatted into the unit's flat parameter list in schema field
-    order.  Because the ``.cur`` writer emits ``raw_lines`` verbatim when
-    present, the file's ``raw_lines`` are cleared so the structured (edited)
-    parameters are actually persisted on the next write.
+    order.  The engine reads exactly ``NoPARAM`` values from the ``TYPE`` block,
+    so ``unit.noparam`` stays authoritative: the formatted list is truncated to
+    ``noparam`` entries when the schema has more fields, and padded with
+    ``"0.0000E+0"`` when it has fewer, guaranteeing ``len(unit.params) ==
+    unit.noparam``.  Because the ``.cur`` writer emits ``raw_lines`` verbatim
+    when present, the file's ``raw_lines`` are cleared so the structured
+    (edited) parameters are actually persisted on the next write.
     """
     unit = _find_unit(job, unit_number)
     schema = get_schema(unit.model)
+    noparam = unit.noparam
     params: List[str] = []
     for field in schema.fields:
         params.append(_format_param(field, values.get(field.key, field.default)))
+    if len(params) > noparam:
+        params = params[:noparam]
+    elif len(params) < noparam:
+        params.extend(["0.0000E+0"] * (noparam - len(params)))
     unit.params = params
     if job.cur is not None:
         job.cur.raw_lines = None

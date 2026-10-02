@@ -18,6 +18,7 @@ from PySide6.QtWidgets import (
     QGraphicsPathItem,
     QGraphicsScene,
     QGraphicsView,
+    QMenu,
 )
 
 from .items import UNIT_HEIGHT, UNIT_WIDTH, StreamItem, UnitItem
@@ -40,6 +41,7 @@ class FlowsheetScene(QGraphicsScene):
     unit_added = Signal(object)
     stream_created = Signal(object)
     unit_label_changed = Signal(object)
+    unit_edit_requested = Signal(object)
     layout_changed = Signal()
 
     def __init__(self, parent=None) -> None:
@@ -153,10 +155,20 @@ class FlowsheetScene(QGraphicsScene):
         connections = [(s.source.number, s.target.number) for s in self._streams]
         return positions, connections
 
-    def auto_arrange(self) -> None:
-        """Lay out units that have no saved position in a grid."""
-        cols = max(1, int(math.ceil(math.sqrt(len(self._units)))))
-        for idx, (number, item) in enumerate(sorted(self._units.items())):
+    def auto_arrange(self, placed: Optional[set] = None) -> None:
+        """Lay out units that have no saved position in a grid.
+
+        Units whose number is in ``placed`` (e.g. units with a saved ``.TRN``
+        position) keep their current coordinates; only the remaining units are
+        arranged, so previously-placed units are not moved or overlapped.
+        """
+        placed = set(placed or ())
+        unplaced = [n for n in sorted(self._units) if n not in placed]
+        if not unplaced:
+            return
+        cols = max(1, int(math.ceil(math.sqrt(len(unplaced)))))
+        for idx, number in enumerate(unplaced):
+            item = self._units[number]
             item.setPos(
                 (idx % cols) * GRID_SPACING_X + 40,
                 (idx // cols) * GRID_SPACING_Y + 40,
@@ -255,10 +267,33 @@ class FlowsheetScene(QGraphicsScene):
     def mouseDoubleClickEvent(self, event) -> None:  # noqa: N802
         unit = self._unit_at(event.scenePos())
         if unit is not None:
-            self.unit_label_changed.emit(unit)
+            if unit.model_code:
+                # The host window opens the equipment parameter dialog for units
+                # that have a model (e.g. from the .cur file)...
+                self.unit_edit_requested.emit(unit)
+            else:
+                # ...and falls back to a plain rename for units with no model.
+                self.unit_label_changed.emit(unit)
             event.accept()
             return
         super().mouseDoubleClickEvent(event)
+
+    def _unit_menu(self, unit: UnitItem) -> QMenu:
+        """Build the context menu for ``unit`` (edit / rename / delete)."""
+        menu = QMenu()
+        if unit.model_code:
+            menu.addAction("Change model parameters", lambda: self.unit_edit_requested.emit(unit))
+        menu.addAction("Rename", lambda: self.unit_label_changed.emit(unit))
+        menu.addAction("Delete", lambda: self.remove_unit(unit.number))
+        return menu
+
+    def contextMenuEvent(self, event) -> None:  # noqa: N802
+        unit = self._unit_at(event.scenePos())
+        if unit is None:
+            super().contextMenuEvent(event)
+            return
+        self._unit_menu(unit).exec(event.screenPos())
+        event.accept()
 
 
 class FlowsheetCanvas(QGraphicsView):

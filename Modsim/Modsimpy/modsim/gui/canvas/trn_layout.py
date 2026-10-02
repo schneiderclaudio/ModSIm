@@ -75,6 +75,8 @@ class TrnLayout:
     streams: List[StreamRecord] = field(default_factory=list)
     footer: List[str] = field(default_factory=list)
     water_count: int = 0
+    water_flags: str = ""
+    unit_labels: Dict[int, str] = field(default_factory=dict)
 
     # ------------------------------------------------------------------
     # Accessors
@@ -105,11 +107,9 @@ class TrnLayout:
                     rec.x = x
                     rec.y = y
                     return
-        # Not found: add to the first block (or a fresh block with type 0).
-        if self.unit_blocks:
-            self.unit_blocks[0][2].append(UnitRecord(number, x, y))
-        else:
-            self.unit_blocks.append((0, "T", [UnitRecord(number, x, y)]))
+        # Not found: add the unit through add_unit(), which assigns a valid
+        # type code in 1..100 (the count matrix has no column for type 0).
+        self.add_unit(number, x, y)
 
     def add_unit(self, number: int, x: float, y: float, type_code: Optional[int] = None) -> None:
         if type_code is None:
@@ -119,6 +119,16 @@ class TrnLayout:
                 self.unit_blocks[idx][2].append(UnitRecord(number, x, y))
                 return
         self.unit_blocks.append((type_code, "T", [UnitRecord(number, x, y)]))
+
+    def remove_unit(self, number: int) -> None:
+        """Remove the record for ``number`` (and any emptied block)."""
+        for idx, (typ, flags, records) in enumerate(self.unit_blocks):
+            for rec in list(records):
+                if rec.number == number:
+                    records.remove(rec)
+                    if not records:
+                        del self.unit_blocks[idx]
+                    return
 
     def add_stream(
         self,
@@ -134,9 +144,17 @@ class TrnLayout:
         )
 
     def _next_type_code(self) -> int:
+        """Return the lowest unused type code in the valid 1..100 range.
+
+        The ``.TRN`` count matrix only covers type codes 1..100, so a fresh
+        block is always given a code inside that range.  Types 6 and 62 are
+        avoided: their records carry an extra per-unit line (``NOCELL`` /
+        ``CONVEY_X/Y``) that the parser consumes unconditionally, so a new
+        unit without that data would misalign the file.
+        """
         types = [typ for typ, _, _ in self.unit_blocks]
         code = 1
-        while code in types:
+        while (code in types or code in (6, 62)) and code < 100:
             code += 1
         return code
 
@@ -171,8 +189,11 @@ def parse_trn_layout(lines: List[str]) -> TrnLayout:
     if stream_count > 0 and pos < len(lines):
         stream_flags = lines[pos].strip()
         pos += 1
+    water_flags = ""
     if layout.water_count > 0 and pos < len(lines):
-        pos += 1  # water flags line, not needed for layout
+        water_flags = lines[pos].strip()
+        pos += 1
+    layout.water_flags = water_flags
 
     # Unit blocks, in type-code order.
     for typ in range(1, 101):
@@ -275,10 +296,17 @@ def regenerate_trn_lines(layout: TrnLayout) -> List[str]:
 
     # Stream / water flags.
     lines.append("T" * stream_count)
-    lines.append("F" * stream_count)
+    if layout.water_count > 0:
+        # The parser only consumes a water-flags line when water_count > 0, so
+        # it must not be emitted for jobs with no water streams.  Prefer the
+        # captured flags (marking which streams are water) over an all-"F"
+        # placeholder when a fresh layout never captured any.
+        lines.append(layout.water_flags or "F" * layout.water_count)
 
-    # Unit section.
-    for typ, flags, records in layout.unit_blocks:
+    # Unit section.  Emit blocks in type-code order: the count matrix and the
+    # parser both walk the type codes 1..100, so an unsorted block list would
+    # misalign the file.
+    for typ, flags, records in sorted(layout.unit_blocks, key=lambda block: block[0]):
         lines.append(f"{typ} {flags}")
         for rec in records:
             lines.append(f"{rec.number} {rec.x} {rec.y} {rec.irr} {rec.id}")

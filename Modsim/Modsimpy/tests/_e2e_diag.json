@@ -1,0 +1,1328 @@
+{
+ "Jobs::./Bougainville": {
+  "status": "fail",
+  "job": "Bougainville",
+  "state": "Error",
+  "inord": 34,
+  "simop": 3,
+  "message": "Error"
+ },
+ "Jobs::./Bougainville1": {
+  "status": "success",
+  "job": "Bougainville1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 20,
+  "n_sd": 18,
+  "opdisp": true
+ },
+ "Jobs::./COLUMN": {
+  "status": "success",
+  "job": "COLUMN",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "Jobs::./CRUSHERS": {
+  "status": "success",
+  "job": "CRUSHERS",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 5,
+  "n_sd": 6,
+  "opdisp": true
+ },
+ "Jobs::./CoalDemo": {
+  "status": "success",
+  "job": "CoalDemo",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 5,
+  "opdisp": true
+ },
+ "Jobs::./Cone": {
+  "status": "fail",
+  "job": "Cone",
+  "state": "Error",
+  "inord": null,
+  "simop": null,
+  "message": "Error"
+ },
+ "Jobs::./Cone1": {
+  "status": "success",
+  "job": "Cone1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 8,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "Jobs::./Cyclone": {
+  "status": "fail",
+  "job": "Cyclone",
+  "state": "Error",
+  "inord": 32,
+  "simop": 3,
+  "message": "Error"
+ },
+ "Jobs::./Demo": {
+  "status": "success",
+  "job": "Demo",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 7,
+  "n_sd": 6,
+  "opdisp": true
+ },
+ "Jobs::./DemoLib": {
+  "status": "success",
+  "job": "DemoLib",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 6,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "Jobs::./ELISTA05": {
+  "status": "fail",
+  "job": "ELISTA05",
+  "state": "Error",
+  "inord": 16,
+  "simop": 3,
+  "message": "Error"
+ },
+ "Jobs::./FAG_SAG": {
+  "status": "fail",
+  "job": "FAG_SAG",
+  "state": "Error",
+  "inord": 38,
+  "simop": -1,
+  "message": "Error"
+ },
+ "Jobs::./Fairlane": {
+  "status": "fail",
+  "job": "Fairlane",
+  "state": "Error",
+  "inord": 34,
+  "simop": 3,
+  "message": "Error"
+ },
+ "Jobs::./Flotationbank": {
+  "status": "success",
+  "job": "Flotationbank",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "Jobs::./Jones": {
+  "status": "success",
+  "job": "Jones",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "Jobs::./MtLyell": {
+  "status": "success",
+  "job": "MtLyell",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "Jobs::./MtLyell2": {
+  "status": "success",
+  "job": "MtLyell2",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "Jobs::./Problem 14": {
+  "status": "success",
+  "job": "Problem 14",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 17,
+  "n_sd": 17,
+  "opdisp": true
+ },
+ "Jobs::./SAG-CVRD": {
+  "status": "fail",
+  "job": "SAG-CVRD",
+  "state": "Error",
+  "inord": 36,
+  "simop": -1,
+  "message": "Error"
+ },
+ "Jobs::./Thicken": {
+  "status": "success",
+  "job": "Thicken",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 2,
+  "opdisp": true
+ },
+ "Jobs::./UNITS": {
+  "status": "fail",
+  "job": "UNITS",
+  "state": "Error",
+  "inord": null,
+  "simop": null,
+  "message": "Error"
+ },
+ "Jobs::./ex1aV3": {
+  "status": "fail",
+  "job": "ex1aV3",
+  "state": "Error",
+  "inord": 36,
+  "simop": -1,
+  "message": "Error"
+ },
+ "Jobs::./ex1bV3": {
+  "status": "success",
+  "job": "ex1bV3",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 5,
+  "opdisp": true
+ },
+ "Jobs::./fodfertil1": {
+  "status": "success",
+  "job": "fodfertil1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 5,
+  "opdisp": true
+ },
+ "Jobs::./fosfertil793": {
+  "status": "fail",
+  "job": "fosfertil793",
+  "state": "Error",
+  "inord": 36,
+  "simop": -1,
+  "message": "Error"
+ },
+ "Jobs::./jones test": {
+  "status": "fail",
+  "job": "jones test",
+  "state": "Error",
+  "inord": 36,
+  "simop": -1,
+  "message": "Error"
+ },
+ "Jobs::./rollerpress": {
+  "status": "success",
+  "job": "rollerpress",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "Jobs::./sag-cetem": {
+  "status": "success",
+  "job": "sag-cetem",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "Jobs::./sag-cetem_B11": {
+  "status": "success",
+  "job": "sag-cetem_B11",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 2,
+  "n_sd": 2,
+  "opdisp": true
+ },
+ "Jobs::./sag-cetem_closed": {
+  "status": "success",
+  "job": "sag-cetem_closed",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "Jobs::Book/Ex10-2Cyclone": {
+  "status": "success",
+  "job": "Ex10-2Cyclone",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 6,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/Bougainville": {
+  "status": "success",
+  "job": "Bougainville",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 9,
+  "n_sd": 9,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/Bougainville1": {
+  "status": "success",
+  "job": "Bougainville1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 11,
+  "n_sd": 11,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/CoalDemo": {
+  "status": "success",
+  "job": "CoalDemo",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 24,
+  "n_sd": 26,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/Cone": {
+  "status": "success",
+  "job": "Cone",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 7,
+  "n_sd": 8,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/ConeOptimum1": {
+  "status": "success",
+  "job": "ConeOptimum1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 13,
+  "n_sd": 14,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/Demo": {
+  "status": "success",
+  "job": "Demo",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 14,
+  "n_sd": 11,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/DemoLib": {
+  "status": "success",
+  "job": "DemoLib",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/DemoPow": {
+  "status": "success",
+  "job": "DemoPow",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 6,
+  "n_sd": 6,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/Fairlane": {
+  "status": "success",
+  "job": "Fairlane",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/Fairlane_alt": {
+  "status": "success",
+  "job": "Fairlane_alt",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 14,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/Fairlane_screen": {
+  "status": "success",
+  "job": "Fairlane_screen",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 14,
+  "n_sd": 15,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/Flotationbank": {
+  "status": "success",
+  "job": "Flotationbank",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/Thicken": {
+  "status": "success",
+  "job": "Thicken",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 6,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "Jobs::Distribution jobs/floatbank": {
+  "status": "success",
+  "job": "floatbank",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "JobsRPK::./Blackbox job": {
+  "status": "success",
+  "job": "Blackbox job",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 4,
+  "n_sd": 5,
+  "opdisp": true
+ },
+ "JobsRPK::./Bougainville": {
+  "status": "fail",
+  "job": "Bougainville",
+  "state": "Error",
+  "inord": 34,
+  "simop": 3,
+  "message": "Error"
+ },
+ "JobsRPK::./Bougainville1": {
+  "status": "success",
+  "job": "Bougainville1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 11,
+  "n_sd": 11,
+  "opdisp": true
+ },
+ "JobsRPK::./CoalDemo": {
+  "status": "success",
+  "job": "CoalDemo",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 5,
+  "opdisp": true
+ },
+ "JobsRPK::./Cone": {
+  "status": "success",
+  "job": "Cone",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 5,
+  "n_sd": 5,
+  "opdisp": true
+ },
+ "JobsRPK::./Cone1": {
+  "status": "success",
+  "job": "Cone1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 13,
+  "n_sd": 6,
+  "opdisp": true
+ },
+ "JobsRPK::./Cyclone": {
+  "status": "success",
+  "job": "Cyclone",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "JobsRPK::./Demo": {
+  "status": "success",
+  "job": "Demo",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 14,
+  "n_sd": 11,
+  "opdisp": true
+ },
+ "JobsRPK::./DemoLib": {
+  "status": "success",
+  "job": "DemoLib",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 6,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "JobsRPK::./FAG_SAG": {
+  "status": "success",
+  "job": "FAG_SAG",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 16,
+  "n_sd": 17,
+  "opdisp": true
+ },
+ "JobsRPK::./Fairlane": {
+  "status": "fail",
+  "job": "Fairlane",
+  "state": "Error",
+  "inord": 34,
+  "simop": 3,
+  "message": "Error"
+ },
+ "JobsRPK::./Model Development": {
+  "status": "success",
+  "job": "Model Development",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 10,
+  "n_sd": 11,
+  "opdisp": true
+ },
+ "JobsRPK::./MtLyell": {
+  "status": "success",
+  "job": "MtLyell",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "JobsRPK::./MtLyell2": {
+  "status": "success",
+  "job": "MtLyell2",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "JobsRPK::./Probabilty screen trial": {
+  "status": "success",
+  "job": "Probabilty screen trial",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::./Problem 14": {
+  "status": "success",
+  "job": "Problem 14",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 31,
+  "n_sd": 28,
+  "opdisp": true
+ },
+ "JobsRPK::./Temp": {
+  "status": "success",
+  "job": "Temp",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 5,
+  "n_sd": 6,
+  "opdisp": true
+ },
+ "JobsRPK::./TempScreenMods": {
+  "status": "success",
+  "job": "TempScreenMods",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 8,
+  "n_sd": 8,
+  "opdisp": true
+ },
+ "JobsRPK::./Thick_Timbopeba": {
+  "status": "success",
+  "job": "Thick_Timbopeba",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 2,
+  "opdisp": true
+ },
+ "JobsRPK::./Thicken": {
+  "status": "success",
+  "job": "Thicken",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 8,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::./Trial SAGM": {
+  "status": "success",
+  "job": "Trial SAGM",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 6,
+  "n_sd": 7,
+  "opdisp": true
+ },
+ "JobsRPK::./WHIMS": {
+  "status": "success",
+  "job": "WHIMS",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 14,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::./ex1aV3": {
+  "status": "fail",
+  "job": "ex1aV3",
+  "state": "Error",
+  "inord": 36,
+  "simop": -1,
+  "message": "Error"
+ },
+ "JobsRPK::./ex1bV3": {
+  "status": "success",
+  "job": "ex1bV3",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 5,
+  "opdisp": true
+ },
+ "JobsRPK::BOOK/Ex10-1Screen": {
+  "status": "success",
+  "job": "Ex10-1Screen",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 5,
+  "n_sd": 6,
+  "opdisp": true
+ },
+ "JobsRPK::BOOK/Ex10-2Cyclone": {
+  "status": "success",
+  "job": "Ex10-2Cyclone",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 8,
+  "n_sd": 8,
+  "opdisp": true
+ },
+ "JobsRPK::BOOK/Ex10-3BallMill": {
+  "status": "success",
+  "job": "Ex10-3BallMill",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 5,
+  "n_sd": 5,
+  "opdisp": true
+ },
+ "JobsRPK::BOOK/Ex10-4RBMCircuit": {
+  "status": "success",
+  "job": "Ex10-4RBMCircuit",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 9,
+  "n_sd": 9,
+  "opdisp": true
+ },
+ "JobsRPK::BOOK/Ex10-5CoalWashingPlant": {
+  "status": "success",
+  "job": "Ex10-5CoalWashingPlant",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 25,
+  "n_sd": 26,
+  "opdisp": true
+ },
+ "JobsRPK::BOOK/Ex10-6BMCircuitwithLiberationandConcentration": {
+  "status": "success",
+  "job": "Ex10-6BMCircuitwithLiberationandConcentration",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 14,
+  "n_sd": 15,
+  "opdisp": true
+ },
+ "JobsRPK::BOOK/Example10-BallMillCircuit": {
+  "status": "success",
+  "job": "Example10-BallMillCircuit",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 14,
+  "n_sd": 13,
+  "opdisp": true
+ },
+ "JobsRPK::BOOK/Example10-BallMillCircuit-2": {
+  "status": "success",
+  "job": "Example10-BallMillCircuit-2",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 14,
+  "n_sd": 13,
+  "opdisp": true
+ },
+ "JobsRPK::BOOK/Example10-IronOreConcentrator": {
+  "status": "success",
+  "job": "Example10-IronOreConcentrator",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 13,
+  "n_sd": 14,
+  "opdisp": true
+ },
+ "JobsRPK::Baker Process/CCDTrial": {
+  "status": "fail",
+  "job": "CCDTrial",
+  "state": "Error",
+  "inord": 16,
+  "simop": 3,
+  "message": "Error"
+ },
+ "JobsRPK::Baker Process/Derek1": {
+  "status": "success",
+  "job": "Derek1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 11,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Baker Process/Flotation": {
+  "status": "success",
+  "job": "Flotation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "JobsRPK::CETEM/SAG mill/sag-cetem_B11": {
+  "status": "success",
+  "job": "sag-cetem_B11",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 2,
+  "n_sd": 2,
+  "opdisp": true
+ },
+ "JobsRPK::CETEM/SAG mill/sag-cetem_closed": {
+  "status": "success",
+  "job": "sag-cetem_closed",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::CETEM/Thotam flotation/Temp": {
+  "status": "success",
+  "job": "Temp",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 5,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "JobsRPK::CETEM/Thotam flotation/thotham_full King model": {
+  "status": "success",
+  "job": "thotham_full King model",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::CVRD/Conceicao/Conceicao-1": {
+  "status": "success",
+  "job": "Conceicao-1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 33,
+  "n_sd": 33,
+  "opdisp": true
+ },
+ "JobsRPK::Carajas/DemoGMSU": {
+  "status": "success",
+  "job": "DemoGMSU",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 14,
+  "n_sd": 11,
+  "opdisp": true
+ },
+ "JobsRPK::Coal processing jobs/Batac jig with proximate analysis": {
+  "status": "fail",
+  "job": "Batac jig with proximate analysis",
+  "state": "Error",
+  "inord": null,
+  "simop": null,
+  "message": "Error"
+ },
+ "JobsRPK::Coal processing jobs/Coal jig with proximate analysis": {
+  "status": "success",
+  "job": "Coal jig with proximate analysis",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "JobsRPK::CoalPrep/ex1aV3": {
+  "status": "fail",
+  "job": "ex1aV3",
+  "state": "Error",
+  "inord": 36,
+  "simop": -1,
+  "message": "Error"
+ },
+ "JobsRPK::CoalPrep/ex1bV3": {
+  "status": "success",
+  "job": "ex1bV3",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 25,
+  "n_sd": 26,
+  "opdisp": true
+ },
+ "JobsRPK::CoalPrep/ex5V3": {
+  "status": "fail",
+  "job": "ex5V3",
+  "state": "Error",
+  "inord": null,
+  "simop": null,
+  "message": "Error"
+ },
+ "JobsRPK::ConeOpt/Cone1": {
+  "status": "fail",
+  "job": "Cone1",
+  "state": "Error",
+  "inord": null,
+  "simop": null,
+  "message": "Error"
+ },
+ "JobsRPK::ConeOpt/ConeOptimization": {
+  "status": "success",
+  "job": "ConeOptimization",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 29,
+  "n_sd": 27,
+  "opdisp": true
+ },
+ "JobsRPK::ConeOpt/ConeOptimum1": {
+  "status": "success",
+  "job": "ConeOptimum1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 13,
+  "n_sd": 14,
+  "opdisp": true
+ },
+ "JobsRPK::ConeOpt/Discussion of Ergun Paper": {
+  "status": "success",
+  "job": "Discussion of Ergun Paper",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 0,
+  "opdisp": true
+ },
+ "JobsRPK::ConeOpt/Richards Bay Minerals Cone": {
+  "status": "success",
+  "job": "Richards Bay Minerals Cone",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 0,
+  "opdisp": true
+ },
+ "JobsRPK::Design2000/Design2000_2": {
+  "status": "success",
+  "job": "Design2000_2",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 20,
+  "n_sd": 23,
+  "opdisp": true
+ },
+ "JobsRPK::Fairlane/Fairlane": {
+  "status": "success",
+  "job": "Fairlane",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Greens Creek/Greens Creek": {
+  "status": "success",
+  "job": "Greens Creek",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 9,
+  "n_sd": 9,
+  "opdisp": true
+ },
+ "JobsRPK::ICRA/ICRA102": {
+  "status": "success",
+  "job": "ICRA102",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 14,
+  "n_sd": 13,
+  "opdisp": true
+ },
+ "JobsRPK::ICRA/ICRA5-503": {
+  "status": "success",
+  "job": "ICRA5-503",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 22,
+  "n_sd": 22,
+  "opdisp": true
+ },
+ "JobsRPK::ICRA/ICRA5-505": {
+  "status": "success",
+  "job": "ICRA5-505",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 22,
+  "n_sd": 22,
+  "opdisp": true
+ },
+ "JobsRPK::ICRA/Icra5-102Improve": {
+  "status": "success",
+  "job": "Icra5-102Improve",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 7,
+  "n_sd": 7,
+  "opdisp": true
+ },
+ "JobsRPK::Kennecott/Kennecott SAG BM Line 4": {
+  "status": "fail",
+  "job": "Kennecott SAG BM Line 4",
+  "state": "Error",
+  "inord": 37,
+  "simop": 3,
+  "message": "Error"
+ },
+ "JobsRPK::Kennecott/Kennecott SAG only": {
+  "status": "success",
+  "job": "Kennecott SAG only",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 7,
+  "n_sd": 1,
+  "opdisp": true
+ },
+ "JobsRPK::Kennecott/KennecottDeepak1": {
+  "status": "success",
+  "job": "KennecottDeepak1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Kennecott/KennecottDeepak2": {
+  "status": "success",
+  "job": "KennecottDeepak2",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 20,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Kennecott/KennecottDeepak3": {
+  "status": "success",
+  "job": "KennecottDeepak3",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 5,
+  "opdisp": true
+ },
+ "JobsRPK::Kennecott/Deepak data 2003/MILL": {
+  "status": "fail",
+  "job": "MILL",
+  "state": "Error",
+  "inord": null,
+  "simop": null,
+  "message": "Error"
+ },
+ "JobsRPK::Kiruna Autogenous Mill/Kiruna Autogenous Mill": {
+  "status": "success",
+  "job": "Kiruna Autogenous Mill",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 4,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "JobsRPK::Kiruna Autogenous Mill/Kiruna primary circuit": {
+  "status": "fail",
+  "job": "Kiruna primary circuit",
+  "state": "Error",
+  "inord": 38,
+  "simop": -1,
+  "message": "Error"
+ },
+ "JobsRPK::Met567/567 final exam 2003": {
+  "status": "success",
+  "job": "567 final exam 2003",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Met567/Met567 Final Exam 2002": {
+  "status": "success",
+  "job": "Met567 Final Exam 2002",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 22,
+  "n_sd": 15,
+  "opdisp": true
+ },
+ "JobsRPK::Met567/Met567 Final Exam Q3 2003": {
+  "status": "success",
+  "job": "Met567 Final Exam Q3 2003",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/Ball mill circuit": {
+  "status": "success",
+  "job": "Ball mill circuit",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 7,
+  "n_sd": 7,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/CRS1 Parameter estimation": {
+  "status": "success",
+  "job": "CRS1 Parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/CRSH Parameter estimation": {
+  "status": "success",
+  "job": "CRSH Parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 4,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/EMJC Parameter estimation": {
+  "status": "success",
+  "job": "EMJC Parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 5,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/GMI1 parameter estimation": {
+  "status": "success",
+  "job": "GMI1 parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 4,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/GMIL parameter estimation": {
+  "status": "success",
+  "job": "GMIL parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 2,
+  "n_sd": 2,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/GMSU parameter estimation": {
+  "status": "success",
+  "job": "GMSU parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 2,
+  "n_sd": 2,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/GYRA Parameter estimation": {
+  "status": "success",
+  "job": "GYRA Parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/HFMI parameter estimation": {
+  "status": "success",
+  "job": "HFMI parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 2,
+  "n_sd": 2,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/HFML parameter estimation": {
+  "status": "success",
+  "job": "HFML parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 2,
+  "n_sd": 2,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/HFSU parameter estimation": {
+  "status": "success",
+  "job": "HFSU parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 2,
+  "n_sd": 2,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/Jaw1 Parameter estimation": {
+  "status": "success",
+  "job": "Jaw1 Parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 5,
+  "n_sd": 5,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/Jaw2 Parameter estimation": {
+  "status": "success",
+  "job": "Jaw2 Parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/MILL parameter estimation": {
+  "status": "success",
+  "job": "MILL parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 4,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/RODL Parameter estimation job": {
+  "status": "success",
+  "job": "RODL Parameter estimation job",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 4,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/RODM Parameter estimation": {
+  "status": "success",
+  "job": "RODM Parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 4,
+  "n_sd": 4,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/SAGM Parameter Estimation": {
+  "status": "success",
+  "job": "SAGM Parameter Estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 2,
+  "n_sd": 2,
+  "opdisp": true
+ },
+ "JobsRPK::Parameter estimation jobs/SHHD Parameter estimation": {
+  "status": "success",
+  "job": "SHHD Parameter estimation",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Shackleton/Shackleton1": {
+  "status": "success",
+  "job": "Shackleton1",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 0,
+  "n_sd": 10,
+  "opdisp": true
+ },
+ "JobsRPK::Simplot/Cyclones3a": {
+  "status": "success",
+  "job": "Cyclones3a",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 30,
+  "n_sd": 30,
+  "opdisp": true
+ },
+ "JobsRPK::Single-deck Screen/Single-deck screen": {
+  "status": "success",
+  "job": "Single-deck screen",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 3,
+  "n_sd": 3,
+  "opdisp": true
+ },
+ "JobsRPK::Water injection cyclone/Water injection cyclone": {
+  "status": "success",
+  "job": "Water injection cyclone",
+  "state": "Complete",
+  "inord": -1,
+  "simop": -1,
+  "n_streams": 8,
+  "n_sd": 4,
+  "opdisp": true
+ }
+}

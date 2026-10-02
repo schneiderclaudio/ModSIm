@@ -12,15 +12,18 @@ import os
 from typing import List, Optional
 
 from ..models.job import (
+    AmdFile,
     CurFile,
     CurUnit,
     DistFile,
     DistStream,
+    FormatOutFile,
     GradeRange,
     Job,
     JobFile,
     JobFlag,
     JobFlagsFile,
+    LjuFile,
     MatFile,
     MopFile,
     SidFile,
@@ -46,6 +49,8 @@ HANDLED_EXTENSIONS = {
     "sid",
     "cur",
     "trn",
+    "lju",
+    "amd",
 }
 
 
@@ -184,7 +189,13 @@ def read_siz(path: str) -> SizFile:
 # ---------------------------------------------------------------------------
 # .gcd / .scd
 # ---------------------------------------------------------------------------
-def _read_dist(path: str, name: str, range_label: str) -> DistFile:
+def _read_dist(path: str, name: str, range_label: str, has_bounds: bool) -> DistFile:
+    """Parse a ``.gcd``/``.scd`` file.
+
+    ``has_bounds`` selects the per-range layout: ``.gcd`` blocks are
+    ``index / nmin nmax / count / values`` while ``.scd`` blocks are
+    ``index / count / values`` (no bounds line).
+    """
     lines = _read_lines(path)
     stream_count = 0
     streams: List[DistStream] = []
@@ -208,12 +219,15 @@ def _read_dist(path: str, name: str, range_label: str) -> DistFile:
             for _ in range(n):
                 index = int(lines[i].strip())
                 i += 1
-                bounds = lines[i].split()
-                i += 1
-                nmin = int(lines[i].strip())
+                if has_bounds:
+                    bounds = lines[i].split()
+                    i += 1
+                else:
+                    bounds = []
+                count = int(lines[i].strip())
                 i += 1
                 values: List[str] = []
-                while len(values) < nmin and i < len(lines):
+                while len(values) < count and i < len(lines):
                     values.extend(lines[i].split())
                     i += 1
                 ranges.append(GradeRange(index=index, bounds=bounds, values=values))
@@ -231,12 +245,12 @@ def _read_dist(path: str, name: str, range_label: str) -> DistFile:
 
 def read_gcd(path: str) -> DistFile:
     """Parse a ``.gcd`` file (grade-class distributions)."""
-    return _read_dist(path, "gcd", "Number of grade ranges")
+    return _read_dist(path, "gcd", "Number of grade ranges", has_bounds=True)
 
 
 def read_scd(path: str) -> DistFile:
     """Parse a ``.scd`` file (S-class distributions)."""
-    return _read_dist(path, "scd", "Number of S-ranges")
+    return _read_dist(path, "scd", "Number of S-ranges", has_bounds=False)
 
 
 # ---------------------------------------------------------------------------
@@ -307,15 +321,19 @@ def read_cur(path: str) -> CurFile:
             unit = CurUnit(
                 number=int(parts[1]),
                 model=parts[2],
-                in_stream=int(parts[3]),
-                out_stream=int(parts[4]),
+                noparam=int(parts[3]),
+                unit_id=int(parts[4]),
             )
             i += 1
             params: List[str] = []
-            while i < len(lines) and not lines[i].startswith(("TYPE", "OUTC", "STOP")):
+            while (
+                len(params) < unit.noparam
+                and i < len(lines)
+                and not lines[i].startswith(("TYPE", "OUTC", "STOP"))
+            ):
                 params.extend(lines[i].split())
                 i += 1
-            unit.params = params
+            unit.params = params[: unit.noparam]
             units.append(unit)
         elif line.startswith("OUTC"):
             i += 1
@@ -338,6 +356,163 @@ def read_trn(path: str) -> TrnFile:
 
 
 # ---------------------------------------------------------------------------
+# .lju / .amd (liberation transfer coefficients)
+# ---------------------------------------------------------------------------
+def read_lju(path: str) -> LjuFile:
+    """Read a ``.lju`` file (Ljubljana Andrews-Mika transfer coefficients).
+
+    The file is opaque: ``raw_lines`` is authoritative and it is staged
+    verbatim to ``LJUBAMD.DAT`` before a run.
+    """
+    return LjuFile(name="lju", raw_lines=_read_lines(path))
+
+
+def read_amd(path: str) -> AmdFile:
+    """Read a ``.amd`` file (Beta-function Andrews-Mika transfer coefficients).
+
+    Opaque; staged verbatim to ``BETAAMD.DAT`` before a run.
+    """
+    return AmdFile(name="amd", raw_lines=_read_lines(path))
+
+
+# ---------------------------------------------------------------------------
+# FORMAT.OUT (fixed-name run file)
+# ---------------------------------------------------------------------------
+def read_format_out(path: str) -> FormatOutFile:
+    """Parse a ``FORMAT.OUT`` file (output-format options).
+
+    ``FORMAT.OUT`` is a fixed-name run file (not part of the
+    ``<name>.<ext>`` job-file round trip).  The layout mirrors what the engine
+    reads in SIMOP.FOR:298-374 — flags line ``FORMAT(I1,L1,I1,4L1,I1)``,
+    metal names as 8-char fields (``7A8``) and stream lists as 4-char fields
+    (``20I4``) — and what the VB6 ``OUTFORMAT.FRM`` dialog writes.
+
+    Parsing is lenient: on any anomaly the raw lines are preserved and
+    whatever fields could be parsed are returned (no exception is raised), so
+    a subsequent write still round-trips the file byte-identically.
+    """
+    lines = _read_lines(path)
+    fmt = FormatOutFile(name="format_out", raw_lines=lines)
+    i = 0
+    if i >= len(lines):
+        return fmt
+    try:
+        flags = lines[i]
+        i += 1
+        fmt.solid_units = int(flags[0])
+        fmt.show_water = flags[1] == "T"
+        fmt.water_units = int(flags[2])
+        fmt.show_pct_solids = flags[3] == "T"
+        fmt.show_yield = flags[4] == "T"
+        fmt.show_minerals = flags[5] == "T"
+        fmt.show_metals = flags[6] == "T"
+        fmt.metal_units = int(flags[7])
+        fmt.coal_flag = flags[8] == "T"
+    except (IndexError, ValueError):
+        return fmt
+    if i >= len(lines):
+        return fmt
+    try:
+        fmt.num_metals = int(lines[i].strip())
+        i += 1
+    except ValueError:
+        return fmt
+    if fmt.num_metals > 0:
+        if i >= len(lines):
+            return fmt
+        names_line = lines[i]
+        i += 1
+        fmt.metal_names = [
+            names_line[j : j + 8].strip()
+            for j in range(0, len(names_line), 8)
+            if names_line[j : j + 8].strip()
+        ][: fmt.num_metals]
+    if i >= len(lines):
+        return fmt
+    # The engine reads NOMIN and the mineral rows only inside IF(NOMET > 0)
+    # (SIMOP.FOR:332-340); with no metals the next line is the size flag.
+    if fmt.num_metals > 0:
+        try:
+            fmt.num_minerals = int(lines[i].strip())
+            i += 1
+        except ValueError:
+            return fmt
+        rows: List[List[float]] = []
+        for _ in range(fmt.num_minerals):
+            if i >= len(lines):
+                break
+            values = lines[i].split()
+            i += 1
+            row: List[float] = []
+            for value in values[: fmt.num_metals]:
+                try:
+                    row.append(float(value))
+                except ValueError:
+                    continue
+            rows.append(row)
+        fmt.minmetal = rows
+    if i >= len(lines):
+        return fmt
+    # Size-distribution streams.
+    if lines[i].strip() == "T":
+        i += 1
+        fmt.size_flag = True
+        if i >= len(lines):
+            return fmt
+        try:
+            count = int(lines[i].strip())
+            i += 1
+        except ValueError:
+            return fmt
+        if count > 0:
+            if i >= len(lines):
+                return fmt
+            streams_line = lines[i]
+            i += 1
+            fmt.size_streams = [
+                int(streams_line[j : j + 4].strip())
+                for j in range(0, len(streams_line), 4)
+                if streams_line[j : j + 4].strip()
+            ][:count]
+            if i >= len(lines):
+                return fmt
+            try:
+                fmt.icode = int(lines[i].strip())
+                i += 1
+            except ValueError:
+                return fmt
+    else:
+        fmt.size_flag = False
+        i += 1
+    if i >= len(lines):
+        return fmt
+    # Accumulation streams.
+    if lines[i].strip() == "T":
+        i += 1
+        fmt.accumulate_flag = True
+        if i >= len(lines):
+            return fmt
+        try:
+            count = int(lines[i].strip())
+            i += 1
+        except ValueError:
+            return fmt
+        if count > 0:
+            if i >= len(lines):
+                return fmt
+            streams_line = lines[i]
+            i += 1
+            fmt.accumulate_streams = [
+                int(streams_line[j : j + 4].strip())
+                for j in range(0, len(streams_line), 4)
+                if streams_line[j : j + 4].strip()
+            ][:count]
+    else:
+        fmt.accumulate_flag = False
+    return fmt
+
+
+# ---------------------------------------------------------------------------
 # Directory
 # ---------------------------------------------------------------------------
 def read_job_directory(path: str, name: Optional[str] = None) -> Job:
@@ -353,12 +528,16 @@ def read_job_directory(path: str, name: Optional[str] = None) -> Job:
     """
     if name is None:
         name = _infer_job_name(path)
+    # Real job files use mixed case (``Bougainville.JOB``, ``Bougainville.TEA``,
+    # ``Bougainville.TRN``); resolve names case-insensitively so jobs read
+    # correctly on case-sensitive filesystems.
+    actual = {f.lower(): f for f in os.listdir(path)}
     job = Job()
     for ext, reader in _READERS.items():
-        fname = os.path.join(path, f"{name}.{ext}")
-        if not os.path.isfile(fname):
+        real = actual.get(f"{name.lower()}.{ext}")
+        if real is None:
             continue
-        parsed = reader(fname)
+        parsed = reader(os.path.join(path, real))
         _attach(job, parsed)
     job.name = _job_name(job) or name
     return job
@@ -401,6 +580,10 @@ def _attach(job: Job, parsed: JobFile) -> None:
         job.cur = parsed
     elif isinstance(parsed, TrnFile):
         job.trn = parsed
+    elif isinstance(parsed, LjuFile):
+        job.lju = parsed
+    elif isinstance(parsed, AmdFile):
+        job.amd = parsed
 
 
 def _job_name(job: Job) -> str:
@@ -426,4 +609,6 @@ _READERS = {
     "sid": read_sid,
     "cur": read_cur,
     "trn": read_trn,
+    "lju": read_lju,
+    "amd": read_amd,
 }

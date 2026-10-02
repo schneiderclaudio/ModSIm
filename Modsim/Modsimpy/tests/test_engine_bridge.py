@@ -11,6 +11,7 @@ gracefully. Path-handling checks always run.
 """
 
 import ctypes
+import inspect
 import os
 import sys
 import unittest
@@ -22,6 +23,7 @@ from modsim.engine import (
     ModsimEngine,
     encode_path,
     resolve_library_path,
+    simop,
 )
 
 #: Whether the engine library is available on this machine.
@@ -123,6 +125,33 @@ class LoadErrorTest(unittest.TestCase):
         with mock.patch.dict(os.environ, {MODSIM_ENV_VAR: ""}):
             with self.assertRaises(EngineLoadError):
                 ModsimEngine(library_path=os.path.join("does", "not", "exist.dll"))
+
+
+class SimopCumOutTest(unittest.TestCase):
+    """simop must accept the cumulative-output argument without a DLL."""
+
+    def test_simop_method_signature_has_cum_out_default(self):
+        params = inspect.signature(ModsimEngine.simop).parameters
+        self.assertIn("cum_out", params)
+        self.assertEqual(params["cum_out"].default, 0)
+
+    def test_simop_method_accepts_cum_out_kwarg(self):
+        # Patching _require_loaded to raise EngineLoadError proves the kwarg
+        # binds before any engine call: a TypeError from a bad signature
+        # would surface instead of the patched EngineLoadError.
+        engine = ModsimEngine.__new__(ModsimEngine)
+        with mock.patch.object(
+            engine,
+            "_require_loaded",
+            side_effect=EngineLoadError("engine not loaded"),
+        ):
+            with self.assertRaises(EngineLoadError):
+                engine.simop("dummy", cum_out=2)
+
+    def test_module_simop_accepts_cum_out(self):
+        params = inspect.signature(simop).parameters
+        self.assertIn("cum_out", params)
+        self.assertEqual(params["cum_out"].default, 0)
 
 
 if __name__ == "__main__":

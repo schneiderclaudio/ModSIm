@@ -168,12 +168,17 @@ Subroutine LevMarCurveFit(JobPath,JobReadFile,NOPAR,Parameters,XLB,XUB,SumOfSqua
 		Write(DiagFile,*)'Jacobian',((FJAC(I,J),J = 1,NOPAR),I = 1,NOBVAL)
 	End If
 	IF (OptMethod .EQ. 'UMCGF') Then
-	  !Unconstrained conjugate gradient — not implemented, use UNLSF fallback
+	  !Unconstrained conjugate gradient — NOT implemented in this build.
+	  !Fail loudly rather than silently returning the initial guess:
+	  !SumOfSquares(1) is set to 1E38 so callers can detect that no fit ran.
 		GRADTL = 1.0e-8
 		MAXFN = 100
 		DFPRED = 0.1
-		Write(DiagFile,*)'UMCGF not implemented, no optimisation performed'
+		Write(DiagFile,*)'ERROR: UMCGF optimisation method is not implemented in this build'
+		Write(DiagFile,*)'       Parameters are returned unfitted (the initial guess).'
+		Write(DiagFile,*)'       SumOfSquares(1) set to 1E38 as the not-fitted sentinel.'
 		Write(DiagFile,*)'Parameters',Parameters
+		SumOfSquares(1) = 1.0E38
   End If
   IF (OptMethod .EQ. 'BCLSF') Then
     !Bounded Levenberg-Marquardt without derivatives (MINPACK lmdif1 replacement)

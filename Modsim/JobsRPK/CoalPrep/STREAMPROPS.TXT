@@ -1,0 +1,918 @@
+Stream number:                 1
+  Job name: ex1bV3
+Solid flowrate:                 27.78    kg/s    
+Water flowrate:                  0.00  kg/s  
+Slurry flowrate:                27.78 kg/s
+Slurry volumetric flowrate:  0.1996E-01 m^3/s
+Percent solids by mass:        100.00 %
+Percent solids by volume:      100.00 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.326E-01 m
+50% passing size:             0.123E-01 m
+20% passing size:             0.199E-02 m
+       Size      % passing
+       meters
+      0.631E-01     95.158
+      0.446E-01     88.613
+      0.315E-01     78.966
+      0.223E-01     67.329
+      0.158E-01     56.592
+      0.111E-01     47.464
+      0.788E-02     39.976
+      0.557E-02     33.935
+      0.394E-02     28.583
+      0.279E-02     23.920
+      0.197E-02     19.910
+      0.139E-02     16.498
+      0.986E-03     13.621
+      0.696E-03     11.212
+      0.493E-03      9.502
+      0.348E-03      8.237
+      0.247E-03      7.135
+      0.174E-03      6.175
+      0.123E-03      5.257
+      0.871E-04      4.420
+      0.616E-04      3.715
+      0.435E-04      3.124
+      0.308E-04      2.626
+      0.218E-04      2.208
+       0.00          0.000
+ 
+Stream number:                 2
+  Job name: ex1bV3
+Solid flowrate:                 11.00    kg/s    
+Water flowrate:                  1.30  kg/s  
+Slurry flowrate:                12.30 kg/s
+Slurry volumetric flowrate:  0.9209E-02 m^3/s
+Percent solids by mass:         89.42 %
+Percent solids by volume:       85.87 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.594E-02 m
+50% passing size:             0.237E-02 m
+20% passing size:             0.409E-03 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02     90.842
+      0.557E-02     77.113
+      0.394E-02     64.953
+      0.279E-02     54.357
+      0.197E-02     45.244
+      0.139E-02     37.491
+      0.986E-03     30.953
+      0.696E-03     25.478
+      0.493E-03     21.592
+      0.348E-03     18.719
+      0.247E-03     16.213
+      0.174E-03     14.031
+      0.123E-03     11.946
+      0.871E-04     10.044
+      0.616E-04      8.442
+      0.435E-04      7.098
+      0.308E-04      5.968
+      0.218E-04      5.017
+       0.00          0.000
+ 
+Stream number:                 3
+  Job name: ex1bV3
+Solid flowrate:                 11.00    kg/s    
+Water flowrate:                 25.67  kg/s  
+Slurry flowrate:                36.67 kg/s
+Slurry volumetric flowrate:  0.3358E-01 m^3/s
+Percent solids by mass:         30.00 %
+Percent solids by volume:       23.55 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.594E-02 m
+50% passing size:             0.237E-02 m
+20% passing size:             0.409E-03 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02     90.842
+      0.557E-02     77.113
+      0.394E-02     64.953
+      0.279E-02     54.357
+      0.197E-02     45.244
+      0.139E-02     37.491
+      0.986E-03     30.953
+      0.696E-03     25.478
+      0.493E-03     21.592
+      0.348E-03     18.719
+      0.247E-03     16.213
+      0.174E-03     14.031
+      0.123E-03     11.946
+      0.871E-04     10.044
+      0.616E-04      8.442
+      0.435E-04      7.098
+      0.308E-04      5.968
+      0.218E-04      5.017
+       0.00          0.000
+ 
+Stream number:                 4
+  Job name: ex1bV3
+Solid flowrate:                 10.25    kg/s    
+Water flowrate:                 17.97  kg/s  
+Slurry flowrate:                28.22 kg/s
+Slurry volumetric flowrate:  0.2536E-01 m^3/s
+Percent solids by mass:         36.32 %
+Percent solids by volume:       29.14 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.613E-02 m
+50% passing size:             0.270E-02 m
+20% passing size:             0.695E-03 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02     90.167
+      0.557E-02     75.424
+      0.394E-02     62.366
+      0.279E-02     50.988
+      0.197E-02     41.203
+      0.139E-02     32.878
+      0.986E-03     25.857
+      0.696E-03     20.025
+      0.493E-03     16.528
+      0.348E-03     14.227
+      0.247E-03     12.282
+      0.174E-03     10.608
+      0.123E-03      9.019
+      0.871E-04      7.574
+      0.616E-04      6.362
+      0.435E-04      5.347
+      0.308E-04      4.494
+      0.218E-04      3.778
+       0.00          0.000
+ 
+Stream number:                 5
+  Job name: ex1bV3
+Solid flowrate:                  8.48    kg/s    
+Water flowrate:                  2.04  kg/s  
+Slurry flowrate:                10.52 kg/s
+Slurry volumetric flowrate:  0.8190E-02 m^3/s
+Percent solids by mass:         80.60 %
+Percent solids by volume:       75.09 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.663E-02 m
+50% passing size:             0.354E-02 m
+20% passing size:             0.146E-02 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02     88.113
+      0.557E-02     70.291
+      0.394E-02     54.507
+      0.279E-02     40.752
+      0.197E-02     28.923
+      0.139E-02     18.859
+      0.986E-03     10.372
+      0.696E-03      3.321
+      0.493E-03      2.741
+      0.348E-03      2.360
+      0.247E-03      2.037
+      0.174E-03      1.759
+      0.123E-03      1.496
+      0.871E-04      1.256
+      0.616E-04      1.055
+      0.435E-04      0.887
+      0.308E-04      0.745
+      0.218E-04      0.627
+       0.00          0.000
+ 
+Stream number:                 6
+  Job name: ex1bV3
+Solid flowrate:                  0.76    kg/s    
+Water flowrate:                  7.70  kg/s  
+Slurry flowrate:                 8.46 kg/s
+Slurry volumetric flowrate:  0.8227E-02 m^3/s
+Percent solids by mass:          8.94 %
+Percent solids by volume:        6.38 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.352E-03 m
+50% passing size:             0.115E-03 m
+20% passing size:             0.200E-04 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02    100.000
+      0.557E-02    100.000
+      0.394E-02    100.000
+      0.279E-02    100.000
+      0.197E-02    100.000
+      0.139E-02    100.000
+      0.986E-03    100.000
+      0.696E-03     99.358
+      0.493E-03     90.194
+      0.348E-03     79.573
+      0.247E-03     69.478
+      0.174E-03     60.415
+      0.123E-03     51.615
+      0.871E-04     43.501
+      0.616E-04     36.625
+      0.435E-04     30.826
+      0.308E-04     25.933
+      0.218E-04     21.810
+       0.00          0.000
+ 
+Stream number:                 7
+  Job name: ex1bV3
+Solid flowrate:                  1.77    kg/s    
+Water flowrate:                 15.93  kg/s  
+Slurry flowrate:                17.70 kg/s
+Slurry volumetric flowrate:  0.1717E-01 m^3/s
+Percent solids by mass:         10.00 %
+Percent solids by volume:        7.20 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.454E-03 m
+50% passing size:             0.153E-03 m
+20% passing size:             0.244E-04 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02    100.000
+      0.557E-02    100.000
+      0.394E-02    100.000
+      0.279E-02    100.000
+      0.197E-02    100.000
+      0.139E-02    100.000
+      0.986E-03    100.000
+      0.696E-03    100.000
+      0.493E-03     82.539
+      0.348E-03     71.049
+      0.247E-03     61.333
+      0.174E-03     52.974
+      0.123E-03     45.038
+      0.871E-04     37.824
+      0.616E-04     31.771
+      0.435E-04     26.700
+      0.308E-04     22.443
+      0.218E-04     18.867
+       0.00          0.000
+ 
+Stream number:                 8
+  Job name: ex1bV3
+Solid flowrate:                  0.00    kg/s    
+Water flowrate:                 24.37  kg/s  
+Slurry flowrate:                24.37 kg/s
+Slurry volumetric flowrate:  0.2437E-01 m^3/s
+Percent solids by mass:          0.00 %
+Percent solids by volume:        0.00 %
+ 
+Stream number:                 9
+  Job name: ex1bV3
+Solid flowrate:                  8.48    kg/s    
+Water flowrate:                 19.78  kg/s  
+Slurry flowrate:                28.26 kg/s
+Slurry volumetric flowrate:  0.2593E-01 m^3/s
+Percent solids by mass:         30.00 %
+Percent solids by volume:       23.72 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.663E-02 m
+50% passing size:             0.354E-02 m
+20% passing size:             0.146E-02 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02     88.113
+      0.557E-02     70.291
+      0.394E-02     54.507
+      0.279E-02     40.752
+      0.197E-02     28.923
+      0.139E-02     18.859
+      0.986E-03     10.372
+      0.696E-03      3.321
+      0.493E-03      2.741
+      0.348E-03      2.360
+      0.247E-03      2.037
+      0.174E-03      1.759
+      0.123E-03      1.496
+      0.871E-04      1.256
+      0.616E-04      1.055
+      0.435E-04      0.887
+      0.308E-04      0.745
+      0.218E-04      0.627
+       0.00          0.000
+ 
+Stream number:                10
+  Job name: ex1bV3
+Solid flowrate:                  0.00    kg/s    
+Water flowrate:                 17.74  kg/s  
+Slurry flowrate:                17.74 kg/s
+Slurry volumetric flowrate:  0.1774E-01 m^3/s
+Percent solids by mass:          0.00 %
+Percent solids by volume:        0.00 %
+ 
+Stream number:                11
+  Job name: ex1bV3
+Solid flowrate:                 16.78    kg/s    
+Water flowrate:                  0.70  kg/s  
+Slurry flowrate:                17.48 kg/s
+Slurry volumetric flowrate:  0.1275E-01 m^3/s
+Percent solids by mass:         96.00 %
+Percent solids by volume:       94.52 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.434E-01 m
+50% passing size:             0.241E-01 m
+20% passing size:             0.135E-01 m
+       Size      % passing
+       meters
+      0.631E-01     91.983
+      0.446E-01     81.146
+      0.315E-01     65.172
+      0.223E-01     45.904
+      0.158E-01     28.126
+      0.111E-01     13.012
+      0.788E-02      6.619
+      0.557E-02      5.619
+      0.394E-02      4.733
+      0.279E-02      3.961
+      0.197E-02      3.297
+      0.139E-02      2.732
+      0.986E-03      2.255
+      0.696E-03      1.856
+      0.493E-03      1.573
+      0.348E-03      1.364
+      0.247E-03      1.181
+      0.174E-03      1.022
+      0.123E-03      0.870
+      0.871E-04      0.732
+      0.616E-04      0.615
+      0.435E-04      0.517
+      0.308E-04      0.435
+      0.218E-04      0.366
+       0.00          0.000
+ 
+Stream number:                12
+  Job name: ex1bV3
+Solid flowrate:                 16.78    kg/s    
+Water flowrate:                 39.15  kg/s  
+Slurry flowrate:                55.93 kg/s
+Slurry volumetric flowrate:  0.5120E-01 m^3/s
+Percent solids by mass:         30.00 %
+Percent solids by volume:       23.54 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.434E-01 m
+50% passing size:             0.241E-01 m
+20% passing size:             0.135E-01 m
+       Size      % passing
+       meters
+      0.631E-01     91.983
+      0.446E-01     81.146
+      0.315E-01     65.172
+      0.223E-01     45.904
+      0.158E-01     28.126
+      0.111E-01     13.012
+      0.788E-02      6.619
+      0.557E-02      5.619
+      0.394E-02      4.733
+      0.279E-02      3.961
+      0.197E-02      3.297
+      0.139E-02      2.732
+      0.986E-03      2.255
+      0.696E-03      1.856
+      0.493E-03      1.573
+      0.348E-03      1.364
+      0.247E-03      1.181
+      0.174E-03      1.022
+      0.123E-03      0.870
+      0.871E-04      0.732
+      0.616E-04      0.615
+      0.435E-04      0.517
+      0.308E-04      0.435
+      0.218E-04      0.366
+       0.00          0.000
+ 
+Stream number:                13
+  Job name: ex1bV3
+Solid flowrate:                  0.00    kg/s    
+Water flowrate:                 38.45  kg/s  
+Slurry flowrate:                38.45 kg/s
+Slurry volumetric flowrate:  0.3845E-01 m^3/s
+Percent solids by mass:          0.00 %
+Percent solids by volume:        0.00 %
+ 
+Stream number:                14
+  Job name: ex1bV3
+Solid flowrate:                  2.53    kg/s    
+Water flowrate:                 23.63  kg/s  
+Slurry flowrate:                26.16 kg/s
+Slurry volumetric flowrate:  0.2539E-01 m^3/s
+Percent solids by mass:          9.66 %
+Percent solids by volume:        6.93 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.421E-03 m
+50% passing size:             0.140E-03 m
+20% passing size:             0.223E-04 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02    100.000
+      0.557E-02    100.000
+      0.394E-02    100.000
+      0.279E-02    100.000
+      0.197E-02    100.000
+      0.139E-02    100.000
+      0.986E-03    100.000
+      0.696E-03     99.808
+      0.493E-03     84.831
+      0.348E-03     73.601
+      0.247E-03     63.771
+      0.174E-03     55.201
+      0.123E-03     47.007
+      0.871E-04     39.524
+      0.616E-04     33.224
+      0.435E-04     27.935
+      0.308E-04     23.488
+      0.218E-04     19.748
+       0.00          0.000
+ 
+Stream number:                15
+  Job name: ex1bV3
+Solid flowrate:                 13.02    kg/s    
+Water flowrate:                 36.64  kg/s  
+Slurry flowrate:                49.66 kg/s
+Slurry volumetric flowrate:  0.4648E-01 m^3/s
+Percent solids by mass:         26.22 %
+Percent solids by volume:       21.18 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.415E-01 m
+50% passing size:             0.234E-01 m
+20% passing size:             0.135E-01 m
+       Size      % passing
+       meters
+      0.631E-01     92.766
+      0.446E-01     82.974
+      0.315E-01     66.992
+      0.223E-01     47.511
+      0.158E-01     28.674
+      0.111E-01     12.592
+      0.788E-02      5.721
+      0.557E-02      4.666
+      0.394E-02      3.764
+      0.279E-02      3.018
+      0.197E-02      2.417
+      0.139E-02      1.939
+      0.986E-03      1.560
+      0.696E-03      1.258
+      0.493E-03      1.052
+      0.348E-03      0.903
+      0.247E-03      0.775
+      0.174E-03      0.665
+      0.123E-03      0.561
+      0.871E-04      0.467
+      0.616E-04      0.392
+      0.435E-04      0.330
+      0.308E-04      0.278
+      0.218E-04      0.233
+       0.00          0.000
+ 
+Stream number:                16
+  Job name: ex1bV3
+Solid flowrate:                  6.91    kg/s    
+Water flowrate:                 16.13  kg/s  
+Slurry flowrate:                23.04 kg/s
+Slurry volumetric flowrate:  0.2137E-01 m^3/s
+Percent solids by mass:         30.00 %
+Percent solids by volume:       24.53 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.655E-02 m
+50% passing size:             0.346E-02 m
+20% passing size:             0.146E-02 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02     88.523
+      0.557E-02     71.114
+      0.394E-02     55.418
+      0.279E-02     41.474
+      0.197E-02     29.291
+      0.139E-02     18.825
+      0.986E-03      9.970
+      0.696E-03      2.647
+      0.493E-03      2.050
+      0.348E-03      1.670
+      0.247E-03      1.364
+      0.174E-03      1.119
+      0.123E-03      0.909
+      0.871E-04      0.731
+      0.616E-04      0.614
+      0.435E-04      0.518
+      0.308E-04      0.437
+      0.218E-04      0.368
+       0.00          0.000
+ 
+Stream number:                17
+  Job name: ex1bV3
+Solid flowrate:                  1.84    kg/s    
+Water flowrate:                 23.17  kg/s  
+Slurry flowrate:                25.01 kg/s
+Slurry volumetric flowrate:  0.2454E-01 m^3/s
+Percent solids by mass:          7.35 %
+Percent solids by volume:        5.59 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.327E-03 m
+50% passing size:             0.120E-03 m
+20% passing size:             0.206E-04 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02    100.000
+      0.557E-02    100.000
+      0.394E-02    100.000
+      0.279E-02    100.000
+      0.197E-02    100.000
+      0.139E-02    100.000
+      0.986E-03    100.000
+      0.696E-03     99.930
+      0.493E-03     91.589
+      0.348E-03     81.840
+      0.247E-03     71.010
+      0.174E-03     60.745
+      0.123E-03     50.848
+      0.871E-04     41.626
+      0.616E-04     35.240
+      0.435E-04     29.790
+      0.308E-04     25.136
+      0.218E-04     21.171
+       0.00          0.000
+ 
+Stream number:                18
+  Job name: ex1bV3
+Solid flowrate:                  3.76    kg/s    
+Water flowrate:                  2.50  kg/s  
+Slurry flowrate:                 6.26 kg/s
+Slurry volumetric flowrate:  0.4710E-02 m^3/s
+Percent solids by mass:         60.00 %
+Percent solids by volume:       46.84 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.498E-01 m
+50% passing size:             0.269E-01 m
+20% passing size:             0.134E-01 m
+       Size      % passing
+       meters
+      0.631E-01     89.269
+      0.446E-01     74.807
+      0.315E-01     58.864
+      0.223E-01     40.333
+      0.158E-01     26.228
+      0.111E-01     14.465
+      0.788E-02      9.733
+      0.557E-02      8.921
+      0.394E-02      8.091
+      0.279E-02      7.228
+      0.197E-02      6.348
+      0.139E-02      5.481
+      0.986E-03      4.666
+      0.696E-03      3.930
+      0.493E-03      3.380
+      0.348E-03      2.962
+      0.247E-03      2.590
+      0.174E-03      2.262
+      0.123E-03      1.944
+      0.871E-04      1.651
+      0.616E-04      1.387
+      0.435E-04      1.166
+      0.308E-04      0.980
+      0.218E-04      0.824
+       0.00          0.000
+ 
+Stream number:                19
+  Job name: ex1bV3
+Solid flowrate:                  1.56    kg/s    
+Water flowrate:                  3.64  kg/s  
+Slurry flowrate:                 5.21 kg/s
+Slurry volumetric flowrate:  0.4551E-02 m^3/s
+Percent solids by mass:         30.00 %
+Percent solids by volume:       19.93 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.697E-02 m
+50% passing size:             0.390E-02 m
+20% passing size:             0.146E-02 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02     86.297
+      0.557E-02     66.650
+      0.394E-02     50.469
+      0.279E-02     37.552
+      0.197E-02     27.293
+      0.139E-02     19.010
+      0.986E-03     12.150
+      0.696E-03      6.309
+      0.493E-03      5.801
+      0.348E-03      5.413
+      0.247E-03      5.015
+      0.174E-03      4.597
+      0.123E-03      4.095
+      0.871E-04      3.583
+      0.616E-04      3.008
+      0.435E-04      2.520
+      0.308E-04      2.112
+      0.218E-04      1.773
+       0.00          0.000
+ 
+Stream number:                20
+  Job name: ex1bV3
+Solid flowrate:                  5.32    kg/s    
+Water flowrate:                  6.15  kg/s  
+Slurry flowrate:                11.46 kg/s
+Slurry volumetric flowrate:  0.9259E-02 m^3/s
+Percent solids by mass:         46.38 %
+Percent solids by volume:       33.61 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.415E-01 m
+50% passing size:             0.170E-01 m
+20% passing size:             0.379E-02 m
+       Size      % passing
+       meters
+      0.631E-01     92.421
+      0.446E-01     82.206
+      0.315E-01     70.945
+      0.223E-01     57.856
+      0.158E-01     47.894
+      0.111E-01     39.586
+      0.788E-02     32.219
+      0.557E-02     25.876
+      0.394E-02     20.537
+      0.279E-02     16.134
+      0.197E-02     12.499
+      0.139E-02      9.454
+      0.986E-03      6.864
+      0.696E-03      4.629
+      0.493E-03      4.091
+      0.348E-03      3.682
+      0.247E-03      3.302
+      0.174E-03      2.948
+      0.123E-03      2.575
+      0.871E-04      2.219
+      0.616E-04      1.863
+      0.435E-04      1.564
+      0.308E-04      1.313
+      0.218E-04      1.103
+       0.00          0.000
+ 
+Stream number:                21
+  Job name: ex1bV3
+Solid flowrate:                  0.69    kg/s    
+Water flowrate:                  0.46  kg/s  
+Slurry flowrate:                 1.15 kg/s
+Slurry volumetric flowrate:  0.8452E-03 m^3/s
+Percent solids by mass:         60.00 %
+Percent solids by volume:       45.80 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.536E-03 m
+50% passing size:             0.324E-03 m
+20% passing size:             0.336E-04 m
+       Size      % passing
+       meters
+      0.631E-01    100.000
+      0.446E-01    100.000
+      0.315E-01    100.000
+      0.223E-01    100.000
+      0.158E-01    100.000
+      0.111E-01    100.000
+      0.788E-02    100.000
+      0.557E-02    100.000
+      0.394E-02    100.000
+      0.279E-02    100.000
+      0.197E-02    100.000
+      0.139E-02    100.000
+      0.986E-03    100.000
+      0.696E-03     99.481
+      0.493E-03     66.737
+      0.348E-03     51.542
+      0.247E-03     44.389
+      0.174E-03     40.359
+      0.123E-03     36.723
+      0.871E-04     33.894
+      0.616E-04     27.826
+      0.435E-04     22.970
+      0.308E-04     19.075
+      0.218E-04     15.940
+       0.00          0.000
+ 
+Stream number:                22
+  Job name: ex1bV3
+Solid flowrate:                  6.00    kg/s    
+Water flowrate:                  6.61  kg/s  
+Slurry flowrate:                12.61 kg/s
+Slurry volumetric flowrate:  0.1010E-01 m^3/s
+Percent solids by mass:         47.62 %
+Percent solids by volume:       34.63 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.382E-01 m
+50% passing size:             0.132E-01 m
+20% passing size:             0.143E-02 m
+       Size      % passing
+       meters
+      0.631E-01     93.288
+      0.446E-01     84.242
+      0.315E-01     74.270
+      0.223E-01     62.679
+      0.158E-01     53.856
+      0.111E-01     46.499
+      0.788E-02     39.975
+      0.557E-02     34.358
+      0.394E-02     29.630
+      0.279E-02     25.731
+      0.197E-02     22.512
+      0.139E-02     19.815
+      0.986E-03     17.521
+      0.696E-03     15.483
+      0.493E-03     11.260
+      0.348E-03      9.158
+      0.247E-03      8.004
+      0.174E-03      7.229
+      0.123E-03      6.483
+      0.871E-04      5.843
+      0.616E-04      4.834
+      0.435E-04      4.013
+      0.308E-04      3.345
+      0.218E-04      2.800
+       0.00          0.000
+ 
+Stream number:                23
+  Job name: ex1bV3
+Solid flowrate:                 21.78    kg/s    
+Water flowrate:                 75.95  kg/s  
+Slurry flowrate:                97.73 kg/s
+Slurry volumetric flowrate:  0.9241E-01 m^3/s
+Percent solids by mass:         22.29 %
+Percent solids by volume:       17.82 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.313E-01 m
+50% passing size:             0.121E-01 m
+20% passing size:             0.212E-02 m
+       Size      % passing
+       meters
+      0.631E-01     95.674
+      0.446E-01     89.818
+      0.315E-01     80.261
+      0.223E-01     68.612
+      0.158E-01     57.347
+      0.111E-01     47.730
+      0.788E-02     39.977
+      0.557E-02     33.818
+      0.394E-02     28.295
+      0.279E-02     23.421
+      0.197E-02     19.193
+      0.139E-02     15.584
+      0.986E-03     12.546
+      0.696E-03     10.034
+      0.493E-03      9.017
+      0.348E-03      7.983
+      0.247E-03      6.895
+      0.174E-03      5.884
+      0.123E-03      4.919
+      0.871E-04      4.027
+      0.616E-04      3.406
+      0.435E-04      2.878
+      0.308E-04      2.428
+      0.218E-04      2.045
+       0.00          0.000
+ 
+Stream number:                24
+  Job name: ex1bV3
+Solid flowrate:                 21.78    kg/s    
+Water flowrate:                 75.95  kg/s  
+Slurry flowrate:                97.73 kg/s
+Slurry volumetric flowrate:  0.9241E-01 m^3/s
+Percent solids by mass:         22.29 %
+Percent solids by volume:       17.82 %
+
+Simulated size distribution
+Number of size classes:       25
+80% passing size:             0.313E-01 m
+50% passing size:             0.121E-01 m
+20% passing size:             0.212E-02 m
+       Size      % passing
+       meters
+      0.631E-01     95.674
+      0.446E-01     89.818
+      0.315E-01     80.261
+      0.223E-01     68.612
+      0.158E-01     57.347
+      0.111E-01     47.730
+      0.788E-02     39.977
+      0.557E-02     33.818
+      0.394E-02     28.295
+      0.279E-02     23.421
+      0.197E-02     19.193
+      0.139E-02     15.584
+      0.986E-03     12.546
+      0.696E-03     10.034
+      0.493E-03      9.017
+      0.348E-03      7.983
+      0.247E-03      6.895
+      0.174E-03      5.884
+      0.123E-03      4.919
+      0.871E-04      4.027
+      0.616E-04      3.406
+      0.435E-04      2.878
+      0.308E-04      2.428
+      0.218E-04      2.045
+       0.00          0.000
+ 
+Stream number:                25
+  Job name: ex1bV3
+Solid flowrate:                  0.00    kg/s    
+Water flowrate:                  2.00  kg/s  
+Slurry flowrate:                 2.00 kg/s
+Slurry volumetric flowrate:  0.2000E-02 m^3/s
+Percent solids by mass:          0.00 %
+Percent solids by volume:        0.00 %
+ 

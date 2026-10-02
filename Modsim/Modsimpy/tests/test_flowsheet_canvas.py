@@ -22,12 +22,14 @@ os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from PySide6.QtCore import QMimeData, QPointF, Qt  # noqa: E402
-from PySide6.QtWidgets import QApplication  # noqa: E402
+from PySide6.QtWidgets import QApplication, QInputDialog  # noqa: E402
 
 from modsim.gui.canvas.canvas import UNIT_MIME, FlowsheetScene  # noqa: E402
+from modsim.gui.canvas import flowsheet_window  # noqa: E402
 from modsim.gui.canvas.flowsheet_window import FlowsheetCanvasWindow  # noqa: E402
 from modsim.gui.canvas.items import StreamItem, UnitItem  # noqa: E402
 from modsim.gui.canvas.palette import UnitPalette  # noqa: E402
+from modsim.gui.canvas.trn_layout import parse_trn_layout, regenerate_trn_lines  # noqa: E402
 from modsim.io.readers import read_job_directory  # noqa: E402
 from modsim.io.writers import write_job_directory  # noqa: E402
 
@@ -154,6 +156,193 @@ class FlowsheetCanvasTest(unittest.TestCase):
                 self.assertGreater(len(reload_scene.streams), 0)
             finally:
                 reload_window.close()
+
+
+    # ------------------------------------------------------------------
+    # A2: .TRN round-trip must work for jobs with zero water streams.
+    # ------------------------------------------------------------------
+    def test_trn_round_trip_zero_water(self):
+        cone_path = os.path.join(BOUGAINVILLE, "Cone.TRN")
+        with open(cone_path) as fh:
+            raw = [line.rstrip("\n") for line in fh]
+
+        layout = parse_trn_layout(raw)
+        regen = regenerate_trn_lines(layout)
+
+        # The old regenerator unconditionally emitted a water-flags line, so a
+        # zero-water job grew by one line and no longer re-parsed.
+        self.assertEqual(len(raw), len(regen), "zero-water TRN must round-trip line-for-line")
+        re_parsed = parse_trn_layout(regen)
+        self.assertEqual(re_parsed.unit_positions(), layout.unit_positions())
+        self.assertEqual(
+            [(s.str_id, s.corners) for s in re_parsed.streams],
+            [(s.str_id, s.corners) for s in layout.streams],
+        )
+        self.assertEqual(re_parsed.water_flags, "")
+
+    def test_trn_round_trip_with_water(self):
+        boug_path = os.path.join(BOUGAINVILLE, "Bougainville.TRN")
+        with open(boug_path) as fh:
+            raw = [line.rstrip("\n") for line in fh]
+
+        layout = parse_trn_layout(raw)
+        regen = regenerate_trn_lines(layout)
+        self.assertEqual(len(raw), len(regen))
+        re_parsed = parse_trn_layout(regen)
+        self.assertEqual(re_parsed.unit_positions(), layout.unit_positions())
+        self.assertEqual(
+            [(s.str_id, s.corners) for s in re_parsed.streams],
+            [(s.str_id, s.corners) for s in layout.streams],
+        )
+        # The water-flags line round-trips (marked water streams are kept).
+        self.assertEqual(re_parsed.water_flags, layout.water_flags)
+
+    # ------------------------------------------------------------------
+    # A10: new palette units get valid type codes, not type 0 / feed.
+    # ------------------------------------------------------------------
+    def test_new_unit_gets_valid_trn_type_code(self):
+        job = read_job_directory(BOUGAINVILLE, name="Bougainville")
+        window = FlowsheetCanvasWindow(job)
+        try:
+            scene = window.canvas.scene
+            new_unit = scene.add_unit(
+                scene.next_unit_number(),
+                label="Jaw Crusher",
+                kind="O",
+                model_code="JAW1",
+                pos=(400.0, 400.0),
+            )
+            window.sync_layout_to_job()
+
+            # The new unit lives in exactly one .TRN block with a valid type.
+            layout = window._trn_layout
+            types = [
+                typ
+                for typ, _flags, records in layout.unit_blocks
+                if any(r.number == new_unit.number for r in records)
+            ]
+            self.assertEqual(len(types), 1)
+            self.assertTrue(1 <= types[0] <= 100, f"TRN type {types[0]} out of 1..100")
+
+            # The regenerated file re-parses cleanly and keeps the new unit.
+            re_parsed = parse_trn_layout(regenerate_trn_lines(layout))
+            self.assertIn(new_unit.number, re_parsed.unit_positions())
+
+            # .syd must not silently turn the new unit into a feed (type 1).
+            syd_unit = next(u for u in job.syd.units if u.number == new_unit.number)
+            self.assertNotEqual(syd_unit.type, 1)
+            self.assertGreaterEqual(syd_unit.type, 2)
+            self.assertEqual(syd_unit.kind, "O")
+        finally:
+            window.close()
+
+    def test_auto_arrange_preserves_saved_positions(self):
+        job = read_job_directory(BOUGAINVILLE, name="Bougainville")
+        window = FlowsheetCanvasWindow(job)
+        try:
+            scene = window.canvas.scene
+            # Unit 1 has a saved .TRN position.
+            unit = scene.unit_by_number(1)
+            saved = unit.pos()
+            added = scene.add_unit(scene.next_unit_number(), label="X", kind="O")
+            scene.auto_arrange(placed={unit.number})
+            self.assertEqual(unit.pos(), saved)
+            self.assertNotEqual(added.pos(), QPointF(0.0, 0.0))
+        finally:
+            window.close()
+
+    # ------------------------------------------------------------------
+    # B1: double-click / context-menu wiring for the equipment dialog.
+    # ------------------------------------------------------------------
+    def test_double_click_emits_edit_request_for_units_with_model(self):
+        job = read_job_directory(BOUGAINVILLE, name="Bougainville")
+        window = FlowsheetCanvasWindow(job)
+        try:
+            scene = window.canvas.scene
+            unit = scene.unit_by_number(1)
+            self.assertTrue(unit.model_code, "unit 1 should carry a .cur model code")
+
+            received = []
+            scene.unit_edit_requested.connect(received.append)
+
+            orig = flowsheet_window.edit_equipment
+            flowsheet_window.edit_equipment = lambda j, num, parent=None: False
+            try:
+                scene.mouseDoubleClickEvent(_FakeSceneMouseEvent(scene, unit))
+            finally:
+                flowsheet_window.edit_equipment = orig
+
+            self.assertEqual(received, [unit])
+        finally:
+            window.close()
+
+    def test_double_click_falls_back_to_rename_without_model(self):
+        job = read_job_directory(BOUGAINVILLE, name="Bougainville")
+        window = FlowsheetCanvasWindow(job)
+        try:
+            scene = window.canvas.scene
+            unit = scene.add_unit(scene.next_unit_number(), label="U", kind="O", model_code="")
+
+            received = []
+            scene.unit_label_changed.connect(received.append)
+
+            orig_edit = flowsheet_window.edit_equipment
+            flowsheet_window.edit_equipment = (
+                lambda *a, **k: (_ for _ in ()).throw(
+                    AssertionError("edit_equipment must not be called without a .cur model")
+                )
+            )
+            orig_gettext = QInputDialog.getText
+            QInputDialog.getText = staticmethod(lambda *a, **k: ("Renamed", True))
+            try:
+                scene.mouseDoubleClickEvent(_FakeSceneMouseEvent(scene, unit))
+            finally:
+                flowsheet_window.edit_equipment = orig_edit
+                QInputDialog.getText = orig_gettext
+
+            self.assertEqual(unit.label, "Renamed")
+            self.assertEqual(received, [unit])
+        finally:
+            window.close()
+
+    def test_context_menu_has_edit_rename_delete(self):
+        job = read_job_directory(BOUGAINVILLE, name="Bougainville")
+        window = FlowsheetCanvasWindow(job)
+        try:
+            scene = window.canvas.scene
+            self.assertTrue(hasattr(scene, "contextMenuEvent"))
+            unit = scene.unit_by_number(1)
+
+            # The scene builds the menu without exec'ing it (exec would block),
+            # so we can inspect the actions and trigger them.
+            menu = scene._unit_menu(unit)
+            labels = [a.text() for a in menu.actions()]
+            self.assertIn("Change model parameters", labels)
+            self.assertIn("Rename", labels)
+            self.assertIn("Delete", labels)
+
+            # The Delete action is wired to remove_unit (previously dead code).
+            before = len(scene.units)
+            delete_action = next(a for a in menu.actions() if a.text() == "Delete")
+            delete_action.trigger()
+            self.assertEqual(len(scene.units), before - 1)
+            self.assertIsNone(scene.unit_by_number(unit.number))
+        finally:
+            window.close()
+
+
+class _FakeSceneMouseEvent:
+    """Minimal stand-in for a QGraphicsSceneMouseEvent used by the tests."""
+
+    def __init__(self, scene: FlowsheetScene, unit: UnitItem) -> None:
+        # The unit's bounding rect spans (0,0)..(120,70) in item coordinates.
+        self._pos = unit.pos() + QPointF(60.0, 35.0)
+
+    def scenePos(self) -> QPointF:
+        return self._pos
+
+    def accept(self) -> None:
+        pass
 
 
 class _FakeDropEvent:
